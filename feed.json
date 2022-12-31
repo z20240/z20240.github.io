@@ -73,9 +73,9 @@
             "tags": [
                 "Tech",
                 "Others",
-                "tiling-window-manager",
                 "skhd",
-                "yabai"
+                "yabai",
+                "tiling-window-manager"
             ]
         },
         {
@@ -143,10 +143,10 @@
             "tags": [
                 "Tech",
                 "Frontend",
-                "vscode",
                 "html",
                 "frontend",
-                "emmet"
+                "emmet",
+                "vscode"
             ]
         },
         {
@@ -265,8 +265,8 @@
             "tags": [
                 "Tech",
                 "Data Storage",
-                "mongo",
-                "nodejs"
+                "nodejs",
+                "mongo"
             ]
         },
         {
