@@ -1,0 +1,730 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="javascript,functional-programming" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/">
+
+
+
+  <title>
+Javascript Functional Programming 一文到底全紀錄 - Frontend - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Javascript Functional Programming 一文到底全紀錄
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2019-07-05 18:04:56">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2019-07-05T18:04:56+08:00">2019-07-05</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/1*qyR6kHLrV4AuqK_fAvJfZw.jpeg">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Frontend/" itemprop="item" rel="index" title="In Frontend"><span itemprop="name">Frontend</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="javascript-functional-programming-一文到底全紀錄"><a class="anchor" href="#javascript-functional-programming-一文到底全紀錄">#</a> [Javascript] Functional Programming 一文到底全紀錄</h3>
+<h4 id="coding-as-function-thinking-as-function"><a class="anchor" href="#coding-as-function-thinking-as-function">#</a> Coding as function. Thinking as function</h4>
+<p><img data-src="1*qyR6kHLrV4AuqK_fAvJfZw.jpeg" alt="" /></p>
+<p>最近吹起了一股 Functional Programming (FP) 的風潮，什麼語言都想與 FP 嘎上一腳。不過，到底什麼是 FP 呢？以下這篇文章是我最近修習 Functional Programming 後的一點心得與筆記。</p>
+<h3 id="緣起"><a class="anchor" href="#緣起">#</a> # 緣起</h3>
+<blockquote>
+<p>就如 OOP (object oriented programming) 一般，Functional Programming 也是一種 Programming 的準則。</p>
+</blockquote>
+<p>不同於 OOP 要求我們 <strong>「Think as real world, Think as Object.」</strong> 凡事以物件的角度思考、在程式中建立如同「真實世界」一般的互動；FP 則要求我們 <strong>「Everything think as function.」</strong> 以 Function 為中心的思考方式、以 Function 為最小單位的程式風格。</p>
+<p>聽起來好像就是回到以前寫 C 語言的年代 。這對於每天寫多少程式、建構了多少 Function 的我們來說，有什麼難的？</p>
+<p>其實，FP 中的 Function 跟我們一般程式所講的 Function 有些定義上的不同。它比較接近 <strong>數學意義上的 function</strong> 。</p>
+<blockquote>
+<p>什麼意思？</p>
+</blockquote>
+<p>以下我們先來講述一下的完整定義。</p>
+<h3 id="定義"><a class="anchor" href="#定義">#</a> # 定義</h3>
+<blockquote>
+<p>目前大家公認的 FP 定義至少要滿足以下幾點：<br />
+1. Function 必須作為一級公民。意即，Function 可以像一般變數一般被當作參數傳入、被當作結果輸出、被任意 assign 給其他變數、被任意進行運算。<br />
+2. Function 中只能有 Expression 而非指令 (instructions)。<br />
+3. Function 必須是 <strong>「Pure」</strong> 、 <strong>沒有 Side Effect</strong> 。<br />
+4. Function 「 <strong>不可改變 Input 的資料</strong> 」、「 <strong>不可 改變狀態</strong> 」。<br />
+5. Function <strong>「可以任意『組合』得到新的 Function，且依然滿足以上這些守則」</strong> 。</p>
+</blockquote>
+<h4 id="一-function-必須作為一級公民"><a class="anchor" href="#一-function-必須作為一級公民">#</a> <strong>一、Function 必須作為一級公民</strong></h4>
+<p>在 JS 中，原本就將 Function 作為一級公民對待。Function 如同一般變數可以被任意傳入任意參數、被作為回傳值回傳。</p>
+<p>例如：以下範例</p>
+<p><strong>將 function 儲存在變數中</strong></p>
+<p><img data-src="1*Dj16RgGvNsuKNtVscYAZPg.png" alt="" /></p>
+<p><strong>將 function 作為結果回傳</strong></p>
+<p><img data-src="1*RwSWFTK6ZI2XRCrgzxCmmQ.png" alt="" /></p>
+<h4 id="二-function-中只能有-expression-而非指令-instructions"><a class="anchor" href="#二-function-中只能有-expression-而非指令-instructions">#</a> <strong>二、Function 中只能有 Expression 而非指令 (instructions)。</strong></h4>
+<p>在 FP 中， Function 只允許 <strong>純運算</strong> 。所有「被執行的指令」是不被允許的。然而對於真正在運行的專案，這其實並不容易被實踐 (例如呼叫 API 的部分 — I/O) ，儘管是已經將 Function 作為一級公民 的 JavaScript 而言也是一樣。</p>
+<p><strong>舉個  <code>Function 中只有純運算的</code>  例子：</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var add = (a, b) =&gt; a + b</span><br></pre></td></tr></table></figure></p>
+<p>這個例子就是很典型的，在 function 只有運算式 「a + b」。</p>
+<p><strong>以下例子則非  <code>Function 中只有純運算</code> </strong></p>
+<p><img data-src="1*38kX52naL-_q99y81bLAIQ.png" alt="" /></p>
+<p>這邊我們使用  <code>reduce</code>  來將  <code>ary</code>  中的元素集成起來，並且輸出為一個 object。</p>
+<p><img data-src="1*uXFsWylRWqrdYIoiye14Hw.png" alt="" /></p>
+<p>在這個例子中  <code>reduce</code>  內的  <code>callback function</code>  ，就不是一個「只有純運算」的 function，因為其中有了  <code>acc[ele.id] = ele</code>  這段執行 assign 指令的 statement。</p>
+<p>以上的程式碼我們若是要改成符合此規則的話，可以改寫成以下範例。</p>
+<p><img data-src="1*UB2sm5jPeBEm_Ahi_zt6kQ.png" alt="" /></p>
+<h4 id="三-function-必須是-pure-function-沒有-side-effect"><a class="anchor" href="#三-function-必須是-pure-function-沒有-side-effect">#</a> <strong>三、Function 必須是 Pure Function、沒有 Side Effect</strong></h4>
+<p><strong>什麼是 Pure Function？ Side Effect 又是什麼？</strong></p>
+<p>就是這個定義，使我認為 FP 對於 function 的定義更接近數學上的 function 。</p>
+<blockquote>
+<p>在數學中，我們講述  <code>y = f(x)</code>  就是一個 x 與 y 的對應關係。<br />
+x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，不論多少次、外在如何改變，只要 input 是 x，output 就一定是 y。</p>
+</blockquote>
+<p>一個 Pure function 規範其中的 output <strong>Y</strong> 只與 input <strong>X</strong> 有關，不受外在的其他貓貓狗狗的參數或是雜七雜八的狀態影響。</p>
+<p>就如同數學上  <code>Domain 對應到 Co-domain</code>  的過程。</p>
+<p><img data-src="0*FRlb4wUBNM256lEW.png" alt="[https://math.stackexchange.com/questions/217271/what-is-the-preimage-of-the-codomain-of-a-function](https://math.stackexchange.com/questions/217271/what-is-the-preimage-of-the-codomain-of-a-function)" /></p>
+<p>這樣說太抽象了，我們來看看點例子：</p>
+<p>我們假設有一個做「加減乘除工廠函數 (factory function) 」，因為某些原因，產生新的 function 時需要依靠一個 global 變數  <code>outerVal</code>  才能決定應該要產生哪個 function。那麼，這就 <strong>不是</strong> 一個 Pure function。</p>
+<p>以下方的 Code 為例</p>
+<p><img data-src="1*NeJ_lQCgpOJOlvloqbXrkw.png" alt="" /></p>
+<p>當  <code>outerVal = 0</code>  時，一切都如註解那般正確執行。</p>
+<p><img data-src="1*nZz5pAq9vAWQi6rYMVQDzA.png" alt="" /></p>
+<p>然而，當  <code>outerVal</code>  <strong>不為零</strong> 時，這個 factory 就不再回傳原本的結果了。</p>
+<p><img data-src="1*y7kH_ET09Qlk_yAR3s_zvg.png" alt="" /></p>
+<p>這就是所謂的 Side Effect。</p>
+<p>FP 要求 function <strong>「無論何時何地，Output 都只與 Input 有關係」。</strong></p>
+<p>因此在這邊，此 Function 的「正確作法」是我們應該將  <code>outerVal</code>  也作為參數傳入，以顯式地表達此 Function 與  <code>outerVal</code>  也有關係 (FP 有一種叫做 Currying 的方法可以解決此問題，我們之後會講解)。</p>
+<p><img data-src="1*0vFSAXJvIbSKzrYki-5ZBQ.png" alt="" /></p>
+<h4 id="四-function-不可改變-input-的資料-不可-改變狀態"><a class="anchor" href="#四-function-不可改變-input-的資料-不可-改變狀態">#</a> 四、Function 「 <strong>不可改變 Input 的資料</strong> 」、「 <strong>不可 改變狀態</strong> 」</h4>
+<p>這個很好理解，簡單說就是 Function 不應該修改 input 的資料。</p>
+<p>以 Javascript 原生的兩個 Method  <code>Array.splice</code>  與  <code>Array.slice</code>  為例：</p>
+<p>Array.splice 由於每 call 一次，便會修改原始 Array，因此並不符合 FP 的準則；而 Array.slice 無論 call 多少次，原始 Array 都不會被更動，因此符合 FP 的準則。</p>
+<p><img data-src="1*JBasiFOr-UGKJDPFqGQr9w.png" alt="Array.splice 由於每 call 一次，便會修改原始 Array，因此並不符合 FP 的準則" /></p>
+<p>Array.splice 由於每 call 一次，便會修改原始 Array，因此並不符合 FP 的準則</p>
+<p><img data-src="1*7bvDeksvOHZco5EC3jfFcA.png" alt="Array.slice 無論 call 多少次，原始 Array 都不會被更動，因此符合 FP 的準則" /></p>
+<p>Array.slice 無論 call 多少次，原始 Array 都不會被更動，因此符合 FP 的準則</p>
+<h4 id="五-function-可以任意組合得到新的-function且依然滿足以上這些守則"><a class="anchor" href="#五-function-可以任意組合得到新的-function且依然滿足以上這些守則">#</a> 五、Function <strong>可以任意組合得到新的 Function，且依然滿足以上這些守則</strong></h4>
+<p>這邊我們要回到數學中的「組合」(Compose)。</p>
+<p>假設有兩個 function  <code>f(x)</code>  與 <em> <code>g(x)</code> </em> 。我們可以任意將此兩個 function 組合起來成為一個新的 function  <code>f’(x)</code>  ，記做  <code>f’ = f。g</code>  。執行結果等效於  <code>f(g(x))</code>  。</p>
+<p>以程式上來說，可能會長成這樣<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var compose = function(f, g) &#123;</span><br><span class="line">    return function(x) &#123;</span><br><span class="line">        return f(g(x));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>其中，兩個 function 都以  <code>x</code>  作為 input。通過 compose 產生的新 function  <code>f’</code>  其執行結果等效於，將執行 function  <code>g</code>  的結果作為 input 傳給 function  <code>f</code>  。</p>
+<p>我們舉個例：</p>
+<p>假設有兩個 function 「Add2 (x)」與「Multiply3 (x)」</p>
+<p><img data-src="1*xlFR_tW_ldG_yf6LbOF2Bg.png" alt="" /></p>
+<p>我們可以使用 compose 將兩個 function 組合成一個新的 function 「Add2ThenMultiply3」</p>
+<p><img data-src="1*Yaf7JsDuHXXNNRgMwidu8Q.png" alt="" /></p>
+<p>如此，我們可以很輕鬆地利用 compose 產生新的 function，並且此 function 依然滿足以上所有 FP 準則。</p>
+<p><img data-src="1*GZYAsRmWTK-OK3klcMjqsA.png" alt="" /></p>
+<h3 id="functional-programming-中常用的工具與技巧"><a class="anchor" href="#functional-programming-中常用的工具與技巧">#</a> # Functional Programming 中常用的工具與技巧</h3>
+<p>花了大半個篇幅講解了何謂 Functional Programming，之後我想介紹一下 FP 常使用到的一些工具與技巧。</p>
+<h4 id="map"><a class="anchor" href="#map">#</a> Map</h4>
+<p>在 Javascript 中，我們有 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvbWFw">Array.prototype.map</span> ( ) 可以幫助我們將 Array 中的 element 依照 callback function 的規則 <strong>一一對應到新的 Array</strong> ，這有助於幫助我們輕鬆地將元素統一地「擴展」、「轉換」。</p>
+<p>以下為一個簡單的例子：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">將 Array 中的每個元素統一地 乘60 再加5，之後輸出為 ASCII Code</span><br></pre></td></tr></table></figure></p>
+<p>此作法會得到一個新的 Array  <code>[“A”, “&#125;”, “¹”, “õ”, “ı”, “ŭ”, “Ʃ”, “ǥ”, “ȡ”]</code>  並且，原始 Array  <code>ary</code>  的內容並沒有因此被更動。</p>
+<p><img data-src="1*Uw06YLV8VaoGz0CV1bYlaQ.png" alt="" /></p>
+<h4 id="filter"><a class="anchor" href="#filter">#</a> Filter</h4>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvZmlsdGVy">Array.prototype.filter</span> ( ) 是 Javascript 中原生支援的方法。與 <strong>Map</strong> 不同的地方是，它會依照 callback function 的規則 <strong>篩選符合條件的 element 並且蒐集成為一個新的 Array</strong> 。這很有用，我們可以利用 filter 很輕鬆的將符合條件的 Element 篩選出來，並且不影響到原始的 Array。</p>
+<p>舉個簡單的例子<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">從 Array 中篩選出不是英文字母的 Element 作為 Output</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*9952DfkuCXuAFpsJ8a8onQ.png" alt="" /></p>
+<h4 id="reduce"><a class="anchor" href="#reduce">#</a> Reduce</h4>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvUmVkdWNl">Array.prototype.reduce</span> ( ) 一樣是 Javascript 中原生支援的方法。這個方法與前兩個有著極大的區別。Reduce 接受兩個參數： 「 <strong>callback function</strong> 」 與 「 <strong>initial value</strong> 」。</p>
+<p>Callback function 也會接收兩個參數  <code>(*註1)</code>  ：「 <strong>previous result</strong> 」與「 <strong>current element</strong> 」。Callback function 會將前一輪處理的結果 (如果此輪是第一輪，則拿 Initial Value 作為此參數的值) 與目前的 element 處理完後，將結果作為下一輪 callback function，如此重複至輪巡完整個 Array。</p>
+<p>這個 function 非常有用，當我們希望將 Array 經過一套邏輯收斂成一個值時，就可以使用 Reduce 完成。</p>
+<p><code>註1:事實上 Reduce 的 function 可以接受 4 個參數：(previous result, current element, index, self array)。然而通常很少人會用到後面兩個參數，因此絕大多數時候忽略。</code></p>
+<p><strong>假設一個情境：</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有 5組向量 [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]</span><br><span class="line">我們想計算出這五組向量的平均長度 ，則可以使用 Reduce 完成。</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*EezC0VUV5e5C4V6auKjFVg.png" alt="" /></p>
+<p>以程式碼來看就可以使用這一行表達。</p>
+<p><img data-src="1*4TWSbRZ8s01gOMIU78uE5g.png" alt="" /></p>
+<h4 id="pipe-compose"><a class="anchor" href="#pipe-compose">#</a> Pipe &amp; Compose</h4>
+<p>Functional Programming 設計哲學之一便是： <strong>「以 Function 為最小單位解決問題，任何 Function 都可以任意組合成為新的 Function」。</strong></p>
+<p>我們在上面講述 FP 觀念時，有大略提及過 Compose 的用法。</p>
+<p>Compose 的用處為：將兩個以上的 function 組合，成為一個新的 function。</p>
+<p>以上面的例子 <em>f。g</em> 來說，程式會先執行 <em>g</em> 並將 output 作為 <em>f</em> 的 input 執行。整個執行順序是「 <strong>由右向左</strong> 」的。</p>
+<p>而 Pipe 則是很直觀地，先執行 f 並將 output 作為 g 的 input 執行。整個執行順序是「 <strong>由左向右</strong> 」的。</p>
+<p>這兩個 Function 對 FP 的貢獻極大，但可惜的是 Javascript 本身並沒有支援，我們必須自己實作或是引用其他第三方套件 (ex. <span class="exturl" data-url="aHR0cHM6Ly9sb2Rhc2guY29tLw==">lodash</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9yYW1kYWpzLmNvbS8=">Ramda</span> )。</p>
+<p>如果不想引用第三方套件的朋友，本文也整理了一般性的 Pipe 與 Compose 。可以直接複製本文下方的兩行 code 到自己的專案使用。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  pipe doing each functions and return the result.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">any</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">pipe</span> = (<span class="params">...fns</span>) =&gt; <span class="function"><span class="params">x</span> =&gt;</span> fns.<span class="title function_">reduce</span>(<span class="function">(<span class="params">v, f</span>) =&gt;</span> <span class="title function_">f</span>(v), x);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * compose doing each functions from right to left and return the result.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">any</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">compose</span> = (<span class="params">...fns</span>) =&gt; <span class="function"><span class="params">x</span> =&gt;</span> fns.<span class="title function_">reduceRight</span>(<span class="function">(<span class="params">v, f</span>) =&gt;</span> <span class="title function_">f</span>(v), x);</span><br></pre></td></tr></table></figure></p>
+<p>我們假設一個情境：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const ary = [</span><br><span class="line">    &#123;id: 1, text: &quot;a&quot;&#125;, &#123;id: 2, text: &quot;b&quot;&#125;,</span><br><span class="line">    &#123;id: 3, text: &quot;c&quot;&#125;, &#123;id: 4, text: &quot;d&quot;&#125;,</span><br><span class="line">    &#123;id: 5, text: &quot;e&quot;&#125;, &#123;id: 6, text: &quot;f&quot;&#125;,</span><br><span class="line">    &#123;id: 7, text: &quot;g&quot;&#125;, &#123;id: 8, text: &quot;h&quot;&#125;,</span><br><span class="line">    &#123;id: 9, text: &quot;i&quot;&#125;, &#123;id: 10, text: &quot;j&quot;&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>在此處我們可以把問題分析成如下</p>
+<ul>
+<li>寫一個 function 將 array 中奇數 id 的 element 的 text 都轉為大寫，並且偶數 id 的 element 的 text 都內容重複</li>
+</ul>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">toUperCaseInOddAndRepeateInEven</span> = x =&gt; x.<span class="title function_">map</span>(<span class="function"><span class="params">e</span> =&gt;</span> (&#123; ...e, <span class="attr">text</span>: e.<span class="property">id</span> % <span class="number">2</span> ? e.<span class="property">text</span>.<span class="title function_">toUpperCase</span>() : <span class="string">`<span class="subst">$&#123;e.text&#125;</span><span class="subst">$&#123;e.text&#125;</span>`</span> &#125;))</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>寫一個 function 將 array 中 3 的倍數 id 的 element 的 text 在前方加  <code>“3”</code></li>
+</ul>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">concat3</span> = x =&gt; x.<span class="title function_">map</span>(<span class="function"><span class="params">e</span> =&gt;</span> e.<span class="property">id</span> % <span class="number">3</span> ? e : &#123;...e, <span class="attr">text</span>: <span class="string">`3<span class="subst">$&#123;e.text&#125;</span>`</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>寫一個 function 將 array 中 非 5 的倍數 id 的 element 的 text 在後方加  <code>“-5”</code></li>
+</ul>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">concatM5InTail</span> = x =&gt; x.<span class="title function_">map</span>(<span class="function"><span class="params">e</span> =&gt;</span> e.<span class="property">id</span> % <span class="number">5</span> ? &#123; ...e, <span class="attr">text</span>: <span class="string">`<span class="subst">$&#123;e.text&#125;</span>-5`</span> &#125; : e)</span><br></pre></td></tr></table></figure></p>
+<p>如此，我們有了這三個 function。我們將這三個 function 組合成一個新的 function 來完成我們的任務。</p>
+<p><code>new_function = concatM5InTail。concat3。toUperCaseInOddAndRepeateInEven</code> <br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> new_function = <span class="title function_">compose</span>(</span><br><span class="line">  concatM5InTail,</span><br><span class="line">  concat3,</span><br><span class="line">  toUperCaseInOddAndRepeateInEven</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>我們再利用剛剛新組合出的 function  <code>new_function</code>  處理上面的  <code>ary</code>  ，如此便達到了這個任務的要求了。</p>
+<p><img data-src="1*aqUj3-ra564I2nraS73MVg.png" alt="" /></p>
+<p>在這邊，可能會有些人有疑問：「我之前使用一個 loop 再加上幾個 condition 一樣可以達到效果，為啥要搞這麼多 function 來做這些事情？」</p>
+<p>以 FP 處理問題有以下幾點好處：</p>
+<ul>
+<li><strong>以 function 為最小單位思考。</strong></li>
+</ul>
+<p>未來如果有新的需求時，我們可以使用手上有的 function 快速組合出能夠解決問題的 function，不用重新撰寫程式邏輯。</p>
+<ul>
+<li><strong>抽象出程式邏輯，使用「聲明式」而非「指令式」，增加程式碼的可讀性。</strong></li>
+</ul>
+<p>聲明式的程式風格清楚表示程式「要做什麼」而不需在乎「怎麼做」，讓人讀程式碼就像在讀文章一般清晰明瞭； <strong>指令式</strong> 的程式風格，像一個暴露狂，強迫將你不想知道的一切資訊都展露給你，包括內部醜陋不堪的運算邏輯…。</p>
+<ul>
+<li><strong>不改變 Input 的資料，易於除錯與維護</strong></li>
+</ul>
+<p>由於每一個 Function 皆為 Pure function。如果程式有 Bug，我們僅需要定位到 Output 錯誤的環節，即可快速找出問題進行除錯。</p>
+<h3 id="柯里化currying"><a class="anchor" href="#柯里化currying">#</a> 柯里化 (Currying)</h3>
+<p>柯里化是一種「將接受多個參數的 function 轉換成一次只接受一個參數的 function」 的技術。擁有柯里化的 Function 可以藉由 <strong>將部分數值預先帶入</strong> ， <strong>回傳一個接收剩下數值的 function</strong> ，當所有數值條件皆備齊時，才真正執行此 function。</p>
+<p>假設有一個 function  <code>fn</code>  接受兩個參數  <code>a, b</code>  長成如下樣子</p>
+<p><img data-src="1*jnnq19nXAVONVyVrAeTMHg.png" alt="" /></p>
+<p>我們利用柯里化，可以將 function  <code>fn</code>  變成一次只需要接收一個數值的 function<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function curryFn(a) &#123;</span><br><span class="line">    return function fn(b) &#123;</span><br><span class="line">        // do something ...</span><br><span class="line">        console.log(&quot;a:&quot;, a, &quot;b:&quot;, b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*y27xmFmDTPy9VXvK7g7jKg.png" alt="被柯里化的 function 可以藉由傳遞部分參數，獲得一個 接受剩下參數 的新 function" /></p>
+<p>被柯里化的 function 可以藉由傳遞部分參數，獲得一個 <strong>接受剩下參數</strong> 的新 function</p>
+<p>在 FP 的世界中，我們期望每個 function 都可以任意的組合與複用，這意味著，function 最好能夠達到：</p>
+<p>1. Input 參數數量與代表意義一致，方便 function 組合時的參數傳遞。</p>
+<p>2. <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTcvMDMvcG9pbnRmcmVlLmh0bWw=">Point free</span> 。function 不需要在乎 Input 值是誰，只需要專注在合成的運算過程。</p>
+<p>我們可以舉一個簡單的例子：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">創立一個 function 接收一個 input string 回傳一個 output string。</span><br><span class="line">此 Output string 需要滿足以下幾個條件：</span><br><span class="line">1. 單詞為大寫開頭者，置於最前方</span><br><span class="line">2. 單詞為小寫開頭置於後方。</span><br><span class="line">3. 開頭非字母者一律忽略。</span><br><span class="line">4. 字母需依照其被處理的順序擺放。</span><br><span class="line">Example:</span><br><span class="line">Input  1:   &quot;hey You, Sort me Already!&quot;</span><br><span class="line">Output 1:   &quot;You, Sort Already! hey me&quot;</span><br></pre></td></tr></table></figure></p>
+<p>我們可以先定義一些基礎的 function<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 以空格切分單詞</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">splitBySpace</span> = s =&gt; s.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判斷是否為大寫</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isUpperCase</span> = s =&gt; <span class="regexp">/[A-Z]/</span>.<span class="title function_">test</span>(s[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判斷是否為小寫</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isLowerCase</span> = s =&gt; <span class="regexp">/[a-z]/</span>.<span class="title function_">test</span>(s[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 依照大小寫濾出合併成新的 array</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">orderByCase</span> = a =&gt; [...a.<span class="title function_">filter</span>(isUpperCase), ...a.<span class="title function_">filter</span>(isLowerCase)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 組織成 Output String</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getOutputString</span> = a =&gt; a.<span class="title function_">join</span>(<span class="string">&#x27; &#x27;</span>);</span><br></pre></td></tr></table></figure></p>
+<p>然後將這些 function 合併成一個真正解決此問題的 function<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getOrderString = <span class="title function_">pipe</span>(</span><br><span class="line">    splitBySpace,</span><br><span class="line">    orderByCase,</span><br><span class="line">    getOutputString</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="title function_">getOrderString</span>(<span class="string">&quot;hey You, Sort me Already!&quot;</span>); <span class="comment">// &quot;You, Sort Already! hey me&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">getOrderString</span>(<span class="string">&quot;baby You and Me&quot;</span>); <span class="comment">// &quot;You Me baby and&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>3. 柯里化可以將狀態利用 Closure 保存起來。</p>
+<p>一樣舉一個簡單的例子：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">考慮一個亂數產生 Secret Key 的function</span><br></pre></td></tr></table></figure><br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @desc 亂數產生密鑰Token</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; charSet 產生密鑰所需的字元集合</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; keyLength 密鑰的長度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">randomSecretKey</span> = (<span class="params">charSet, keyLength</span>) =&gt; <span class="keyword">new</span> <span class="title class_">Array</span>(keyLength)</span><br><span class="line">        .<span class="title function_">fill</span>(<span class="string">&#x27;&#x27;</span>, <span class="number">0</span>, keyLength)</span><br><span class="line">        .<span class="title function_">map</span>(<span class="function"><span class="params">ele</span> =&gt;</span> charSet[~~(<span class="title class_">Math</span>.<span class="title function_">random</span>() * charSet.<span class="property">length</span>)])</span><br><span class="line">        .<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure></p>
+<p>通常我們產生密鑰時字元集合 (charSet) 都是固定不變的，因此我們可以使用柯里化將字元集合 (charSet) 保存起來，產生的新 function 只需要給定長度，即可產生相對應長度的密鑰。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 柯里化 randomSecretKey function</span></span><br><span class="line"><span class="keyword">const</span> currySecretKey = <span class="title function_">curry</span>(randomSecretKey);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 傳入部分參數 charSet 產生新的 function : genSerectKey, 此 genSecretKey 接收剩下的參數: keyLength</span></span><br><span class="line"><span class="keyword">const</span> genSecretKey = <span class="title function_">currySecretKey</span>(<span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&amp;*&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 genSecretKey 產生一個長度為 8 的密鑰</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">genSecretKey</span>(<span class="number">8</span>)); <span class="comment">// &quot;dfdupnKD&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 genSecretKey 產生一個長度為 16 的密鑰</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">genSecretKey</span>(<span class="number">16</span>)); <span class="comment">// &quot;GR24dz!Sgk512gMq&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 genSecretKey 產生一個長度為 32 的密鑰</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">genSecretKey</span>(<span class="number">32</span>)); <span class="comment">// &quot;@*yg8EdvuHaRcxXm1QT3O1kzIMA2lzom&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p>柯里化一樣在 Javascript 中本身並不支援，我們一樣必須自己實作或是引用其他第三方套件 (ex. <span class="exturl" data-url="aHR0cHM6Ly9sb2Rhc2guY29tLw==">lodash</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9yYW1kYWpzLmNvbS8=">Ramda</span> )。</p>
+<p>以下提供一個簡易的 Curry help function ，對 function 進行柯里化。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">curry</span> = (<span class="params">fn, n</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> arity = n || fn.<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">curried</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> args.<span class="property">length</span> &gt;= arity</span><br><span class="line">            ? fn.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args)</span><br><span class="line">            : <span class="function">(<span class="params">...rest</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> curried.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args, ...rest);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>柯里化是 FP 中非常重要的一環。套句 《JS Functional Programming》 一書作者所述：「 有 <strong>些事物在你得到之前是無足輕重的，得到之後就不可或缺了。</strong> 」</p>
+<h3 id="總結"><a class="anchor" href="#總結">#</a> # 總結</h3>
+<p>Functional Programming 提供給我們不同於 OOP 的思路。兩者在程式撰寫時，各有擅長的部分，使用時並不衝突。</p>
+<p>在某些情境下，使用 FP 可以讓我們的程式變得乾淨、清晰、易於維護，但是有時候 FP 反而會犧牲掉許多程式的執行效率。另外在 I/O 方面，也難以完全使用 FP 完成。</p>
+<p>關於 FP ，我們應該視時機與場合使用。</p>
+<p>重點是，學習 FP 提供給我們另一種解決問題的思考方式，但是不應因此限縮我們解決問題的方法。</p>
+<h3 id="參考連結"><a class="anchor" href="#參考連結">#</a> # 參考連結</h3>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm1pbmlhc3AuY29tL3Bvc3QvMjAxNi8xMi8xMC9GdW5jdGlvbmFsLVByb2dyYW1taW5nLWluLUphdmFTY3JpcHQ=">前端工程研究：理解函式編程核心概念與如何進行 JavaScript 函式編程</span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTcvMDMvcG9pbnRmcmVlLmh0bWw=">Pointfree 编程风格指南</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sbGg5MTEwMDEuZ2l0Ym9va3MuaW8vbW9zdGx5LWFkZXF1YXRlLWd1aWRlLWNoaW5lc2UvY29udGVudC8=">JS 函數式編程風格指南</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mci51bWlvLnVzL2Zhdm9yaW5nLWN1cnJ5Lw==">Favoring Curry</span></li>
+</ul>
+<p>如果覺得這篇有幫到你的話，請不吝情給我點掌聲。</p>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/javascript/" rel="tag"><i class="ic i-tag"></i> javascript</a>
+          <a href="/tags/functional-programming/" rel="tag"><i class="ic i-tag"></i> functional-programming</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:21" itemprop="dateModified" datetime="2022-12-28T18:36:21+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Frontend/2019-07-05-javascript-functional-programming-一文到底全紀錄/" class="item leancloud_visitors" data-flag-title="Javascript Functional Programming 一文到底全紀錄" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">https://z20240.github.io/Tech/Frontend/2019-07-05-javascript-functional-programming-一文到底全紀錄/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Tools&#x2F;2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile&#x2F;1*wisYVqS_pLtGM796CCj_yQ.jpeg" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Tools</span>
+  <h3>Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;NodeJs&#x2F;2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command&#x2F;0*PFzkc5fnQd1dUylp.png" title="Node 使用 NodeJS 製作自己的 Shell Command">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> NodeJs</span>
+  <h3>Node 使用 NodeJS 製作自己的 Shell Command</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84"><span class="toc-number">1.</span> <span class="toc-text"> [Javascript] Functional Programming 一文到底全紀錄</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#coding-as-function-thinking-as-function"><span class="toc-number">1.1.</span> <span class="toc-text"> Coding as function. Thinking as function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%A3%E8%B5%B7"><span class="toc-number">2.</span> <span class="toc-text"> # 緣起</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E7%BE%A9"><span class="toc-number">3.</span> <span class="toc-text"> # 定義</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80-function-%E5%BF%85%E9%A0%88%E4%BD%9C%E7%82%BA%E4%B8%80%E7%B4%9A%E5%85%AC%E6%B0%91"><span class="toc-number">3.1.</span> <span class="toc-text"> 一、Function 必須作為一級公民</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C-function-%E4%B8%AD%E5%8F%AA%E8%83%BD%E6%9C%89-expression-%E8%80%8C%E9%9D%9E%E6%8C%87%E4%BB%A4-instructions"><span class="toc-number">3.2.</span> <span class="toc-text"> 二、Function 中只能有 Expression 而非指令 (instructions)。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89-function-%E5%BF%85%E9%A0%88%E6%98%AF-pure-function-%E6%B2%92%E6%9C%89-side-effect"><span class="toc-number">3.3.</span> <span class="toc-text"> 三、Function 必須是 Pure Function、沒有 Side Effect</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B-function-%E4%B8%8D%E5%8F%AF%E6%94%B9%E8%AE%8A-input-%E7%9A%84%E8%B3%87%E6%96%99-%E4%B8%8D%E5%8F%AF-%E6%94%B9%E8%AE%8A%E7%8B%80%E6%85%8B"><span class="toc-number">3.4.</span> <span class="toc-text"> 四、Function 「 不可改變 Input 的資料 」、「 不可 改變狀態 」</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94-function-%E5%8F%AF%E4%BB%A5%E4%BB%BB%E6%84%8F%E7%B5%84%E5%90%88%E5%BE%97%E5%88%B0%E6%96%B0%E7%9A%84-function%E4%B8%94%E4%BE%9D%E7%84%B6%E6%BB%BF%E8%B6%B3%E4%BB%A5%E4%B8%8A%E9%80%99%E4%BA%9B%E5%AE%88%E5%89%87"><span class="toc-number">3.5.</span> <span class="toc-text"> 五、Function 可以任意組合得到新的 Function，且依然滿足以上這些守則</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#functional-programming-%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7%E8%88%87%E6%8A%80%E5%B7%A7"><span class="toc-number">4.</span> <span class="toc-text"> # Functional Programming 中常用的工具與技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-number">4.1.</span> <span class="toc-text"> Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filter"><span class="toc-number">4.2.</span> <span class="toc-text"> Filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reduce"><span class="toc-number">4.3.</span> <span class="toc-text"> Reduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pipe-compose"><span class="toc-number">4.4.</span> <span class="toc-text"> Pipe &amp; Compose</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96currying"><span class="toc-number">5.</span> <span class="toc-text"> 柯里化 (Currying)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">6.</span> <span class="toc-text"> # 總結</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E9%80%A3%E7%B5%90"><span class="toc-number">7.</span> <span class="toc-text"> # 參考連結</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Vue-Cli 自定義全局功能的方法">Vue-Cli 自定義全局功能的方法</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></li><li><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" rel="bookmark" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" rel="bookmark" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></li><li><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" rel="bookmark" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></li><li><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" rel="bookmark" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">Javascript 使用 Array.Reduce 進行 Object Array 的加總</a></li><li><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" rel="bookmark" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></li><li><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" rel="bookmark" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></li><li><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" rel="bookmark" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></li><li><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" rel="bookmark" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></li><li><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" rel="bookmark" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></li><li><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" rel="bookmark" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></li><li class="active"><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" rel="bookmark" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></li><li><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" rel="bookmark" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></li><li><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" rel="bookmark" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></li><li><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" rel="bookmark" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></li><li><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" rel="bookmark" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></li><li><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" rel="bookmark" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></li><li><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" rel="bookmark" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></li><li><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" rel="bookmark" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></li><li><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" rel="bookmark" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></li><li><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" rel="bookmark" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></li><li><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" rel="bookmark" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
+</div>
+
+    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2018-12-26-%E9%81%8A%E6%88%B2%E4%B8%AD%E7%9A%84%E5%85%A8%E6%9C%8D%E6%8E%92%E8%A1%8C%E6%98%AF%E6%80%8E%E9%BA%BC%E5%AF%A6%E7%8F%BE%E7%9A%84/" title="遊戲中的全服排行是怎麼實現的？">遊戲中的全服排行是怎麼實現的？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2020-07-27-gcp-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ssh-%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E7%99%BB%E5%85%A5-vm-instance/" title="GCP如何使用 SSH 讓使用者登入 VM Instance">GCP如何使用 SSH 讓使用者登入 VM Instance</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Hexo/" title="In Hexo">Hexo</a>
+</div>
+
+    <span><a href="/Tech/Hexo/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" title="GIT 關於 GIT 的 ^M 的二三事">GIT 關於 GIT 的 ^M 的二三事</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Frontend/2019-07-05-javascript-functional-programming-一文到底全紀錄/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,578 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="nodejs,javascript,memory-leak" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/">
+
+
+
+  <title>
+Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題 - NodeJs - Frontend - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-05-16 18:10:49">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-05-16T18:10:49+08:00">2022-05-16</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/1*r2wJzxZlT7878dhsficsYA.png">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Frontend/" itemprop="item" rel="index" title="In Frontend"><span itemprop="name">Frontend</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Frontend/NodeJs/" itemprop="item" rel="index" title="In NodeJs"><span itemprop="name">NodeJs</span></a>
+<meta itemprop="position" content="3" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題"><a class="anchor" href="#node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題">#</a> [Node] 如何檢測 Node 程式的 Memory Leak 以及處理 out of memory 問題</h3>
+<p>身為一個 NodeJs 工程師，在架構一個 NodeJs 應用程式的生涯中或多或少應該都有碰過  <code>Javascript heap out of memory</code>  的狀況。</p>
+<p>畢竟 NodeJs 本身是跑在 V8 Engine 的 Script Language，本身在 main thread 中 default 僅有 1GB (In 64-bit system) 的 memory 配額。</p>
+<p><img data-src="1*r2wJzxZlT7878dhsficsYA.png" alt="" /></p>
+<p>絕大多數時候其實都是單純 server 功能越來越多導致記憶體用量不夠，這個時候我們可以簡單地在執行程式時使用  <code>--max-old-space-size</code>  來手動配額足夠的記憶體給 Node 使用。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 使用 8GB 的記憶體來執行 app.js (這邊的單位是 KB)</span><br><span class="line">$ node --max-old-space-size=8192 app.js</span><br></pre></td></tr></table></figure></p>
+<p>然而若是當我們已經配置足夠大的記憶體，確還是發生了 <strong>out of memory</strong> 的狀況呢？那應該十之八九是我們碰上了 memory leak 的問題了。</p>
+<h4 id="監測-memory-heap-的使用量檢測是否-memory-leak"><a class="anchor" href="#監測-memory-heap-的使用量檢測是否-memory-leak">#</a> 監測 memory heap 的使用量，檢測是否 memory leak</h4>
+<p>以往，我們要監測 memory heap 的使用需要利用諸如 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvaGVhcGR1bXA=">heapdump</span> 這類的 heap snapshot 工具來建立快照。但是在 version 6 以上的版本我們可以使用  <code>--inspect</code>  flag 來指示 node 執行 app.js 期間開啟監測模式。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect index.js</span><br></pre></td></tr></table></figure></p>
+<p><em>如果你今天的 app 是使用 ts-node，你也可以使用以下指令來進入 node 的 inspect （</em> <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdHMtbm9kZSN1c2VyLWNvbnRlbnQtcHJvZ3JhbW1hdGlj">https://www.npmjs.com/package/ts-node#user-content-programmatic</span> <em>）</em><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -r ts-node/register --inspect ./app.ts</span><br></pre></td></tr></table></figure></p>
+<p>node 會另外開啟一個 9229 的 port 來提供 debugger 使用。</p>
+<p><img data-src="1*ot3-OLwkVSRw-ImSrXxhCw.png" alt="" /></p>
+<p><em>你也可以使用  <code>--inspect-brk</code>  ，這個 flag 會讓 node 監測模式啟動後停在第一個 statement。效果就類似設置一個 break point 在程式的第一行。</em></p>
+<p>接下來，我們就可以開啟 Google Chrome 的 <strong>DevTools</strong> attach 到 debugger 來進行實時監控跟 debug 了。</p>
+<p>在 google chrome 網址列輸入  <code>about:inspect</code>  可以進入到 Chrome 遠端開發工具畫面。</p>
+<p><img data-src="1*vE4cxtjQLFRgYckFNgX2eQ.png" alt="" /></p>
+<p>如果 prot 9229 已經開啟且被監聽，chrome 會自動找到相對應的 app 。之後我們可以點擊 <strong>inspect</strong> 進入監控畫面。</p>
+<p><img data-src="1*TnS_yRzEnIKV74ireuA50Q.png" alt="" /></p>
+<p>接下來點到 「記憶體」的選項，我們可以錄製記憶體的快照。</p>
+<p><img data-src="1*G7HH9z3wGJhG1mLZK-cvoQ.png" alt="" /></p>
+<p>DevTools 會分析出 app 中各個變數結構的使用大小、對比 root 的深度、物件本身佔用的記憶體總量… 等等，一目瞭然。甚至連變數名稱都列出來給你了。</p>
+<p><img data-src="1*y7HVRS0fXUw_u3Ypr-VCNg.png" alt="" /></p>
+<p>接下來我們要監測哪個變數導致記憶體增加就易如反掌了。</p>
+<p>以我們專案自身為例，在程式執行起來時 Array 所佔的記憶體容量還沒有到很多</p>
+<p><img data-src="1*hjkYvj6TLmxY9YM16b8Rsw.png" alt="" /></p>
+<p>但是隨著某個 API 的呼叫，大大地增加了 Array 在記憶體中的使用量。</p>
+<p><img data-src="1*wZXni_hZC3GxrpjuOegfcA.png" alt="" /></p>
+<p>因此我們就可以據針對這個部分進行細部分析。來快速定位 memory leak 的原因。</p>
+<h4 id="參考資料"><a class="anchor" href="#參考資料">#</a> 參考資料</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BwYXVsX2lyaXNoL2RlYnVnZ2luZy1ub2RlLWpzLW5pZ2h0bGllcy13aXRoLWNocm9tZS1kZXZ0b29scy03YzRhMWI5NWFlMjcjLnBtcWVqcm44cQ==">Debugging Node.js with Chrome DevTools</span> (這是一個國外的工程師的筆記，簡述了 google DevTools 針對 node inspect 的使用方式)</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly92b2N1cy5jYy9hcnRpY2xlLzYxMTc2YzE3ZmQ4OTc4MDAwMTk0MmYxYw==">從你的 Node.js 專案裡找出 Memory leak，及早發現、及早治療！</span> (這篇講得很詳細，另外還講到如何做壓力測試，值得一讀)</li>
+<li>其他有關 node Memory 相關的資訊：「 <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjQxNTM5OTYvaXMtdGhlcmUtYS1saW1pdC1vbi10aGUtc2l6ZS1vZi1hLXN0cmluZy1pbi1qc29uLXdpdGgtbm9kZS1qcw==">Is there a limit on the size of a string in JSON with Node.js?</span> 」、「 <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjAwMTg1ODgvaG93LXRvLW1vbml0b3ItdGhlLW1lbW9yeS11c2FnZS1vZi1ub2RlLWpz">How to monitor the memory usage of Node.js?</span> 」</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
+          <a href="/tags/javascript/" rel="tag"><i class="ic i-tag"></i> javascript</a>
+          <a href="/tags/memory-leak/" rel="tag"><i class="ic i-tag"></i> memory-leak</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:21" itemprop="dateModified" datetime="2022-12-28T18:36:21+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Frontend/NodeJs/2022-05-16-node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題/" class="item leancloud_visitors" data-flag-title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">https://z20240.github.io/Tech/Frontend/NodeJs/2022-05-16-node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Others&#x2F;2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai&#x2F;1*VrezmQ_2bsHHCUSFxNm2kQ.png" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Others</span>
+  <h3>Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Others&#x2F;2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95&#x2F;0*A5q6r3JS-zTQfZVk.jpg" title="Tech skhd 失去功能 (Not working)的解決方法">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Others</span>
+  <h3>Tech skhd 失去功能 (Not working)的解決方法</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C"><span class="toc-number">1.</span> <span class="toc-text"> [Node] 如何檢測 Node 程式的 Memory Leak 以及處理 out of memory 問題</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%A3%E6%B8%AC-memory-heap-%E7%9A%84%E4%BD%BF%E7%94%A8%E9%87%8F%E6%AA%A2%E6%B8%AC%E6%98%AF%E5%90%A6-memory-leak"><span class="toc-number">1.1.</span> <span class="toc-text"> 監測 memory heap 的使用量，檢測是否 memory leak</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">1.2.</span> <span class="toc-text"> 參考資料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" rel="bookmark" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></li><li><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" rel="bookmark" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></li><li class="active"><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" rel="bookmark" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2020-04-07-git-%E7%94%A8-rebase-%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF-%E8%AE%93%E4%BD%A0%E7%9A%84-git-history-%E6%9B%B4%E4%B9%BE%E6%B7%A8/" title="GIT 用 rebase 合併分支，讓你的 Git history 更乾淨">GIT 用 rebase 合併分支，讓你的 Git history 更乾淨</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" title="GIT 關於 GIT 的 ^M 的二三事">GIT 關於 GIT 的 ^M 的二三事</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Frontend/NodeJs/2022-05-16-node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

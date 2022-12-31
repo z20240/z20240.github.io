@@ -1,0 +1,608 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="redis" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/">
+
+
+
+  <title>
+在 Debian 9 中安裝 Redis 並使其成為 Service - Data Storage - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">在 Debian 9 中安裝 Redis 並使其成為 Service
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2018-10-27 15:57:03">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2018-10-27T15:57:03+08:00">2018-10-27</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/1*DPd3_f1ruu3rrkgaFeo2Ug.png">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Data-Storage/" itemprop="item" rel="index" title="In Data Storage"><span itemprop="name">Data Storage</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><img data-src="1*DPd3_f1ruu3rrkgaFeo2Ug.png" alt="" /></p>
+<h3 id="在-debian-9-中安裝-redis-並使其成為-service"><a class="anchor" href="#在-debian-9-中安裝-redis-並使其成為-service">#</a> 在 Debian 9 中安裝 Redis 並使其成為 Service</h3>
+<h4 id="好好使用暫存可以讓你發現新天地"><a class="anchor" href="#好好使用暫存可以讓你發現新天地">#</a> 好好使用暫存，可以讓你發現新天地</h4>
+<p>Redis 是一個將資料暫存於  <code>memory</code>  的 <strong>NoSQL Database</strong> 。</p>
+<p>其以  <code>key : value</code>  儲存資料的方式以及易讀易寫的特性，能夠減輕 MySQL Database 的負擔。</p>
+<p>以下就來介紹，Redis 的安裝方式與基本使用方法。</p>
+<h3 id="下載-解壓縮-編譯-redis"><a class="anchor" href="#下載-解壓縮-編譯-redis">#</a> 下載、解壓縮、編譯 Redis</h3>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/redis-stable.tar.gz</span><br><span class="line">$ tar xvzf redis-stable.tar.gz</span><br><span class="line">$ cd redis-stable</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure></p>
+<p>在編譯完成後，你可以使用  <code>make test</code>  嘗試看看是否安裝正確。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make test</span><br></pre></td></tr></table></figure></p>
+<p>接下來使用  <code>make install</code>  安裝 <strong>Redis</strong> 相關的指令於  <code>/usr/local/bin</code>  中<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make install</span><br></pre></td></tr></table></figure></p>
+<h3 id="安裝-redis-service"><a class="anchor" href="#安裝-redis-service">#</a> 安裝 Redis Service</h3>
+<p>在 make redis 之後，  <code>util</code>  裡面應該會多出一個  <code>install_server.sh</code>  的檔案。</p>
+<p>執行  <code>install_server.sh</code> <br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ &gt; ./redis-stable/utils/install_server.sh</span><br></pre></td></tr></table></figure></p>
+<p>此時系統會開始詢問你：</p>
+<p>設定使用的 port <em>(預設 6379)</em><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis port for this instance: [6379]</span><br></pre></td></tr></table></figure></p>
+<p>設定使用的 config 位置 <em>(預設 /etc/redis/6379.conf)</em><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis config file name [/etc/redis/6379.conf]</span><br></pre></td></tr></table></figure></p>
+<p>設定 log 位置 <em>(預設 /var/log/redis_6379.log)</em><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis log file name [/var/log/redis_6379.log]</span><br></pre></td></tr></table></figure></p>
+<p>設定資料儲存目錄 <em>(預設 /var/lib/redis/6379)</em><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the data directory for this instance [/var/lib/redis/6379]</span><br></pre></td></tr></table></figure></p>
+<p>設定 redis 執行檔位置 <em>(預設 /usr/local/bin/redis-server)</em><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis executable path [/usr/local/bin/redis-server]</span><br></pre></td></tr></table></figure></p>
+<p>確認設定是否正確<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Selected config:</span><br><span class="line">Port           : 6379</span><br><span class="line">Config file    : /etc/6379.conf</span><br><span class="line">Log file       : /var/log/redis_6379.log</span><br><span class="line">Data dir       : /var/lib/redis/6379</span><br><span class="line">Executable     : /usr/local/bin/redis-server</span><br><span class="line">Cli Executable : /usr/local/bin/redis-cli</span><br><span class="line">Is this ok? Then press ENTER to go on or Ctrl-C to abort.</span><br></pre></td></tr></table></figure></p>
+<p>安裝成功<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Copied /tmp/6379.conf =&gt; /etc/init.d/redis_6379</span><br><span class="line">Installing service...</span><br><span class="line">Successfully added to chkconfig!</span><br><span class="line">Successfully added to runlevels 345!</span><br><span class="line">Starting Redis server...</span><br><span class="line">Installation successful!</span><br></pre></td></tr></table></figure></p>
+<p>接下來只要重新啟動即可讓 <strong>redis</strong> 在背景運作了。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure></p>
+<h3 id="確認-redis-server-有正確使用"><a class="anchor" href="#確認-redis-server-有正確使用">#</a> 確認 Redis Server 有正確使用。</h3>
+<p>可以使用  <code>redis-cli</code>  來與  <code>redis server</code>  互動</p>
+<p>輸入  <code>redis-cli</code> <br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ redis-cli</span><br></pre></td></tr></table></figure></p>
+<p>會進入 redis server 的環境，此時輸入  <code>ping</code>  ，  <code>redis server</code>  應該要能回應  <code>pong</code> <br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure></p>
+<p>如此。就算成功了！</p>
+<p>以下一些 Redis 常用的指令：</p>
+<p>最基礎的用法就是塞值、取值</p>
+<p>塞入 “test_value” 到  <code>key</code>  中<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; set key &#x27;test_value&#x27;</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
+<p>讀取  <code>key</code>  中的 &quot;test_value&quot;<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; get key</span><br><span class="line">&quot;test_value&quot;</span><br></pre></td></tr></table></figure></p>
+<p>你也可以塞入 <strong>JSON</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; set testJson &#x27;&#123;&quot;a&quot;: 1, &quot;b&quot;: &quot;string&quot;&#125;&#x27;</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
+<p>取出方式一樣<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; get testJson</span><br><span class="line">&quot;&#123;\&quot;a\&quot;: 1, \&quot;b\&quot;: \&quot;string\&quot;&#125;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>刪除 key<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; del key # 刪除 key</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></p>
+<p>查看 <strong>redis</strong> 中所有的 key<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; KEYS *</span><br><span class="line">1) &quot;testJson&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>KEYS</strong> 還可以使用模糊搜尋</p>
+<ul>
+<li><code>?</code>  : 匹配一個不為空的字符</li>
+<li><code>*</code>  : 匹配 0~ 多個所有字符</li>
+<li><code>[aeiou]</code>  : 匹配 <strong>a</strong> , <strong>e</strong> , <strong>i</strong> , <strong>o</strong> , <strong>u</strong></li>
+<li><code>[^s]</code>  : 匹配 <strong>不為 s</strong> 的字符</li>
+<li><code>[a-z]</code>  : 匹配 <strong>a 到 z</strong> 的字符 Ex.</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># ? : 匹配一個不為空的字符</span><br><span class="line">$ redis&gt; keys test?son</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;testason&quot;</span><br><span class="line"># * : 匹配0~多個所有字符</span><br><span class="line">redis&gt; keys *son</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;testson&quot;</span><br><span class="line">3) &quot;testason&quot;</span><br><span class="line">redis&gt; keys *s*</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;casheTest&quot;</span><br><span class="line">3) &quot;testson&quot;</span><br><span class="line">4) &quot;testason&quot;</span><br><span class="line">redis&gt; keys so*</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;casheTest&quot;</span><br><span class="line">3) &quot;testson&quot;</span><br><span class="line">4) &quot;testason&quot;</span><br><span class="line">redis&gt; keys so*</span><br><span class="line">(empty list or set)</span><br><span class="line">redis&gt; keys testJso*</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line"># [aeiou] : 匹配 a, e, i, o, u</span><br><span class="line">redis&gt; keys test[aeiou]son</span><br><span class="line">1) &quot;testason&quot;</span><br><span class="line"># [^J] : 匹配 不為 J 的字符</span><br><span class="line">redis&gt; keys test[^J]son</span><br><span class="line">1) &quot;testason&quot;</span><br></pre></td></tr></table></figure></p>
+<p>清除所有內容<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; flushall</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/redis/" rel="tag"><i class="ic i-tag"></i> redis</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:21" itemprop="dateModified" datetime="2022-12-28T18:36:21+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Data Storage/2018-10-27-在-debian-9-中安裝-redis-並使其成為-service/" class="item leancloud_visitors" data-flag-title="在 Debian 9 中安裝 Redis 並使其成為 Service" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">https://z20240.github.io/Tech/Data Storage/2018-10-27-在-debian-9-中安裝-redis-並使其成為-service/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;vue&#x2F;2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95&#x2F;1*_De2DFdiagdljCHfHi8t1Q.png" title="Vue-Cli 自定義全局功能的方法">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>Vue-Cli 自定義全局功能的方法</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;git&#x2F;2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A&#x2F;1*A5zK5mklkvqFAA04vtskcg.png" title="Git 修改默認對文件名不區分大小寫的設定">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> git</span>
+  <h3>Git 修改默認對文件名不區分大小寫的設定</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service"><span class="toc-number">1.</span> <span class="toc-text"> 在 Debian 9 中安裝 Redis 並使其成為 Service</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%BD%E5%A5%BD%E4%BD%BF%E7%94%A8%E6%9A%AB%E5%AD%98%E5%8F%AF%E4%BB%A5%E8%AE%93%E4%BD%A0%E7%99%BC%E7%8F%BE%E6%96%B0%E5%A4%A9%E5%9C%B0"><span class="toc-number">1.1.</span> <span class="toc-text"> 好好使用暫存，可以讓你發現新天地</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BC%89-%E8%A7%A3%E5%A3%93%E7%B8%AE-%E7%B7%A8%E8%AD%AF-redis"><span class="toc-number">2.</span> <span class="toc-text"> 下載、解壓縮、編譯 Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-redis-service"><span class="toc-number">3.</span> <span class="toc-text"> 安裝 Redis Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D-redis-server-%E6%9C%89%E6%AD%A3%E7%A2%BA%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text"> 確認 Redis Server 有正確使用。</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" rel="bookmark" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></li><li><a href="/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/" rel="bookmark" title="MongoDB 如何 Auto increment 地插入資料">MongoDB 如何 Auto increment 地插入資料</a></li><li><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" rel="bookmark" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></li><li><a href="/Tech/Data%20Storage/2022-10-08-sql-postgres-%E9%81%87%E5%88%B0-out-of-shared-memory-%E5%95%8F%E9%A1%8C/" rel="bookmark" title="SQL Postgres 遇到 out of shared memory 問題">SQL Postgres 遇到 out of shared memory 問題</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/" title="工具tee 同時輸出訊息於Terminal 與指定檔案">工具tee 同時輸出訊息於Terminal 與指定檔案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession1/" title="EnglishLearn&#x2F;Cambly-Lession1">EnglishLearn/Cambly-Lession1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Data Storage/2018-10-27-在-debian-9-中安裝-redis-並使其成為-service/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

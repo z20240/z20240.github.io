@@ -1,0 +1,588 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="javascript,vue" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/">
+
+
+
+  <title>
+Vue Components 組件之間的溝通方式 - Vue - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Vue Components 組件之間的溝通方式
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2018-11-10 02:19:51">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2018-11-10T02:19:51+08:00">2018-11-10</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/1*V8TObRwANtKeM90nd_3zWQ.png">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Vue/" itemprop="item" rel="index" title="In Vue"><span itemprop="name">Vue</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p><img data-src="1*V8TObRwANtKeM90nd_3zWQ.png" alt="" /></p>
+<h3 id="vue-components-組件之間的溝通方式"><a class="anchor" href="#vue-components-組件之間的溝通方式">#</a> Vue Components 組件之間的溝通方式</h3>
+<h4 id="溝通也是一種技巧"><a class="anchor" href="#溝通也是一種技巧">#</a> 溝通，也是一種技巧</h4>
+<p>在 Vue 的設計模式中，我們常常會將畫面佈局以一個一個組件 (component) 作為單位進行切分。並以  <code>app.vue</code>  為 root 向下掛載各自的 component。</p>
+<p><img data-src="1*sfk8gnkC6H57ClwOzh3F7g.png" alt="https://vuejs.org/v2/guide/components.html" /></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly92dWVqcy5vcmcvdjIvZ3VpZGUvY29tcG9uZW50cy5odG1s">https://vuejs.org/v2/guide/components.html</span></p>
+<p>以官網的佈局架構圖為例，我們可以簡易的了解 Vue 將網站視圖以一個一個組件切分，並且將需要的組件以掛載的方式嵌入其他組件當中進行建置。</p>
+<p>如此作法的好處是，各個組件互相獨立、互不影響，並且我們可以極大化的重用我們已經寫過的、相似功能的組件。</p>
+<p>但是問題來了，若是我們今天有兩個組件之間需要互相溝通 <em>(傳遞值)</em> 時，該怎麼辦呢？</p>
+<p>Vue 對組件之間溝通主要可以分為三種案例：  <code>父組件傳值給子組件</code>  、  <code>子組件傳值給父組件</code>  、  <code>兄弟組件之間的溝通</code>  。</p>
+<p><img data-src="1*vEboBXCSAJD8JN6mWhCkyg.png" alt="" /></p>
+<p>上方圖片簡單的幫我們歸納了 Vue 在父子組件的溝通方式：  <code>父傳子用 props</code></p>
+<p>將資料向下傳遞；  <code>子傳父用 events emit</code>  將資料向上傳遞。</p>
+<h4 id="父組件傳遞參數給子組件-props"><a class="anchor" href="#父組件傳遞參數給子組件-props">#</a> 父組件傳遞參數給子組件 :  <code>props</code></h4>
+<p>以官網的 Vue 組件示例</p>
+<p>首先定義一個 component 叫做  <code>button-counter</code>  ，這是一個 <em>每點擊一下就可以讓 button 上的 counter+1</em> 的組件。利用  <code>props</code>  這個 Vue 的屬性，接受父組件給予的參數  <code>title</code>  。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个名为 button-counter 的新组件</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;button-counter&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">props</span>: [<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;message&#x27;</span>],</span><br><span class="line">  <span class="attr">data</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">template</span>:</span><br><span class="line">  <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div style=&quot;background-color:gray;&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;&#123;&#123; message.name &#125;&#125; : &#123;&#123; message.age &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">    &lt;button v-on:click=&quot;count++&quot;&gt;You clicked me &#123;&#123; count &#125;&#125; times.&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>至於父組件如何傳遞參數過去呢？就利用將要傳遞的參數當作是  <code>html</code>  上的  <code>attribute</code>  進行撰寫就行了。</p>
+<p>以下面的程式碼為例：</p>
+<p>我們將 <em>`Hi, this is a string needs to props to child component. `</em> 這個字串利用在  <code>button-counter</code>  組件中的  <code>title</code>  屬性傳遞給上方定義的子組件。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;components-demo&quot;&gt;</span><br><span class="line">    &lt;button-counter :title=&quot;&#x27;Hi, this is a string need to props to child component.&#x27;&quot; :message=&quot;&#123;name:&#x27;George&#x27;, &#x27;age&#x27;: 18&#125;&quot;&gt;&lt;/button-counter&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  new Vue(&#123;</span><br><span class="line">      el: &#x27;#components-demo&#x27;</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>這兩段在網頁上的結果就會長成類似這樣：</p>
+<p><img data-src="1*P7DmOPXjK-MMJ6gr0C4Ueg.png" alt="" /></p>
+<p>畫面中印出了我們在父組件要傳入子組件的文字 <em>`Hi, this is a string need to props …</em> `，並且也順利印出了我們傳遞進去的物件參數  <code>&#123;“name”: George : “age”: 18 &#125;</code>  。</p>
+<p>至此，我們知道如何將參數從父組件傳遞給子組件了。</p>
+<p>我們也瞭解了傳遞給子組件的參數不限定要是  <code>數字(Number)</code>  、  <code>字串(string)</code>  ，也可以是  <code>陣列(Array)</code>  、  <code>物件(Object)</code>  或 <em>其他型別</em> 。</p>
+<p>以上方程式為例，我們便在  <code>message</code>  參數傳遞了一個有  <code>name</code>  與  <code>age</code>  的  <code>object</code>  。</p>
+<h4 id="子組件傳遞參數給父組件-event-emitter"><a class="anchor" href="#子組件傳遞參數給父組件-event-emitter">#</a> 子組件傳遞參數給父組件 : event emitter</h4>
+<p>在 Vue 的設計哲學中，每一個組件為各自獨立、互不干涉的。因此越是下層的組件，更是不應該能夠直接更改上層組件的資料。</p>
+<p><strong><em>但是若真有需要，子組件要傳遞參數給父組件，該怎麼辦呢？</em></strong></p>
+<blockquote>
+<p>Vue 使用事件觸發來解決。</p>
+</blockquote>
+<p>我們可以在 <strong>父組件</strong> 的 html 元件中定義要監聽的事件名稱，並且撰寫一個 method 將事件接收到的值傳遞進去進行處理。 ex.  <code>custom-event-trigger=”customEventTriggerHappend”</code>  ；然後在 <strong>子組件</strong> 要發送事件的地方使  <code>用 $emit(“事件名稱”, “要傳遞的值”)</code>  將參數傳遞給 <strong>父組件</strong> 。</p>
+<p>以下方程式碼為例：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;components-demo&quot;&gt;</span><br><span class="line">            現在的 counter 數字是 &#123;&#123; curlCounter &#125;&#125;</span><br><span class="line">        &lt;button-counter @custom-event-trigger=&quot;customEventTriggerHappend&quot;&gt;&lt;/button-counter&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    // 定义一个名为 button-counter 的新组件</span><br><span class="line">    Vue.component(&#x27;button-counter&#x27;, &#123;</span><br><span class="line">    props: [&#x27;title&#x27;, &#x27;message&#x27;],</span><br><span class="line">    data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            count: 0,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template:</span><br><span class="line">    `</span><br><span class="line">    &lt;div style=&quot;background-color:gray;&quot;&gt;</span><br><span class="line">        &lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;(++count) &amp;&amp; ($emit(&#x27;custom-event-trigger&#x27;, count))&quot;&gt;You clicked me &#123;&#123; count &#125;&#125; times.&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    `</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &#x27;#components-demo&#x27;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            curlCounter: 0,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            customEventTriggerHappend( counter ) &#123;</span><br><span class="line">                this.curlCounter = counter;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在 <strong>子組件</strong> 建立要傳遞的事件名稱  <code>custom-event-trigger</code>  ，並且在要傳遞資訊時，使用  <code>$emit</code>  將值傳遞出去。</p>
+<p>在 <strong>父組件</strong> 中增加相同的事件監聽  <code>custom-event-trigger</code>  。當此事件發生，就去呼叫 <em>method</em>  <code>customEventTriggerHappend</code>  ，此 method 將會接收 <strong>子組件</strong> 傳上來的值。</p>
+<p>如此我們便得以利用  <code>event listener</code>  的方式獲得 <strong>子組件</strong> 要傳遞的值。</p>
+<p>最終會得到的結果會是下圖所示：</p>
+<p><img data-src="1*3GTVGo8HC5T2o7gPRYocvg.png" alt="" /></p>
+<h4 id="兄弟組件之間的溝通"><a class="anchor" href="#兄弟組件之間的溝通">#</a> 兄弟組件之間的溝通</h4>
+<p>知道了父子組件的溝通方式後，衍生到最後一個話題。若是有一個情況，需要讓同層級的兩個子組件互相傳遞資訊，該怎麼辦呢？</p>
+<p>由於 Vue 中的組件都是 <strong>各自獨立</strong> 的，此時我們需要借助一個  <code>空的 Vue</code>  做為橋樑。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 創建空的 Vue</span><br><span class="line">let commVueObj = new Vue();</span><br><span class="line">// 觸發 A 組件的事件 &quot;event_1&quot;</span><br><span class="line">commVueObj.$emit(&#x27;event_1&#x27;, &quot;any thing values&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>此方式算是簡單易懂的。但是缺點也是顯而易見的：當專案越來越龐大，這樣的寫法勢必會造成未來維護的困難，因此在較大型的專案中，官方推薦使用 <span class="exturl" data-url="aHR0cHM6Ly92dWV4LnZ1ZWpzLm9yZy96aC9ndWlkZS8=">Vuex</span> 。</p>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/javascript/" rel="tag"><i class="ic i-tag"></i> javascript</a>
+          <a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:21" itemprop="dateModified" datetime="2022-12-28T18:36:21+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Frontend/vue/2018-11-09-vue-components-組件之間的溝通方式/" class="item leancloud_visitors" data-flag-title="Vue Components 組件之間的溝通方式" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/" title="Vue Components 組件之間的溝通方式">https://z20240.github.io/Tech/Frontend/vue/2018-11-09-vue-components-組件之間的溝通方式/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Linux/2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Linux&#x2F;2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port&#x2F;1*n2ZyAzgVhxl6kXDCbx_CSw.jpeg" title="Nginx 如何配置多個網站共用 80 port">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Linux</span>
+  <h3>Nginx 如何配置多個網站共用 80 port</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Tools&#x2F;2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0&#x2F;1*f3_pfQVpBepEvMK7gS28FA.png" title="Vim 使用 Vimdiff 來比較 Git diff 的差異">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Tools</span>
+  <h3>Vim 使用 Vimdiff 來比較 Git diff 的差異</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> Vue Components 組件之間的溝通方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%9D%E9%80%9A%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A8%AE%E6%8A%80%E5%B7%A7"><span class="toc-number">1.1.</span> <span class="toc-text"> 溝通，也是一種技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%B6%E7%B5%84%E4%BB%B6%E5%82%B3%E9%81%9E%E5%8F%83%E6%95%B8%E7%B5%A6%E5%AD%90%E7%B5%84%E4%BB%B6-props"><span class="toc-number">1.2.</span> <span class="toc-text"> 父組件傳遞參數給子組件 :  props</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%B5%84%E4%BB%B6%E5%82%B3%E9%81%9E%E5%8F%83%E6%95%B8%E7%B5%A6%E7%88%B6%E7%B5%84%E4%BB%B6-event-emitter"><span class="toc-number">1.3.</span> <span class="toc-text"> 子組件傳遞參數給父組件 : event emitter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%84%E5%BC%9F%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A"><span class="toc-number">1.4.</span> <span class="toc-text"> 兄弟組件之間的溝通</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/" rel="bookmark" title="Vue Components 組件之間的溝通方式">Vue Components 組件之間的溝通方式</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Linux/2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Frontend/vue/2018-11-09-vue-components-組件之間的溝通方式/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

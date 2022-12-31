@@ -1,0 +1,630 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="dock" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/">
+
+
+
+  <title>
+Docker 學習筆記 (四) — 如何撰寫Dockerfile - Tools - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Docker 學習筆記 (四) — 如何撰寫Dockerfile
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2019-05-10 18:40:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2019-05-10T18:40:25+08:00">2019-05-10</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/1*wisYVqS_pLtGM796CCj_yQ.jpeg">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Tools/" itemprop="item" rel="index" title="In Tools"><span itemprop="name">Tools</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="docker-學習筆記-四-如何撰寫dockerfile"><a class="anchor" href="#docker-學習筆記-四-如何撰寫dockerfile">#</a> Docker 學習筆記 (四) — 如何撰寫 Dockerfile</h3>
+<h4 id="docker-的問世翻轉了人們對用環境部署與開發的習慣學會-docker-絕對是一項不虧本的投資"><a class="anchor" href="#docker-的問世翻轉了人們對用環境部署與開發的習慣學會-docker-絕對是一項不虧本的投資">#</a> Docker 的問世，翻轉了人們對用環境部署與開發的習慣，學會 Docker 絕對是一項不虧本的投資</h4>
+<p><img data-src="Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/1*wisYVqS_pLtGM796CCj_yQ.jpeg" alt="" /></p>
+<p><a href="docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3-9040d9de4677"><strong>上一篇</strong></a> 我們已經講述了 Docker 常用指令的使用方式。</p>
+<p>本篇我們要來討論一下 Docker 創建 Image 的另一個方法： <strong>使用 Dockerfile</strong> 。</p>
+<p>Dockerfile 是一個以 <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvWUFNTA==">YAML</span> 語法格式撰寫的純文字檔案。</p>
+<p>用以描述 Docker 產生鏡像檔所需要的內容、以及要做的事情。</p>
+<p>Docker 預設會找尋目錄中的  <code>“Dockerfile”</code>  這個名字的檔案作為要產生 Image 的內容，因此不建議自行命名 (當然你要建立自己命名的 Dockerfile 也行，只是在  <code>docker build</code>  時就要指定它要讀哪個檔案)。</p>
+<p>詳細的 Dockerfile 文件撰寫規範可以參考 Docker 官方的 Dockerfile <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/"><strong>Document</strong></a> 。</p>
+<p>本篇將以一個範例作為 Dockerfile 的講解。<br />
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Dockerfile</span></span><br><span class="line"><span class="comment"># Use an official Python runtime as a parent image</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.7</span>.<span class="number">3</span>-stretch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the working directory to /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install any needed packages specified in requirements.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> requirements.txt ./</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> gunicorn.py ./</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --trusted-host pypi.python.org -r requirements.txt \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; python3 -O -m compileall -b ./app \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; find ./app -name <span class="string">&quot;*.py&quot;</span>|xargs <span class="built_in">rm</span> -rf \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; python3 -O -m compileall -b ./config.py \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">rm</span> ./config.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Make port 5000 available to the world outside this container</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define environment variable</span></span><br><span class="line"><span class="keyword">ENV</span> NAME World</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run app.py when the container launches</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;gunicorn&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;gunicorn.py&quot;</span>, <span class="string">&quot;run:app&quot;</span>]</span></span><br></pre></td></tr></table></figure></p>
+<p>以上的 Dockerfile 範例描述了我們在 Build Image 時要做哪些事情。</p>
+<ol>
+<li>使用  <code>python-3.7.3-stretch</code>  作為基底鏡像</li>
+<li><code>設置檔案當前目錄為 app</code>  。</li>
+<li>將專案的 requirement.txt, <span class="exturl" data-url="aHR0cDovL2d1bmljb3JuLnB5">gunicorn.py</span> 複製到 docker 內。</li>
+<li>執行 pip install</li>
+<li>宣告開放 5000 PORT。</li>
+<li>設置環境變數。</li>
+<li>設定 Container 啟動時要執行的指令。</li>
+</ol>
+<p>以下我們將逐行講解這些指令的詳細用法。</p>
+<h4 id="使用-代表註解"><a class="anchor" href="#使用-代表註解">#</a> <strong>#：使用 # 代表註解</strong></h4>
+<p>文件可以使用  <code>#</code>  來進行註解。</p>
+<h4 id="from"><a class="anchor" href="#from">#</a> <strong>FROM</strong></h4>
+<p><strong>以哪個 Image 為基底進行改良</strong> 。</p>
+<p>格式：  <code>FROM &lt;image name&gt;</code>  或  <code>FROM &lt;image name&gt;:&lt;tag&gt;</code></p>
+<p><img data-src="1*tFmTqvE22YHplPhaaaYSBw.png" alt="" /></p>
+<p>一般來說我們創建一個自己的 Image，都是希望 Docker 環境能夠直接執行專案。</p>
+<p>我們不希望從架設環境開始創建 Docker Image，因此大多時候，我們會直接從 DockerHub 找尋已經架好環境的 Image 作為基底，創建自己的 Image。</p>
+<p><code>From</code>  關鍵字會先從本機的 Docker image 中找尋符合的 Image，若找不到則從 DockerHub 上下載。</p>
+<p>以我們這邊的例子便是以  <code>Python:3.7.3-stretch</code>  作為基底 Image 來建置我們自己的 Image。</p>
+<h4 id="workdir"><a class="anchor" href="#workdir">#</a> WORKDIR</h4>
+<p><strong>設定當前工作目錄。</strong></p>
+<p>格式：  <code>WORKDIR &lt;path&gt;</code></p>
+<p><img data-src="1*Fi3l7XGMOm_MxcWFVFsiHQ.png" alt="" /></p>
+<p>使用了  <code>WORKDIR</code>  Docker 會將指定的目錄設定為當前的工作目錄。之後使用到的各項指令諸如：RUN、CMD、ENTRYPOINT、COPY… 等，都會以此目錄為主。</p>
+<p>另外， <strong>如果此目錄並不存在，WORKDIR 會自動幫你創立</strong> 。</p>
+<h4 id="run"><a class="anchor" href="#run">#</a> RUN</h4>
+<p><strong>執行命令。</strong></p>
+<p>格式：  <code>RUN &lt;command&gt;</code></p>
+<p><img data-src="1*W6o9HMTSTkrglwZ2Lr9s6g.png" alt="" /></p>
+<p><code>RUN</code>  用來執行 Shell 指令，例如本文範例便是使用  <code>RUN</code>  調用  <code>pip</code>  安裝 python 的相關套件。</p>
+<p>這邊有一點要值得注意的是，  <code>Dockerfile 中的每一個指令都是啟動一個 container 、執行命令、之後以 Commit 的方式提交修改，直到完成整個 Image。</code></p>
+<p>很多剛接觸 Dockerfile 的使用者，會將 <strong>RUN</strong> 當成一般的 Shell 腳本撰寫，這樣的理解就有可能踩到以下這個例子的坑。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN cd /app</span><br><span class="line">RUN echo &quot;hello&quot; &gt; world.txt</span><br></pre></td></tr></table></figure></p>
+<p>這種寫法，在 build Dockerfile 時，會輸出「 <strong>找不到 /app/world.txt</strong> 」的錯誤或是  <code>world.txt</code>  的內容不是  <code>hello</code>  ，其原因便是因為 <strong>兩條指令存在於不同的 container</strong> ，兩者互不影響。</p>
+<h4 id="copy"><a class="anchor" href="#copy">#</a> COPY</h4>
+<p><strong>複製「來源文件 \ 目錄」到的 Image 中的「文件 \ 目錄」中。</strong></p>
+<p>格式：  <code>COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;source path&gt;... &lt;dist path&gt;</code></p>
+<p><img data-src="1*oK8aBUElGbB-Eq2fVz2wZw.png" alt="" /></p>
+<p><code>dist path</code>  可以是 Container 內的絕對路徑，也可以是相對於 WORKDIR 的相對路徑。與 WORKDIR 一樣，若是當下 Image 中沒有此目錄，則複製文件前 Docker 會自動建立缺少的目錄。</p>
+<p>另外，使用  <code>COPY</code>  會保留來源數據的各種屬性，諸如： <strong>讀寫權限</strong> 、 <strong>執行權限</strong> 、 <strong>文件變更時間</strong> … 等等。若希望更改文件的所屬 user 或是 group，可以在 COPY 時加入  <code>--chown=&lt;user&gt;:&lt;group&gt;</code>  來自訂。</p>
+<p><strong>補充：</strong></p>
+<p>與此指令相仿的還有 <strong>ADD</strong> ，  <code>ADD</code>  可以當作是 COPY 的強化版。</p>
+<p>格式：  <code>ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;source path&gt;... &lt;dist path&gt;</code></p>
+<p><code>ADD</code>  允許我們的 source path 是一個 URL。</p>
+<p>此時， Docker 將會自動去網路上下載這個 URL 的文件到 dist path 中，並且文件權限自動設置為  <code>600</code>  。</p>
+<p>另外，如果下載的是一個壓縮檔，  <code>ADD</code>  會自動將其 <strong>解壓縮</strong> 。</p>
+<p>儘管  <code>ADD</code>  是如此方便，但也因為其過多的預設功能使其在 Docker 的官方文檔中推薦盡可能使用  <code>COPY</code>  而非  <code>ADD</code>  。除非在需要自動解壓縮檔案的場合才使用。</p>
+<h4 id="cmd"><a class="anchor" href="#cmd">#</a> <strong>CMD</strong></h4>
+<p><strong>CMD 指令與 RUN 相似，用於指定 Container 的啟動時首要執行的命令。</strong></p>
+<p>格式：  <code>CMD &lt;command&gt;</code>  或  <code>CMD [“command name”, argv1, argv2, …]</code></p>
+<p><img data-src="1*pN38vgdyQVMY7p6qqiijlQ.png" alt="" /></p>
+<p>以我們的範例來說，便是當 Container 啟動時，便會先行執行  <code>gunicorn -c gunicorn.py run:app</code>  這行 shell script。</p>
+<p>值得一提的是，CMD 可以在 RUN 一個 Container 時，以  <code>-it &lt;其他指令&gt;</code>  來取代掉。</p>
+<p>例如：若我們今天以  <code>docker run -it test_container bash</code>  啟動 Container 的話，我們將會直接進入到  <code>bash</code>  而非執行  <code>gunicorn</code>  。</p>
+<h4 id="env"><a class="anchor" href="#env">#</a> ENV</h4>
+<p><strong>設置環境變數</strong></p>
+<p>格式：  <code>ENV &lt;key&gt; &lt;value&gt;</code>  或是  <code>ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt; ...</code></p>
+<p><img data-src="1*roTHx2rfjh72h8kjVYHgWw.png" alt="" /></p>
+<p>若專案中有需要使用到環境變數，則可以使用此指令設置環境變數。</p>
+<h4 id="expose"><a class="anchor" href="#expose">#</a> <strong>EXPOSE</strong></h4>
+<p><strong>開放 PORT。</strong></p>
+<p>格式：  <code>Expose &lt;PORT1&gt; &lt;PORT2&gt; …</code></p>
+<p><img data-src="1*nMp8zL7zFOYYpOCYAKFfSg.png" alt="" /></p>
+<p><code>EXPOSE</code>  指令是宣告 Container 運行時對外可以使用哪些 PORT。</p>
+<p>這只是一個宣告，在運行時並不會因為這個宣告就讓專案開啟這些 PORT 的服務，一切還是以專案怎麼撰寫為主。</p>
+<p>要搞清楚的是，在運行 Container 時，所使用的  <code>-p &lt;host port&gt;:&lt;container port&gt;</code>  是映射 host 的 port 與 container 的 port，而  <code>EXPOSE</code>  僅是宣告 Container 打算使用什麼 PORT 。並不會自動映射到 host 的 port。</p>
+<h4 id="結語"><a class="anchor" href="#結語">#</a> 結語</h4>
+<p>本節中，我們以一個範例講述的 Dockerfile 如何撰寫。</p>
+<p>並且講述了每個指令的意義與使用方法。</p>
+<p>若是需要更加深入的撰寫教學，可以查看官網、或是此文隨附的參考目錄。</p>
+<p>應該可以對於 Dockerfile 有更深入的理解。</p>
+<p>下一篇我們將 <a href="https://z20240.github.io/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/"><strong>以一個小範例作為 Docker 操作的實戰講解</strong></a> 。</p>
+<h4 id="參考條目"><a class="anchor" href="#參考條目">#</a> 參考條目</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly95ZWFzeS5naXRib29rcy5pby9kb2NrZXJfcHJhY3RpY2Uv">Docker — 从入门到实践</span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5ydW5vb2IuY29tL2RvY2tlci9kb2NrZXItdHV0b3JpYWwuaHRtbA==">Docker 教程</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLw==">Dockerfile reference</span></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/dock/" rel="tag"><i class="ic i-tag"></i> dock</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:22" itemprop="dateModified" datetime="2022-12-28T18:36:22+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Tools/2019-05-10-docker-學習筆記-四-如何撰寫dockerfile/" class="item leancloud_visitors" data-flag-title="Docker 學習筆記 (四) — 如何撰寫Dockerfile" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">https://z20240.github.io/Tech/Tools/2019-05-10-docker-學習筆記-四-如何撰寫dockerfile/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Tools&#x2F;2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3&#x2F;1*wisYVqS_pLtGM796CCj_yQ.jpeg" title="Docker 學習筆記 — Docker指令使用講解">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Tools</span>
+  <h3>Docker 學習筆記 — Docker指令使用講解</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;vue&#x2F;2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B&#x2F;1*HI7gIGHGVIf6to0_1sNgYA.gif" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile"><span class="toc-number">1.</span> <span class="toc-text"> Docker 學習筆記 (四) — 如何撰寫 Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#docker-%E7%9A%84%E5%95%8F%E4%B8%96%E7%BF%BB%E8%BD%89%E4%BA%86%E4%BA%BA%E5%80%91%E5%B0%8D%E7%94%A8%E7%92%B0%E5%A2%83%E9%83%A8%E7%BD%B2%E8%88%87%E9%96%8B%E7%99%BC%E7%9A%84%E7%BF%92%E6%85%A3%E5%AD%B8%E6%9C%83-docker-%E7%B5%95%E5%B0%8D%E6%98%AF%E4%B8%80%E9%A0%85%E4%B8%8D%E8%99%A7%E6%9C%AC%E7%9A%84%E6%8A%95%E8%B3%87"><span class="toc-number">1.1.</span> <span class="toc-text"> Docker 的問世，翻轉了人們對用環境部署與開發的習慣，學會 Docker 絕對是一項不虧本的投資</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-%E4%BB%A3%E8%A1%A8%E8%A8%BB%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text"> #：使用 # 代表註解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#from"><span class="toc-number">1.3.</span> <span class="toc-text"> FROM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#workdir"><span class="toc-number">1.4.</span> <span class="toc-text"> WORKDIR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run"><span class="toc-number">1.5.</span> <span class="toc-text"> RUN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#copy"><span class="toc-number">1.6.</span> <span class="toc-text"> COPY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cmd"><span class="toc-number">1.7.</span> <span class="toc-text"> CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#env"><span class="toc-number">1.8.</span> <span class="toc-text"> ENV</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#expose"><span class="toc-number">1.9.</span> <span class="toc-text"> EXPOSE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">1.10.</span> <span class="toc-text"> 結語</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E6%A2%9D%E7%9B%AE"><span class="toc-number">1.11.</span> <span class="toc-text"> 參考條目</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" rel="bookmark" title="Vim 使用 Vimdiff 來比較 Git diff 的差異">Vim 使用 Vimdiff 來比較 Git diff 的差異</a></li><li><a href="/Tech/Tools/2018-11-22-vscode-%E4%BD%BF%E7%94%A8-settings-sync-%E5%90%8C%E6%AD%A5-vscode-%E7%9A%84%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD%E8%88%87%E5%90%84%E9%A0%85%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定">VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定</a></li><li><a href="/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/" rel="bookmark" title="工具tee 同時輸出訊息於Terminal 與指定檔案">工具tee 同時輸出訊息於Terminal 與指定檔案</a></li><li><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" rel="bookmark" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></li><li><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" rel="bookmark" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></li><li><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" rel="bookmark" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></li><li><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" rel="bookmark" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></li><li><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" rel="bookmark" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></li><li class="active"><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" rel="bookmark" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></li><li><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" rel="bookmark" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2018-12-14-%E9%97%9C%E6%96%BC%E7%B5%84%E7%B9%94%E6%A8%B9%E7%8B%80%E5%9C%96%E7%9A%84%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%96%B9%E6%B3%95/" title="關於組織樹狀圖的資料結構設計方法">關於組織樹狀圖的資料結構設計方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
+</div>
+
+    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Tools/2019-05-10-docker-學習筆記-四-如何撰寫dockerfile/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,631 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="html,frontend,emmet,vscode" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/">
+
+
+
+  <title>
+Front-end Emmet , 前端快速開發的神兵利器 - Frontend - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Front-end Emmet , 前端快速開發的神兵利器
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2021-02-09 17:41:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-02-09T17:41:20+08:00">2021-02-09</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/0*4D_q0c3hxHQcjjYE.gif">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Frontend/" itemprop="item" rel="index" title="In Frontend"><span itemprop="name">Frontend</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="front-end-emmet-前端快速開發的神兵利器"><a class="anchor" href="#front-end-emmet-前端快速開發的神兵利器">#</a> [Front-end] Emmet , 前端快速開發的神兵利器</h3>
+<h4 id="一個-snapchat-標準庫只需要少少的記憶就可以大大提升html-css-的撰寫效率"><a class="anchor" href="#一個-snapchat-標準庫只需要少少的記憶就可以大大提升html-css-的撰寫效率">#</a> 一個 Snapchat 標準庫，只需要少少的記憶，就可以大大提升 HTML、CSS 的撰寫效率</h4>
+<p>VSCode 最近的更版對於 Emmet 的支持更加完整了，因此決定來寫一篇文章介紹 Emmet 。</p>
+<p><img data-src="0*4D_q0c3hxHQcjjYE.gif" alt="[https://code.visualstudio.com/updates/v1_53](https://code.visualstudio.com/updates/v1_53)" /></p>
+<p>身為 web engineer ，在寫 HTML 的時候總是要打那煩人的左右角括號，並且還要在每個標籤結尾寫上結尾標籤，著實麻煩。</p>
+<p>emmet 就是為了我們這種懶人發明的一鍵 HTML 產生器！</p>
+<p>我們只需要依照著 Emmet 的規則，編寫我們想要的 html 結構，之後按下 「Tab」，Emmet 就會自動幫我產生相對應的 HTML Code ！</p>
+<p>就像上面的那張 GIF 展示的那樣～</p>
+<p><a target="_blank" rel="noopener" href="https://docs.emmet.io/"><strong>Emmet Documentation</strong></a><br />
+<a target="_blank" rel="noopener" href="https://docs.emmet.io/"><em>Emmet is a web-developer's toolkit that can greatly improve your HTML &amp; CSS workflow: Basically, most text editors out…</em> docs.emmet.io</a></p>
+<p>Emmet 的語法很簡單也不多，且很多規則跟 CSS 的選擇器語法很相近。對於會寫 CSS 的人來說，幾乎是無痛學習。</p>
+<p>以下就來針對 Emmet 的語法介紹一下。</p>
+<p><strong>元素標籤 + Tab</strong></p>
+<p>emmet 的使用方法就是，打好一串表達語法之後，按下「Tab」，就會自動轉換成相對應的 HTML 了。</p>
+<p><img data-src="1*4l8SN32JJqXAjF-RKnexwg.gif" alt="" /></p>
+<p><strong>使用 &quot;!&quot; 一鍵生成 HTML 結構</strong></p>
+<p>emmet 可以使用 &quot;!&quot; 一鍵生成 HTML Template，我們不用再自己從  <code>&lt;!DOCTYPE html&gt;</code>  開始一個字一個字敲打了。</p>
+<p><img data-src="1*bpP5Wasjp58bz3SeU2dT1g.gif" alt="" /></p>
+<p><strong>使用 &gt; 表示結構的「下一層」</strong></p>
+<p>像是 CSS 選擇器中，我們想要表達階層結構的時候，可以使用 &gt; 來選取子元素。Emmet 也可以使用 「&gt;」 來表示這種巢狀結構。</p>
+<p>例如：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div&gt;ul&gt;li</span><br></pre></td></tr></table></figure></p>
+<p>會展開成這樣<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;div&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*IutHuFaDKyL83MZuxHwXNA.gif" alt="" /></p>
+<p><strong>使用 *N 代表要重複 N 次</strong></p>
+<p>例如，我們可以使用  <code>li*5</code>  讓他自動重複 5 次，產生五個  <code>&lt;li&gt;&lt;/li&gt;</code></p>
+<p><img data-src="1*UyCQppxtpLwqyTFLijikdA.gif" alt="" /></p>
+<p><strong>使用 + 表示結構的「同一層」</strong></p>
+<p>通常一個標準的 html 頁面需要有 header, main, footer 。這時候就可以用 + 很簡單地產生。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header+main+footer</span><br></pre></td></tr></table></figure></p>
+<p>會展開成<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;&lt;/header&gt;</span><br><span class="line">&lt;main&gt;&lt;/main&gt;</span><br><span class="line">&lt;footer&gt;&lt;/footer&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*-JvloFLYjqUzfVfZjkCG5g.gif" alt="" /></p>
+<p><strong><em>綜合練習</em></strong></p>
+<p>如果我想要產生如下的結構，該怎麼寫呢？<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;&lt;/header&gt;</span><br><span class="line">&lt;main&gt;</span><br><span class="line">    &lt;article&gt;&lt;/article&gt;</span><br></pre></td></tr></table></figure></p>
+<p><em>寫法：  <code>header+main&gt;article+section*6</code> </em></p>
+<p><strong>使用 ^ 跳回上一層</strong></p>
+<p>我們可以使用 ^ 跳回到上一層，例如剛剛的例子，如果我們想要在  <code>main</code>  後面繼續接著寫 HTML 結構，我們就可以使用 ^ 來回到與 main 同一層的地方繼續往下串接我們的語法。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header+main&gt;article+section*6^footer</span><br></pre></td></tr></table></figure></p>
+<p>會展開成<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;&lt;/header&gt;</span><br><span class="line">&lt;main&gt;</span><br><span class="line">    &lt;article&gt;&lt;/article&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*rz00s3Dj25n2wbqTPovThQ.gif" alt="" /></p>
+<p>當然，如果我們想要往外多跳幾層，我們只需要多重複幾次 ^ 即可。</p>
+<p><img data-src="1*sF0HVT8G5gfOwiCeToBNCg.gif" alt="" /></p>
+<p><strong>使用 ( ) 將結構分塊，增加可讀性</strong></p>
+<p>由於 Emmet 的語法轉換器，是一次 parse 這一連串的字串，因此不允許語法中存在空格，但這也讓在撰寫這表達式的時候可讀性不佳。此時我們可以使用 ( ) 來為結構分塊。</p>
+<p>以上方的例子來說，我們就可以改寫成下方這樣<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header+(main&gt;nav&gt;ul&gt;li*4)+article+section*3+footer</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*c2jZ3I4MSQQAv8S2lGwHqw.gif" alt="" /></p>
+<p><strong>使用。表示 class / # 表示 ID / [] 表示其他屬性 / {} 表示標籤之間的內容</strong></p>
+<p>Emmet 一樣支援標籤內的屬性描述。</p>
+<p>例如最常見的 &lt;a&gt; 標籤，我們就可以給他額外的屬性<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.link#customLink[src=&#x27;test.png&#x27; alt=&#x27;test&#x27;]&#123;This is a test link&#125;</span><br></pre></td></tr></table></figure></p>
+<p>會自動展成這樣<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&quot; class=&quot;link&quot; id=&quot;customLink&quot; src=&quot;test.png&quot; alt=&quot;test&quot;&gt;This is a test link&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*xYvBbURns_-f3w08g1zVLg.gif" alt="" /></p>
+<p><strong>使用 $ 可以自動記數</strong></p>
+<p>有些時候，我們希望 class 的名稱能夠照著數字順序給，這個時候，可以使用 $ 讓他 auto incremental</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">li.class$*5</span><br></pre></td></tr></table></figure></p>
+<p>會展開成<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;li class=&quot;class1&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class2&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class3&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class4&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class5&quot;&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure></p>
+<p>當然我們也可以多給幾個 $，來代表要「幾位數」</p>
+<p><img data-src="1*A_2TRu4IpBPa6kiqKd5gEA.gif" alt="" /></p>
+<p><strong>使用 @ 給予起始值</strong></p>
+<p>剛剛的例子中，我們也可以不要從 1 開始，使用 @ 可以指定一個起始數字。</p>
+<p><img data-src="1*zYGPsvtn0yFucRQvweP-Ug.gif" alt="" /></p>
+<p><strong>使用 - 來倒著數回去</strong></p>
+<p>這基本上很少使用到，但是還是說一下。我們除了順著數，也可以倒著屬回去。</p>
+<p>一樣以剛剛的 li 為例，我們如果在 @ 後面多增加一個 「-」，就可以讓數字由大到小排列。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">li.class$@-10*30</span><br></pre></td></tr></table></figure></p>
+<p>會展開成<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;li class=&quot;class39&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class38&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class37&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class36&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class35&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class34&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class33&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class32&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class31&quot;&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class=&quot;class30&quot;&gt;&lt;/li&gt;</span><br><span class="line">....</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*ZVzYUKvGMGxVSMVBeFAM3Q.gif" alt="" /></p>
+<p>當然，我們也可以一般地使用 (不設定起始數字)</p>
+<p><img data-src="1*raTa4R7FKI8NlWqPNXw6Tg.gif" alt="1*raTa4R7FKI8NlWqPNXw6Tg.gif" /></p>
+<p>Emmet 的功能很強大，但是其實語法都是有邏輯可以依循的，學起來感覺並不會太困難。</p>
+<p>如果記不起來也沒關係，以下已經幫忙提供了一份小抄。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.emmet.io/cheat-sheet/"><strong>Emmet Documentation</strong></a></p>
+<h4 id="結語"><a class="anchor" href="#結語">#</a> 結語</h4>
+<p>Emmet 真的是懶人工程師的一大利器，我個人認為以這學習成本極低的情況，多了解一項也並非壞事。</p>
+<p>而且也僅需要敲打少少的文字，就能產生好整份 HTML 結構。真的是用過就回不去了！</p>
+<h4 id="參考資料"><a class="anchor" href="#參考資料">#</a> 參考資料</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmVtbWV0LmlvL2NoZWF0LXNoZWV0Lw==">https://docs.emmet.io/cheat-sheet/</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cud2Z1YmxvZy5jb20vMjAxNy8wOC9lbW1ldC1zdWJsaW1lLXRleHQuaHRtbA==">https://www.wfublog.com/2017/08/emmet-sublime-text.html</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9wamNoZW5kZXIuYmxvZ3Nwb3QuY29tLzIwMTYvMDcvZW1tZXQuaHRtbA==">https://pjchender.blogspot.com/2016/07/emmet.html</span></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/html/" rel="tag"><i class="ic i-tag"></i> html</a>
+          <a href="/tags/frontend/" rel="tag"><i class="ic i-tag"></i> frontend</a>
+          <a href="/tags/emmet/" rel="tag"><i class="ic i-tag"></i> emmet</a>
+          <a href="/tags/vscode/" rel="tag"><i class="ic i-tag"></i> vscode</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:21" itemprop="dateModified" datetime="2022-12-28T18:36:21+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Frontend/2021-02-09-front-end-emmet-前端快速開發的神兵利器/" class="item leancloud_visitors" data-flag-title="Front-end Emmet , 前端快速開發的神兵利器" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">https://z20240.github.io/Tech/Frontend/2021-02-09-front-end-emmet-前端快速開發的神兵利器/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Others&#x2F;2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F&#x2F;1*_SqNf0EQ2vCvFsO5eM2zvg.png" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Others</span>
+  <h3>Windows 手動移除「新增/移除程式」清單中無法被移除的程式</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Data%20Storage&#x2F;2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99&#x2F;1*5I9wbUun0tnHjHOiebc06Q.png" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Data Storage</span>
+  <h3>SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text"> [Front-end] Emmet , 前端快速開發的神兵利器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%80%8B-snapchat-%E6%A8%99%E6%BA%96%E5%BA%AB%E5%8F%AA%E9%9C%80%E8%A6%81%E5%B0%91%E5%B0%91%E7%9A%84%E8%A8%98%E6%86%B6%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%A4%A7%E5%A4%A7%E6%8F%90%E5%8D%87html-css-%E7%9A%84%E6%92%B0%E5%AF%AB%E6%95%88%E7%8E%87"><span class="toc-number">1.1.</span> <span class="toc-text"> 一個 Snapchat 標準庫，只需要少少的記憶，就可以大大提升 HTML、CSS 的撰寫效率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">1.2.</span> <span class="toc-text"> 結語</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">1.3.</span> <span class="toc-text"> 參考資料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Vue-Cli 自定義全局功能的方法">Vue-Cli 自定義全局功能的方法</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></li><li><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" rel="bookmark" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" rel="bookmark" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></li><li><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" rel="bookmark" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></li><li><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" rel="bookmark" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">Javascript 使用 Array.Reduce 進行 Object Array 的加總</a></li><li><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" rel="bookmark" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></li><li><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" rel="bookmark" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></li><li><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" rel="bookmark" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></li><li><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" rel="bookmark" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></li><li><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" rel="bookmark" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></li><li><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" rel="bookmark" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></li><li><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" rel="bookmark" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></li><li><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" rel="bookmark" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></li><li><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" rel="bookmark" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></li><li><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" rel="bookmark" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></li><li><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" rel="bookmark" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></li><li><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" rel="bookmark" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></li><li><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" rel="bookmark" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></li><li><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" rel="bookmark" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></li><li class="active"><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" rel="bookmark" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></li><li><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" rel="bookmark" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></li><li><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" rel="bookmark" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" title="GIT 關於 GIT 的 ^M 的二三事">GIT 關於 GIT 的 ^M 的二三事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Frontend/2021-02-09-front-end-emmet-前端快速開發的神兵利器/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="nodejs,javascript,point-free-style" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/">
+
+
+
+  <title>
+Javascript Point Free Style 如何幫助提高程式可讀性 - Frontend - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Javascript Point Free Style 如何幫助提高程式可讀性
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2019-12-31 00:46:47">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2019-12-31T00:46:47+08:00">2019-12-31</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/1*8uA0qRUuqy6G7qMJhLbKnw.jpeg">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Frontend/" itemprop="item" rel="index" title="In Frontend"><span itemprop="name">Frontend</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="javascript-point-free-style-如何幫助提高程式可讀性"><a class="anchor" href="#javascript-point-free-style-如何幫助提高程式可讀性">#</a> [Javascript] Point Free Style 如何幫助提高程式可讀性</h3>
+<h4 id="將資料流從程式行為中分離出來讓焦點更關注在做什麼而非怎麼做"><a class="anchor" href="#將資料流從程式行為中分離出來讓焦點更關注在做什麼而非怎麼做">#</a> 將資料流從程式行為中分離出來，讓焦點更關注在「做什麼」，而非「怎麼做」</h4>
+<p><img data-src="1*8uA0qRUuqy6G7qMJhLbKnw.jpeg" alt="[https://www.lynda.com/JavaScript-tutorials/goal-functional-programming/5026559/2215970-4.html](https://www.lynda.com/JavaScript-tutorials/goal-functional-programming/5026559/2215970-4.html)" /></p>
+<p>前些日子我寫了篇關於 functional programming 的文章 <strong>( <a href="javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84-95ff19d9892">Functional Programming 一文到底全紀錄</a> )</strong> ，講述了當時對 FP 的學習心得，與在實務中應用後的一些想法。</p>
+<p>之後陸陸續續收到了一些反饋，有人詢問：「FP 能做的事情，現在 OOP 都做得很好，什麼情況下需要用到 FP？」</p>
+<p>關於這個問題，我的回答總是 FP 準則中的「避免副作用」、「一個 Function 只做一件事情」、「以 Function 為程式的最小單位」能使我們只需要關注 Function 的正確性即可，讓程式更佳可讀、更易維護。</p>
+<h4 id="point-free-style"><a class="anchor" href="#point-free-style">#</a> Point Free Style</h4>
+<p>如果你用中文搜尋 point free 相關的網站，可能會發現資料少得可憐，比較有系統的大概就是 <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2017/03/pointfree.html"><strong>阮一峰的一篇文章</strong></a> ，我很推薦他的這篇，淺顯易懂的將 point free 的核心觀念帶出來。</p>
+<p><em>那什麼是 point free style 呢？</em></p>
+<p>用我的話來說，我會這樣解釋</p>
+<blockquote>
+<p>point free style 是 FP 的應用；我們使用各種事先定義好的 function 組合出我們要做的事情，這些 function 都不牽涉到數據的處理。<br />
+數據流與程式行為 <strong>分離</strong> 開來，使我們只關注在 <strong>做什麼</strong> ，而非 <strong>怎麼做</strong> (如何處理數據)。<br />
+簡單的說就是：「 <strong>point free 沒有再跟你說資料長怎樣的</strong> 。」</p>
+</blockquote>
+<p><strong>程式的行為怎麼可能不看數據做事？</strong></p>
+<p>這聽起來很玄幻，但是藉由 FP 的觀念，一步一步的 Refactor 我們的 Code 是可以做到的。</p>
+<p>舉一個小小的例子作為前菜</p>
+<p>我們首先定義一些通用的 function<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">filter</span> = f =&gt; <span class="function"><span class="params">l</span> =&gt;</span> l.<span class="title function_">filter</span>(f);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">map</span> = f =&gt; <span class="function"><span class="params">l</span> =&gt;</span> l.<span class="title function_">map</span>(f);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">prop</span> = p =&gt; <span class="function"><span class="params">obj</span> =&gt;</span> obj[p]; <span class="comment">// 取得 obj 的 props</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">pipe</span> = (<span class="params">...fns</span>) =&gt; <span class="function"><span class="params">x</span> =&gt;</span> fns.<span class="title function_">reduce</span>(<span class="function">(<span class="params">v, f</span>) =&gt;</span> <span class="title function_">f</span>(v), x);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>假設我想從公司人員列表中找出 <strong>員工</strong> 的名單：<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定義確認是否為 employee 的 function</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isEmployee</span> = x =&gt; x === <span class="string">&#x27;employee&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取得人員的 role</span></span><br><span class="line"><span class="keyword">const</span> propRole = <span class="title function_">prop</span>(<span class="string">&#x27;role&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 找出員工的名單</span></span><br><span class="line"><span class="keyword">const</span> getEmployee = <span class="title function_">filter</span>(<span class="title function_">pipe</span>(propRole, isEmployee));</span><br></pre></td></tr></table></figure></p>
+<p>如此，當我的人員列表傳入  <code>getEmployee</code>  時，我便可以自動從中找出  <code>role === 'employee'</code>  的人員。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const data = [</span><br><span class="line">    &#123;name: &quot;小明&quot;, role: &quot;employee&quot;&#125;,</span><br><span class="line">    &#123;name: &quot;小華&quot;, role: &quot;employee&quot;&#125;,</span><br><span class="line">    &#123;name: &quot;小英&quot;, role: &quot;employee&quot;&#125;,</span><br><span class="line">    &#123;name: &quot;小藍&quot;, role: &quot;employee&quot;&#125;,</span><br><span class="line">    &#123;name: &quot;大板&quot;, role: &quot;admin&quot;&#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>看到了嗎？ 我們在撰寫程式時，並不管 data 的資料型態與結構，一切等到資料來了，丟進去 function 即可。</p>
+<p>這樣有什麼好處？</p>
+<p>我們看看  <code>getEmployee</code> <br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const getEmployee = filter(</span><br><span class="line">    pipe(</span><br><span class="line">        propRole,   // 取得公司人員的 `role`</span><br><span class="line">        isEmployee  // 檢查是否是員工</span><br><span class="line">    )</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>淺顯易懂、清晰直白。</p>
+</blockquote>
+<p>利用 point free ，藉由將 data flow 抽離出來，我們可以更加關注在程式本身想表達的含意中。</p>
+<h4 id="如何以-point-free-方式思考"><a class="anchor" href="#如何以-point-free-方式思考">#</a> 如何以 point free 方式思考</h4>
+<p>我們舉一個比較貼近實務可能會碰到的例子。例如公司要計算某產品 A 當年度 (2019 年 01 月 01 日～12 月 31 日) 的總銷售量，資料如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var data = [</span><br><span class="line">    &#123; date: &quot;2018-01-01&quot;, item: &quot;A&quot;, amount: 5 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-01-11&quot;, item: &quot;B&quot;, amount: 10 &#125;,</span><br><span class="line">    &#123; date: &quot;2018-02-05&quot;, item: &quot;C&quot;, amount: 3 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-03-21&quot;, item: &quot;A&quot;, amount: 1 &#125;,</span><br><span class="line">    &#123; date: &quot;2018-04-18&quot;, item: &quot;B&quot;, amount: 522 &#125;,</span><br><span class="line">    &#123; date: &quot;2017-01-01&quot;, item: &quot;C&quot;, amount: 51 &#125;,</span><br><span class="line">    &#123; date: &quot;2016-01-13&quot;, item: &quot;A&quot;, amount: 4 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-01-18&quot;, item: &quot;A&quot;, amount: 345 &#125;,</span><br><span class="line">    &#123; date: &quot;2018-12-18&quot;, item: &quot;B&quot;, amount: 7 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-11-24&quot;, item: &quot;B&quot;, amount: 64 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-07-15&quot;, item: &quot;C&quot;, amount: 22 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-06-25&quot;, item: &quot;A&quot;, amount: 546 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-04-04&quot;, item: &quot;C&quot;, amount: 234 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-05-07&quot;, item: &quot;B&quot;, amount: 1111 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-07-15&quot;, item: &quot;A&quot;, amount: 236 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-10-16&quot;, item: &quot;B&quot;, amount: 81 &#125;,</span><br><span class="line">    &#123; date: &quot;2019-11-20&quot;, item: &quot;A&quot;, amount: 90 &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>依照一般程式撰寫邏輯，可能會寫成這樣<br />
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> total = <span class="number">0</span>;</span><br><span class="line">data.<span class="title function_">forEach</span>(<span class="function"><span class="params">row</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">new</span> <span class="title class_">Date</span>(row.<span class="property">date</span>) &gt; <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-12-31&quot;</span>) || <span class="keyword">new</span> <span class="title class_">Date</span>(row.<span class="property">date</span>) &lt; <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-01-01&quot;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (row.<span class="property">item</span> !== <span class="string">&#x27;A&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    total += row.<span class="property">amount</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// total = 1218</span></span><br></pre></td></tr></table></figure></p>
+<p>這個寫法也沒什麼不好，它很忠實地完成了我們需要的任務。但是我們無法一眼就看出 <strong>這段 Code 在做什麼</strong> ，我們需要去讀裡面的程式邏輯，才能進一步知道這是在計算 A 產品的當年度營銷總數。</p>
+<p>另外，由於 <strong>total</strong> 這個變數在迴圈外被定義，但是更動卻被隱藏在迴圈當中，我們難以一眼就將焦點關注到 total — 這段 code 的結果 (變數的隱匿性)。這也造成程式難以追蹤跟維護 (具有副作用)。</p>
+<p>因此下一步，我們利用 FP 的觀念將程式重構。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定義是否為當年度的資料</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isInYear</span> = row =&gt; <span class="keyword">new</span> <span class="title class_">Date</span>(row.<span class="property">date</span>) &lt;= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-12-31&quot;</span>) &amp;&amp; <span class="keyword">new</span> <span class="title class_">Date</span>(row.<span class="property">date</span>) &gt;= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-01-01&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isItemA</span> = row =&gt; row.<span class="property">item</span> === <span class="string">&#x27;A&#x27;</span>; <span class="comment">// 定義是否為 A 貨物</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getAmount</span> = row =&gt; row.<span class="property">amount</span>; <span class="comment">// 獲得 row 的數量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum</span> = (<span class="params">total, num</span>) =&gt; total + num; <span class="comment">// 將營銷數量佳總</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> total = data.<span class="title function_">filter</span>(<span class="function"><span class="params">row</span> =&gt;</span> <span class="title function_">isInYear</span>(row) &amp;&amp; <span class="title function_">isItemA</span>(row))</span><br><span class="line">                .<span class="title function_">map</span>(getAmount)</span><br><span class="line">                .<span class="title function_">reduce</span>(sum, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// total = 1218</span></span><br></pre></td></tr></table></figure></p>
+<p>重構完後，我們一眼就可以知道 <strong>total 是我們最終求得的結果</strong> ，並且我們可以很清楚地知道程式流程為</p>
+<ol>
+<li>filter 找出在此年度 (isInYear) 與是 Item A (isItemA) 的資料</li>
+<li>擷取出資料的  <code>amount</code></li>
+<li>加總後得到我們要的結果。</li>
+</ol>
+<p>到這一步，其實程式也已經具有很高的可讀性了。唯一的遺憾是在這段，我們需要費一點功夫才能知道它想表達的是什麼。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data</span><br><span class="line">.filter(row =&gt; isInYear(row) &amp;&amp; isItemA(row))</span><br><span class="line">.map(getAmount).reduce(sum, 0);</span><br></pre></td></tr></table></figure></p>
+<p><strong>若是以 point free 來改寫會變成什麼樣子呢？</strong></p>
+<p>我們利用上方已經定義好地 General function，如此就不用重新定義了。</p>
+<p>首先我們將剛剛的程式邏輯中，碰到資料處理的部分細拆出來。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> propDate = <span class="title function_">prop</span>(<span class="string">&#x27;date&#x27;</span>);  <span class="comment">// 取得 date</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> propItem = <span class="title function_">prop</span>(<span class="string">&#x27;item&#x27;</span>);  <span class="comment">// 取得 item</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> propAmount = <span class="title function_">prop</span>(<span class="string">&#x27;amount&#x27;</span>); <span class="comment">// 取得 amount</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title function_">isInYear</span> = x =&gt; <span class="keyword">new</span> <span class="title class_">Date</span>(x) &lt;= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-12-31&quot;</span>) &amp;&amp; <span class="keyword">new</span> <span class="title class_">Date</span>(x) &gt;= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;2019-01-01&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title function_">isA</span> = x =&gt; x === <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="title function_">sum</span> = (<span class="params">s, n</span>) =&gt; s + n;</span><br></pre></td></tr></table></figure></p>
+<p>接下來，我們就可以利用這些 function 組合出我們要的  <code>get_item_A_in_year</code>  了。<br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> get_item_A_in_year = <span class="title function_">pipe</span>(</span><br><span class="line">    <span class="title function_">filter</span>( <span class="title function_">and</span>(</span><br><span class="line">          <span class="title function_">pipe</span>(propDate, isInYear),</span><br><span class="line">          <span class="title function_">pipe</span>(propItem, isA),</span><br><span class="line">    )),</span><br><span class="line">    <span class="title function_">map</span>(propAmount),</span><br><span class="line">    <span class="title function_">reduce</span>(sum, <span class="number">0</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> total = <span class="title function_">getItemAInYear</span>(data); <span class="comment">// total = 1218</span></span><br></pre></td></tr></table></figure></p>
+<p>我們可以看到  <code>getItemAInYear</code>  並沒有依賴任何 data 的資料結構，我們完全關注在它要做什麼事情。</p>
+<p>但是這種寫法其實看得也是挺痛苦的，所以我們可以再進一步優化， <em>將上面的邏輯再抽象出來。</em><br />
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isDateInYear = <span class="title function_">pipe</span>(propDate, isInYear);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isItemA = <span class="title function_">pipe</span>(propItem, isA);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filterIsItemAInYear = <span class="title function_">filter</span>(<span class="title function_">and</span>(isDateInYear, isItemA));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getAmount = <span class="title function_">map</span>(propAmount);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sumTotal = <span class="title function_">reduce</span>(sum, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p>最終，我們利用上方定義好的各種 function ，組合出  <code>getItemAInYear</code> <br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const getItemAInYear = pipe(</span><br><span class="line">    filterIsItemAInYear, // 過濾出在此年的 Item A</span><br><span class="line">    getAmount,           // 獲得數量</span><br><span class="line">    sumTotal             // 加總</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>到這步，有沒有覺得比起最初單純使用 for loop 的程式更加地直觀，且易讀又乾淨呢？</p>
+<p><strong>順便附上完整的程式碼</strong></p>
+<p><img data-src="1*itAJHMwn0D-DpWte_sFMxA.png" alt="" /></p>
+<h4 id="總結"><a class="anchor" href="#總結">#</a> 總結</h4>
+<p>point free style 的程式方式，是將 functional programming 的精神貫徹的更加徹底。</p>
+<p>從上方兩個例子，我們可以很清楚發現，point free 真正做到「function 為最小單位」、「一個 function 只做一件事情」，將 FP 的程式撰寫精神最大化。</p>
+<p>我個人認為 functional programming 的思維方式是需要訓練的。能否靈活地使用 point free 解決問題，體現出撰寫者對 FP 的熟悉程度。</p>
+<p>命令式的程式撰寫可以很容易地解決問題；但是聲明式的程式撰寫風格除了將問題解決之外，更讓程式變得易讀、易維護，並精準地傳達撰寫者的思想。</p>
+<p>由此可知，同樣的一件事情從 FP 的角度思考，與命令式程式那樣地平直思考，兩者的程式風格便有著天壤之別。</p>
+<p>至於哪種方式更讓人喜愛或接受，就看各位怎麼看待了。</p>
+<p>另外在看完上面的例子之後，應該會有不少人人產生「我只是想要做一個簡單的事情，卻要搞這麼多 Function，將事情變得這麼複雜」這樣的想法。</p>
+<p>在 NPM 上有一個 Library 叫做 <a target="_blank" rel="noopener" href="https://ramdajs.com/"><strong>Ramda</strong></a> ，這是一套 <strong>專為 Javascript Functional Programming 設計的 General Library</strong> 。只要 Import 這套 Library 之後，我們就不用再額外自己手刻 general function 囉！</p>
+<h4 id="參考"><a class="anchor" href="#參考">#</a> 參考</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cucnVhbnlpZmVuZy5jb20vYmxvZy8yMDE3LzAzL3BvaW50ZnJlZS5odG1s">Pointfree 编程风格指南</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mci51bWlvLnVzL2Zhdm9yaW5nLWN1cnJ5Lw==">Favoring Curry</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sdWNhc21yZWlzLmdpdGh1Yi5pby9ibG9nL3BvaW50ZnJlZS1qYXZhc2NyaXB0Lw==">Pointfree Javascript</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0BqZXN0ZXJ4bC9yZWFsLXdvcmxkLXVzZXMtb2YtdGFjaXQtcHJvZ3JhbW1pbmctcGFydC0xLW9mLTItZjJhMGMzZjllMDBj">Real World Uses of Tacit Programming</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qaWdzYXd5ZS5naXRib29rcy5pby9tb3N0bHktYWRlcXVhdGUtZ3VpZGUvY2g1Lmh0bWwjcG9pbnRmcmVl">Javascript Functional Programming 指南</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OTE4ZjI5ZjJmMzAxZTAwNmJhZjFkODY=">编码如作文：写出高可读 JS 的 7 条原则</span></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
+          <a href="/tags/javascript/" rel="tag"><i class="ic i-tag"></i> javascript</a>
+          <a href="/tags/point-free-style/" rel="tag"><i class="ic i-tag"></i> point-free-style</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:21" itemprop="dateModified" datetime="2022-12-28T18:36:21+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/Frontend/2019-12-30-javascript-point-free-style-如何幫助提高程式可讀性/" class="item leancloud_visitors" data-flag-title="Javascript Point Free Style 如何幫助提高程式可讀性" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" title="Javascript Point Free Style 如何幫助提高程式可讀性">https://z20240.github.io/Tech/Frontend/2019-12-30-javascript-point-free-style-如何幫助提高程式可讀性/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;vue&#x2F;2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84&#x2F;0*dbUWK1RBu1Gi0dfU.png" title="Vue 聰明使用 keep-alive 達到 Cache 目的">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>Vue 聰明使用 keep-alive 達到 Cache 目的</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel&#x2F;1*wZSJVMQEhojzrH8_U6GGzg.png" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Frontend</span>
+  <h3>Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text"> [Javascript] Point Free Style 如何幫助提高程式可讀性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E8%B3%87%E6%96%99%E6%B5%81%E5%BE%9E%E7%A8%8B%E5%BC%8F%E8%A1%8C%E7%82%BA%E4%B8%AD%E5%88%86%E9%9B%A2%E5%87%BA%E4%BE%86%E8%AE%93%E7%84%A6%E9%BB%9E%E6%9B%B4%E9%97%9C%E6%B3%A8%E5%9C%A8%E5%81%9A%E4%BB%80%E9%BA%BC%E8%80%8C%E9%9D%9E%E6%80%8E%E9%BA%BC%E5%81%9A"><span class="toc-number">1.1.</span> <span class="toc-text"> 將資料流從程式行為中分離出來，讓焦點更關注在「做什麼」，而非「怎麼做」</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#point-free-style"><span class="toc-number">1.2.</span> <span class="toc-text"> Point Free Style</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BB%A5-point-free-%E6%96%B9%E5%BC%8F%E6%80%9D%E8%80%83"><span class="toc-number">1.3.</span> <span class="toc-text"> 如何以 point free 方式思考</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">1.4.</span> <span class="toc-text"> 總結</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%83%E8%80%83"><span class="toc-number">1.5.</span> <span class="toc-text"> 參考</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Vue-Cli 自定義全局功能的方法">Vue-Cli 自定義全局功能的方法</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" rel="bookmark" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></li><li><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" rel="bookmark" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></li><li><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" rel="bookmark" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></li><li><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" rel="bookmark" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></li><li><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" rel="bookmark" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">Javascript 使用 Array.Reduce 進行 Object Array 的加總</a></li><li><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" rel="bookmark" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></li><li><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" rel="bookmark" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></li><li><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" rel="bookmark" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></li><li><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" rel="bookmark" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></li><li><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" rel="bookmark" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></li><li><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" rel="bookmark" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></li><li><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" rel="bookmark" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></li><li><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" rel="bookmark" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></li><li><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" rel="bookmark" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></li><li class="active"><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" rel="bookmark" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></li><li><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" rel="bookmark" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></li><li><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" rel="bookmark" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></li><li><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" rel="bookmark" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></li><li><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" rel="bookmark" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></li><li><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" rel="bookmark" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></li><li><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" rel="bookmark" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></li><li><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" rel="bookmark" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
+</div>
+
+    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/" title="MongoDB 如何 Auto increment 地插入資料">MongoDB 如何 Auto increment 地插入資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+</div>
+
+    <span><a href="/Life/2018-11-20-acoustune-hs-1670ss-%E9%96%8B%E7%AE%B1/" title="Acoustune HS 1670ss 開箱">Acoustune HS 1670ss 開箱</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/Frontend/2019-12-30-javascript-point-free-style-如何幫助提高程式可讀性/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

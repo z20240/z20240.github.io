@@ -1,0 +1,605 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="php,laravel,docker" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/">
+
+
+
+  <title>
+Laravel + Docker 輕鬆上手 - PHP - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Laravel + Docker 輕鬆上手
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2019-08-30 16:47:53">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2019-08-30T16:47:53+08:00">2019-08-30</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/1*94J9E4eYD8h3We44b-ZWjg.png">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/PHP/" itemprop="item" rel="index" title="In PHP"><span itemprop="name">PHP</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="laravel-docker-輕鬆上手"><a class="anchor" href="#laravel-docker-輕鬆上手">#</a> Laravel + Docker 輕鬆上手</h3>
+<p><img data-src="1*94J9E4eYD8h3We44b-ZWjg.png" alt="" /></p>
+<p>laravel 是 PHP 環境中很受歡迎的框架之一。然而其安裝時對環境要求嚴格，對於初入門來說門檻有點高。</p>
+<p>在 Docker 問世之後，有人便將 Laravel 完整的 Docker 化了。今天要介紹的便是這樣一套方便好用的開發工具 — <strong>LaraDock。</strong></p>
+<p>Laradock 將 Laravel 開發環境完整 docker 化，我們僅需要  <code>git clone</code>  這個 repo 下來，設定好適合自己的環境變數，即可架設起 Laravel 專案。</p>
+<h4 id="建立-laradock"><a class="anchor" href="#建立-laradock">#</a> 建立 Laradock</h4>
+<p><a target="_blank" rel="noopener" href="http://laradock.io/"><strong><em>官網連結</em></strong></a></p>
+<p>首先我們使用以下指令將 laradock 的 repo clone 下來。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Laradock/laradock.git Laradock</span><br></pre></td></tr></table></figure></p>
+<p>你會發現裡面滿滿的是各種 .yml 檔。這是因為 laradock 是使用「docker-compose」將不同的服務給串聯起來。因此，如果你電腦裡面沒有「docker-compose」，可以先到 <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/"><strong>這邊</strong></a> 安裝。</p>
+<p>Laradock 是很完整的 PHP 解決方案，無論你是習慣使用 apache2 還是 nginx、喜歡 mysql 或是 postgresql，它都已經包羅近來了。甚至連 redis, rabbitMQ 這些常用的緩存技術，也都為你設想到了。</p>
+<p><img data-src="1*iHhs8cxEwQAzFLScQ8wfCw.png" alt="laradock 專案包含了所有常用 php 相關服務的 docker 設定，幾乎都為我們設想好了" /></p>
+<p>laradock 專案包含了所有常用 php 相關服務的 docker 設定，幾乎都為我們設想好了</p>
+<p>它最初僅是專門為 Laravel Docker 化，然而時至今日，它已經能支援了絕大多數的 PHP 框架，我們僅需要設定好環境參數即可。</p>
+<p>在 laradock 資料夾中找到  <code>env-example</code>  並且複製一份更名為 <strong>.env 。</strong> 這就是我們的環境設定檔。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp env-example .env</span><br></pre></td></tr></table></figure></p>
+<p>接下來打開 <strong>.env</strong> 我們注意到以下幾個設定</p>
+<p><img data-src="1*4yRYoTkSKksHgcmuK3yYng.png" alt="" /></p>
+<p>其中：</p>
+<ul>
+<li>APP_CODE_PATH_HOST：設定你的 laravel 專案要存放的位置在哪裡。(我這邊的例子是放在跟 laradock 專案同一個層級的 project 資料夾中)</li>
+<li>APP_CODE_PATH_CONTAINER：設定你的專案要同步到「 <strong>container 內</strong> 」的哪個路徑，預設都是放在  <code>/var/www</code>  下面。</li>
+<li>DATA_PATH_HOST：設定你的儲存資料 (ex. database, redis 內的數據) 要存放在哪。(我這邊的例子是放在跟 laradock 專案同層級的 data 資料夾中)</li>
+</ul>
+<p>以上這些都設定完之後，我們就可以啟動 Laradock 了。</p>
+<p>使用以下指令指定啟動包含「nginx」與「mysql」的 laradock。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d nginx mysql</span><br></pre></td></tr></table></figure></p>
+<p>我們不用特別指定啟動「php-fpm」，因為 Laradock 會自己啟動包括 php-fpm 在內的  <code>php-fpm</code>  及  <code>workspace</code>  。</p>
+<h4 id="創建laravel專案"><a class="anchor" href="#創建laravel專案">#</a> 創建 Laravel 專案</h4>
+<p>在 laradock 啟動之後，會幫我們創建一個  <code>workspace</code>  。我們可以使用以下指令進入 workspace 的 docker 內。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose exec workspace bash</span><br></pre></td></tr></table></figure></p>
+<p>進入後，你應該會發現自己在  <code>/var/www</code>  中</p>
+<p><img data-src="1*BwGaFoUkllhXjCRDMS4Xng.png" alt="" /></p>
+<p>此時的  <code>/var/www</code>  是連接外部  <code>../project</code>  資料夾。</p>
+<p>在這個環境中，已經裝好了 Laravel 所需的一切環境。因此我們可以直接使用以下指令創建我們的 Laravel 專案<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel/laravel --prefer-dist project_Name</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*qddAOC4j8pHKlqOIZjyTEQ.png" alt="" /></p>
+<p>待一段時間的安裝完成後，即可在  <code>/var/www</code>  中與  <code>project</code>  資料夾中看到我們的 Laravel 專案。</p>
+<p><img data-src="1*M1gDrUe-uKcF1KQ3r9sVLA.png" alt="" /></p>
+<h4 id="設定-nginx"><a class="anchor" href="#設定-nginx">#</a> 設定 NGINX</h4>
+<p>有了 Laravel 專案，我們接下來要設定 nginx ，使其能夠連到我們的 Laravel 中。</p>
+<p>在  <code>Laradock/nginx/sites</code>  資料夾中，找到  <code>laravel.conf.example</code>  並且複製一份，隨自己喜好命名。此處我們命名為 <strong>laravel.test.conf</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Laradock/nginx/sites</span><br><span class="line">cp laravel.conf.example laravel.test.conf</span><br></pre></td></tr></table></figure></p>
+<p>注意到紅框處，我們要將其設定為我們 Laravel 專案的路徑。</p>
+<p>其中：</p>
+<ul>
+<li>server_name：代表你的網站的 domain，以本例子來說，我依照 laradock 的預設使用  <code>laravel.test</code>  代表，之後我們希望使用  <code>http://laravel.test</code>  連到我們的網站。</li>
+<li>root：網站的進入點，我們設定在 laravel 專案中的 public。</li>
+</ul>
+<p><img data-src="1*Pv5gP1lwf4KlQL_IUBeI_Q.png" alt="" /></p>
+<h4 id="設定-hosts"><a class="anchor" href="#設定-hosts">#</a> 設定 hosts</h4>
+<p>由於我們剛剛自訂了一個 <strong>laravel.test</strong> 的網址。我們要讓本機知道此網址其實就是 <strong>localhost</strong> 。因此我們必須在 /etc/hosts 中增加以下這行 (需要管理者權限)。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 laravel.test</span><br></pre></td></tr></table></figure></p>
+<p><em>註：windows 的 hosts 放置於  <code>C:\Windows\System32\drivers\etc\hosts</code> </em></p>
+<p>以上都完成後，我們重啟 laradock 將剛剛的設定全部套用。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d nginx mysql</span><br></pre></td></tr></table></figure></p>
+<p>開啟瀏覽器，應該就能看到 Laravel 專案的起始樣子囉！</p>
+<p><em>p.s. 我的專案故意將 port 開在 8000，因此需要加上 port 號。</em></p>
+<p><img data-src="1*wDUHaXNQ0yuWN_et9wiNAQ.png" alt="" /></p>
+<h4 id="參考"><a class="anchor" href="#參考">#</a> 參考</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cDovL2xhcmFkb2NrLmlvLw==">http://laradock.io/</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDE5NDEyNw==">https://ithelp.ithome.com.tw/articles/10194127</span></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/php/" rel="tag"><i class="ic i-tag"></i> php</a>
+          <a href="/tags/laravel/" rel="tag"><i class="ic i-tag"></i> laravel</a>
+          <a href="/tags/docker/" rel="tag"><i class="ic i-tag"></i> docker</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:22" itemprop="dateModified" datetime="2022-12-28T18:36:22+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/PHP/2019-08-30-laravel-docker-輕鬆上手/" class="item leancloud_visitors" data-flag-title="Laravel + Docker 輕鬆上手" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">https://z20240.github.io/Tech/PHP/2019-08-30-laravel-docker-輕鬆上手/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;NodeJs&#x2F;2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command&#x2F;0*PFzkc5fnQd1dUylp.png" title="Node 使用 NodeJS 製作自己的 Shell Command">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> NodeJs</span>
+  <h3>Node 使用 NodeJS 製作自己的 Shell Command</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;PHP&#x2F;2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock&#x2F;1*vKDcfdI_pOPOGEa7EIvfaw.png" title="設定 VSCode XDebug Laradock">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> PHP</span>
+  <h3>設定 VSCode XDebug Laradock</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B"><span class="toc-number">1.</span> <span class="toc-text"> Laravel + Docker 輕鬆上手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-laradock"><span class="toc-number">1.1.</span> <span class="toc-text"> 建立 Laradock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%B5%E5%BB%BAlaravel%E5%B0%88%E6%A1%88"><span class="toc-number">1.2.</span> <span class="toc-text"> 創建 Laravel 專案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-nginx"><span class="toc-number">1.3.</span> <span class="toc-text"> 設定 NGINX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-hosts"><span class="toc-number">1.4.</span> <span class="toc-text"> 設定 hosts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%83%E8%80%83"><span class="toc-number">1.5.</span> <span class="toc-text"> 參考</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" rel="bookmark" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></li><li><a href="/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/" rel="bookmark" title="WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug">WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug</a></li><li class="active"><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></li><li><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" rel="bookmark" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2022-10-08-sql-postgres-%E9%81%87%E5%88%B0-out-of-shared-memory-%E5%95%8F%E9%A1%8C/" title="SQL Postgres 遇到 out of shared memory 問題">SQL Postgres 遇到 out of shared memory 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/" title="告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)">告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/PHP/2019-08-30-laravel-docker-輕鬆上手/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,638 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+<meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Les's Blog" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Les's Blog" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Les's Blog" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="php,wsl,windows" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/">
+
+
+
+  <title>
+WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug - PHP - Tech |
+Les's Blog</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2019-03-20 03:38:19">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2019-03-20T03:38:19+08:00">2019-03-20</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Les's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+          <img src="/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/1*VW_857h5A2v7f_4NvAwPiQ.png">
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/PHP/" itemprop="item" rel="index" title="In PHP"><span itemprop="name">PHP</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Les's Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug"><a class="anchor" href="#wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug">#</a> WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug</h3>
+<h4 id="當-windows-擁有了-linux-mac-osx-還會是對手嗎"><a class="anchor" href="#當-windows-擁有了-linux-mac-osx-還會是對手嗎">#</a> 當 Windows 擁有了 Linux ，Mac OSX 還會是對手嗎？</h4>
+<p><img data-src="1*VW_857h5A2v7f_4NvAwPiQ.png" alt="," /></p>
+<p>,</p>
+<p>Windows 10 的問世，迎來了一項革命性的功能 —Windows Subsystem for Linux 簡稱 WSL。</p>
+<p>這個功能可以讓我們可以不須再使用 Virtual Box 等虛擬機安裝 Linux 系統，直接在 Windows 上執行 Linux 環境。</p>
+<p>由於 WSL 採用系統核心 API 轉譯的方式執行，所以我們可以像使用原生 Linux 一般地使用 WSL 。</p>
+<p>另外，雖然兩個環境互相獨立，但是我們依然可以通過特定的路徑自由地在兩地相互存取各自的檔案內容。因此經過適當的環境配置，便可以做到  <code>在A地開發，在B地調試</code>  的效果。</p>
+<p>這對於習於使用 Linux 的開發者來說真是一大福音。(因為 Windows 的 shell 一直是出了名的難用。)</p>
+<p>這篇文章主要便是紀錄我如何調試 WSL 讓我能在 Windows 上使用 Vscode 開發，並且在 Linux 上執行與除錯 php project。</p>
+<h4 id="安裝"><a class="anchor" href="#安裝">#</a> 安裝</h4>
+<p>先講講安裝 WSL。Windows 10 安裝 WSL 是輕鬆愉快的。但是在開始之前，我們要先手動開啟  <code>WindowsOptionalFeature</code>  ，這在預設中是關閉的。</p>
+<p>請使用系統管理員身分執行 PowerShell ，並且輸入指令，完成後需要重新開機一下。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</span><br></pre></td></tr></table></figure></p>
+<p><img data-src="1*nGb_3pubzkSNLpV796o07Q.png" alt="Windows 10 之後推出的新的 shell 程式，但是依舊沒有很好用" /></p>
+<p>Windows 10 之後推出的新的 shell 程式，但是依舊沒有很好用</p>
+<p>之後我們就可以直接在 Windows Store 上選擇自己喜歡的 Linux 版本來進行安裝了。</p>
+<p><img data-src="1*wjtSAfbgD_lTIaxoLco25A.png" alt="基本上主流的 Linux 系統都有，可以任君挑選" /></p>
+<p>基本上主流的 Linux 系統都有，可以任君挑選</p>
+<h4 id="互相存取資源"><a class="anchor" href="#互相存取資源">#</a> 互相存取資源</h4>
+<ul>
+<li><strong>在 Linux 中存取 Windows 資源</strong></li>
+</ul>
+<p>Windows 磁區 在 Linux 中是以類似掛載的形式存在的，我們可以對 Root 路徑下的 mnt 資料夾進行訪問以存取 Windows 端的資料。</p>
+<p>以我自己的 Windows 為例，由於我的 Windows 有  <code>C:\</code>  與  <code>D:\</code>  兩個磁區，因此在 Linux 中我可以使用  <code>/mnt/c</code>  或  <code>/mnt/d</code>  獲取  <code>C:\</code>  或  <code>D:\</code>  的資源。</p>
+<p><img data-src="1*ufKsrMYlszF5DhdbkII5kA.png" alt="" /></p>
+<p><img data-src="1*YgarJ7jJIMRwsko3k8RpjQ.png" alt="" /></p>
+<p><strong>要注意的是，由於 C:\ 有受到讀寫保護，因此只能讀不能寫。</strong></p>
+<ul>
+<li>在 Windows 中存取 Linux 的資源</li>
+</ul>
+<p>Windows 對於 WSL 的支持是非常強大的。簡直就是  <code>吳·鳳·接·合</code>  。我們可以直接在 Windows 環境直接執行 Linux 內的各種指令。甚至是直接使用 Vscode 開啟 Linux 中的文件。</p>
+<p>我們可以使用 wsl 將 windows shell 切換為 wsl 環境。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure></p>
+<p>執行 wsl 環境中的指令<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl [command]</span><br></pre></td></tr></table></figure></p>
+<p>舉個例子</p>
+<ul>
+<li>使用 Linux 的 grep 過濾 PowerShell 的執行結果</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS&gt; Get-Service | wsl grep -i winrm</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>使用 SSH 連線至遠端</li>
+</ul>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl ssh user@ip</span><br></pre></td></tr></table></figure></p>
+<p>甚至，我可以直接在 Linux 中直接執行  <code>code .</code>  透過 Windows 的 Vscode 開啟 Linux 中的專案。</p>
+<p><img data-src="1*w0FzABVijj8cvxZKFSRRcQ.png" alt="" /></p>
+<p>介紹完了 WSL 的使用後。我們終於要進入正題了。</p>
+<blockquote>
+<p>建置 WSL 的 PHP 開發環境，並且通過 Windows 的 Vscode 對其偵錯</p>
+</blockquote>
+<p>首先在 WSL 中建置 PHP 跟 Apache (Nginx)，這部分應該不用多做說明，有疑問的可以參考我以前的文章 <a href="%E8%A8%AD%E5%AE%9A-lemp-server-%E5%9C%A8-debian-9-linux-eab5f32613f0"><strong><em>設定 LEMP server 在 Debian 9 Linux</em></strong></a></p>
+<h4 id="安裝-php-debug-工具"><a class="anchor" href="#安裝-php-debug-工具">#</a> 安裝 PHP Debug 工具</h4>
+<p>當環境架好後，我們先在  <code>www/html/</code>  路徑中，寫一支  <code>phpinfo.php</code>  ，用以輸出我們的 php 環境與版本。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>當開啟網頁後應該會看到如下類似的畫面</p>
+<p><img data-src="1*d1UGW93GfKv_5nsPwBjbgA.png" alt="" /></p>
+<p>之後回到 Vscode 的 Extension 中找尋  <code>php debugger</code>  並安裝。</p>
+<p><img data-src="1*rgp2ZAabc5CLr3A5n5ZFoA.png" alt="" /></p>
+<p>安裝完後，這個外掛本身並不能直接執行。我們需要另外安裝真正的 php debug 工具 — <strong>XDebug</strong></p>
+<p>依照這個 extension 的安裝說明。我們點選其中所附的 <span class="exturl" data-url="aHR0cHM6Ly94ZGVidWcub3JnL3dpemFyZC5waHA=">XDebug</span> 連結。</p>
+<p><img data-src="1*XYYnww4odUDmAksV4h4F9g.png" alt="" /></p>
+<p>之後我們會來到這樣的畫面。</p>
+<p><img data-src="1*dcDgUdFoR3Ej9wPaYpeMdw.png" alt="" /></p>
+<p>我們將剛剛得到的  <code>phpinfo</code>  整份網頁 <strong>全選</strong> 並且直接 <strong>貼上</strong> 至這個 Textarea 中。這個網站會自動分析你的 php 執行環境，並且給予適當的 XDebug 安裝方法。</p>
+<p>由於我們的 php 是安裝在 WSL 上的，因此理論上安裝方式應該與下圖相似。</p>
+<p><img data-src="1*OhsuabAkpnoIeBOiNt4kew.png" alt="" /></p>
+<p>依照網站的步驟在 WSL 安裝完畢後，我們要開啟 php 路徑下的  <code>php.ini</code></p>
+<blockquote>
+<p>如果不知道 php.ini 的位置路徑，可以從 phpinfo 中找到。</p>
+</blockquote>
+<p><img data-src="1*gIPR5dxAgTmkx2cUMmDNgw.png" alt="" /></p>
+<p>在 php.ini 中加入以下內容<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[XDebug]</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure></p>
+<p>之後，重啟 apache (nginx)。</p>
+<h4 id="讓-windows-中的-php-project-跑在-wsl-中的-php-環境"><a class="anchor" href="#讓-windows-中的-php-project-跑在-wsl-中的-php-環境">#</a> 讓 Windows 中的 php project 跑在 WSL 中的 php 環境</h4>
+<p>我們可以使用 symbolic link 的方式將專案 link 到 WSL 中的  <code>www/</code>  內，如此便可以將 Windows 的 php 專案跑在 WSL 的 php 環境了。</p>
+<p>以我自己為例，我便將 project 放置於  <code>/var/www/</code>  中<br />
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /mnt/&lt;your project path&gt;/&lt;your project&gt; /var/www/</span><br></pre></td></tr></table></figure></p>
+<h4 id="使用-windows-中的-vscode-執行-wsl-中的-xdebug-對-php-project-偵錯"><a class="anchor" href="#使用-windows-中的-vscode-執行-wsl-中的-xdebug-對-php-project-偵錯">#</a> 使用 Windows 中的 Vscode 執行 WSL 中的 XDebug 對 php project 偵錯</h4>
+<p>第一次，我們先在 Vscode 中的 Debug 環境中點選上方小齒輪，並且選取  <code>PHP</code>  。</p>
+<p><img data-src="1*MZ3peuLJsPmNbINh2it23w.png" alt="" /></p>
+<p>這會讓 Vscode 自動生成 Debug 設定檔。</p>
+<p><img data-src="1*GDziL_BBgZVPVRRg11kJNA.png" alt="" /></p>
+<p>預設應該會長這樣，一般情況這樣就設定完成了，但是由於我們需要讓 XDebug 知道我們要在哪裡 Debug，因此我們在其中多增加一段設定 —  <code>“pathMappings”: &#123;&#125;</code></p>
+<p>我建議將專案放在  <code>D:\</code>  。因此在此處我將  <code>pathMappings</code>  路徑位置設定在  <code>D:\</code>  。</p>
+<p><img data-src="1*wywPZ4JbDVPIh2SMI4go1g.jpeg" alt="" /></p>
+<p>接下來存檔、離開，就可以測試看看是否真能開始偵錯了。</p>
+<p><img data-src="0*4pzA--pou2v3UltC.png" alt="" /></p>
+<h4 id="結語"><a class="anchor" href="#結語">#</a> 結語</h4>
+<p>之前就有聽聞 Windows 10 可以原生安裝 Linux 。</p>
+<p>直到今日由於工作所需，嘗試了一下才發現這不僅僅「只是讓 Windows 可以安裝 Linux 」這麼簡單。</p>
+<p>Windows 將這個 Linux 的支援性做得非常的到位，並且可以很輕鬆的兩地互相操作。這著實讓我非常驚艷。</p>
+<p>目前這幾天的使用情況感覺是不錯的。未來我應該也會繼續探索。</p>
+<p>當 Windows 可以原生擁有 Linux，我覺得 MacOS 的 Unix Like 的優勢又少一項了。</p>
+<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+
+      <div class="tags">
+          <a href="/tags/php/" rel="tag"><i class="ic i-tag"></i> php</a>
+          <a href="/tags/wsl/" rel="tag"><i class="ic i-tag"></i> wsl</a>
+          <a href="/tags/windows/" rel="tag"><i class="ic i-tag"></i> windows</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-28 18:36:22" itemprop="dateModified" datetime="2022-12-28T18:36:22+08:00">2022-12-28</time>
+  </span>
+  <span id="Tech/PHP/2019-03-19-wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug/" class="item leancloud_visitors" data-flag-title="WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Les's Blog
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/" title="WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug">https://z20240.github.io/Tech/PHP/2019-03-19-wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" itemprop="url" rel="prev" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;vue&#x2F;2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B&#x2F;1*KIoNyRO6s_52W68Y-0usJw.png" title="Vue 導入 Vuex 管理Vue專案的狀態">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>Vue 導入 Vuex 管理Vue專案的狀態</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" itemprop="url" rel="next" data-background-image="&#x2F;Tech&#x2F;Frontend&#x2F;2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83&#x2F;1*xcHCASkTrupfccVyKwl62A.png" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Frontend</span>
+  <h3>Javascript Arrow function 與一般匿名 function 對 this 的行為比較</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug"><span class="toc-number">1.</span> <span class="toc-text"> WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%95%B6-windows-%E6%93%81%E6%9C%89%E4%BA%86-linux-mac-osx-%E9%82%84%E6%9C%83%E6%98%AF%E5%B0%8D%E6%89%8B%E5%97%8E"><span class="toc-number">1.1.</span> <span class="toc-text"> 當 Windows 擁有了 Linux ，Mac OSX 還會是對手嗎？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D"><span class="toc-number">1.2.</span> <span class="toc-text"> 安裝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%92%E7%9B%B8%E5%AD%98%E5%8F%96%E8%B3%87%E6%BA%90"><span class="toc-number">1.3.</span> <span class="toc-text"> 互相存取資源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-php-debug-%E5%B7%A5%E5%85%B7"><span class="toc-number">1.4.</span> <span class="toc-text"> 安裝 PHP Debug 工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%93-windows-%E4%B8%AD%E7%9A%84-php-project-%E8%B7%91%E5%9C%A8-wsl-%E4%B8%AD%E7%9A%84-php-%E7%92%B0%E5%A2%83"><span class="toc-number">1.5.</span> <span class="toc-text"> 讓 Windows 中的 php project 跑在 WSL 中的 php 環境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-windows-%E4%B8%AD%E7%9A%84-vscode-%E5%9F%B7%E8%A1%8C-wsl-%E4%B8%AD%E7%9A%84-xdebug-%E5%B0%8D-php-project-%E5%81%B5%E9%8C%AF"><span class="toc-number">1.6.</span> <span class="toc-text"> 使用 Windows 中的 Vscode 執行 WSL 中的 XDebug 對 php project 偵錯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">1.7.</span> <span class="toc-text"> 結語</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" rel="bookmark" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></li><li class="active"><a href="/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/" rel="bookmark" title="WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug">WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug</a></li><li><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></li><li><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" rel="bookmark" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">67</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">18</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">64</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" title="Vue-Cli 自定義全局功能的方法">Vue-Cli 自定義全局功能的方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/" title="工具tee 同時輸出訊息於Terminal 與指定檔案">工具tee 同時輸出訊息於Terminal 與指定檔案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Hexo/" title="In Hexo">Hexo</a>
+</div>
+
+    <span><a href="/Tech/Hexo/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2022-10-08-sql-postgres-%E9%81%87%E5%88%B0-out-of-shared-memory-%E5%95%8F%E9%A1%8C/" title="SQL Postgres 遇到 out of shared memory 問題">SQL Postgres 遇到 out of shared memory 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+</div>
+
+    <span><a href="/Life/2018-11-20-acoustune-hs-1670ss-%E9%96%8B%E7%AE%B1/" title="Acoustune HS 1670ss 開箱">Acoustune HS 1670ss 開箱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Les's Blog</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Tech/PHP/2019-03-19-wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug/',
+    favicon: {
+      show: "Les's Blog",
+      hide: "Les's Blog"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
