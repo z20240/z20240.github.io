@@ -982,8 +982,8 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-        <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
         <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
+        <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
         <updated>2020-11-04T03:58:12.564Z</updated>
     </entry>
     <entry>
@@ -1344,8 +1344,8 @@ Proxy 不同於 Object.defineProperty 在於，其並未對原始對象進行改
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Data Storage" scheme="https://z20240.github.io/categories/Tech/Data-Storage/" />
-        <category term="mongo" scheme="https://z20240.github.io/tags/mongo/" />
         <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
+        <category term="mongo" scheme="https://z20240.github.io/tags/mongo/" />
         <updated>2020-07-27T06:41:45.452Z</updated>
     </entry>
     <entry>

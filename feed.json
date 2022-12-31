@@ -184,8 +184,8 @@
             "tags": [
                 "Tech",
                 "Others",
-                "wsl",
-                "windows-terminal"
+                "windows-terminal",
+                "wsl"
             ]
         },
         {
@@ -265,8 +265,8 @@
             "tags": [
                 "Tech",
                 "Data Storage",
-                "mongo",
-                "nodejs"
+                "nodejs",
+                "mongo"
             ]
         },
         {
