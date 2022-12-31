@@ -73,9 +73,9 @@
             "tags": [
                 "Tech",
                 "Others",
+                "tiling-window-manager",
                 "skhd",
-                "yabai",
-                "tiling-window-manager"
+                "yabai"
             ]
         },
         {
@@ -184,8 +184,8 @@
             "tags": [
                 "Tech",
                 "Others",
-                "windows-terminal",
-                "wsl"
+                "wsl",
+                "windows-terminal"
             ]
         },
         {
@@ -265,8 +265,8 @@
             "tags": [
                 "Tech",
                 "Data Storage",
-                "nodejs",
-                "mongo"
+                "mongo",
+                "nodejs"
             ]
         },
         {
