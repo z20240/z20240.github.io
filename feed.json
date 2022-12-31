@@ -73,9 +73,9 @@
             "tags": [
                 "Tech",
                 "Others",
+                "tiling-window-manager",
                 "skhd",
-                "yabai",
-                "tiling-window-manager"
+                "yabai"
             ]
         },
         {
@@ -143,10 +143,10 @@
             "tags": [
                 "Tech",
                 "Frontend",
+                "vscode",
                 "html",
                 "frontend",
-                "emmet",
-                "vscode"
+                "emmet"
             ]
         },
         {
@@ -184,8 +184,8 @@
             "tags": [
                 "Tech",
                 "Others",
-                "wsl",
-                "windows-terminal"
+                "windows-terminal",
+                "wsl"
             ]
         },
         {

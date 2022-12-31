@@ -357,9 +357,9 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
+        <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
         <category term="skhd" scheme="https://z20240.github.io/tags/skhd/" />
         <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
-        <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
         <updated>2022-06-16T07:25:19.143Z</updated>
     </entry>
     <entry>
@@ -844,10 +844,10 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
+        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
         <category term="html" scheme="https://z20240.github.io/tags/html/" />
         <category term="frontend" scheme="https://z20240.github.io/tags/frontend/" />
         <category term="emmet" scheme="https://z20240.github.io/tags/emmet/" />
-        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
         <updated>2021-02-09T09:41:20.740Z</updated>
     </entry>
     <entry>
@@ -982,8 +982,8 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-        <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
         <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
+        <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
         <updated>2020-11-04T03:58:12.564Z</updated>
     </entry>
     <entry>
