@@ -5313,3 +5313,6 @@ span.label {
 .i-linkedin:before {
   content: "\e87d";
 }
+.author .image.lozaded {
+  animation: none;
+}
