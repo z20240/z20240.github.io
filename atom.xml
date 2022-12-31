@@ -342,8 +342,8 @@
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
         <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
         <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
+        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
         <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
         <updated>2022-05-16T10:10:49.465Z</updated>
     </entry>
@@ -917,8 +917,8 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-        <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
         <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
+        <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
         <updated>2020-11-04T03:58:12.564Z</updated>
     </entry>
     <entry>

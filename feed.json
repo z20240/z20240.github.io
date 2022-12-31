@@ -88,8 +88,8 @@
                 "Tech",
                 "Frontend",
                 "NodeJs",
-                "nodejs",
                 "javascript",
+                "nodejs",
                 "memory-leak"
             ]
         },
@@ -184,8 +184,8 @@
             "tags": [
                 "Tech",
                 "Others",
-                "wsl",
-                "windows-terminal"
+                "windows-terminal",
+                "wsl"
             ]
         },
         {
