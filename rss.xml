@@ -1328,8 +1328,8 @@ Proxy 不同於 Object.defineProperty 在於，其並未對原始對象進行改
             <link>https://z20240.github.io/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/</link>
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Data Storage" scheme="https://z20240.github.io/categories/Tech/Data-Storage/" />
-            <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
             <category term="mongo" scheme="https://z20240.github.io/tags/mongo/" />
+            <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
             <pubDate>Mon, 27 Jul 2020 14:41:45 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;mongodb-如何-auto-increment-地插入資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mongodb-如何-auto-increment-地插入資料&#34;&gt;#&lt;/a&gt; [MongoDB] 如何 Auto increment 地插入資料&lt;/h3&gt;
 &lt;p&gt;眾所周知，在 mongodb 中對於 ID 的保存方式，並不像 SQL 那樣可以設定 auto increment 有序地設置流水號作為 unique key。取而代之的是，每一筆資料都會有獨自的  &lt;code&gt;_id&lt;/code&gt;  以確保每筆資料的唯一性。&lt;/p&gt;
