@@ -9,18 +9,29 @@
         {
             "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/",
             "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/",
-            "title": "",
-            "date_published": "2023-01-03T15:29:37.277Z",
+            "title": "Cambly-Lession3",
+            "date_published": "2023-01-02T16:28:40.000Z",
             "content_html": "<ul>\n<li>hold back  拖後腿\n<ul>\n<li>I am holding my friends back from winning.</li>\n</ul>\n</li>\n<li>motivated = you really want to do something be cause of th.</li>\n<li>motivation (n.)</li>\n<li>stimulate 刺激\n<ul>\n<li>(someone's) interest in or enthusiasm for doing something.</li>\n</ul>\n</li>\n<li>passionate (adj) = have some belive in th.\n<ul>\n<li>\n<ul>\n<li>ate (adj.)</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>enthusiasm (n.) / enthusiastic (adj.) + about</li>\n</ul>\n",
-            "tags": []
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "Cambly",
+                "english",
+                "cambly"
+            ]
         },
         {
             "id": "https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/",
             "url": "https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/",
-            "title": "",
-            "date_published": "2023-01-03T09:03:53.652Z",
+            "title": "IELS 字彙",
+            "date_published": "2023-01-02T16:28:40.000Z",
             "content_html": "<ul>\n<li>prairie (n.) 大草原\n<ul>\n<li>pasturage</li>\n<li>savanna</li>\n<li>grassland  (小) 草原</li>\n<li>pasture\n<ul>\n<li>(v.) 放牧；= graze</li>\n<li>(n.) 牧地</li>\n</ul>\n</li>\n<li>enclosure (en|clos|ure) 圈地飼養</li>\n</ul>\n</li>\n<li>disverse (adj.) = different = discrepant = various = disparate\n<ul>\n<li>di = two</li>\n<li>verse = turn</li>\n</ul>\n</li>\n<li>fertile (adj.) 肥沃的 = arable</li>\n<li>cropland 耕地\n<ul>\n<li>crop (n.) = produce (n.)</li>\n<li>cash crop = 經濟作物</li>\n<li>crop 裁切</li>\n</ul>\n</li>\n<li></li>\n</ul>\n",
-            "tags": []
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "english",
+                "iels"
+            ]
         },
         {
             "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession2/",
@@ -159,10 +170,10 @@
             "tags": [
                 "Tech",
                 "Frontend",
-                "vscode",
                 "html",
                 "frontend",
-                "emmet"
+                "emmet",
+                "vscode"
             ]
         },
         {
@@ -200,8 +211,8 @@
             "tags": [
                 "Tech",
                 "Others",
-                "wsl",
-                "windows-terminal"
+                "windows-terminal",
+                "wsl"
             ]
         },
         {

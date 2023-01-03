@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</loc>
+    <loc>https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/</loc>
     
     <lastmod>2023-01-03</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/</loc>
+    <loc>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</loc>
     
     <lastmod>2023-01-03</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/</loc>
+    <loc>https://z20240.github.io/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/</loc>
+    <loc>https://z20240.github.io/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -227,15 +227,6 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/</loc>
-    
-    <lastmod>2022-12-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://z20240.github.io/Tech/Others/2018-12-03-perl-%E4%B8%80%E9%8D%B5%E5%AE%89%E8%A3%9D-perl/</loc>
     
     <lastmod>2022-12-28</lastmod>
@@ -245,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/</loc>
+    <loc>https://z20240.github.io/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -255,6 +246,15 @@
   
   <url>
     <loc>https://z20240.github.io/Tech/Linux/2020-07-27-gcp-%E9%81%87%E5%88%B0permission-denied-publickey-%E6%80%8E%E9%BA%BC%E8%BE%A6/</loc>
+    
+    <lastmod>2022-12-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Hexo/hello-world/</loc>
+    <loc>https://z20240.github.io/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -308,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/</loc>
+    <loc>https://z20240.github.io/Tech/Hexo/hello-world/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -353,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/</loc>
+    <loc>https://z20240.github.io/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -362,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/</loc>
+    <loc>https://z20240.github.io/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -542,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/</loc>
+    <loc>https://z20240.github.io/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -551,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/</loc>
+    <loc>https://z20240.github.io/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/</loc>
     
     <lastmod>2022-12-28</lastmod>
     
@@ -641,6 +641,20 @@
 
   
   <url>
+    <loc>https://z20240.github.io/tags/english/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/cambly/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/life/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -649,6 +663,20 @@
   
   <url>
     <loc>https://z20240.github.io/tags/headphones/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/iels/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/Yugioh/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -690,6 +718,20 @@
   </url>
   
   <url>
+    <loc>https://z20240.github.io/tags/mongo/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/nodejs/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/mysql/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -711,27 +753,6 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/mongo/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/nodejs/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/hexo/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://z20240.github.io/tags/postgres/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -746,6 +767,48 @@
   </url>
   
   <url>
+    <loc>https://z20240.github.io/tags/html/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/es6/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/point-free-style/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/template-literals/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/template-strings/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/axios/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/linux/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -753,14 +816,14 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/nginx/</loc>
+    <loc>https://z20240.github.io/tags/debian/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/debian/</loc>
+    <loc>https://z20240.github.io/tags/nginx/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -788,6 +851,27 @@
   </url>
   
   <url>
+    <loc>https://z20240.github.io/tags/frontend/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/emmet/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/vscode/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/rhel/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -809,84 +893,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/php/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/laravel/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/wsl/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/windows/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/git/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/docker/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/vim/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/vscode/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/shell/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/laradock/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/xdebug/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/dock/</loc>
+    <loc>https://z20240.github.io/tags/perl/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -900,7 +907,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/regedit/</loc>
+    <loc>https://z20240.github.io/tags/wsl/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -908,6 +915,20 @@
   
   <url>
     <loc>https://z20240.github.io/tags/others/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/windows/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/regedit/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -935,98 +956,70 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/html/</loc>
+    <loc>https://z20240.github.io/tags/hexo/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/perl/</loc>
+    <loc>https://z20240.github.io/tags/php/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/es6/</loc>
+    <loc>https://z20240.github.io/tags/laravel/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/point-free-style/</loc>
+    <loc>https://z20240.github.io/tags/docker/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/axios/</loc>
+    <loc>https://z20240.github.io/tags/vim/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/template-literals/</loc>
+    <loc>https://z20240.github.io/tags/laradock/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/template-strings/</loc>
+    <loc>https://z20240.github.io/tags/xdebug/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/frontend/</loc>
+    <loc>https://z20240.github.io/tags/shell/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/emmet/</loc>
+    <loc>https://z20240.github.io/tags/dock/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/english/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/cambly/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/npm/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/command-line/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/Yugioh/</loc>
+    <loc>https://z20240.github.io/tags/git/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1054,6 +1047,27 @@
   </url>
   
   <url>
+    <loc>https://z20240.github.io/tags/npm/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/command-line/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/typescript/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/nuxt-3/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -1069,13 +1083,6 @@
   
   <url>
     <loc>https://z20240.github.io/tags/prettier/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/typescript/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1098,76 +1105,6 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Data-Storage/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Algorithm/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Hexo/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Linux/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/PHP/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/git/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Tools/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Others/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/categories/Tech/Frontend/</loc>
-    <lastmod>2023-01-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://z20240.github.io/categories/Life/EnglishLearn/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -1182,7 +1119,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Vue/</loc>
+    <loc>https://z20240.github.io/categories/Tech/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1190,6 +1127,69 @@
   
   <url>
     <loc>https://z20240.github.io/categories/Life/EnglishLearn/Cambly/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Frontend/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Algorithm/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Linux/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Data-Storage/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Others/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Hexo/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/PHP/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Tools/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/git/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1211,6 +1211,13 @@
   
   <url>
     <loc>https://z20240.github.io/categories/Tech/Frontend/vue/</loc>
+    <lastmod>2023-01-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/categories/Tech/Vue/</loc>
     <lastmod>2023-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
