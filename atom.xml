@@ -8,7 +8,76 @@
     <author>
       <name>Les Lee</name>
     </author>
-    <updated>2022-12-30T16:28:40.000Z</updated>
+    <updated>2023-01-03T15:29:37.277Z</updated>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</id>
+        <title></title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;hold back  拖後腿
+&lt;ul&gt;
+&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
+&lt;li&gt;motivation (n.)&lt;/li&gt;
+&lt;li&gt;stimulate 刺激
+&lt;ul&gt;
+&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;passionate (adj) = have some belive in th.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;ate (adj.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-01-03T15:29:37.277Z</updated>
+    </entry>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/</id>
+        <title></title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;prairie (n.) 大草原
+&lt;ul&gt;
+&lt;li&gt;pasturage&lt;/li&gt;
+&lt;li&gt;savanna&lt;/li&gt;
+&lt;li&gt;grassland  (小) 草原&lt;/li&gt;
+&lt;li&gt;pasture
+&lt;ul&gt;
+&lt;li&gt;(v.) 放牧；= graze&lt;/li&gt;
+&lt;li&gt;(n.) 牧地&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;enclosure (en|clos|ure) 圈地飼養&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;disverse (adj.) = different = discrepant = various = disparate
+&lt;ul&gt;
+&lt;li&gt;di = two&lt;/li&gt;
+&lt;li&gt;verse = turn&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;fertile (adj.) 肥沃的 = arable&lt;/li&gt;
+&lt;li&gt;cropland 耕地
+&lt;ul&gt;
+&lt;li&gt;crop (n.) = produce (n.)&lt;/li&gt;
+&lt;li&gt;cash crop = 經濟作物&lt;/li&gt;
+&lt;li&gt;crop 裁切&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2023-01-03T09:03:53.652Z</updated>
+    </entry>
     <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession2/</id>
         <title>Cambly-Lession2</title>
@@ -407,8 +476,8 @@
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
         <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
         <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
+        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
         <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
         <updated>2022-05-16T10:10:49.465Z</updated>
     </entry>
@@ -1318,136 +1387,5 @@ Proxy 不同於 Object.defineProperty 在於，其並未對原始對象進行改
         <category term="google-cloud-platform" scheme="https://z20240.github.io/tags/google-cloud-platform/" />
         <category term="ssh" scheme="https://z20240.github.io/tags/ssh/" />
         <updated>2020-07-27T07:27:33.103Z</updated>
-    </entry>
-    <entry>
-        <id>https://z20240.github.io/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/</id>
-        <title>MongoDB 如何 Auto increment 地插入資料</title>
-        <link rel="alternate" href="https://z20240.github.io/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/"/>
-        <content type="html">&lt;h3 id=&#34;mongodb-如何-auto-increment-地插入資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mongodb-如何-auto-increment-地插入資料&#34;&gt;#&lt;/a&gt; [MongoDB] 如何 Auto increment 地插入資料&lt;/h3&gt;
-&lt;p&gt;眾所周知，在 mongodb 中對於 ID 的保存方式，並不像 SQL 那樣可以設定 auto increment 有序地設置流水號作為 unique key。取而代之的是，每一筆資料都會有獨自的  &lt;code&gt;_id&lt;/code&gt;  以確保每筆資料的唯一性。&lt;/p&gt;
-&lt;p&gt;而在 mongodb 中，我們無法「直接地」設定 collection 中的 entry 的某個 attribute 具有 auto increment 的特性。&lt;/p&gt;
-&lt;p&gt;但是在許多場合我們卻依然會有這樣的需求，該怎麼辦呢？&lt;/p&gt;
-&lt;p&gt;我們需要自己在程式中手動實作這樣的功能。&lt;/p&gt;
-&lt;p&gt;雖說是自己實作，但其實也沒有很複雜。&lt;/p&gt;
-&lt;p&gt;主要思路如下&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;設計一個 &lt;strong&gt;autoIncrease&lt;/strong&gt; collection 專門 maintain 需要 auto increment 的 collection 其當前的 auto increment number。未來當某 collection 需要 auto increment 時，就來 &lt;strong&gt;autoIncrease&lt;/strong&gt; collection 拿取 lastest Id.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;以 NodeJs 為例&lt;/p&gt;
-&lt;p&gt;實作一個 function ，專門獲取 lastest Id，並在每次獲取的同時更新 lastest Id.&lt;br /&gt;
-&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;get_auto_increment_id&lt;/span&gt; = &lt;span class=&#34;keyword&#34;&gt;async&lt;/span&gt; (&lt;span class=&#34;params&#34;&gt;table_name&lt;/span&gt;) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 寫死 autoIncrease 為紀錄各個 document 的 auto increment 的 document.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; auto_increment_record_table = &lt;span class=&#34;string&#34;&gt;&amp;#x27;autoIncrease&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 連接 mongodb&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; db = &lt;span class=&#34;keyword&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;CreateDB&lt;/span&gt;(process.&lt;span class=&#34;property&#34;&gt;env&lt;/span&gt;.&lt;span class=&#34;property&#34;&gt;MONGO_DB&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 獲取此 collection&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; db_collection = db.&lt;span class=&#34;title function_&#34;&gt;collection&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;autoIncrease&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; dbFindOneAndUpdateAsync = &lt;span class=&#34;title function_&#34;&gt;promisify&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        db_collection.&lt;span class=&#34;property&#34;&gt;findOneAndUpdate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ).&lt;span class=&#34;title function_&#34;&gt;bind&lt;/span&gt;(db_collection);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 先 update 此 table_name 的 last number + 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; result = &lt;span class=&#34;keyword&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;dbFindOneAndUpdateAsync&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123; &lt;span class=&#34;attr&#34;&gt;_id&lt;/span&gt;: tableName &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123; &lt;span class=&#34;attr&#34;&gt;$inc&lt;/span&gt;: &amp;#123; &lt;span class=&#34;attr&#34;&gt;seqValue&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; &amp;#125; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123; &lt;span class=&#34;attr&#34;&gt;upsert&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;returnNewDocument&lt;/span&gt;: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    );&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; seqDoc = result.&lt;span class=&#34;property&#34;&gt;value&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 再回傳最新的 last number&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; seqDoc ? seqDoc.&lt;span class=&#34;property&#34;&gt;seqValue&lt;/span&gt; : &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;未來我們便可以使用這個 function 取得 collection 中最新的 id。如此就可以用程式達到手動 auto increment 的功效了。&lt;/p&gt;
-&lt;p&gt;以下是我在自己專案中使用的 handle function，當我插入一筆 Question 資料到 mongodb 前，我便讓 table 的 id+1，作為此筆資料的 id。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*K6syln_71vBX22lssiVQdQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如此便完成 mongodb 的 auto increment 了。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-</content>
-        <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-        <category term="Data Storage" scheme="https://z20240.github.io/categories/Tech/Data-Storage/" />
-        <category term="mongo" scheme="https://z20240.github.io/tags/mongo/" />
-        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
-        <updated>2020-07-27T06:41:45.452Z</updated>
-    </entry>
-    <entry>
-        <id>https://z20240.github.io/Tech/git/2020-04-07-git-%E7%94%A8-rebase-%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF-%E8%AE%93%E4%BD%A0%E7%9A%84-git-history-%E6%9B%B4%E4%B9%BE%E6%B7%A8/</id>
-        <title>GIT 用 rebase 合併分支，讓你的 Git history 更乾淨</title>
-        <link rel="alternate" href="https://z20240.github.io/Tech/git/2020-04-07-git-%E7%94%A8-rebase-%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF-%E8%AE%93%E4%BD%A0%E7%9A%84-git-history-%E6%9B%B4%E4%B9%BE%E6%B7%A8/"/>
-        <content type="html">&lt;h3 id=&#34;git-用-rebase-合併分支讓你的-git-history-更乾淨&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-用-rebase-合併分支讓你的-git-history-更乾淨&#34;&gt;#&lt;/a&gt; [GIT] 用 rebase 合併分支，讓你的 Git history 更乾淨&lt;/h3&gt;
-&lt;h4 id=&#34;你的-git-history-是雜亂無章的地下鐵路線圖還是一條筆直的康莊大道&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#你的-git-history-是雜亂無章的地下鐵路線圖還是一條筆直的康莊大道&#34;&gt;#&lt;/a&gt; 你的 GIT History 是雜亂無章的地下鐵路線圖，還是一條筆直的康莊大道？&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*l_0AwXprRSt-RiA-WpjGqA.png&#34; alt=&#34;每次當看混亂的 git history 總會讓我聯想到左邊的圖&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;每次當看混亂的 git history 總會讓我聯想到左邊的圖&lt;/p&gt;
-&lt;p&gt;在工作中 GIT 應該已經是不可或缺的工具了。它為團隊的共同協作帶來極大的方便性，並且其版本控制的特性，使得專案的更迭變得更加安全穩固。&lt;/p&gt;
-&lt;p&gt;我想大部分的人應該都對於 GIT 並不陌生了，  &lt;code&gt;git merge&lt;/code&gt;  可能更是很多人每天都在使用的指令之一。&lt;/p&gt;
-&lt;p&gt;然而，你知道 GIT 還有一個指令叫做  &lt;code&gt;git rebase&lt;/code&gt;  嗎？我們不僅可以使用  &lt;code&gt;git rebase&lt;/code&gt;  合併分支，甚至可以用它來整理 branch，讓我們的 git history 變得更加乾淨。&lt;/p&gt;
-&lt;h4 id=&#34;使用-merge-合併分支&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-merge-合併分支&#34;&gt;#&lt;/a&gt; &lt;strong&gt;使用 Merge 合併分支&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;假設我們今天有一個 git history graph 長成以下這樣。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*UybAbYx6WrBrcC1S5vqZfQ.png&#34; alt=&#34;git history graph&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;git history graph&lt;/p&gt;
-&lt;p&gt;使用 merge 合併分支的話，我們知道，會產生一個「新的 commit」來接合兩個 commit，類似如下這樣的結果。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*cVxaTmuY37VAmnsXbTwNrw.png&#34; alt=&#34;從 master 對 branch_1 與 branch_2 進行合併&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;從 master 對 branch_1 與 branch_2 進行合併&lt;/p&gt;
-&lt;p&gt;這看起來沒有什麼問題，但是隨著專案的迭代，branch 越開越多、commit 越加越多，我們可以預見 commit history 肯定會像上方右邊的圖一樣，儼然是個 &lt;strong&gt;大眾鐵路網&lt;/strong&gt; 。&lt;/p&gt;
-&lt;p&gt;這時候，我們就可以利用  &lt;code&gt;git rebase&lt;/code&gt;  的特性來進行分支的合併，以此達到整理 git history 的功效。&lt;/p&gt;
-&lt;h4 id=&#34;git-rebase&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-rebase&#34;&gt;#&lt;/a&gt; git rebase&lt;/h4&gt;
-&lt;p&gt;git rebase 的基礎指令格式如下&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git rebase &amp;lt;branch name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;其功效會對分支的基準進行重新定義。&lt;/p&gt;
-&lt;p&gt;例如：以上面 &lt;a href=&#34;#5a45&#34;&gt;git history graph&lt;/a&gt; 為例，若 &lt;strong&gt;我在 branch_1&lt;/strong&gt; 使用  &lt;code&gt;git rebase branch_2&lt;/code&gt;  ，則 &lt;strong&gt;會以 branch_2 作為基準，將 branch_1 接在 branch_2 上方&lt;/strong&gt; 。&lt;/p&gt;
-&lt;p&gt;如下圖所示：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*C8hxxOpdGqxZ-zUqtkg3kA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;我們可以看看這個指令執行的訊息：&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ git rebase branch_2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;First, rewinding head to replay your work on top of it...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Applying: commit C in branch 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Using index info to reconstruct a base tree...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;M       main.js&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Falling back to patching base and 3-way merge...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Auto-merging main.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;要注意的是，如果碰到 conflict，我們一樣要手動解 conflict，並且在解完之後，使用  &lt;code&gt;git rebase --continue&lt;/code&gt;  繼續執行剩下的 rebase。這邊與  &lt;code&gt;git merge&lt;/code&gt;  不同的另一點是，  &lt;code&gt;git merge&lt;/code&gt;  通常 conflict 一次就可以全部解完了；然而  &lt;code&gt;git rebase&lt;/code&gt;  是以  &lt;code&gt;commit&lt;/code&gt;  為單位，將  &lt;code&gt;commit&lt;/code&gt;  一個一個接到 branch ，因此可能會要重複解好幾次 confilct。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;從上方的圖示，我們可以發現  &lt;code&gt;git rebase&lt;/code&gt;  的結果跟 git merge 有很大的差異。感覺上  &lt;code&gt;git rebase&lt;/code&gt;  似乎是將 branch_1 的 commit 剪下、貼上到 branch_2。&lt;/p&gt;
-&lt;p&gt;但其實並非如此。  &lt;code&gt;git rebase&lt;/code&gt;  真正做的事情是，將 branch_1 的 commit 以 branch_2 為基準，重新計算 SHA-1 的值、並且打包一個新的 commit 物件，接上 branch_2。因此，如果你仔細檢查，可以發現兩個 commit 的 hash key 已經不一樣了，所以，比較正確的敘述應該是「複製、貼上」。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*RNG46OBHZbikRif_JWuCWA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*MQ-xv-FbIWXJahsLDea-0g.png&#34; alt=&#34;git rebase 前後，hash key 已經不一樣了&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;git rebase 前後，hash key 已經不一樣了&lt;/p&gt;
-&lt;h4 id=&#34;取消-git-rebase-的結果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#取消-git-rebase-的結果&#34;&gt;#&lt;/a&gt; 取消 git rebase 的結果&lt;/h4&gt;
-&lt;p&gt;如果是一般的合併，我們只需要  &lt;code&gt;git reset HEAD^ —-hard&lt;/code&gt;  ，將 merge 的 commit reset 掉，就可以退回到合併前的狀態了。&lt;/p&gt;
-&lt;p&gt;但是，在 git rebase 的結果，我們如果使用這行指令，卻只能拆掉最後一個 commit，無法回到 rebase 前的狀態。那該怎麼辦呢？&lt;/p&gt;
-&lt;p&gt;其實，在 GIT 中有一個 pointer 叫做  &lt;code&gt;ORIG_HEAD&lt;/code&gt;  ，專門紀錄「危險操作」之前的 HEAD 位置。我們只要  &lt;code&gt;git reaset ORIG_HEAD --hard&lt;/code&gt;  就可以回復到原始、合併前的狀況了。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*SDbO0L3bXRnjqdNVFJAdLQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*uVc-Sl91MlRsv3MClb42TA.png&#34; alt=&#34;使用 &#34; /&gt;&lt;/p&gt;
-&lt;p&gt;使用  &lt;code&gt;git reset ORIG_HEAD --hard 可以回復到合併前的狀態&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;講了這麼多， &lt;strong&gt;在實務上我們怎麼使用  &lt;code&gt;git rebase&lt;/code&gt;  ？&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;實務上，我們大多時候希望將 branch 合併到 master 中，因此我們通常會在 branch 上以 master 為基準將目前的 branch commit 接到 master。&lt;/p&gt;
-&lt;p&gt;所以，我們常常會直接使用&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;// On any branch ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$ git rebase master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;以上面的 git 為例子，我時常會將 &lt;strong&gt;branch_1&lt;/strong&gt; 、 &lt;strong&gt;branch_2&lt;/strong&gt; 對 &lt;strong&gt;master&lt;/strong&gt; 做  &lt;code&gt;git rebase master&lt;/code&gt;  以追蹤最新的 master，並且確保每個 branch 的 commit 都在 master 的 forward。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*TZIQciWYAHN_Sdhm7fcFpg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;之後再用 master 去 merge 這些已經在 forward 的 branch。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*L1UKhRZTNXtt2AHLCsrlQA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如此，就可以將整條 git history 整理成一條直線，看起來乾淨整齊。&lt;/p&gt;
-&lt;p&gt;然而，隨著業務量越來越大、branch 越開越多，我們要手動對每個 branch 追蹤當前的 master 其實有點強人所難。&lt;/p&gt;
-&lt;p&gt;因此很多人其實會選擇放爛一些 branch，等到要用時若有 conflict 再來解。&lt;/p&gt;
-&lt;p&gt;不過若 branch 的歷史與 master 差異過大，很多時候要解 conflict 可能也不是這麼輕鬆。因此我自己還是傾向「 &lt;strong&gt;定時讓每個 branch 都追蹤 master 的變化&lt;/strong&gt; 」。&lt;/p&gt;
-&lt;p&gt;可是這是一個吃力不討好的工作（要手動將每個 branch 都追蹤最新的 master 著實是一個苦工），因此我自己寫了一個 「  &lt;code&gt;rebase-master&lt;/code&gt;  」的小工具。只要在專案中使用  &lt;code&gt;rebase-master&lt;/code&gt;  就會自動將所有的 branch 追蹤最新的 master（也可以自訂只要某幾個 branch 進行更動或不更動）。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.npmjs.com/package/rebase-master&#34;&gt;&lt;img data-src=&#34;https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;rebase-進階用法git-rebase-onto&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#rebase-進階用法git-rebase-onto&#34;&gt;#&lt;/a&gt;  &lt;code&gt;rebase 進階用法：git rebase --onto&lt;/code&gt;&lt;/h4&gt;
-&lt;p&gt;在某些情況，我們可能希望將某 branch 的某幾段 commit 接到另一個 branch 中，這時我們就能夠使用  &lt;code&gt;git rebase --onto&lt;/code&gt;  來達成我們的目的。&lt;br /&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git rebase --onto &amp;lt;target base-commit&amp;gt; &amp;lt;commit from&amp;gt; [&amp;lt;commit to&amp;gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git rebase --onto&lt;/code&gt;  可以將自訂將  &lt;code&gt;&amp;lt;commit from&amp;gt;&lt;/code&gt;  開始的一連串 commit 嫁接到另一個 commit (  &lt;code&gt;&amp;lt;target base-commit&amp;gt;&lt;/code&gt;  ) 上面。&lt;/p&gt;
-&lt;p&gt;其中：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&amp;lt;target base-commit&amp;gt;&lt;/strong&gt; ： 做為基礎的 commit&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&amp;lt;commit from&amp;gt;&lt;/strong&gt; ：要嫁接 commit 的起始點 (不包含此 commit)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&amp;lt;commit to&amp;gt;&lt;/strong&gt; ：要嫁接 commit 的終點 (包含此 commit)，如果未給予，則預設為 branch 的最後一個 commit。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;以下圖為例&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*Hk5KCcC-WzNVku731K7VWw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;目前有三個 branch&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;master&lt;/strong&gt; ：7ce0378a、b9521564&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;branch_1&lt;/strong&gt; ：a28cb258、b1f1bba6、b73d414e&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;branch_2&lt;/strong&gt; ：074ad172、f90af89e、4c54470d&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我希望將 branch_2 的「Commit D in branch 2 (074ad172)」至 「commit D’ in branch 2 (f90af89e)」嫁接到 「commit C’ in branch 1 (b1f1bba6)」，則我可以使用這樣的指令&lt;br /&gt;
- &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git rebase --onto b1f1bba6 ddcbc256 f90af89e&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;其結果如下&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ECOhYfjW8ztCI0inzMvQUA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;我們可以發現，的確成功將 commit 接過去了。而原本的 branch 也還是在。&lt;/p&gt;
-&lt;p&gt;另外，我們要注意的是，這樣的作法 git status 會存在於一個「非任何一個 branch 的狀態」。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*pjpYnYV6YCWQ6hu6eEeFUQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;我們要自己給他一個「新的 branch name」。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*Mc0f6hpwvlGrRZihEn4lpg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*0CbprtxSD9bGeD2XnVRiHA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;結論&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#結論&#34;&gt;#&lt;/a&gt; 結論&lt;/h4&gt;
-&lt;p&gt;GIT 是一個在軟體開發中不可或缺的工具。許多人可能知道如何使用 GIT，通常使用到的那些指令就能完成 80% 的工作了。&lt;/p&gt;
-&lt;p&gt;然而，若是能夠再更進階一點、多了解一點，未嘗也不是一個壞處。&lt;/p&gt;
-&lt;h4 id=&#34;參考資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#參考資料&#34;&gt;#&lt;/a&gt; 參考資料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2JyYW5jaC9tZXJnZS13aXRoLXJlYmFzZS5odG1s&#34;&gt;為你自己學 Git — 另一種合併方式 (使用 rebase)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLnlvcmt4aW4ub3JnLzIwMTEvMDcvMjkvZ2l0LXJlYmFzZS5odG1s&#34;&gt;Git-rebase 小筆記&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81YzNmMjk0YzUxODgyNTI1NDc0MjMyZWE=&#34;&gt;git rebase — onto 的奇妙用法&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-</content>
-        <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-        <category term="git" scheme="https://z20240.github.io/categories/Tech/git/" />
-        <category term="git" scheme="https://z20240.github.io/tags/git/" />
-        <updated>2020-04-07T17:31:57.846Z</updated>
     </entry>
 </feed>
