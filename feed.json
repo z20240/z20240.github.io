@@ -100,9 +100,9 @@
             "tags": [
                 "Tech",
                 "Others",
+                "tiling-window-manager",
                 "skhd",
-                "yabai",
-                "tiling-window-manager"
+                "yabai"
             ]
         },
         {
@@ -115,8 +115,8 @@
                 "Tech",
                 "Frontend",
                 "NodeJs",
-                "javascript",
                 "nodejs",
+                "javascript",
                 "memory-leak"
             ]
         },
@@ -211,8 +211,8 @@
             "tags": [
                 "Tech",
                 "Others",
-                "windows-terminal",
-                "wsl"
+                "wsl",
+                "windows-terminal"
             ]
         },
         {
