@@ -10,42 +10,6 @@
     </author>
     <updated>2023-01-02T16:28:40.000Z</updated>
     <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</id>
-        <title>Cambly-Lession3</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;hold back  拖後腿
-&lt;ul&gt;
-&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
-&lt;li&gt;motivation (n.)&lt;/li&gt;
-&lt;li&gt;stimulate 刺激
-&lt;ul&gt;
-&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;passionate (adj) = have some belive in th.
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;ate (adj.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2023-01-02T16:28:40.000Z</updated>
-    </entry>
-    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/</id>
         <title>IELS 字彙</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/"/>
@@ -85,6 +49,42 @@
         <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
         <category term="english" scheme="https://z20240.github.io/tags/english/" />
         <category term="iels" scheme="https://z20240.github.io/tags/iels/" />
+        <updated>2023-01-02T16:28:40.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</id>
+        <title>Cambly-Lession3</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;hold back  拖後腿
+&lt;ul&gt;
+&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
+&lt;li&gt;motivation (n.)&lt;/li&gt;
+&lt;li&gt;stimulate 刺激
+&lt;ul&gt;
+&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;passionate (adj) = have some belive in th.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;ate (adj.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
         <updated>2023-01-02T16:28:40.000Z</updated>
     </entry>
     <entry>
@@ -922,10 +922,10 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
+        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
         <category term="html" scheme="https://z20240.github.io/tags/html/" />
         <category term="frontend" scheme="https://z20240.github.io/tags/frontend/" />
         <category term="emmet" scheme="https://z20240.github.io/tags/emmet/" />
-        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
         <updated>2021-02-09T09:41:20.740Z</updated>
     </entry>
     <entry>
@@ -1060,8 +1060,8 @@
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-        <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
         <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
+        <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
         <updated>2020-11-04T03:58:12.564Z</updated>
     </entry>
     <entry>
