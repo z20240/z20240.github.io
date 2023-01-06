@@ -162,9 +162,8 @@ Nginx 如何配置多個網站共用 80 port - Linux - Tech |
 <p>我們都知道，一個網站若要能讓外部訪問，要放在 80 port。那如果我今天有超過一個網站想要給外部訪問的話，該怎麼辦呢？難不成要再多租一台主機嗎？</p>
 <p><strong>其實不用。</strong></p>
 <p>我們可以透過設定 Nginx 來讓不同網址共享 80 port。</p>
-<p>設定方式非常簡單，只需要在我們 nginx 下的設定檔新增下面這段設定腳本就完成了。<br />
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80 ;   // 把 default_server 去掉，不然會報錯。因為我們不再以某台server為 default server</span><br><span class="line">    server_name  mytest.com  mytest111.com;  // 這邊填寫你要的網址，可以多個。</span><br><span class="line">    root         /mnt/share/mytest.com;   // 設定網站存放的路徑</span><br><span class="line">    # Load configuration files for the default server block.</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        index  index.php index.html index.htm;  // 設定默認訪問的頁面格式</span><br><span class="line">    &#125;</span><br><span class="line">    location ~* \.php$ &#123;   // 設定php格式的文件可以被解析</span><br><span class="line"></span><br><span class="line">        fastcgi_index   index.php;</span><br><span class="line">        fastcgi_pass    127.0.0.1:9000;</span><br><span class="line">        include         fastcgi_params;</span><br><span class="line">        fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;</span><br><span class="line">        fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page 404 /404.html;</span><br><span class="line">        location = /40x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page 500 502 503 504 /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>當然我們也可以將此設定單獨寫成獨自的設定檔，使用 import 的方式引入。</p>
+<p>設定方式非常簡單，只需要在我們 nginx 下的設定檔新增下面這段設定腳本就完成了。</p>
+<figure class="highlight text"><figcaption data-lang="text"></figcaption><table><tr><td data-num="1"></td><td><pre>server &#123;</pre></td></tr><tr><td data-num="2"></td><td><pre>    listen       80 ;   // 把 default_server 去掉，不然會報錯。因為我們不再以某台server為 default server</pre></td></tr><tr><td data-num="3"></td><td><pre>    server_name  mytest.com  mytest111.com;  // 這邊填寫你要的網址，可以多個。</pre></td></tr><tr><td data-num="4"></td><td><pre>    root         /mnt/share/mytest.com;   // 設定網站存放的路徑</pre></td></tr><tr><td data-num="5"></td><td><pre>    # Load configuration files for the default server block.</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    location / &#123;</pre></td></tr><tr><td data-num="8"></td><td><pre>        index  index.php index.html index.htm;  // 設定默認訪問的頁面格式</pre></td></tr><tr><td data-num="9"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="10"></td><td><pre>    location ~* \.php$ &#123;   // 設定php格式的文件可以被解析</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>        fastcgi_index   index.php;</pre></td></tr><tr><td data-num="13"></td><td><pre>        fastcgi_pass    127.0.0.1:9000;</pre></td></tr><tr><td data-num="14"></td><td><pre>        include         fastcgi_params;</pre></td></tr><tr><td data-num="15"></td><td><pre>        fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;</pre></td></tr><tr><td data-num="16"></td><td><pre>        fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;</pre></td></tr><tr><td data-num="17"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="18"></td><td><pre>    error_page 404 /404.html;</pre></td></tr><tr><td data-num="19"></td><td><pre>        location = /40x.html &#123;</pre></td></tr><tr><td data-num="20"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="21"></td><td><pre>    error_page 500 502 503 504 /50x.html;</pre></td></tr><tr><td data-num="22"></td><td><pre>        location = /50x.html &#123;</pre></td></tr><tr><td data-num="23"></td><td><pre>    &#125;</pre></td></tr><tr><td data-num="24"></td><td><pre>&#125;</pre></td></tr></table></figure><p>當然我們也可以將此設定單獨寫成獨自的設定檔，使用 import 的方式引入。</p>
 <p>如此就完成了！ 輕鬆愜意。</p>
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
@@ -285,7 +284,7 @@ Nginx 如何配置多個網站共用 80 port - Linux - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -297,7 +296,7 @@ Nginx 如何配置多個網站共用 80 port - Linux - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -374,96 +373,10 @@ Nginx 如何配置多個網站共用 80 port - Linux - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
-</div>
-
-    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/" title="Vue Components 組件之間的溝通方式">Vue Components 組件之間的溝通方式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
-</div>
-
-    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/git/" title="In git">git</a>
-</div>
-
-    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
   </li>
 
       
@@ -475,7 +388,21 @@ Nginx 如何配置多個網站共用 80 port - Linux - Tech |
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></span>
+    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession2/" title="Cambly-Lession2">Cambly-Lession2</a></span>
   </li>
 
       
@@ -484,10 +411,82 @@ Nginx 如何配置多個網站共用 80 port - Linux - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/git/" title="In git">git</a>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" title="GIT 關於 GIT 的 ^M 的二三事">GIT 關於 GIT 的 ^M 的二三事</a></span>
+    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2020-07-27-gcp-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ssh-%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E7%99%BB%E5%85%A5-vm-instance/" title="GCP如何使用 SSH 讓使用者登入 VM Instance">GCP如何使用 SSH 讓使用者登入 VM Instance</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" title="Vim 使用 Vimdiff 來比較 Git diff 的差異">Vim 使用 Vimdiff 來比較 Git diff 的差異</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/" title="告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)">告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)</a></span>
   </li>
 
   </ul>

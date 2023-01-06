@@ -211,16 +211,18 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 </ul>
 <p>這是所有開箱即用的小工具都一定會有的軟肋。畢竟要讓人簡單上手，一定就是要設定越少越好。這應該算是一種妥協吧～。</p>
 <h4 id="安裝"><a class="anchor" href="#安裝">#</a> 安裝</h4>
-<p>Amethyst 的安裝非常簡單，僅需要使用 brew ，一行指令即可。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install --cask amethyst</span><br></pre></td></tr></table></figure></p>
+<p>Amethyst 的安裝非常簡單，僅需要使用 brew ，一行指令即可。</p>
+<pre><code>brew install --cask amethyst
+</code></pre>
 <p>安裝完後，會在 Application Perference 中出現一個 app ，開啟後即可開始使用。</p>
 <p><img data-src="1*i_uezLMOZqgIPNsnrzKkmQ.png" alt="" /></p>
 <h3 id="yabai"><a class="anchor" href="#yabai">#</a> Yabai</h3>
 <p><img data-src="1*Ciz6Od9ySfrVtkiEs72l_w.png" alt="" /></p>
 <p>相較於 Amethyst 開箱即用， Yabai 走在另一個極端。</p>
 <p>Yabai 僅僅提供了一套完整 TWM 的指令集框架來操控視窗。使用者需要自行撰寫熱鍵設定、功能腳本來達到想要的結果。但也因為如此 Yabai 給予了極高的可設定彈性。</p>
-<p>舉個例子，若是想要將視窗延展到最大，Yabai 需要使用以下指令完成。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yabai -m window --toggle zoom-fullscreen</span><br></pre></td></tr></table></figure></p>
+<p>舉個例子，若是想要將視窗延展到最大，Yabai 需要使用以下指令完成。</p>
+<pre><code>yabai -m window --toggle zoom-fullscreen
+</code></pre>
 <p>然而若是每次要執行一個動作就必須使用一次指令，這是極度不切實際的。</p>
 <p>因此通常使用者會搭配一套叫做 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3NraGQ=">skhd</span> 的快捷鍵管理程式，設定自己的快捷鍵映射到 Yabai 的指令。</p>
 <p>還好網路上充斥著各路高手自行設定的 TWM 腳本設定，對於剛接觸的新手而言也大大了降低了入門的難度。</p>
@@ -233,21 +235,28 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <ul>
 <li>安裝 Yabai</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install koekeishiya/formulae/yabai</span><br></pre></td></tr></table></figure></p>
+<pre><code>brew install koekeishiya/formulae/yabai
+</code></pre>
 <ul>
 <li>安裝 jq （這是一個 Json 的可視化 cli ，讓我們可以在 terminal 中容易的操控 JSON 物件）</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jq</span><br></pre></td></tr></table></figure></p>
+<pre><code>brew install jq
+</code></pre>
 <ul>
 <li>安裝 skhd (快捷鍵的設定套件)</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install koekeishiya/formulae/skhd</span><br></pre></td></tr></table></figure></p>
+<pre><code>brew install koekeishiya/formulae/skhd
+</code></pre>
 <p>三個都安裝完之後，你需要設定  <code>.yabairc</code>  以及  <code>.skhdrc</code>  檔案。</p>
 <p>其中  <code>.yabairc</code>  是 yabai 的設定檔；而  <code>.skhdrc</code>  則是 skhd 設定快捷鍵的設定檔。</p>
 <p>你可以將 .yabairc 與 .skhdrc 放置在家目錄 $HOME 中，或是在 .config 中建立各自的 config folder 都可以。</p>
 <p>我自己是將設定檔都 git 包成一包，放在 .config 中，並且使用  <code>ln -s</code>  軟連結到家目錄了。</p>
-<p>如果不嫌棄，也可以使用我的設定<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// git 下載我的 yabai 設定到 .config/yabai</span><br><span class="line">$ git clone https://github.com/z20240/yabai.git &quot;$&#123;HOME&#125;&quot;/.config/yabai</span><br><span class="line">// 軟連結 .config/yabai 中的 yabairc 設定到家目錄</span><br><span class="line">$ ln -s &quot;$&#123;HOME&#125;/.config/yabai/yabai/yabairc&quot; &quot;$&#123;HOME&#125;/.yabairc&quot;</span><br></pre></td></tr></table></figure></p>
+<p>如果不嫌棄，也可以使用我的設定</p>
+<pre><code>// git 下載我的 yabai 設定到 .config/yabai
+$ git clone https://github.com/z20240/yabai.git &quot;$&#123;HOME&#125;&quot;/.config/yabai
+// 軟連結 .config/yabai 中的 yabairc 設定到家目錄
+$ ln -s &quot;$&#123;HOME&#125;/.config/yabai/yabai/yabairc&quot; &quot;$&#123;HOME&#125;/.yabairc&quot;
+</code></pre>
 <p>主要實現功能有以下這些</p>
 <ul>
 <li>新增的視窗依照目前的關注位置分割</li>
@@ -437,7 +446,7 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -449,7 +458,7 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -526,22 +535,10 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port/" title="Nginx 如何配置多個網站共用 80 port">Nginx 如何配置多個網站共用 80 port</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">Javascript 使用 Array.Reduce 進行 Object Array 的加總</a></span>
+    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
   </li>
 
       
@@ -553,7 +550,7 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
 </div>
 
-    <span><a href="/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/" title="MongoDB 如何 Auto increment 地插入資料">MongoDB 如何 Auto increment 地插入資料</a></span>
+    <span><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></span>
   </li>
 
       
@@ -565,19 +562,7 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
-</div>
-
-    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></span>
   </li>
 
       
@@ -586,22 +571,10 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/git/" title="In git">git</a>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
+    <span><a href="/Tech/Algorithm/2018-12-26-%E9%81%8A%E6%88%B2%E4%B8%AD%E7%9A%84%E5%85%A8%E6%9C%8D%E6%8E%92%E8%A1%8C%E6%98%AF%E6%80%8E%E9%BA%BC%E5%AF%A6%E7%8F%BE%E7%9A%84/" title="遊戲中的全服排行是怎麼實現的？">遊戲中的全服排行是怎麼實現的？</a></span>
   </li>
 
       
@@ -613,7 +586,7 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
+    <span><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></span>
   </li>
 
       
@@ -624,24 +597,58 @@ Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai) - Others - T
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></span>
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
+<a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Life/EnglishLearn/Cambly-Lession1/" title="EnglishLearn&#x2F;Cambly-Lession1">EnglishLearn/Cambly-Lession1</a></span>
+    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2018-11-28-linux-%E4%BD%BF%E7%94%A8-rsync-%E5%82%B3%E8%BC%B8-%E5%82%99%E4%BB%BD%E5%85%A9%E8%99%95%E7%9A%84%E6%AA%94%E6%A1%88/" title="Linux 使用 rsync 傳輸、備份兩處的檔案">Linux 使用 rsync 傳輸、備份兩處的檔案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2018-12-03-perl-%E4%B8%80%E9%8D%B5%E5%AE%89%E8%A3%9D-perl/" title="Perl 一鍵安裝 Perl">Perl 一鍵安裝 Perl</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
   </li>
 
   </ul>

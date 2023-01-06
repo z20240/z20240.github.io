@@ -163,53 +163,95 @@
 <p>其以  <code>key : value</code>  儲存資料的方式以及易讀易寫的特性，能夠減輕 MySQL Database 的負擔。</p>
 <p>以下就來介紹，Redis 的安裝方式與基本使用方法。</p>
 <h3 id="下載-解壓縮-編譯-redis"><a class="anchor" href="#下載-解壓縮-編譯-redis">#</a> 下載、解壓縮、編譯 Redis</h3>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/redis-stable.tar.gz</span><br><span class="line">$ tar xvzf redis-stable.tar.gz</span><br><span class="line">$ cd redis-stable</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure></p>
-<p>在編譯完成後，你可以使用  <code>make test</code>  嘗試看看是否安裝正確。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make test</span><br></pre></td></tr></table></figure></p>
-<p>接下來使用  <code>make install</code>  安裝 <strong>Redis</strong> 相關的指令於  <code>/usr/local/bin</code>  中<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make install</span><br></pre></td></tr></table></figure></p>
+<pre><code>$ wget http://download.redis.io/redis-stable.tar.gz
+$ tar xvzf redis-stable.tar.gz
+$ cd redis-stable
+$ make
+</code></pre>
+<p>在編譯完成後，你可以使用  <code>make test</code>  嘗試看看是否安裝正確。</p>
+<pre><code>$ make test
+</code></pre>
+<p>接下來使用  <code>make install</code>  安裝 <strong>Redis</strong> 相關的指令於  <code>/usr/local/bin</code>  中</p>
+<pre><code>$ make install
+</code></pre>
 <h3 id="安裝-redis-service"><a class="anchor" href="#安裝-redis-service">#</a> 安裝 Redis Service</h3>
 <p>在 make redis 之後，  <code>util</code>  裡面應該會多出一個  <code>install_server.sh</code>  的檔案。</p>
-<p>執行  <code>install_server.sh</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ &gt; ./redis-stable/utils/install_server.sh</span><br></pre></td></tr></table></figure></p>
+<p>執行  <code>install_server.sh</code></p>
+<pre><code>$ &gt; ./redis-stable/utils/install_server.sh
+</code></pre>
 <p>此時系統會開始詢問你：</p>
-<p>設定使用的 port <em>(預設 6379)</em><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis port for this instance: [6379]</span><br></pre></td></tr></table></figure></p>
-<p>設定使用的 config 位置 <em>(預設 /etc/redis/6379.conf)</em><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis config file name [/etc/redis/6379.conf]</span><br></pre></td></tr></table></figure></p>
-<p>設定 log 位置 <em>(預設 /var/log/redis_6379.log)</em><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis log file name [/var/log/redis_6379.log]</span><br></pre></td></tr></table></figure></p>
-<p>設定資料儲存目錄 <em>(預設 /var/lib/redis/6379)</em><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the data directory for this instance [/var/lib/redis/6379]</span><br></pre></td></tr></table></figure></p>
-<p>設定 redis 執行檔位置 <em>(預設 /usr/local/bin/redis-server)</em><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please select the redis executable path [/usr/local/bin/redis-server]</span><br></pre></td></tr></table></figure></p>
-<p>確認設定是否正確<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Selected config:</span><br><span class="line">Port           : 6379</span><br><span class="line">Config file    : /etc/6379.conf</span><br><span class="line">Log file       : /var/log/redis_6379.log</span><br><span class="line">Data dir       : /var/lib/redis/6379</span><br><span class="line">Executable     : /usr/local/bin/redis-server</span><br><span class="line">Cli Executable : /usr/local/bin/redis-cli</span><br><span class="line">Is this ok? Then press ENTER to go on or Ctrl-C to abort.</span><br></pre></td></tr></table></figure></p>
-<p>安裝成功<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Copied /tmp/6379.conf =&gt; /etc/init.d/redis_6379</span><br><span class="line">Installing service...</span><br><span class="line">Successfully added to chkconfig!</span><br><span class="line">Successfully added to runlevels 345!</span><br><span class="line">Starting Redis server...</span><br><span class="line">Installation successful!</span><br></pre></td></tr></table></figure></p>
-<p>接下來只要重新啟動即可讓 <strong>redis</strong> 在背景運作了。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure></p>
+<p>設定使用的 port <em>(預設 6379)</em></p>
+<pre><code>Please select the redis port for this instance: [6379]
+</code></pre>
+<p>設定使用的 config 位置 <em>(預設 /etc/redis/6379.conf)</em></p>
+<pre><code>Please select the redis config file name [/etc/redis/6379.conf]
+</code></pre>
+<p>設定 log 位置 <em>(預設 /var/log/redis_6379.log)</em></p>
+<pre><code>Please select the redis log file name [/var/log/redis_6379.log]
+</code></pre>
+<p>設定資料儲存目錄 <em>(預設 /var/lib/redis/6379)</em></p>
+<pre><code>Please select the data directory for this instance [/var/lib/redis/6379]
+</code></pre>
+<p>設定 redis 執行檔位置 <em>(預設 /usr/local/bin/redis-server)</em></p>
+<pre><code>Please select the redis executable path [/usr/local/bin/redis-server]
+</code></pre>
+<p>確認設定是否正確</p>
+<pre><code>Selected config:
+Port           : 6379
+Config file    : /etc/6379.conf
+Log file       : /var/log/redis_6379.log
+Data dir       : /var/lib/redis/6379
+Executable     : /usr/local/bin/redis-server
+Cli Executable : /usr/local/bin/redis-cli
+Is this ok? Then press ENTER to go on or Ctrl-C to abort.
+</code></pre>
+<p>安裝成功</p>
+<pre><code>Copied /tmp/6379.conf =&gt; /etc/init.d/redis_6379
+Installing service...
+Successfully added to chkconfig!
+Successfully added to runlevels 345!
+Starting Redis server...
+Installation successful!
+</code></pre>
+<p>接下來只要重新啟動即可讓 <strong>redis</strong> 在背景運作了。</p>
+<pre><code>$ sudo reboot
+</code></pre>
 <h3 id="確認-redis-server-有正確使用"><a class="anchor" href="#確認-redis-server-有正確使用">#</a> 確認 Redis Server 有正確使用。</h3>
 <p>可以使用  <code>redis-cli</code>  來與  <code>redis server</code>  互動</p>
-<p>輸入  <code>redis-cli</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ redis-cli</span><br></pre></td></tr></table></figure></p>
-<p>會進入 redis server 的環境，此時輸入  <code>ping</code>  ，  <code>redis server</code>  應該要能回應  <code>pong</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure></p>
+<p>輸入  <code>redis-cli</code></p>
+<pre><code>$ redis-cli
+</code></pre>
+<p>會進入 redis server 的環境，此時輸入  <code>ping</code>  ，  <code>redis server</code>  應該要能回應  <code>pong</code></p>
+<pre><code>redis&gt; ping
+PONG
+</code></pre>
 <p>如此。就算成功了！</p>
 <p>以下一些 Redis 常用的指令：</p>
 <p>最基礎的用法就是塞值、取值</p>
-<p>塞入 “test_value” 到  <code>key</code>  中<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; set key &#x27;test_value&#x27;</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
-<p>讀取  <code>key</code>  中的 &quot;test_value&quot;<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; get key</span><br><span class="line">&quot;test_value&quot;</span><br></pre></td></tr></table></figure></p>
-<p>你也可以塞入 <strong>JSON</strong><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; set testJson &#x27;&#123;&quot;a&quot;: 1, &quot;b&quot;: &quot;string&quot;&#125;&#x27;</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
-<p>取出方式一樣<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; get testJson</span><br><span class="line">&quot;&#123;\&quot;a\&quot;: 1, \&quot;b\&quot;: \&quot;string\&quot;&#125;&quot;</span><br></pre></td></tr></table></figure></p>
-<p>刪除 key<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; del key # 刪除 key</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></p>
-<p>查看 <strong>redis</strong> 中所有的 key<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; KEYS *</span><br><span class="line">1) &quot;testJson&quot;</span><br></pre></td></tr></table></figure></p>
+<p>塞入 “test_value” 到  <code>key</code>  中</p>
+<pre><code>redis&gt; set key 'test_value'
+OK
+</code></pre>
+<p>讀取  <code>key</code>  中的 &quot;test_value&quot;</p>
+<pre><code>redis&gt; get key
+&quot;test_value&quot;
+</code></pre>
+<p>你也可以塞入 <strong>JSON</strong></p>
+<pre><code>redis&gt; set testJson '&#123;&quot;a&quot;: 1, &quot;b&quot;: &quot;string&quot;&#125;'
+OK
+</code></pre>
+<p>取出方式一樣</p>
+<pre><code>redis&gt; get testJson
+&quot;&#123;\&quot;a\&quot;: 1, \&quot;b\&quot;: \&quot;string\&quot;&#125;&quot;
+</code></pre>
+<p>刪除 key</p>
+<pre><code>redis&gt; del key # 刪除 key
+(integer) 1
+</code></pre>
+<p>查看 <strong>redis</strong> 中所有的 key</p>
+<pre><code>redis&gt; KEYS *
+1) &quot;testJson&quot;
+</code></pre>
 <p><strong>KEYS</strong> 還可以使用模糊搜尋</p>
 <ul>
 <li><code>?</code>  : 匹配一個不為空的字符</li>
@@ -218,9 +260,40 @@
 <li><code>[^s]</code>  : 匹配 <strong>不為 s</strong> 的字符</li>
 <li><code>[a-z]</code>  : 匹配 <strong>a 到 z</strong> 的字符 Ex.</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># ? : 匹配一個不為空的字符</span><br><span class="line">$ redis&gt; keys test?son</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;testason&quot;</span><br><span class="line"># * : 匹配0~多個所有字符</span><br><span class="line">redis&gt; keys *son</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;testson&quot;</span><br><span class="line">3) &quot;testason&quot;</span><br><span class="line">redis&gt; keys *s*</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;casheTest&quot;</span><br><span class="line">3) &quot;testson&quot;</span><br><span class="line">4) &quot;testason&quot;</span><br><span class="line">redis&gt; keys so*</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line">2) &quot;casheTest&quot;</span><br><span class="line">3) &quot;testson&quot;</span><br><span class="line">4) &quot;testason&quot;</span><br><span class="line">redis&gt; keys so*</span><br><span class="line">(empty list or set)</span><br><span class="line">redis&gt; keys testJso*</span><br><span class="line">1) &quot;testJson&quot;</span><br><span class="line"># [aeiou] : 匹配 a, e, i, o, u</span><br><span class="line">redis&gt; keys test[aeiou]son</span><br><span class="line">1) &quot;testason&quot;</span><br><span class="line"># [^J] : 匹配 不為 J 的字符</span><br><span class="line">redis&gt; keys test[^J]son</span><br><span class="line">1) &quot;testason&quot;</span><br></pre></td></tr></table></figure></p>
-<p>清除所有內容<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; flushall</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
+<pre><code class="language-redis"># ? : 匹配一個不為空的字符
+$ redis&gt; keys test?son
+1) &quot;testJson&quot;
+2) &quot;testason&quot;
+# * : 匹配0~多個所有字符
+redis&gt; keys *son
+1) &quot;testJson&quot;
+2) &quot;testson&quot;
+3) &quot;testason&quot;
+redis&gt; keys *s*
+1) &quot;testJson&quot;
+2) &quot;casheTest&quot;
+3) &quot;testson&quot;
+4) &quot;testason&quot;
+redis&gt; keys so*
+1) &quot;testJson&quot;
+2) &quot;casheTest&quot;
+3) &quot;testson&quot;
+4) &quot;testason&quot;
+redis&gt; keys so*
+(empty list or set)
+redis&gt; keys testJso*
+1) &quot;testJson&quot;
+# [aeiou] : 匹配 a, e, i, o, u
+redis&gt; keys test[aeiou]son
+1) &quot;testason&quot;
+# [^J] : 匹配 不為 J 的字符
+redis&gt; keys test[^J]son
+1) &quot;testason&quot;
+</code></pre>
+<p>清除所有內容</p>
+<pre><code>redis&gt; flushall
+OK
+</code></pre>
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
@@ -339,7 +412,7 @@
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -351,7 +424,7 @@
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -428,32 +501,10 @@
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
-</div>
-
-    <span><a href="/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/" title="告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)">告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
 </div>
 
-    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-</div>
-
-    <span><a href="/Life/2019-04-11-%E9%96%8B%E7%AE%B1-bose-soundsport-free-%E7%9C%9F%E7%84%A1%E7%B7%9A%E8%80%B3%E6%A9%9F/" title="開箱 Bose SoundSport Free 真無線耳機">開箱 Bose SoundSport Free 真無線耳機</a></span>
+    <span><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></span>
   </li>
 
       
@@ -462,10 +513,22 @@
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></span>
   </li>
 
       
@@ -475,23 +538,11 @@
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
-</div>
-
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
+    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
   </li>
 
       
@@ -500,22 +551,10 @@
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Linux/2018-11-28-linux-%E4%BD%BF%E7%94%A8-rsync-%E5%82%B3%E8%BC%B8-%E5%82%99%E4%BB%BD%E5%85%A9%E8%99%95%E7%9A%84%E6%AA%94%E6%A1%88/" title="Linux 使用 rsync 傳輸、備份兩處的檔案">Linux 使用 rsync 傳輸、備份兩處的檔案</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/git/" title="In git">git</a>
-</div>
-
-    <span><a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" title="GIT 關於 GIT 的 ^M 的二三事">GIT 關於 GIT 的 ^M 的二三事</a></span>
+    <span><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></span>
   </li>
 
       
@@ -527,19 +566,57 @@
 <a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Algorithm/2018-12-14-%E9%97%9C%E6%96%BC%E7%B5%84%E7%B9%94%E6%A8%B9%E7%8B%80%E5%9C%96%E7%9A%84%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%96%B9%E6%B3%95/" title="關於組織樹狀圖的資料結構設計方法">關於組織樹狀圖的資料結構設計方法</a></span>
+    <span><a href="/Tech/Algorithm/2018-12-26-%E9%81%8A%E6%88%B2%E4%B8%AD%E7%9A%84%E5%85%A8%E6%9C%8D%E6%8E%92%E8%A1%8C%E6%98%AF%E6%80%8E%E9%BA%BC%E5%AF%A6%E7%8F%BE%E7%9A%84/" title="遊戲中的全服排行是怎麼實現的？">遊戲中的全服排行是怎麼實現的？</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
+<a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2018-11-22-vscode-%E4%BD%BF%E7%94%A8-settings-sync-%E5%90%8C%E6%AD%A5-vscode-%E7%9A%84%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD%E8%88%87%E5%90%84%E9%A0%85%E8%A8%AD%E5%AE%9A/" title="VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定">VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
   </li>
 
   </ul>

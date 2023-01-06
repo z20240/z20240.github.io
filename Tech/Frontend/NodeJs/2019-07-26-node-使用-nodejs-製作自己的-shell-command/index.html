@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
     
-  <meta name="keywords" content="nodejs,javascript,npm,command-line" />
+  <meta name="keywords" content="javascript,nodejs,npm,command-line" />
 
 
 <link rel="canonical" href="https://z20240.github.io/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/">
@@ -170,43 +170,61 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <h4 id="使用-npm-將工具打包成-shell-command"><a class="anchor" href="#使用-npm-將工具打包成-shell-command">#</a> 使用 NPM 將工具打包成 Shell Command.</h4>
 <p>npm 不僅僅是 node 的依賴管理工具，它也能將 NodeJs Code 打包成 Shell Command。</p>
 <p>首先我們先利用  <code>npm init</code>  建立一個新專案。並依照 NodeJS 慣例，在專案中增加 index.js 作為我們工具的腳本。</p>
-<p>這邊要注意的是，要讓 shell 能夠直接執行我們的 JS 我們必須在程式開頭處增加這一行<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br></pre></td></tr></table></figure></p>
+<p>這邊要注意的是，要讓 shell 能夠直接執行我們的 JS 我們必須在程式開頭處增加這一行</p>
+<pre><code>#!/usr/bin/env node
+</code></pre>
 <p>這是告訴 Shell 說，請使用 node 來執行這支腳本。(詳情請見 <span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvU2hlYmFuZw==">Wiki</span> )</p>
 <p><img data-src="1*bn5tW0xMEpEQyFFSvT9-7w.png" alt="先使用 hello world 試試看" /></p>
 <p>先使用 hello world 試試看</p>
-<p>接下來，我們在  <code>package.json</code>  中最上層增加一個  <code>bin</code>  的 Object 屬性，並且在其中定義我們的工具名稱與程式進入點 (在我們這個例子中，工具名稱為 hmac-tool)。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">&quot;bin&quot; : &#123;</span><br><span class="line">    &quot;hmac-tool&quot;: &quot;./index.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下來，我們在  <code>package.json</code>  中最上層增加一個  <code>bin</code>  的 Object 屬性，並且在其中定義我們的工具名稱與程式進入點 (在我們這個例子中，工具名稱為 hmac-tool)。</p>
+<pre><code>...
+&quot;bin&quot; : &#123;
+    &quot;hmac-tool&quot;: &quot;./index.js&quot;
+&#125;
+</code></pre>
 <p>如此我們就設定好 npm shell command 了。</p>
 <p>接下來我們直接使用  <code>npm install -g</code>  即可將它安裝在 global 中。</p>
-<p>未來我們便能使用  <code>hmac-tool</code>  作為我們的 shell script tool 囉！<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g</span><br><span class="line">$ hmac-tool</span><br></pre></td></tr></table></figure></p>
+<p>未來我們便能使用  <code>hmac-tool</code>  作為我們的 shell script tool 囉！</p>
+<pre><code>$ npm install -g
+$ hmac-tool
+</code></pre>
 <p><img data-src="1*wj62wymGk5Vxs__-grOL-g.gif" alt="" /></p>
 <h3 id="發佈到-npm"><a class="anchor" href="#發佈到-npm">#</a> 發佈到 NPM</h3>
 <p>發佈到 NPM 也很簡單。</p>
 <p>首先到 <span class="exturl" data-url="aHR0cDovL25wbWpzLm9yZy8=">NPM 官網</span> 註冊一個帳號。</p>
-<p>之後若是第一次發佈自己的 Package 的話，請使用這個指令將自己加入 NPM<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm adduser</span><br></pre></td></tr></table></figure></p>
-<p>之後每次只要執行以下指令，即可使用 Command Line 登入。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure></p>
-<p>接下來要真正發佈我們的 Package 了，使用以下指令。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure></p>
-<p>等一會兒之後，只要看到如下的訊息，即代表你發佈成功了。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm publish</span><br><span class="line">+ hmac-tool@1.0.0</span><br></pre></td></tr></table></figure></p>
-<p>要注意的一點是，若你的 Package 名稱與別人 <strong>「撞名」</strong> 的話，它可能會顯示以下的錯誤訊息。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm ERR publish 403</span><br><span class="line"></span><br><span class="line">You do not have permission to publish &#x27;XXXXXXX&#x27;.Are you logged in as</span><br><span class="line">the corrent user?:XXXXXXX</span><br></pre></td></tr></table></figure></p>
+<p>之後若是第一次發佈自己的 Package 的話，請使用這個指令將自己加入 NPM</p>
+<pre><code>$ npm adduser
+</code></pre>
+<p>之後每次只要執行以下指令，即可使用 Command Line 登入。</p>
+<pre><code>npm login
+</code></pre>
+<p>接下來要真正發佈我們的 Package 了，使用以下指令。</p>
+<pre><code>npm publish
+</code></pre>
+<p>等一會兒之後，只要看到如下的訊息，即代表你發佈成功了。</p>
+<pre><code>$ npm publish
++ hmac-tool@1.0.0
+</code></pre>
+<p>要注意的一點是，若你的 Package 名稱與別人 <strong>「撞名」</strong> 的話，它可能會顯示以下的錯誤訊息。</p>
+<pre><code>npm ERR publish 403
+
+You do not have permission to publish 'XXXXXXX'.Are you logged in as
+the corrent user?:XXXXXXX
+</code></pre>
 <p>如果真碰到此問題，你只能另取它名了。</p>
 <h4 id="更新已發佈的-package"><a class="anchor" href="#更新已發佈的-package">#</a> 更新已發佈的 Package</h4>
-<p>更新 Package 的操作與發佈的動作其實是一樣的。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure></p>
+<p>更新 Package 的操作與發佈的動作其實是一樣的。</p>
+<pre><code>npm publish
+</code></pre>
 <p>只是要注意的是，每次發佈，都需要 <strong>「修改版本號」</strong> 之後才能更新。</p>
-<p>並且依照 <span class="exturl" data-url="aHR0cHM6Ly9zZW12ZXIub3JnL2xhbmcvemgtVFcv">semver</span> 的版本規範，亦即：版本號格式必須為<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">「大更新.中更新.小更新」</span><br></pre></td></tr></table></figure></p>
+<p>並且依照 <span class="exturl" data-url="aHR0cHM6Ly9zZW12ZXIub3JnL2xhbmcvemgtVFcv">semver</span> 的版本規範，亦即：版本號格式必須為</p>
+<pre><code>「大更新.中更新.小更新」
+</code></pre>
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
-          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
           <a href="/tags/javascript/" rel="tag"><i class="ic i-tag"></i> javascript</a>
+          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
           <a href="/tags/npm/" rel="tag"><i class="ic i-tag"></i> npm</a>
           <a href="/tags/command-line/" rel="tag"><i class="ic i-tag"></i> command-line</a>
       </div>
@@ -323,7 +341,7 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -335,7 +353,7 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -417,31 +435,7 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
 </div>
 
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+    <span><a href="/Life/EnglishLearn/Cambly-Lession4/" title="Cambly-Lession4">Cambly-Lession4</a></span>
   </li>
 
       
@@ -451,9 +445,11 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-proxy-%E7%82%BA-object-%E4%BB%A3%E7%90%86%E9%80%B2%E8%A1%8C%E5%89%8D%E8%99%95%E7%90%86/" title="Javascript 使用 Proxy 為 Object 代理進行前處理">Javascript 使用 Proxy 為 Object 代理進行前處理</a></span>
+    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
   </li>
 
       
@@ -462,22 +458,10 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
 </div>
 
-    <span><a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" title="Vim 使用 Vimdiff 來比較 Git diff 的差異">Vim 使用 Vimdiff 來比較 Git diff 的差異</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2018-11-22-vscode-%E4%BD%BF%E7%94%A8-settings-sync-%E5%90%8C%E6%AD%A5-vscode-%E7%9A%84%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD%E8%88%87%E5%90%84%E9%A0%85%E8%A8%AD%E5%AE%9A/" title="VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定">VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定</a></span>
+    <span><a href="/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/" title="MongoDB 如何 Auto increment 地插入資料">MongoDB 如何 Auto increment 地插入資料</a></span>
   </li>
 
       
@@ -489,7 +473,7 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ssh-%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E7%99%BB%E5%85%A5-vm-instance/" title="GCP如何使用 SSH 讓使用者登入 VM Instance">GCP如何使用 SSH 讓使用者登入 VM Instance</a></span>
+    <span><a href="/Tech/Linux/2020-07-27-gcp-%E9%81%87%E5%88%B0permission-denied-publickey-%E6%80%8E%E9%BA%BC%E8%BE%A6/" title="GCP遇到permission denied (publickey)怎麼辦？">GCP遇到permission denied (publickey)怎麼辦？</a></span>
   </li>
 
       
@@ -510,10 +494,10 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
   </li>
 
       
@@ -526,6 +510,44 @@ Node 使用 NodeJS 製作自己的 Shell Command - NodeJs - Frontend - Tech |
 </div>
 
     <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></span>
   </li>
 
   </ul>

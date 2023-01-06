@@ -168,19 +168,29 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <p>因此，本文將紀錄幾種客製化自定義模組，並且掛載到 <strong>Vue-Cli</strong> 的方法。</p>
 <h4 id="一-直接掛載-prototype"><a class="anchor" href="#一-直接掛載-prototype">#</a> 一、直接掛載 prototype</h4>
 <p>網路上有許多解決全局引用的方法，其中最簡單的方式為直接將方法掛載到  <code>Vue</code>  的  <code>prototype</code>  上。</p>
-<p>在 <strong>main.js</strong> 中：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.method = function () &#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>之後在想使用的 Component 中即可直接使用…<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.method()</span><br></pre></td></tr></table></figure></p>
+<p>在 <strong>main.js</strong> 中：</p>
+<pre><code>Vue.prototype.method = function () &#123;&#125;
+</code></pre>
+<p>之後在想使用的 Component 中即可直接使用…</p>
+<pre><code>this.method()
+</code></pre>
 <h3 id="二-自製-vue-plugin"><a class="anchor" href="#二-自製-vue-plugin">#</a> 二、自製 Vue Plugin</h3>
 <ul>
 <li>首先，定義全局的  <code>pluginUtil.js</code>  <strong>Vue.js</strong> 的 plugin 必須有一個公開的 <strong>method</strong> ：  <code>install</code>  。這個 <strong>method</strong> 的第一個參數是 <strong>Vue</strong> 的  <code>constructor</code>  ，第二個參數是一個可選的  <code>option</code>  。</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">    install (Vue, options) &#123;</span><br><span class="line">        // Vue 的 plugin 有四種方式可以創建，稍後會詳細提及。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>export default &#123;
+    install (Vue, options) &#123;
+        // Vue 的 plugin 有四種方式可以創建，稍後會詳細提及。
+    &#125;
+&#125;
+</code></pre>
 <ul>
 <li>於  <code>main.js</code>  裡使用 (use)</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pluginsUtil from &#x27;./pluginsUtil&#x27;</span><br><span class="line">Vue.use(pluginsUtil)import pluginsUtil from &#x27;./pluginsUtil&#x27;</span><br><span class="line">Vue.use(pluginsUtil)</span><br></pre></td></tr></table></figure></p>
+<pre><code>import pluginsUtil from './pluginsUtil'
+Vue.use(pluginsUtil)import pluginsUtil from './pluginsUtil'
+Vue.use(pluginsUtil)
+</code></pre>
 <ul>
 <li>於想使用的  <code>Component</code>  中直接使用。</li>
 <li>Done!</li>
@@ -189,22 +199,72 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <ul>
 <li>Vue.mixin 方式（註冊全局的混合對象）</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.mixin(&#123;</span><br><span class="line">    data () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            customMethod: &#x27;some value1：mixindata中的值(string, array, function, object...)&#x27;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<pre><code class="language-vue">Vue.mixin(&#123;
+    data () &#123;
+        return &#123;
+            customMethod: 'some value1：mixindata中的值(string, array, function, object...)',
+        &#125;
+    &#125;
+&#125;)
+</code></pre>
 <ul>
 <li>Vue.prototype 方式（定義 Vue prototype 上的 attribute） 就像第一種方法，只是打包起來。比較沒這麼暴力。</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.someValue2 = &#x27;someValue2：Vue.prototype上的值&#x27;</span><br><span class="line">Vue.prototype.testFuction = function () &#123;</span><br><span class="line">    let dateNew = new Date()</span><br><span class="line">    return dateNew;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code class="language-vue">Vue.prototype.someValue2 = 'someValue2：Vue.prototype上的值'
+Vue.prototype.testFuction = function () &#123;
+    let dateNew = new Date()
+    return dateNew;
+&#125;
+</code></pre>
 <ul>
 <li>Vue.filter 方式（定義全局的過濾器）</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(&#x27;customFilter&#x27;, function (cnt) &#123;</span><br><span class="line">    return custom_filter_condition();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<pre><code class="language-vue">Vue.filter('customFilter', function (cnt) &#123;
+    return custom_filter_condition();
+&#125;);
+</code></pre>
 <ul>
 <li>Vue.directive 方式（定義全局自定義的指令）</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&#x27;myfocus&#x27;, &#123;</span><br><span class="line">    // 將綁定的當前元素插入至 DOM 中。</span><br><span class="line">    inserted: function (el) &#123;</span><br><span class="line">        el.focus();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<pre><code class="language-vue">Vue.directive('myfocus', &#123;
+    // 將綁定的當前元素插入至 DOM 中。
+    inserted: function (el) &#123;
+        el.focus();
+    &#125;
+&#125;);
+</code></pre>
 <h3 id="結論"><a class="anchor" href="#結論">#</a> 結論</h3>
-<p>最後，統整詳細作法大致如下：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">    install (Vue, options) &#123;</span><br><span class="line">        // 第一種方法</span><br><span class="line">        Vue.mixin(&#123;</span><br><span class="line">            data () &#123;</span><br><span class="line">                return &#123;</span><br><span class="line">                    customMethod: &#x27;some value1：mixindata中的值(string, array, function, object...)&#x27;,</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        // 第二種方法</span><br><span class="line">        Vue.prototype.someValue2 = &#x27;someValue2：Vue.prototype上的值&#x27;</span><br><span class="line">        Vue.prototype.testFuction = function () &#123;</span><br><span class="line">            let dateNew = new Date()</span><br><span class="line">            return dateNew;</span><br><span class="line">        &#125;</span><br><span class="line">        // 第三種方法</span><br><span class="line">        Vue.filter(&#x27;customFilter&#x27;, function (cnt) &#123;</span><br><span class="line">            return custom_filter_condition();</span><br><span class="line">        &#125;);</span><br><span class="line">        // 第四種方法</span><br><span class="line">        Vue.directive(&#x27;myfocus&#x27;, &#123;</span><br><span class="line">            // 將綁定的當前元素插入至 DOM 中。</span><br><span class="line">            inserted: function (el) &#123;</span><br><span class="line">                el.focus();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最後，統整詳細作法大致如下：</p>
+<pre><code class="language-vue">export default &#123;
+    install (Vue, options) &#123;
+        // 第一種方法
+        Vue.mixin(&#123;
+            data () &#123;
+                return &#123;
+                    customMethod: 'some value1：mixindata中的值(string, array, function, object...)',
+                &#125;
+            &#125;
+        &#125;)
+        // 第二種方法
+        Vue.prototype.someValue2 = 'someValue2：Vue.prototype上的值'
+        Vue.prototype.testFuction = function () &#123;
+            let dateNew = new Date()
+            return dateNew;
+        &#125;
+        // 第三種方法
+        Vue.filter('customFilter', function (cnt) &#123;
+            return custom_filter_condition();
+        &#125;);
+        // 第四種方法
+        Vue.directive('myfocus', &#123;
+            // 將綁定的當前元素插入至 DOM 中。
+            inserted: function (el) &#123;
+                el.focus();
+            &#125;
+        &#125;);
+    &#125;
+&#125;
+</code></pre>
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
@@ -324,7 +384,7 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -336,7 +396,7 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -411,28 +471,12 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
+<a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+<a href="/categories/Tech/Hexo/" title="In Hexo">Hexo</a>
 </div>
 
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
-</div>
-
-    <span><a href="/Life/EnglishLearn/Cambly-Lession1/" title="EnglishLearn&#x2F;Cambly-Lession1">EnglishLearn/Cambly-Lession1</a></span>
+    <span><a href="/Tech/Hexo/fix-mermaid-parser-issue/" title="解決 Mermaid 無法正確在 shoka 主題顯示的問題">解決 Mermaid 無法正確在 shoka 主題顯示的問題</a></span>
   </li>
 
       
@@ -442,9 +486,61 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">Javascript 使用 Array.Reduce 進行 Object Array 的加總</a></span>
+    <span><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/" title="WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug">WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/" title="告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)">告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
   </li>
 
       
@@ -456,33 +552,19 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
+    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
+<a href="/categories/Life/" title="In Life">Life</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
+    <span><a href="/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/" title="IELS 字彙">IELS 字彙</a></span>
   </li>
 
       
@@ -496,7 +578,7 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
 </div>
 
-    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
   </li>
 
       
@@ -505,34 +587,10 @@ Vue-Cli 自定義全局功能的方法 - Vue - Frontend - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
-</div>
-
-    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
-</div>
-
-    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
+    <span><a href="/Tech/Algorithm/2018-12-26-%E9%81%8A%E6%88%B2%E4%B8%AD%E7%9A%84%E5%85%A8%E6%9C%8D%E6%8E%92%E8%A1%8C%E6%98%AF%E6%80%8E%E9%BA%BC%E5%AF%A6%E7%8F%BE%E7%9A%84/" title="遊戲中的全服排行是怎麼實現的？">遊戲中的全服排行是怎麼實現的？</a></span>
   </li>
 
   </ul>

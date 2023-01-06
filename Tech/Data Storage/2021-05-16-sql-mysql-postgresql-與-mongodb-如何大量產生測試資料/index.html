@@ -164,12 +164,10 @@ SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料 - Data Storage 
 <p>但是，其實我們可以直接使用簡單的 SQL 就達成這樣的目的，無需再去網路上找尋這種 dummy data generator.</p>
 <p>以下針對 <span class="exturl" data-url="aHR0cHM6Ly93d3cucG9zdGdyZXNxbC5vcmcv">PostgreSQL</span> 、 <span class="exturl" data-url="aHR0cHM6Ly93d3cubXlzcWwuY29tLw==">MySQL</span> 跟 <span class="exturl" data-url="aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vY2xvdWQvYXRsYXMvbHAvdHJ5Mg==">MongoDB</span> 三種比較常見的 Database 提供 dummy data generate 的語法。</p>
 <h4 id="postgresql"><a class="anchor" href="#postgresql">#</a> PostgreSQL</h4>
-<p>我們先 Create 一個空 table 作為講解使用。<br />
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Create a table `users`</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> users  (</span><br><span class="line">    id uuid <span class="keyword">DEFAULT</span> uuid_generate_v4 (),</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    email <span class="type">VARCHAR</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (id)</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>基本思路是，利用 PostgreSQL 內建的  <code>generate_series</code>  指令，產生大量的流水號，再利用流水號的數量塞入 random 的資料進資料庫。</p>
-<p>細節的指令可以查看以下的語法：<br />
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- random 10,000 data.</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> users (name, email)</span><br><span class="line">  <span class="keyword">SELECT</span> md5(random()::text), CONCAT(random()::text, <span class="string">&#x27;@xxx.com&#x27;</span>)</span><br><span class="line">  <span class="keyword">FROM</span> generate_series(<span class="number">1</span>, <span class="number">10000</span>);</span><br></pre></td></tr></table></figure></p>
-<p>檢查一下是否真的塞入了 10000 筆資料了。</p>
+<p>我們先 Create 一個空 table 作為講解使用。</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">-- Create a table `users`</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> users  <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    id uuid <span class="token keyword">DEFAULT</span> uuid_generate_v4 <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    email <span class="token keyword">VARCHAR</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>基本思路是，利用 PostgreSQL 內建的  <code>generate_series</code>  指令，產生大量的流水號，再利用流水號的數量塞入 random 的資料進資料庫。</p>
+<p>細節的指令可以查看以下的語法：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">-- random 10,000 data.</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>name<span class="token punctuation">,</span> email<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">SELECT</span> md5<span class="token punctuation">(</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span>::<span class="token keyword">text</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CONCAT<span class="token punctuation">(</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span>::<span class="token keyword">text</span><span class="token punctuation">,</span> <span class="token string">'@xxx.com'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">FROM</span> generate_series<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>檢查一下是否真的塞入了 10000 筆資料了。</p>
 <p><img data-src="1*5I9wbUun0tnHjHOiebc06Q.png" alt="" /></p>
 <h4 id="mysql"><a class="anchor" href="#mysql">#</a> MySQL</h4>
 <p>MySQL 沒有像 PostgreSQL 的 generate_series 這樣方便的工具，因此我們要自己寫。</p>
@@ -180,26 +178,30 @@ SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料 - Data Storage 
 </ol>
 <p>那麼問題就簡化到，我們該怎麼建立這樣的臨時表呢？</p>
 <p>網路上有幾種方法。第一種是使用  <code>store procedure</code>  ；其二就是我今天想介紹的作法：直接使用 python, node 這種小程式 <strong>一行創建</strong> 。</p>
-<p><strong>創建臨時表 table</strong><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tmp_table (id INT,  PRIMARY KEY (id)) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure></p>
+<p><strong>創建臨時表 table</strong></p>
+<pre><code>CREATE TABLE tmp_table (id INT,  PRIMARY KEY (id)) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4;
+</code></pre>
 <p>幫臨時表 insert 10000 筆的流水號的文件，作為準備。</p>
-<p>Python Version:<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -c &#x27;print(&quot;id&quot;)</span><br><span class="line">for i in range(1, 1+10000): print(i)&#x27; &gt; base.csv</span><br></pre></td></tr></table></figure></p>
-<p>NodeJs Version:<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -e &#x27;console.log(&quot;id&quot;); for(let i=1; i&lt;=10000; i++) console.log(i);&#x27; &gt; base.csv</span><br></pre></td></tr></table></figure></p>
-<p>從 base.txt 導入數據到剛剛的臨時表<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; load data infile &#x27;/Your/file/path/base.txt&#x27; replace into table tmp_table;</span><br></pre></td></tr></table></figure></p>
+<p>Python Version:</p>
+<pre><code>python -c 'print(&quot;id&quot;)
+for i in range(1, 1+10000): print(i)' &gt; base.csv
+</code></pre>
+<p>NodeJs Version:</p>
+<pre><code>node -e 'console.log(&quot;id&quot;); for(let i=1; i&lt;=10000; i++) console.log(i);' &gt; base.csv
+</code></pre>
+<p>從 base.txt 導入數據到剛剛的臨時表</p>
+<pre><code>mysql&gt; load data infile '/Your/file/path/base.txt' replace into table tmp_table;
+</code></pre>
 <p>確認一下是否有成功導入</p>
 <p><img data-src="1*u7tqvIP1aNErGnjuZjRcdg.png" alt="" /></p>
 <p>接下來我們就能利用這個流水表，創建隨機資料了。</p>
-<p>一樣使用剛剛 Create 資料表的語法創建一個 table 當作目標 table<br />
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Create a table `users`</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `users`  (</span><br><span class="line">    `id` <span class="type">binary</span>(<span class="number">36</span>) <span class="keyword">primary</span> key,</span><br><span class="line">    `name` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    `email` <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>接下來就可以使用  <code>tmp_table</code>  塞入大量的 random data.<br />
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- random 10,000 data.</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> users (id, name, email)</span><br><span class="line">  <span class="keyword">SELECT</span> uuid(), md5(<span class="keyword">LEFT</span>(UUID(), <span class="number">8</span>)), CONCAT(<span class="keyword">LEFT</span>(UUID(), <span class="number">8</span>), <span class="string">&#x27;@xxx.com&#x27;</span>)</span><br><span class="line">  <span class="keyword">FROM</span> tmp_table;</span><br></pre></td></tr></table></figure></p>
-<h4 id="mongodb"><a class="anchor" href="#mongodb">#</a> MongoDB</h4>
+<p>一樣使用剛剛 Create 資料表的語法創建一個 table 當作目標 table</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">-- Create a table `users`</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>users<span class="token punctuation">`</span></span>  <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">binary</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token identifier"><span class="token punctuation">`</span>name<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token identifier"><span class="token punctuation">`</span>email<span class="token punctuation">`</span></span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>接下來就可以使用  <code>tmp_table</code>  塞入大量的 random data.</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment">-- random 10,000 data.</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">--</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> users <span class="token punctuation">(</span>id<span class="token punctuation">,</span> name<span class="token punctuation">,</span> email<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">SELECT</span> uuid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> md5<span class="token punctuation">(</span><span class="token keyword">LEFT</span><span class="token punctuation">(</span>UUID<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> CONCAT<span class="token punctuation">(</span><span class="token keyword">LEFT</span><span class="token punctuation">(</span>UUID<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'@xxx.com'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">FROM</span> tmp_table<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="mongodb"><a class="anchor" href="#mongodb">#</a> MongoDB</h4>
 <p>mongodb 要產生 dummy data 很簡單。</p>
-<p>我們只需要使用 forloop 即可產生我們想要的數量。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo&gt; for (var i = 1; i &lt;= 10000; i++) db.users.insert( &#123; name : UUID(), email: UUID() + &quot;@mail.com&quot; &#125; );</span><br></pre></td></tr></table></figure></p>
+<p>我們只需要使用 forloop 即可產生我們想要的數量。</p>
+<pre><code>mongo&gt; for (var i = 1; i &lt;= 10000; i++) db.users.insert( &#123; name : UUID(), email: UUID() + &quot;@mail.com&quot; &#125; );
+</code></pre>
 <p>接下來檢查看看，是否真的有 10000 筆資料。</p>
 <p><img data-src="1*TvJnGY8LvtvZok6MRDLg9g.png" alt="" /></p>
 <h4 id="結語"><a class="anchor" href="#結語">#</a> 結語</h4>
@@ -332,7 +334,7 @@ SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料 - Data Storage 
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -344,7 +346,7 @@ SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料 - Data Storage 
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -421,12 +423,46 @@ SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料 - Data Storage 
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+<a href="/categories/Tech/Hexo/" title="In Hexo">Hexo</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></span>
+    <span><a href="/Tech/Hexo/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/git/" title="In git">git</a>
+</div>
+
+    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
   </li>
 
       
@@ -457,86 +493,50 @@ SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料 - Data Storage 
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/" title="IELS 字彙">IELS 字彙</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
     <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
-</div>
-
-    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2019-12-30-javascript-point-free-style-%E5%A6%82%E4%BD%95%E5%B9%AB%E5%8A%A9%E6%8F%90%E9%AB%98%E7%A8%8B%E5%BC%8F%E5%8F%AF%E8%AE%80%E6%80%A7/" title="Javascript Point Free Style 如何幫助提高程式可讀性">Javascript Point Free Style 如何幫助提高程式可讀性</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
-</div>
-
-    <span><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
-</div>
-
-    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
   </li>
 
   </ul>

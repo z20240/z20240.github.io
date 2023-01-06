@@ -168,10 +168,64 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <li>父組件監聽自訂的 Event  <code>event</code>  。當子組件發生變更時，使用  <code>$emit('event', value);</code>  將變動通知父組件，並於父組件中自行更改值。</li>
 </ol>
 <p>我們以實作一個計數器來呈現的話，Code 可能會像如下：</p>
-<p><code>ParentComponent.vue</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import ChildrenComponent from &#x27;./Children.vue&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    name: &#x27;PropSync&#x27;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        ChildrenComponent</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            counter: 0,</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        updateCounter(val) &#123;</span><br><span class="line">            this.counter = val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;section style=&quot;background-color: #DDDDDD&quot;&gt;</span><br><span class="line">        &lt;p&gt;This is Component in Parent  &lt;span style=&quot;color: red;&quot;&gt;&#123;&#123; counter &#125;&#125;&lt;/span&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 1. Using v-bind:counter to props the `counter` to ChildrenComponent --&gt;</span><br><span class="line">        &lt;!-- 2. Using v-on:counter-update to listen the change value and set value to `counter` --&gt;</span><br><span class="line">        &lt;children-component :counter=&quot;counter&quot; @counter-update=&quot;updateCounter&quot;/&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p><code>ChildrenComponent.vue</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name: &#x27;PropSyncChildren&#x27;,</span><br><span class="line">    props: &#123;</span><br><span class="line">        counter: &#123;</span><br><span class="line">            type: Number,</span><br><span class="line">            default: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div style=&quot;background: #AAAAAA&quot;&gt;</span><br><span class="line">        &lt;!-- on click event is trigger, emit the counter-update to tell the parent `counter` is changed. --&gt;</span><br><span class="line">        &lt;button @click=&quot;() =&gt; this.$emit(&#x27;counter-update&#x27;, this.counter + 1)&quot;&gt; + &lt;/button&gt;</span><br><span class="line">        &lt;span&gt;This is component in children counter: &#123;&#123; counter &#125;&#125; &lt;/span&gt;</span><br><span class="line">        &lt;!-- on click event is trigger, emit the counter-update to tell the parent `counter` is changed. --&gt;</span><br><span class="line">        &lt;button @click=&quot;() =&gt; this.$emit(&#x27;counter-update&#x27;, this.counter - 1)&quot;&gt; - &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><code>ParentComponent.vue</code></p>
+<pre><code class="language-vue">&lt;script&gt;
+import ChildrenComponent from './Children.vue'
+
+export default &#123;
+    name: 'PropSync',
+    components: &#123;
+        ChildrenComponent
+    &#125;,
+    data() &#123;
+        return &#123;
+            counter: 0,
+        &#125;;
+    &#125;,
+    methods: &#123;
+        updateCounter(val) &#123;
+            this.counter = val;
+        &#125;
+    &#125;
+
+&#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;section style=&quot;background-color: #DDDDDD&quot;&gt;
+        &lt;p&gt;This is Component in Parent  &lt;span style=&quot;color: red;&quot;&gt;&#123;&#123; counter &#125;&#125;&lt;/span&gt;&lt;/p&gt;
+
+        &lt;!-- 1. Using v-bind:counter to props the `counter` to ChildrenComponent --&gt;
+        &lt;!-- 2. Using v-on:counter-update to listen the change value and set value to `counter` --&gt;
+        &lt;children-component :counter=&quot;counter&quot; @counter-update=&quot;updateCounter&quot;/&gt;
+    &lt;/section&gt;
+&lt;/template&gt;
+
+</code></pre>
+<p><code>ChildrenComponent.vue</code></p>
+<pre><code class="language-vue">&lt;script&gt;
+export default &#123;
+    name: 'PropSyncChildren',
+    props: &#123;
+        counter: &#123;
+            type: Number,
+            default: 0
+        &#125;
+    &#125;,
+&#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;div style=&quot;background: #AAAAAA&quot;&gt;
+        &lt;!-- on click event is trigger, emit the counter-update to tell the parent `counter` is changed. --&gt;
+        &lt;button @click=&quot;() =&gt; this.$emit('counter-update', this.counter + 1)&quot;&gt; + &lt;/button&gt;
+        &lt;span&gt;This is component in children counter: &#123;&#123; counter &#125;&#125; &lt;/span&gt;
+        &lt;!-- on click event is trigger, emit the counter-update to tell the parent `counter` is changed. --&gt;
+        &lt;button @click=&quot;() =&gt; this.$emit('counter-update', this.counter - 1)&quot;&gt; - &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+</code></pre>
 <p><img data-src="1*nqUfyvov5lTuDc_22b9AGw.gif" alt="" /></p>
 <p>以上的作法一直以來都是 Vue 解決父子組件對 props 雙向綁定的解決方法。</p>
 <p>然而這有著顯著的缺點：我們在父組件中難以一眼看出此 props 是被雙向綁定的。</p>
@@ -181,10 +235,61 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <p>這也是為什麼官方在 2.3 版新增此功能後，推薦於雙向綁定的狀況中使用  <code>.sync</code>  的原因。</p>
 <h4 id="改成使用-sync-修飾符"><a class="anchor" href="#改成使用-sync-修飾符">#</a> 改成使用 .sync 修飾符</h4>
 <p>我們一樣使用上面的 Code，將其修改成使用  <code>.sync</code>  完成雙向綁定。</p>
-<p><code>ParentComponent.vue</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import ChildrenComp from &#x27;./Children.vue&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    name: &#x27;PropSync&#x27;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        ChildrenComp</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            counter: 0,</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;section style=&quot;background-color: #DDDDDD&quot;&gt;</span><br><span class="line">        &lt;p&gt;This is Component in Parent  &lt;span style=&quot;color: red;&quot;&gt;&#123;&#123; counter &#125;&#125;&lt;/span&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- We use `.sync` decorator to declare the counter is a two way binding props. --&gt;</span><br><span class="line">        &lt;ChildrenComp :counter.sync=&quot;counter&quot; /&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p><code>ChildrenComponent.vue</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name: &#x27;PropSyncChildren&#x27;,</span><br><span class="line">    props: &#123;</span><br><span class="line">        counter: &#123;</span><br><span class="line">            type: Number,</span><br><span class="line">            default: 0</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div style=&quot;background: #AAAAAA&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- We use &#x27;update:&quot;props-name&quot;&#x27; to emit a update event, and pass the change value. --&gt;</span><br><span class="line">        &lt;button @click=&quot;() =&gt; this.$emit(&#x27;update:counter&#x27;, this.counter + 1)&quot;&gt; + &lt;/button&gt;</span><br><span class="line"></span><br><span class="line">        &lt;span&gt;This is component in children counter: &#123;&#123; counter &#125;&#125; &lt;/span&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- We use &#x27;update:&quot;props-name&quot;&#x27; to emit a update event, and pass the change value. --&gt;</span><br><span class="line">        &lt;button @click=&quot;() =&gt; this.$emit(&#x27;update:counter&#x27;, this.counter - 1)&quot;&gt; - &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><code>ParentComponent.vue</code></p>
+<pre><code class="language-vue">&lt;script&gt;
+import ChildrenComp from './Children.vue'
+
+export default &#123;
+    name: 'PropSync',
+    components: &#123;
+        ChildrenComp
+    &#125;,
+    data() &#123;
+        return &#123;
+            counter: 0,
+        &#125;;
+    &#125;
+
+&#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;section style=&quot;background-color: #DDDDDD&quot;&gt;
+        &lt;p&gt;This is Component in Parent  &lt;span style=&quot;color: red;&quot;&gt;&#123;&#123; counter &#125;&#125;&lt;/span&gt;&lt;/p&gt;
+
+        &lt;!-- We use `.sync` decorator to declare the counter is a two way binding props. --&gt;
+        &lt;ChildrenComp :counter.sync=&quot;counter&quot; /&gt;
+    &lt;/section&gt;
+&lt;/template&gt;
+
+</code></pre>
+<p><code>ChildrenComponent.vue</code></p>
+<pre><code class="language-vue">&lt;script&gt;
+export default &#123;
+    name: 'PropSyncChildren',
+    props: &#123;
+        counter: &#123;
+            type: Number,
+            default: 0
+        &#125;
+    &#125;,
+&#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+    &lt;div style=&quot;background: #AAAAAA&quot;&gt;
+
+        &lt;!-- We use 'update:&quot;props-name&quot;' to emit a update event, and pass the change value. --&gt;
+        &lt;button @click=&quot;() =&gt; this.$emit('update:counter', this.counter + 1)&quot;&gt; + &lt;/button&gt;
+
+        &lt;span&gt;This is component in children counter: &#123;&#123; counter &#125;&#125; &lt;/span&gt;
+
+        &lt;!-- We use 'update:&quot;props-name&quot;' to emit a update event, and pass the change value. --&gt;
+        &lt;button @click=&quot;() =&gt; this.$emit('update:counter', this.counter - 1)&quot;&gt; - &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+</code></pre>
 <p>我們可以看到：</p>
 <ol>
 <li>在 <strong>Parent Component</strong> 中，我們捨棄了  <code>v-on:counter-update</code>  事件監聽</li>
@@ -276,7 +381,7 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
     <div class="item left">
       
 
-  <a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;johannes-plenio-DKix6Un55mw-unsplash.jpg" title="GIT 關於 GIT 的 ^M 的二三事">
+  <a href="/Tech/git/2019-04-17-git-%E9%97%9C%E6%96%BC-git-%E7%9A%84-m-%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;pexels-krivec-ales-547115.jpg" title="GIT 關於 GIT 的 ^M 的二三事">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> git</span>
   <h3>GIT 關於 GIT 的 ^M 的二三事</h3>
@@ -326,7 +431,7 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -338,7 +443,7 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -427,22 +532,10 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Vue/" title="In Vue">Vue</a>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/" title="Vue Components 組件之間的溝通方式">Vue Components 組件之間的溝通方式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></span>
+    <span><a href="/Tech/Algorithm/2018-12-26-%E9%81%8A%E6%88%B2%E4%B8%AD%E7%9A%84%E5%85%A8%E6%9C%8D%E6%8E%92%E8%A1%8C%E6%98%AF%E6%80%8E%E9%BA%BC%E5%AF%A6%E7%8F%BE%E7%9A%84/" title="遊戲中的全服排行是怎麼實現的？">遊戲中的全服排行是怎麼實現的？</a></span>
   </li>
 
       
@@ -454,19 +547,7 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ssh-%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E7%99%BB%E5%85%A5-vm-instance/" title="GCP如何使用 SSH 讓使用者登入 VM Instance">GCP如何使用 SSH 讓使用者登入 VM Instance</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E9%81%87%E5%88%B0permission-denied-publickey-%E6%80%8E%E9%BA%BC%E8%BE%A6/" title="GCP遇到permission denied (publickey)怎麼辦？">GCP遇到permission denied (publickey)怎麼辦？</a></span>
+    <span><a href="/Tech/Linux/2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port/" title="Nginx 如何配置多個網站共用 80 port">Nginx 如何配置多個網站共用 80 port</a></span>
   </li>
 
       
@@ -478,21 +559,7 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
 </div>
 
-    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
-</div>
-
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
   </li>
 
       
@@ -504,7 +571,41 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Linux/2018-11-28-linux-%E4%BD%BF%E7%94%A8-rsync-%E5%82%B3%E8%BC%B8-%E5%82%99%E4%BB%BD%E5%85%A9%E8%99%95%E7%9A%84%E6%AA%94%E6%A1%88/" title="Linux 使用 rsync 傳輸、備份兩處的檔案">Linux 使用 rsync 傳輸、備份兩處的檔案</a></span>
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+</div>
+
+    <span><a href="/Life/2018-11-20-acoustune-hs-1670ss-%E9%96%8B%E7%AE%B1/" title="Acoustune HS 1670ss 開箱">Acoustune HS 1670ss 開箱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
   </li>
 
       
@@ -516,7 +617,7 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
   </li>
 
       
@@ -525,10 +626,10 @@ Vue使用 props.async 同步父子組建之間的傳值 - Vue - Frontend - Tech 
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
   </li>
 
   </ul>

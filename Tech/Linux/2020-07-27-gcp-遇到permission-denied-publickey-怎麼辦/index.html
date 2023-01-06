@@ -178,18 +178,29 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
 <li>GCP 上搞錯使用者了 (這機率實在很低)</li>
 </ol>
 <p>所以我重新開始釐清。</p>
-<p>第一點：檢查 id_rsa 是否存在且內容看起來是否正常。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh/</span><br><span class="line">id_rsa id_rsa.pub</span><br><span class="line">$ cat ~/.ssh/id_rsa</span><br><span class="line">-----BEGIN RSA PRIVATE KEY-----</span><br></pre></td></tr></table></figure></p>
+<p>第一點：檢查 id_rsa 是否存在且內容看起來是否正常。</p>
+<pre><code>$ ls ~/.ssh/
+id_rsa id_rsa.pub
+$ cat ~/.ssh/id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+</code></pre>
 <p>看起來 private key 格式也沒有怪異。</p>
 <p>我決定嘗試將 key 換掉，重創一個使用者。( <span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL0B6MjAyNDAvZ2NwLSVFNSVBNiU4MiVFNCVCRCU5NSVFNCVCRCVCRiVFNyU5NCVBOC1zc2gtJUU4JUFFJTkzJUU0JUJEJUJGJUU3JTk0JUE4JUU4JTgwJTg1JUU3JTk5JUJCJUU1JTg1JUE1LXZtLWluc3RhbmNlLTRmM2ZjYmY3NDk4Yj9zb3VyY2U9ZnJpZW5kc19saW5rJmFtcDtzaz0wMDA0MTZiODEyN2RjYzE2ZWJmMGFiMGNkZjYyNzUxMQ==">創建使用者方法可以查看這篇</span> )</p>
 <p>因此進入 GCP 的操作平台，重新刪除 public key，並且創建新的 key。</p>
 <p>結果依然是 <strong><em>permission denied (publickey) …。</em></strong></p>
 <p>此時我已經開始懷疑是 GCP 上同使用者名稱，搞錯 ssh key 的問題了。</p>
-<p>因此我使用了 GCP online terminal 進去 GCP ，並且查看 /home 下面目前的使用者有哪些<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls /home/</span><br></pre></td></tr></table></figure></p>
+<p>因此我使用了 GCP online terminal 進去 GCP ，並且查看 /home 下面目前的使用者有哪些</p>
+<pre><code>$ ls /home/
+</code></pre>
 <p><strong><em>沒有 les 這個使用者…</em></strong></p>
-<p>使用  <code>cat /etc/passwd</code>  查看所有用戶群組<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/passwd</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line"># ...</span><br><span class="line">z20240z:x:1003:1004::/home/z20240z:/bin/bash</span><br><span class="line">les.lee:x:1004:1005::/home/les.lee:/bin/bash</span><br><span class="line">les:x:1005:1006::/home/les:/bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>使用  <code>cat /etc/passwd</code>  查看所有用戶群組</p>
+<pre><code>$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+# ...
+z20240z:x:1003:1004::/home/z20240z:/bin/bash
+les.lee:x:1004:1005::/home/les.lee:/bin/bash
+les:x:1005:1006::/home/les:/bin/bash
+</code></pre>
 <p><strong>抓到問題了！</strong></p>
 <p>VM Instance 中有 les 這名用戶，但是卻沒有對應的 /home 使用者。難怪怎麼改 key 都沒有效果。</p>
 <p>知道原因後，簡單地使用  <code>userdel -r &lt;使用者名稱&gt;</code>  將使用者刪除，重新再 GCP 中建立一次帳號。</p>
@@ -277,7 +288,7 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
     <div class="item right">
       
 
-  <a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1203&#x2F;1080?random&#x3D;7" title="Debian add-apt-repository command not found 問題">
+  <a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1200&#x2F;1080?random&#x3D;1" title="Debian add-apt-repository command not found 問題">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Linux</span>
   <h3>Debian add-apt-repository command not found 問題</h3>
@@ -317,7 +328,7 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -329,7 +340,7 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -406,48 +417,10 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" title="Vue-Cli 自定義全局功能的方法">Vue-Cli 自定義全局功能的方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port/" title="Nginx 如何配置多個網站共用 80 port">Nginx 如何配置多個網站共用 80 port</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></span>
+    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
   </li>
 
       
@@ -456,12 +429,10 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
 </div>
 
-    <span><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></span>
+    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
   </li>
 
       
@@ -484,36 +455,10 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/git/" title="In git">git</a>
-</div>
-
-    <span><a href="/Tech/git/2020-04-07-git-%E7%94%A8-rebase-%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF-%E8%AE%93%E4%BD%A0%E7%9A%84-git-history-%E6%9B%B4%E4%B9%BE%E6%B7%A8/" title="GIT 用 rebase 合併分支，讓你的 Git history 更乾淨">GIT 用 rebase 合併分支，讓你的 Git history 更乾淨</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
-</div>
-
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></span>
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
   </li>
 
       
@@ -526,6 +471,70 @@ GCP遇到permission denied (publickey)怎麼辦？ - Linux - Tech |
 </div>
 
     <span><a href="/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/" title="工具tee 同時輸出訊息於Terminal 與指定檔案">工具tee 同時輸出訊息於Terminal 與指定檔案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
   </li>
 
   </ul>

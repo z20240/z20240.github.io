@@ -44,6 +44,7 @@
   --grey-8: #222;
   --grey-9: #000;
   --grey-1-a0: rgba(253,253,253,0);
+  --grey-1-a9: rgba(253,253,253,0.9);
   --grey-1-a7: rgba(253,253,253,0.7);
   --grey-1-a5: rgba(253,253,253,0.5);
   --grey-1-a3: rgba(253,253,253,0.3);
@@ -5303,8 +5304,8 @@ span.label {
 .audio.playing .cover .disc {
   animation-play-state: running;
 }
-.code-container {
-  margin-top: 2.5rem;
+.inline {
+  display: inline-block;
 }
 @font-face {
   font-family: "ic"; /* Project id  */

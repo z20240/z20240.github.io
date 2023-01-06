@@ -161,9 +161,8 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <h4 id="藉由-proxy-我們可以為-object-定義屬於自己的-object-特性"><a class="anchor" href="#藉由-proxy-我們可以為-object-定義屬於自己的-object-特性">#</a> 藉由 Proxy, 我們可以為 Object 定義屬於自己的 Object 特性</h4>
 <p>最近工作上碰到一個很特別的需求。</p>
 <p>由於公司的多國語言使用的是  <code>JSON Object</code>  來進行管理，上頭希望直接用 key 就可以當作是英文的多國語句，當有某個英文關鍵字沒有被設定時，希望能夠直接以  <code>Object</code>  的  <code>key</code>  當作內容輸出。</p>
-<p>例如：<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="string">&quot;a&quot;</span>: <span class="string">&quot;a&quot;</span>,</span><br><span class="line">    <span class="string">&quot;b&quot;</span>: <span class="number">1</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="string">&quot;a&quot;</span>]); <span class="comment">// &quot;a&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="string">&quot;b&quot;</span>]); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="string">&quot;no setting key&quot;</span>]) <span class="comment">// 正常應該要顯示 undefined，但是希望這邊顯示 &quot;no setting key&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>這種違反行為的效果著實讓我傷透腦筋，直到後來發現了 ES6 的  <code>Proxy</code>  。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token string-property property">"a"</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token string-property property">"b"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "a"</span></pre></td></tr><tr><td data-num="6"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span><span class="token string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span><span class="token string">"no setting key"</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 正常應該要顯示 undefined，但是希望這邊顯示 "no setting key"</span></pre></td></tr></table></figure><p>這種違反行為的效果著實讓我傷透腦筋，直到後來發現了 ES6 的  <code>Proxy</code>  。</p>
 <blockquote>
 <p>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种 “元编程”（meta programming），即对编程语言进行编程。</p>
 </blockquote>
@@ -171,8 +170,9 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <p>Proxy 可以理解成，在目标对象之前架设一层 “拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来 “代理” 某些操作，可以译为 “代理器”。 — <span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8=">ECMAScript 6 入门</span></p>
 </blockquote>
 <p>利用  <code>Proxy</code>  ，我們可以擴增 <strong>Object</strong> 的功能或特性，做出屬於我們自己的物件特性。</p>
-<p>Proxy 的使用格式為<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj = new Proxy(目標物件, handler物件);</span><br></pre></td></tr></table></figure></p>
+<p>Proxy 的使用格式為</p>
+<pre><code>obj = new Proxy(目標物件, handler物件);
+</code></pre>
 <p>所謂的  <code>handler 物件</code>  是用來做為  <code>proxy</code>  攔截  <code>目標物件</code>  而存在。因此我們必須在 handler object 中撰寫我們攔截  <code>目標物件</code>  後要進行的  <code>getter</code>  ,  <code>setter</code>  操作  <code>function</code>  。若  <code>handler</code>  沒有給予任何操作方法，則就跟一般物件無異。</p>
 <p>以下給幾個範例：</p>
 <p><strong>賦值前的檢查</strong></p>
@@ -183,8 +183,7 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <li><code>property</code>  : 要被賦值的物件屬性 (也就是  <code>key</code>  )</li>
 <li><code>value</code>  : 要賦予的值</li>
 </ul>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="title class_">Proxy</span>(&#123;&#125;, &#123;</span><br><span class="line">    <span class="attr">set</span>: <span class="function">(<span class="params">targetObj, prop, value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (prop === <span class="string">&#x27;age&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果 要給值的 key 是 &#x27;age&#x27; 就事先檢查給予的值</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="title class_">Number</span>.<span class="title function_">isInteger</span>(value)) &#123;</span><br><span class="line">            <span class="comment">// 如果不是 integer 的話，就拋出 Error</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;The age is not an integer&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (value &gt; <span class="number">200</span>) &#123;</span><br><span class="line">          <span class="comment">// 如果 年紀大於 200 的話, 也不合理</span></span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RangeError</span>(<span class="string">&#x27;The age seems invalid&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果一切正常, 則正常給值</span></span><br><span class="line">    targetObj[prop] = value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 回傳 ok</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>上面的這段的結果，會讓  <code>person</code>  變為一個  <code>Proxy</code>  物件，並且在給值前進行檢查，如果給值的對象是 <em>age</em> , 則給的值 <strong>必須是不大於 200 的整數</strong> ，否則會賦值失敗。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">targetObj<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>prop <span class="token operator">===</span> <span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token comment">// 如果 要給值的 key 是 'age' 就事先檢查給予的值</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Number<span class="token punctuation">.</span><span class="token function">isInteger</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>            <span class="token comment">// 如果不是 integer 的話，就拋出 Error</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'The age is not an integer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">></span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>          <span class="token comment">// 如果 年紀大於 200 的話，也不合理</span></pre></td></tr><tr><td data-num="11"></td><td><pre>          <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RangeError</span><span class="token punctuation">(</span><span class="token string">'The age seems invalid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 如果一切正常，則正常給值</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    targetObj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token comment">// 回傳 ok</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>上面的這段的結果，會讓  <code>person</code>  變為一個  <code>Proxy</code>  物件，並且在給值前進行檢查，如果給值的對象是 <em>age</em> , 則給的值 <strong>必須是不大於 200 的整數</strong> ，否則會賦值失敗。</p>
 <p><strong>來看看結果</strong></p>
 <p><img data-src="1*E991s74NMYV1B_BwNq8yjg.png" alt="" /></p>
 <p>當我們輸入字串時，會拋出 <strong>The age is not an integer</strong> 的 error。</p>
@@ -205,9 +204,8 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <p>這該怎麼做呢？</p>
 <p>依照 proxy 的思路，就很簡單了。</p>
 <p>我們只要在取值時做檢查就可以了。</p>
-<p>寫一個 <strong><em>getter function</em></strong><br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> language = &#123;</span><br><span class="line">    <span class="string">&quot;I have a pen&quot;</span>: <span class="string">&quot;我有一支筆&quot;</span>,</span><br><span class="line">    <span class="string">&quot;I have an apple&quot;</span>: <span class="string">&quot;我有一顆蘋果&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">language = <span class="keyword">new</span> <span class="title class_">Proxy</span>(language, &#123;</span><br><span class="line">    <span class="attr">get</span>: <span class="function">(<span class="params">tar, prop, reveiver</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ( !tar[prop] ) ? prop : tar[prop]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>上面的 code 在做的事情就是，當  <code>language</code>  在取值前先進行檢查，若有值則直接回傳原值；否則回傳  <code>key</code>  值。</p>
+<p>寫一個 <strong><em>getter function</em></strong></p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> language <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token string-property property">"I have a pen"</span><span class="token operator">:</span> <span class="token string">"我有一支筆"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token string-property property">"I have an apple"</span><span class="token operator">:</span> <span class="token string">"我有一顆蘋果"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>language <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>language<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">tar<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> reveiver</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">(</span> <span class="token operator">!</span>tar<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token operator">?</span> prop <span class="token operator">:</span> tar<span class="token punctuation">[</span>prop<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre>	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>上面的 code 在做的事情就是，當  <code>language</code>  在取值前先進行檢查，若有值則直接回傳原值；否則回傳  <code>key</code>  值。</p>
 <p>如此就達到了我們原本的目的了。</p>
 <p><strong>來看看結果</strong></p>
 <p><img data-src="1*9Nc863A5wyKSKku5PTQ4EQ.png" alt="" /></p>
@@ -290,7 +288,7 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
     <div class="item right">
       
 
-  <a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1206&#x2F;1080?random&#x3D;13" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">
+  <a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1202&#x2F;1080?random&#x3D;5" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Frontend</span>
   <h3>Javascript 使用 Array.Reduce 進行 Object Array 的加總</h3>
@@ -330,7 +328,7 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -342,7 +340,7 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -417,14 +415,28 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession4/" title="Cambly-Lession4">Cambly-Lession4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></span>
+    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
   </li>
 
       
@@ -433,46 +445,10 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ssh-%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E7%99%BB%E5%85%A5-vm-instance/" title="GCP如何使用 SSH 讓使用者登入 VM Instance">GCP如何使用 SSH 讓使用者登入 VM Instance</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+    <span><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></span>
   </li>
 
       
@@ -486,7 +462,67 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
 </div>
 
-    <span><a href="/Life/EnglishLearn/Cambly-Lession2/" title="Cambly-Lession2">Cambly-Lession2</a></span>
+    <span><a href="/Life/EnglishLearn/Cambly-Lession1/" title="EnglishLearn&#x2F;Cambly-Lession1">EnglishLearn/Cambly-Lession1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2018-12-03-perl-%E4%B8%80%E9%8D%B5%E5%AE%89%E8%A3%9D-perl/" title="Perl 一鍵安裝 Perl">Perl 一鍵安裝 Perl</a></span>
   </li>
 
       
@@ -500,45 +536,7 @@ Javascript 使用 Proxy 為 Object 代理進行前處理 - Frontend - Tech |
 <a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></span>
+    <span><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></span>
   </li>
 
   </ul>

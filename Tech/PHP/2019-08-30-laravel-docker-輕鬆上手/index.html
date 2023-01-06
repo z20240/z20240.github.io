@@ -163,15 +163,17 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <p>Laradock 將 Laravel 開發環境完整 docker 化，我們僅需要  <code>git clone</code>  這個 repo 下來，設定好適合自己的環境變數，即可架設起 Laravel 專案。</p>
 <h4 id="建立-laradock"><a class="anchor" href="#建立-laradock">#</a> 建立 Laradock</h4>
 <p><a target="_blank" rel="noopener" href="http://laradock.io/"><strong><em>官網連結</em></strong></a></p>
-<p>首先我們使用以下指令將 laradock 的 repo clone 下來。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Laradock/laradock.git Laradock</span><br></pre></td></tr></table></figure></p>
+<p>首先我們使用以下指令將 laradock 的 repo clone 下來。</p>
+<pre><code>git clone https://github.com/Laradock/laradock.git Laradock
+</code></pre>
 <p>你會發現裡面滿滿的是各種 .yml 檔。這是因為 laradock 是使用「docker-compose」將不同的服務給串聯起來。因此，如果你電腦裡面沒有「docker-compose」，可以先到 <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/"><strong>這邊</strong></a> 安裝。</p>
 <p>Laradock 是很完整的 PHP 解決方案，無論你是習慣使用 apache2 還是 nginx、喜歡 mysql 或是 postgresql，它都已經包羅近來了。甚至連 redis, rabbitMQ 這些常用的緩存技術，也都為你設想到了。</p>
 <p><img data-src="1*iHhs8cxEwQAzFLScQ8wfCw.png" alt="laradock 專案包含了所有常用 php 相關服務的 docker 設定，幾乎都為我們設想好了" /></p>
 <p>laradock 專案包含了所有常用 php 相關服務的 docker 設定，幾乎都為我們設想好了</p>
 <p>它最初僅是專門為 Laravel Docker 化，然而時至今日，它已經能支援了絕大多數的 PHP 框架，我們僅需要設定好環境參數即可。</p>
-<p>在 laradock 資料夾中找到  <code>env-example</code>  並且複製一份更名為 <strong>.env 。</strong> 這就是我們的環境設定檔。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp env-example .env</span><br></pre></td></tr></table></figure></p>
+<p>在 laradock 資料夾中找到  <code>env-example</code>  並且複製一份更名為 <strong>.env 。</strong> 這就是我們的環境設定檔。</p>
+<pre><code>cp env-example .env
+</code></pre>
 <p>接下來打開 <strong>.env</strong> 我們注意到以下幾個設定</p>
 <p><img data-src="1*4yRYoTkSKksHgcmuK3yYng.png" alt="" /></p>
 <p>其中：</p>
@@ -181,24 +183,29 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <li>DATA_PATH_HOST：設定你的儲存資料 (ex. database, redis 內的數據) 要存放在哪。(我這邊的例子是放在跟 laradock 專案同層級的 data 資料夾中)</li>
 </ul>
 <p>以上這些都設定完之後，我們就可以啟動 Laradock 了。</p>
-<p>使用以下指令指定啟動包含「nginx」與「mysql」的 laradock。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d nginx mysql</span><br></pre></td></tr></table></figure></p>
+<p>使用以下指令指定啟動包含「nginx」與「mysql」的 laradock。</p>
+<pre><code>docker-compose up -d nginx mysql
+</code></pre>
 <p>我們不用特別指定啟動「php-fpm」，因為 Laradock 會自己啟動包括 php-fpm 在內的  <code>php-fpm</code>  及  <code>workspace</code>  。</p>
 <h4 id="創建laravel專案"><a class="anchor" href="#創建laravel專案">#</a> 創建 Laravel 專案</h4>
-<p>在 laradock 啟動之後，會幫我們創建一個  <code>workspace</code>  。我們可以使用以下指令進入 workspace 的 docker 內。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose exec workspace bash</span><br></pre></td></tr></table></figure></p>
+<p>在 laradock 啟動之後，會幫我們創建一個  <code>workspace</code>  。我們可以使用以下指令進入 workspace 的 docker 內。</p>
+<pre><code>docker-compose exec workspace bash
+</code></pre>
 <p>進入後，你應該會發現自己在  <code>/var/www</code>  中</p>
 <p><img data-src="1*BwGaFoUkllhXjCRDMS4Xng.png" alt="" /></p>
 <p>此時的  <code>/var/www</code>  是連接外部  <code>../project</code>  資料夾。</p>
-<p>在這個環境中，已經裝好了 Laravel 所需的一切環境。因此我們可以直接使用以下指令創建我們的 Laravel 專案<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel/laravel --prefer-dist project_Name</span><br></pre></td></tr></table></figure></p>
+<p>在這個環境中，已經裝好了 Laravel 所需的一切環境。因此我們可以直接使用以下指令創建我們的 Laravel 專案</p>
+<pre><code>composer create-project laravel/laravel --prefer-dist project_Name
+</code></pre>
 <p><img data-src="1*qddAOC4j8pHKlqOIZjyTEQ.png" alt="" /></p>
 <p>待一段時間的安裝完成後，即可在  <code>/var/www</code>  中與  <code>project</code>  資料夾中看到我們的 Laravel 專案。</p>
 <p><img data-src="1*M1gDrUe-uKcF1KQ3r9sVLA.png" alt="" /></p>
 <h4 id="設定-nginx"><a class="anchor" href="#設定-nginx">#</a> 設定 NGINX</h4>
 <p>有了 Laravel 專案，我們接下來要設定 nginx ，使其能夠連到我們的 Laravel 中。</p>
-<p>在  <code>Laradock/nginx/sites</code>  資料夾中，找到  <code>laravel.conf.example</code>  並且複製一份，隨自己喜好命名。此處我們命名為 <strong>laravel.test.conf</strong><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Laradock/nginx/sites</span><br><span class="line">cp laravel.conf.example laravel.test.conf</span><br></pre></td></tr></table></figure></p>
+<p>在  <code>Laradock/nginx/sites</code>  資料夾中，找到  <code>laravel.conf.example</code>  並且複製一份，隨自己喜好命名。此處我們命名為 <strong>laravel.test.conf</strong></p>
+<pre><code>cd ~/Laradock/nginx/sites
+cp laravel.conf.example laravel.test.conf
+</code></pre>
 <p>注意到紅框處，我們要將其設定為我們 Laravel 專案的路徑。</p>
 <p>其中：</p>
 <ul>
@@ -207,11 +214,14 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 </ul>
 <p><img data-src="1*Pv5gP1lwf4KlQL_IUBeI_Q.png" alt="" /></p>
 <h4 id="設定-hosts"><a class="anchor" href="#設定-hosts">#</a> 設定 hosts</h4>
-<p>由於我們剛剛自訂了一個 <strong>laravel.test</strong> 的網址。我們要讓本機知道此網址其實就是 <strong>localhost</strong> 。因此我們必須在 /etc/hosts 中增加以下這行 (需要管理者權限)。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 laravel.test</span><br></pre></td></tr></table></figure></p>
+<p>由於我們剛剛自訂了一個 <strong>laravel.test</strong> 的網址。我們要讓本機知道此網址其實就是 <strong>localhost</strong> 。因此我們必須在 /etc/hosts 中增加以下這行 (需要管理者權限)。</p>
+<pre><code>127.0.0.1 laravel.test
+</code></pre>
 <p><em>註：windows 的 hosts 放置於  <code>C:\Windows\System32\drivers\etc\hosts</code> </em></p>
-<p>以上都完成後，我們重啟 laradock 將剛剛的設定全部套用。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d nginx mysql</span><br></pre></td></tr></table></figure></p>
+<p>以上都完成後，我們重啟 laradock 將剛剛的設定全部套用。</p>
+<pre><code>docker-compose down
+docker-compose up -d nginx mysql
+</code></pre>
 <p>開啟瀏覽器，應該就能看到 Laravel 專案的起始樣子囉！</p>
 <p><em>p.s. 我的專案故意將 port 開在 8000，因此需要加上 port 號。</em></p>
 <p><img data-src="1*wDUHaXNQ0yuWN_et9wiNAQ.png" alt="" /></p>
@@ -340,7 +350,7 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -352,7 +362,7 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -429,10 +439,10 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></span>
+    <span><a href="/Tech/Algorithm/2018-12-14-%E9%97%9C%E6%96%BC%E7%B5%84%E7%B9%94%E6%A8%B9%E7%8B%80%E5%9C%96%E7%9A%84%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%96%B9%E6%B3%95/" title="關於組織樹狀圖的資料結構設計方法">關於組織樹狀圖的資料結構設計方法</a></span>
   </li>
 
       
@@ -444,7 +454,43 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Linux/2018-11-28-linux-%E4%BD%BF%E7%94%A8-rsync-%E5%82%B3%E8%BC%B8-%E5%82%99%E4%BB%BD%E5%85%A9%E8%99%95%E7%9A%84%E6%AA%94%E6%A1%88/" title="Linux 使用 rsync 傳輸、備份兩處的檔案">Linux 使用 rsync 傳輸、備份兩處的檔案</a></span>
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+</div>
+
+    <span><a href="/Life/2018-11-20-acoustune-hs-1670ss-%E9%96%8B%E7%AE%B1/" title="Acoustune HS 1670ss 開箱">Acoustune HS 1670ss 開箱</a></span>
   </li>
 
       
@@ -456,17 +502,7 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
 </div>
 
-    <span><a href="/Tech/Algorithm/2018-12-14-%E9%97%9C%E6%96%BC%E7%B5%84%E7%B9%94%E6%A8%B9%E7%8B%80%E5%9C%96%E7%9A%84%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%96%B9%E6%B3%95/" title="關於組織樹狀圖的資料結構設計方法">關於組織樹狀圖的資料結構設計方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-</div>
-
-    <span><a href="/Life/2019-04-11-%E9%96%8B%E7%AE%B1-bose-soundsport-free-%E7%9C%9F%E7%84%A1%E7%B7%9A%E8%80%B3%E6%A9%9F/" title="開箱 Bose SoundSport Free 真無線耳機">開箱 Bose SoundSport Free 真無線耳機</a></span>
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
   </li>
 
       
@@ -478,7 +514,7 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
+    <span><a href="/Tech/Others/2018-12-03-perl-%E4%B8%80%E9%8D%B5%E5%AE%89%E8%A3%9D-perl/" title="Perl 一鍵安裝 Perl">Perl 一鍵安裝 Perl</a></span>
   </li>
 
       
@@ -487,10 +523,22 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
+    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
   </li>
 
       
@@ -502,43 +550,7 @@ Laravel + Docker 輕鬆上手 - PHP - Tech |
 <a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" title="Vim 使用 Vimdiff 來比較 Git diff 的差異">Vim 使用 Vimdiff 來比較 Git diff 的差異</a></span>
+    <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
   </li>
 
   </ul>

@@ -164,16 +164,28 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <p>本篇我們來講講如何安裝 Docker。</p>
 <h4 id="在-ubuntudebian-上安裝-docker"><a class="anchor" href="#在-ubuntudebian-上安裝-docker">#</a> 在 Ubuntu/Debian 上安裝 Docker</h4>
 <p>Docker 本質上是基於 Linux 核心中隊資源分離的機制與網路命名空間的特性來建立的技術，因此 Linux 對於 Docker 支援是最完善的。</p>
-<p>我們可以使用 Apt 進行 Docker 的安裝。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker.io</span><br></pre></td></tr></table></figure></p>
-<p>安裝完後，我們要先啟動 docker<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure></p>
-<p>之後我們可以使用 docker version 查看<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker version</span><br></pre></td></tr></table></figure></p>
-<p>正常的情況應該要看到這樣<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Client:</span><br><span class="line"> Version:           18.09.5</span><br><span class="line"> API version:       1.39</span><br><span class="line"> Go version:        go1.10.8</span><br><span class="line"> Git commit:        e8ff056dbc</span><br><span class="line"> Built:             Thu Apr 11 04:44:28 2019</span><br><span class="line"> OS/Arch:           linux/amd64</span><br><span class="line"> Experimental:      false</span><br></pre></td></tr></table></figure></p>
-<p>若是覺得每次都要使用 sudo 調用 docker 很麻煩的話，我們可以將自己加入 docker 的 group 中。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure></p>
+<p>我們可以使用 Apt 進行 Docker 的安裝。</p>
+<pre><code>sudo apt-get install docker.io
+</code></pre>
+<p>安裝完後，我們要先啟動 docker</p>
+<pre><code>sudo service docker start
+</code></pre>
+<p>之後我們可以使用 docker version 查看</p>
+<pre><code>sudo docker version
+</code></pre>
+<p>正常的情況應該要看到這樣</p>
+<pre><code>Client:
+ Version:           18.09.5
+ API version:       1.39
+ Go version:        go1.10.8
+ Git commit:        e8ff056dbc
+ Built:             Thu Apr 11 04:44:28 2019
+ OS/Arch:           linux/amd64
+ Experimental:      false
+</code></pre>
+<p>若是覺得每次都要使用 sudo 調用 docker 很麻煩的話，我們可以將自己加入 docker 的 group 中。</p>
+<pre><code>sudo usermod -aG docker $USER
+</code></pre>
 <h4 id="在-macoswindows-上安裝-docker"><a class="anchor" href="#在-macoswindows-上安裝-docker">#</a> 在 MacOS/Windows 上安裝 Docker</h4>
 <p>過去，在 MacOS 跟 Windows 上安裝 Docker 是比較蛋疼的，不是要另外安裝虛擬機就是要使用 Docker 開發的 tool box 外掛套件。</p>
 <p>然而隨著版本的更迭，如今 Windows 與 MacOS 也終於可以免去這樣次等公民般的困擾了。</p>
@@ -307,7 +319,7 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -319,7 +331,7 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -396,10 +408,10 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
   </li>
 
       
@@ -408,10 +420,26 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
+    <span><a href="/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/" title="Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案">Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></span>
   </li>
 
       
@@ -433,7 +461,31 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <a href="/categories/Life/" title="In Life">Life</a>
 </div>
 
-    <span><a href="/Life/2019-04-11-%E9%96%8B%E7%AE%B1-bose-soundsport-free-%E7%9C%9F%E7%84%A1%E7%B7%9A%E8%80%B3%E6%A9%9F/" title="開箱 Bose SoundSport Free 真無線耳機">開箱 Bose SoundSport Free 真無線耳機</a></span>
+    <span><a href="/Life/2018-11-20-acoustune-hs-1670ss-%E9%96%8B%E7%AE%B1/" title="Acoustune HS 1670ss 開箱">Acoustune HS 1670ss 開箱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/" title="MongoDB 如何 Auto increment 地插入資料">MongoDB 如何 Auto increment 地插入資料</a></span>
   </li>
 
       
@@ -445,47 +497,7 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
+    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
   </li>
 
       
@@ -497,7 +509,7 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
   </li>
 
       
@@ -506,10 +518,10 @@ Docker 學習筆記 — 安裝 Docker - Tools - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-04-26-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E5%9C%A8wsl-%E4%B8%AD%E5%AE%89%E8%A3%9D-docker/" title="WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker">WSL 與 Windows 的完美雙結合 — 在WSL 中安裝 Docker</a></span>
+    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
   </li>
 
   </ul>

@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
     
-  <meta name="keywords" content="php,wsl,windows" />
+  <meta name="keywords" content="windows,wsl,php" />
 
 
 <link rel="canonical" href="https://z20240.github.io/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/">
@@ -168,8 +168,9 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <p>這篇文章主要便是紀錄我如何調試 WSL 讓我能在 Windows 上使用 Vscode 開發，並且在 Linux 上執行與除錯 php project。</p>
 <h4 id="安裝"><a class="anchor" href="#安裝">#</a> 安裝</h4>
 <p>先講講安裝 WSL。Windows 10 安裝 WSL 是輕鬆愉快的。但是在開始之前，我們要先手動開啟  <code>WindowsOptionalFeature</code>  ，這在預設中是關閉的。</p>
-<p>請使用系統管理員身分執行 PowerShell ，並且輸入指令，完成後需要重新開機一下。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</span><br></pre></td></tr></table></figure></p>
+<p>請使用系統管理員身分執行 PowerShell ，並且輸入指令，完成後需要重新開機一下。</p>
+<pre><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+</code></pre>
 <p><img data-src="1*nGb_3pubzkSNLpV796o07Q.png" alt="Windows 10 之後推出的新的 shell 程式，但是依舊沒有很好用" /></p>
 <p>Windows 10 之後推出的新的 shell 程式，但是依舊沒有很好用</p>
 <p>之後我們就可以直接在 Windows Store 上選擇自己喜歡的 Linux 版本來進行安裝了。</p>
@@ -188,19 +189,23 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <li>在 Windows 中存取 Linux 的資源</li>
 </ul>
 <p>Windows 對於 WSL 的支持是非常強大的。簡直就是  <code>吳·鳳·接·合</code>  。我們可以直接在 Windows 環境直接執行 Linux 內的各種指令。甚至是直接使用 Vscode 開啟 Linux 中的文件。</p>
-<p>我們可以使用 wsl 將 windows shell 切換為 wsl 環境。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure></p>
-<p>執行 wsl 環境中的指令<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl [command]</span><br></pre></td></tr></table></figure></p>
+<p>我們可以使用 wsl 將 windows shell 切換為 wsl 環境。</p>
+<pre><code>wsl
+</code></pre>
+<p>執行 wsl 環境中的指令</p>
+<pre><code>wsl [command]
+</code></pre>
 <p>舉個例子</p>
 <ul>
 <li>使用 Linux 的 grep 過濾 PowerShell 的執行結果</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS&gt; Get-Service | wsl grep -i winrm</span><br></pre></td></tr></table></figure></p>
+<pre><code>PS&gt; Get-Service | wsl grep -i winrm
+</code></pre>
 <ul>
 <li>使用 SSH 連線至遠端</li>
 </ul>
-<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl ssh user@ip</span><br></pre></td></tr></table></figure></p>
+<pre><code>wsl ssh user@ip
+</code></pre>
 <p>甚至，我可以直接在 Linux 中直接執行  <code>code .</code>  透過 Windows 的 Vscode 開啟 Linux 中的專案。</p>
 <p><img data-src="1*w0FzABVijj8cvxZKFSRRcQ.png" alt="" /></p>
 <p>介紹完了 WSL 的使用後。我們終於要進入正題了。</p>
@@ -209,8 +214,11 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 </blockquote>
 <p>首先在 WSL 中建置 PHP 跟 Apache (Nginx)，這部分應該不用多做說明，有疑問的可以參考我以前的文章 <a href="%E8%A8%AD%E5%AE%9A-lemp-server-%E5%9C%A8-debian-9-linux-eab5f32613f0"><strong><em>設定 LEMP server 在 Debian 9 Linux</em></strong></a></p>
 <h4 id="安裝-php-debug-工具"><a class="anchor" href="#安裝-php-debug-工具">#</a> 安裝 PHP Debug 工具</h4>
-<p>當環境架好後，我們先在  <code>www/html/</code>  路徑中，寫一支  <code>phpinfo.php</code>  ，用以輸出我們的 php 環境與版本。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>當環境架好後，我們先在  <code>www/html/</code>  路徑中，寫一支  <code>phpinfo.php</code>  ，用以輸出我們的 php 環境與版本。</p>
+<pre><code>&lt;?php
+    phpinfo();
+?&gt;
+</code></pre>
 <p>當開啟網頁後應該會看到如下類似的畫面</p>
 <p><img data-src="1*d1UGW93GfKv_5nsPwBjbgA.png" alt="" /></p>
 <p>之後回到 Vscode 的 Extension 中找尋  <code>php debugger</code>  並安裝。</p>
@@ -228,13 +236,17 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <p>如果不知道 php.ini 的位置路徑，可以從 phpinfo 中找到。</p>
 </blockquote>
 <p><img data-src="1*gIPR5dxAgTmkx2cUMmDNgw.png" alt="" /></p>
-<p>在 php.ini 中加入以下內容<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[XDebug]</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure></p>
+<p>在 php.ini 中加入以下內容</p>
+<pre><code>[XDebug]
+xdebug.remote_enable = 1
+xdebug.remote_autostart = 1
+</code></pre>
 <p>之後，重啟 apache (nginx)。</p>
 <h4 id="讓-windows-中的-php-project-跑在-wsl-中的-php-環境"><a class="anchor" href="#讓-windows-中的-php-project-跑在-wsl-中的-php-環境">#</a> 讓 Windows 中的 php project 跑在 WSL 中的 php 環境</h4>
 <p>我們可以使用 symbolic link 的方式將專案 link 到 WSL 中的  <code>www/</code>  內，如此便可以將 Windows 的 php 專案跑在 WSL 的 php 環境了。</p>
-<p>以我自己為例，我便將 project 放置於  <code>/var/www/</code>  中<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /mnt/&lt;your project path&gt;/&lt;your project&gt; /var/www/</span><br></pre></td></tr></table></figure></p>
+<p>以我自己為例，我便將 project 放置於  <code>/var/www/</code>  中</p>
+<pre><code>ln -s /mnt/&lt;your project path&gt;/&lt;your project&gt; /var/www/
+</code></pre>
 <h4 id="使用-windows-中的-vscode-執行-wsl-中的-xdebug-對-php-project-偵錯"><a class="anchor" href="#使用-windows-中的-vscode-執行-wsl-中的-xdebug-對-php-project-偵錯">#</a> 使用 Windows 中的 Vscode 執行 WSL 中的 XDebug 對 php project 偵錯</h4>
 <p>第一次，我們先在 Vscode 中的 Debug 環境中點選上方小齒輪，並且選取  <code>PHP</code>  。</p>
 <p><img data-src="1*MZ3peuLJsPmNbINh2it23w.png" alt="" /></p>
@@ -254,9 +266,9 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
-          <a href="/tags/php/" rel="tag"><i class="ic i-tag"></i> php</a>
-          <a href="/tags/wsl/" rel="tag"><i class="ic i-tag"></i> wsl</a>
           <a href="/tags/windows/" rel="tag"><i class="ic i-tag"></i> windows</a>
+          <a href="/tags/wsl/" rel="tag"><i class="ic i-tag"></i> wsl</a>
+          <a href="/tags/php/" rel="tag"><i class="ic i-tag"></i> php</a>
       </div>
   </div>
 
@@ -371,7 +383,7 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -383,7 +395,7 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -460,72 +472,12 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
-</div>
-
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E9%81%87%E5%88%B0permission-denied-publickey-%E6%80%8E%E9%BA%BC%E8%BE%A6/" title="GCP遇到permission denied (publickey)怎麼辦？">GCP遇到permission denied (publickey)怎麼辦？</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2019-02-28-vue-%E5%B0%8E%E5%85%A5-vuex-%E7%AE%A1%E7%90%86vue%E5%B0%88%E6%A1%88%E7%9A%84%E7%8B%80%E6%85%8B/" title="Vue 導入 Vuex 管理Vue專案的狀態">Vue 導入 Vuex 管理Vue專案的狀態</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+    <span><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></span>
   </li>
 
       
@@ -546,10 +498,70 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
 </div>
 
-    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
+    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/" title="IELS 字彙">IELS 字彙</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
+</div>
+
+    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
   </li>
 
       
@@ -561,7 +573,7 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
+    <span><a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" title="Debian add-apt-repository command not found 問題">Debian add-apt-repository command not found 問題</a></span>
   </li>
 
       
@@ -570,10 +582,10 @@ WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/git/" title="In git">git</a>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
+    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
   </li>
 
   </ul>

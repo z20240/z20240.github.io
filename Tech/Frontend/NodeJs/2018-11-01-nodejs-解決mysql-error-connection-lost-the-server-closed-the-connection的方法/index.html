@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
     
-  <meta name="keywords" content="database,mysql,nodejs" />
+  <meta name="keywords" content="nodejs,database,mysql" />
 
 
 <link rel="canonical" href="https://z20240.github.io/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/">
@@ -167,22 +167,24 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <p>我一開始以為是自己的程式程式問題，千測萬測找不出原因來。之後在網路上查找，才知道原來是因為 MySQL 本身有一個機制：  <code>wait_time</code>  。當超超過這個時間的時候便會  <code>connection lost</code>  . 這時，再去 request MySQL 時便會連接不上 MySQL。</p>
 <p>解決方法網路上查到有兩種</p>
 <h4 id="第一種方法在偵測到拋出-protocol_connection_lost-時就重新執行連線"><a class="anchor" href="#第一種方法在偵測到拋出-protocol_connection_lost-時就重新執行連線">#</a> 第一種方法：在偵測到拋出  <code>PROTOCOL_CONNECTION_LOST</code>  時就重新執行連線。</h4>
-<p>在偵測到拋出  <code>PROTOCOL_CONNECTION_LOST</code>  時就重新執行連線。我們可以把這封裝成一個 module，在需要的地方使用。要注意的是，在使用  <code>conn</code>  時，不可以將其設為  <code>global variable</code>  ，不然無法得到更新的  <code>conn</code>  。<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> mysql_config = &#123;</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>:<span class="string">&#x27;your user&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>:<span class="string">&#x27;your password&#x27;</span>,</span><br><span class="line">    <span class="attr">database</span>:<span class="string">&#x27;your database&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">disconnect_handler</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="keyword">let</span> conn = mysql.<span class="title function_">createConnection</span>(mysql_config);</span><br><span class="line">    conn.<span class="title function_">connect</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        (err) &amp;&amp; <span class="built_in">setTimeout</span>(<span class="string">&#x27;disconnect_handler()&#x27;</span>, <span class="number">2000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    conn.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (err.<span class="property">code</span> === <span class="string">&#x27;PROTOCOL_CONNECTION_LOST&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// db error 重新連線</span></span><br><span class="line">            <span class="title function_">disconnect_handler</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> err;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="built_in">exports</span>.<span class="property">conn</span> = conn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">disconnect_handler</span> =  disconnect_handler;</span><br></pre></td></tr></table></figure></p>
-<h4 id="第二種方法使用connection-pool"><a class="anchor" href="#第二種方法使用connection-pool">#</a> 第二種方法：使用 Connection pool</h4>
+<p>在偵測到拋出  <code>PROTOCOL_CONNECTION_LOST</code>  時就重新執行連線。我們可以把這封裝成一個 module，在需要的地方使用。要注意的是，在使用  <code>conn</code>  時，不可以將其設為  <code>global variable</code>  ，不然無法得到更新的  <code>conn</code>  。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> mysql_config <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">user</span><span class="token operator">:</span><span class="token string">'your user'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token literal-property property">password</span><span class="token operator">:</span><span class="token string">'your password'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token literal-property property">database</span><span class="token operator">:</span><span class="token string">'your database'</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">function</span> <span class="token function">disconnect_handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>   <span class="token keyword">let</span> conn <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span>mysql_config<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    conn<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'disconnect_handler()'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>    conn<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token string">'PROTOCOL_CONNECTION_LOST'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token comment">//db error 重新連線</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token function">disconnect_handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            <span class="token keyword">throw</span> err<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    exports<span class="token punctuation">.</span>conn <span class="token operator">=</span> conn<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>exports<span class="token punctuation">.</span>disconnect_handler <span class="token operator">=</span>  disconnect_handler<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="第二種方法使用connection-pool"><a class="anchor" href="#第二種方法使用connection-pool">#</a> 第二種方法：使用 Connection pool</h4>
 <p>使用 Connection pool。當需要 connection 時，從 connection pool 拿取連線即可。</p>
-<p>程式碼大約如下：<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">&quot;mysql&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> pool = mysql.<span class="title function_">createPool</span>(&#123;</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;your host&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>:<span class="string">&#x27;your account&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>:<span class="string">&#x27;your password&#x27;</span>,</span><br><span class="line">    <span class="attr">database</span>:<span class="string">&#x27;your database&#x27;</span>,</span><br><span class="line">    connectionLimit : <span class="number">10</span>, <span class="comment">// 可以自己設定</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> query = <span class="keyword">function</span>(<span class="params">sql, options, callback</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(sql, options, callback);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> options === <span class="string">&quot;function&quot;</span>) &#123;</span><br><span class="line">        callback = options;</span><br><span class="line">        options = <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pool.<span class="title function_">getConnection</span>(<span class="keyword">function</span>(<span class="params">err, conn</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            <span class="title function_">callback</span>(err, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            conn.<span class="title function_">query</span>(sql, options, <span class="keyword">function</span>(<span class="params">err, results, fields</span>)&#123;</span><br><span class="line">                <span class="comment">// callback</span></span><br><span class="line">                <span class="title function_">callback</span>(err, results, fields);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">// release connection。</span></span><br><span class="line">            <span class="comment">// 要注意的是，connection 的釋放需要在此 release，而不能在 callback 中 release</span></span><br><span class="line">            conn.<span class="title function_">release</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = query;</span><br></pre></td></tr></table></figure></p>
-<p>一樣將此封裝成一個 module，並且在想使用的地方使用。</p>
-<p>我後來選擇了第二種方式，並且封裝成一個 middleware。大約類似如此方式使用：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(function (req, res, next) &#123;</span><br><span class="line">    req.query = mysqlPoolQuery;</span><br><span class="line">    next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>程式碼大約如下：</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"mysql"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> pool <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createPool</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">'your host'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">user</span><span class="token operator">:</span><span class="token string">'your account'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token literal-property property">password</span><span class="token operator">:</span><span class="token string">'your password'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token literal-property property">database</span><span class="token operator">:</span><span class="token string">'your database'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token literal-property property">connectionLimit</span> <span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 可以自己設定</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">var</span> <span class="token function-variable function">query</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">sql<span class="token punctuation">,</span> options<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> options<span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> options <span class="token operator">===</span> <span class="token string">"function"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        callback <span class="token operator">=</span> options<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        options <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    pool<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> conn</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token function">callback</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            conn<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> results<span class="token punctuation">,</span> fields</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>                <span class="token comment">// callback</span></pre></td></tr><tr><td data-num="22"></td><td><pre>                <span class="token function">callback</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> results<span class="token punctuation">,</span> fields<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>            <span class="token comment">// release connection。</span></pre></td></tr><tr><td data-num="25"></td><td><pre>            <span class="token comment">// 要注意的是，connection 的釋放需要在此 release，而不能在 callback 中 release</span></pre></td></tr><tr><td data-num="26"></td><td><pre>            conn<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> query<span class="token punctuation">;</span></pre></td></tr></table></figure><p>一樣將此封裝成一個 module，並且在想使用的地方使用。</p>
+<p>我後來選擇了第二種方式，並且封裝成一個 middleware。大約類似如此方式使用：</p>
+<pre><code>app.use(function (req, res, next) &#123;
+    req.query = mysqlPoolQuery;
+    next();
+&#125;);
+</code></pre>
 <p>如此一來就順利解決了 mySQL 的  <code>connection closed</code>  問題了。</p>
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
+          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
           <a href="/tags/database/" rel="tag"><i class="ic i-tag"></i> database</a>
           <a href="/tags/mysql/" rel="tag"><i class="ic i-tag"></i> mysql</a>
-          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
       </div>
   </div>
 
@@ -247,7 +249,7 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
     <div class="item left">
       
 
-  <a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;johannes-plenio-DKix6Un55mw-unsplash.jpg" title="利用卡諾圖化簡布林代數的條件判斷式">
+  <a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1206&#x2F;1080?random&#x3D;13" title="利用卡諾圖化簡布林代數的條件判斷式">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Others</span>
   <h3>利用卡諾圖化簡布林代數的條件判斷式</h3>
@@ -297,7 +299,7 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -309,7 +311,7 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -386,6 +388,42 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
@@ -401,7 +439,7 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
+    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
   </li>
 
       
@@ -413,31 +451,7 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
-</div>
-
-    <span><a href="/Tech/Data%20Storage/2022-10-08-sql-postgres-%E9%81%87%E5%88%B0-out-of-shared-memory-%E5%95%8F%E9%A1%8C/" title="SQL Postgres 遇到 out of shared memory 問題">SQL Postgres 遇到 out of shared memory 問題</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
+    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
   </li>
 
       
@@ -461,11 +475,9 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
+    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
   </li>
 
       
@@ -474,36 +486,22 @@ Nodejs 解決MySQL Error - Connection lost. The server closed the connection的�
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
 </div>
 
-    <span><a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" title="Debian add-apt-repository command not found 問題">Debian add-apt-repository command not found 問題</a></span>
+    <span><a href="/Tech/PHP/2019-03-19-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-windows-10-%E4%B8%8B%E4%BD%BF%E7%94%A8-vscode-%E8%AA%BF%E7%94%A8-wsl-%E5%B0%8D-php-%E5%B0%88%E6%A1%88-debug/" title="WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug">WSL 與 Windows 的完美雙結合 —Windows 10 下使用 VSCode 調用 WSL 對 PHP 專案 Debug</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
+<a href="/categories/Life/" title="In Life">Life</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
 </div>
 
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-ssh-%E8%AE%93%E4%BD%BF%E7%94%A8%E8%80%85%E7%99%BB%E5%85%A5-vm-instance/" title="GCP如何使用 SSH 讓使用者登入 VM Instance">GCP如何使用 SSH 讓使用者登入 VM Instance</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></span>
+    <span><a href="/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/" title="IELS 字彙">IELS 字彙</a></span>
   </li>
 
   </ul>

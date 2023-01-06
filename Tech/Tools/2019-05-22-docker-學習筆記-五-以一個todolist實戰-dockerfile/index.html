@@ -177,29 +177,33 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <p>— —</p>
 <p>首先，我們先在專案根目錄下增加一個檔案，檔名就是 <strong>Dockerfile。</strong></p>
 <p><img data-src="1*E-fj9f15LNMb2J6oTNKHmQ.png" alt="" /></p>
-<p>由於專案需要 Node.js 執行環境，因此我們從 DockerHub 上找尋 Node 的最新穩定版本作為 Docker image 的 Base 建立我們自己的 Image。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM node:latest</span><br></pre></td></tr></table></figure></p>
-<p>個人習慣，我會定義一個當前目錄，作為整個專案的目錄掛載位置。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WORKDIR /app</span><br></pre></td></tr></table></figure></p>
-<p>開發階段，我們的專案 PORT 在 8080，因此需要將 PORT 給 EXPOSE 出來。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE 8080</span><br></pre></td></tr></table></figure></p>
+<p>由於專案需要 Node.js 執行環境，因此我們從 DockerHub 上找尋 Node 的最新穩定版本作為 Docker image 的 Base 建立我們自己的 Image。</p>
+<pre><code>FROM node:latest
+</code></pre>
+<p>個人習慣，我會定義一個當前目錄，作為整個專案的目錄掛載位置。</p>
+<pre><code>WORKDIR /app
+</code></pre>
+<p>開發階段，我們的專案 PORT 在 8080，因此需要將 PORT 給 EXPOSE 出來。</p>
+<pre><code>EXPOSE 8080
+</code></pre>
 <p>最後，也最重要。</p>
 <p>由於我們是 Container 啟動階段才將專案掛載，因此專案的啟動、執行 Dependency 的安裝，都應該要在 Container 後執行。</p>
-<p>因此我們在這邊建立了一小腳本，以供待會 Container 啟動時執行我們要的動作。<br />
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/perl -w</span></span><br><span class="line"><span class="keyword">use</span> strict;</span><br><span class="line"><span class="keyword">use</span> Cwd;</span><br><span class="line"><span class="keyword">my</span> $dir = <span class="string">&#x27;node_modules&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># install pnpm</span></span><br><span class="line"><span class="keyword">system</span>(<span class="string">&quot;npm install pnpm -g&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># if don&#x27;t have node_modules, install it</span></span><br><span class="line"><span class="keyword">system</span>(<span class="string">&quot;pnpm install&quot;</span>) <span class="keyword">unless</span> (-e $dir <span class="keyword">and</span> -d $dir);</span><br><span class="line"></span><br><span class="line"><span class="comment"># run serve</span></span><br><span class="line"><span class="keyword">system</span>(<span class="string">&quot;npm run serve&quot;</span>);</span><br></pre></td></tr></table></figure></p>
-<p>由於我對 Bash 腳本語言不熟，因此改使用 Perl 撰寫腳本。</p>
-<p>之後我們回到 Dockerfile ，並且使用  <code>ENTRYPOINT</code>  這個指令要求 Docker 於啟動 Container 時執行我們的腳本。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT chmod 577 docker_todo.pl &amp;&amp; ./docker_todo.pl</span><br></pre></td></tr></table></figure></p>
-<p>實際的 Dockerfile 會長成像這樣。<br />
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:latest</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> <span class="built_in">chmod</span> 577 client &amp;&amp; ./client</span></span><br></pre></td></tr></table></figure></p>
-<p>就短短幾行。</p>
+<p>因此我們在這邊建立了一小腳本，以供待會 Container 啟動時執行我們要的動作。</p>
+<figure class="highlight perl"><figcaption data-lang="perl"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">#!/usr/bin/perl -w</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">use</span> strict<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">use</span> Cwd<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">my</span> <span class="token variable">$dir</span> <span class="token operator">=</span> <span class="token string">'node_modules'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment"># install pnpm</span></pre></td></tr><tr><td data-num="7"></td><td><pre>system<span class="token punctuation">(</span><span class="token string">"npm install pnpm -g"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># if don't have node_modules, install it</span></pre></td></tr><tr><td data-num="10"></td><td><pre>system<span class="token punctuation">(</span><span class="token string">"pnpm install"</span><span class="token punctuation">)</span> <span class="token keyword">unless</span> <span class="token punctuation">(</span><span class="token operator">-e</span> <span class="token variable">$dir</span> <span class="token operator">and</span> <span class="token operator">-d</span> <span class="token variable">$dir</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># run serve</span></pre></td></tr><tr><td data-num="13"></td><td><pre>system<span class="token punctuation">(</span><span class="token string">"npm run serve"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>由於我對 Bash 腳本語言不熟，因此改使用 Perl 撰寫腳本。</p>
+<p>之後我們回到 Dockerfile ，並且使用  <code>ENTRYPOINT</code>  這個指令要求 Docker 於啟動 Container 時執行我們的腳本。</p>
+<pre><code>ENTRYPOINT chmod 577 docker_todo.pl &amp;&amp; ./docker_todo.pl
+</code></pre>
+<p>實際的 Dockerfile 會長成像這樣。</p>
+<figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token instruction"><span class="token keyword">FROM</span> node:latest</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token instruction"><span class="token keyword">EXPOSE</span> 8080</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token instruction"><span class="token keyword">ENTRYPOINT</span> chmod 577 client &amp;&amp; ./client</span></pre></td></tr></table></figure><p>就短短幾行。</p>
 <p>在完成了 Dockerfile 後，我們就以此建立我們自己的 Image 吧！</p>
-<p>在 Dockerfile 所在的目錄中，使用以下指令<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t &lt;your docker image name&gt; .</span><br></pre></td></tr></table></figure></p>
+<p>在 Dockerfile 所在的目錄中，使用以下指令</p>
+<pre><code>docker build -t &lt;your docker image name&gt; .
+</code></pre>
 <p>接下來應該就會看到它很迅速地跑完了建置的流程。</p>
 <p><img data-src="1*N9sP5pFlT6EvVtTFjyDyaQ.png" alt="" /></p>
-<p>查看  <code>docker images</code> <br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
+<p>查看  <code>docker images</code></p>
+<pre><code>docker images
+</code></pre>
 <p><img data-src="1*X0h-DQnHVIZtr0VPEVJ3Hw.png" alt="" /></p>
 <p>接下來，我們就可以使用此 Image 啟動我們的 Container 了。</p>
 <p>記得要：</p>
@@ -208,8 +212,9 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <li>掛載自己的專案。  <code>(-v &lt;source path&gt;:&lt;dist path&gt;)</code></li>
 <li>幫 Container 取個名字  <code>(可選可不選)</code></li>
 </ul>
-<p>綜合以上內容，我們的 docker Container 建立時就會類似以下指令。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -v $PWD/client:/app -p 8080:8080 --name container_name todos2</span><br></pre></td></tr></table></figure></p>
+<p>綜合以上內容，我們的 docker Container 建立時就會類似以下指令。</p>
+<pre><code>docker run --rm -v $PWD/client:/app -p 8080:8080 --name container_name todos2
+</code></pre>
 <p>其中，  <code>$PWD</code>  代表當前使用者的目錄。你當然也可以用絕對路徑，這因人習慣而異。</p>
 <p>如果順利啟動，應該就可以看到以下畫面了。</p>
 <p><img data-src="1*Hce3LKLB_yGCQBMjk4aVxg.gif" alt="" /></p>
@@ -218,13 +223,31 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <h4 id="於部屬階段使用-docker"><a class="anchor" href="#於部屬階段使用-docker">#</a> 於部屬階段使用 Docker</h4>
 <p>這部分的文件就很多了，甚至在 <a target="_blank" rel="noopener" href="https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html"><strong>Vue 官網有關 Dockerize 章節</strong></a> 也都有了可以參考範例。</p>
 <p>本文就擷取官網的範例作為講解。</p>
-<p>其他使用方式與上面的介紹無異。<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">FROM node:lts-alpine</span><br><span class="line"># 首先安裝一個簡單的 http server。</span><br><span class="line"># 在現實環境，我們會使用 nginx/apache 作為 http service。</span><br><span class="line"># 這部分該如何實現，我們未來章節會講述。</span><br><span class="line">RUN npm install -g http-server</span><br><span class="line"># 將 /app 資料夾作為當前的工作環境</span><br><span class="line">WORKDIR /app</span><br><span class="line"># 複製 &#x27;package.json&#x27; 與 &#x27;package-lock.json&#x27;</span><br><span class="line">COPY package*.json ./</span><br><span class="line"># 安裝專案的 Dependency</span><br><span class="line">RUN npm install</span><br><span class="line"># 將整個專案複製進 Docker</span><br><span class="line">COPY . .</span><br><span class="line"># 使用 npm run build 建置專案</span><br><span class="line">RUN npm run build</span><br><span class="line"># 暴露 8080 port</span><br><span class="line">EXPOSE 8080</span><br></pre></td></tr></table></figure></p>
+<p>其他使用方式與上面的介紹無異。</p>
+<pre><code>FROM node:lts-alpine
+# 首先安裝一個簡單的 http server。
+# 在現實環境，我們會使用 nginx/apache 作為 http service。
+# 這部分該如何實現，我們未來章節會講述。
+RUN npm install -g http-server
+# 將 /app 資料夾作為當前的工作環境
+WORKDIR /app
+# 複製 'package.json' 與 'package-lock.json'
+COPY package*.json ./
+# 安裝專案的 Dependency
+RUN npm install
+# 將整個專案複製進 Docker
+COPY . .
+# 使用 npm run build 建置專案
+RUN npm run build
+# 暴露 8080 port
+EXPOSE 8080
+</code></pre>
 <p>當我們 Dockerfile 撰寫好後。</p>
 <p>一樣使用  <code>docker build</code>  建立 Image。</p>
 <p>啟動 docker container 時，與開發階段步驟不同的方在於，我們不需要於啟動才掛載專案 (因為專案早就在 Build 時就複製進 Docker Image 了。)</p>
-<p>所以此處，我們僅需要使用<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 8080:8080 --rm --name todo todos</span><br></pre></td></tr></table></figure></p>
+<p>所以此處，我們僅需要使用</p>
+<pre><code>docker run -p 8080:8080 --rm --name todo todos
+</code></pre>
 <p>即可。</p>
 <h4 id="結論"><a class="anchor" href="#結論">#</a> 結論</h4>
 <p>在此章節中，我們以一個 Todo 範例講述了如何使用 Dockerfile 為自己的專案建立 Docker image。</p>
@@ -353,7 +376,7 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -365,7 +388,7 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -440,6 +463,80 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession4/" title="Cambly-Lession4">Cambly-Lession4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+</div>
+
+    <span><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-12-09-javascript-es6-spread-syntax-%E5%B1%95%E9%96%8B%E8%AA%9E%E6%B3%95/" title="Javascript ES6 Spread Syntax 展開語法">Javascript ES6 Spread Syntax 展開語法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
@@ -447,7 +544,7 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
 </div>
 
-    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
   </li>
 
       
@@ -470,10 +567,10 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
 </div>
 
-    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+    <span><a href="/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/" title="SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料">SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</a></span>
   </li>
 
       
@@ -482,88 +579,10 @@ Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile - Tools - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E9%81%87%E5%88%B0permission-denied-publickey-%E6%80%8E%E9%BA%BC%E8%BE%A6/" title="GCP遇到permission denied (publickey)怎麼辦？">GCP遇到permission denied (publickey)怎麼辦？</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
-</div>
-
-    <span><a href="/Life/EnglishLearn/Cambly-Lession2/" title="Cambly-Lession2">Cambly-Lession2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/" title="Axios 如何 Cancel 已經發出的 Request?">Axios 如何 Cancel 已經發出的 Request?</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
-</div>
-
-    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+    <span><a href="/Tech/Tools/2018-11-14-vim-%E4%BD%BF%E7%94%A8-vimdiff-%E4%BE%86%E6%AF%94%E8%BC%83-git-diff-%E7%9A%84%E5%B7%AE%E7%95%B0/" title="Vim 使用 Vimdiff 來比較 Git diff 的差異">Vim 使用 Vimdiff 來比較 Git diff 的差異</a></span>
   </li>
 
   </ul>

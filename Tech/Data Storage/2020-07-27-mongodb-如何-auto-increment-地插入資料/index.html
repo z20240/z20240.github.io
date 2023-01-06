@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
     
-  <meta name="keywords" content="mongo,nodejs" />
+  <meta name="keywords" content="nodejs,mongo" />
 
 
 <link rel="canonical" href="https://z20240.github.io/Tech/Data%20Storage/2020-07-27-mongodb-%E5%A6%82%E4%BD%95-auto-increment-%E5%9C%B0%E6%8F%92%E5%85%A5%E8%B3%87%E6%96%99/">
@@ -104,12 +104,12 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
         </div>
         <div id="imgs" class="pjax">
             <ul>
-                <li class="item" data-background-image="https://picsum.photos/1204/1080?random=9"></li>
-                <li class="item" data-background-image="https://picsum.photos/1203/1080?random=7"></li>
-                <li class="item" data-background-image="https://picsum.photos/1207/1080?random=15"></li>
-                <li class="item" data-background-image="https://z20240.github.io/gallary/jeremy-bishop-DLICfSD33as-unsplash.jpg"></li>
-                <li class="item" data-background-image="https://picsum.photos/1202/1080?random=5"></li>
+                <li class="item" data-background-image="https://picsum.photos/1206/1080?random=13"></li>
                 <li class="item" data-background-image="https://z20240.github.io/gallary/jonatan-pie-r42PtGYCF7U-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://picsum.photos/1202/1080?random=5"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/jonatan-pie-1hpE3fROU0I-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/jeremy-bishop-DLICfSD33as-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://picsum.photos/1207/1080?random=15"></li>
             </ul>
         </div>
       </header>
@@ -174,17 +174,16 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
 <p>設計一個 <strong>autoIncrease</strong> collection 專門 maintain 需要 auto increment 的 collection 其當前的 auto increment number。未來當某 collection 需要 auto increment 時，就來 <strong>autoIncrease</strong> collection 拿取 lastest Id.</p>
 </blockquote>
 <p>以 NodeJs 為例</p>
-<p>實作一個 function ，專門獲取 lastest Id，並在每次獲取的同時更新 lastest Id.<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">get_auto_increment_id</span> = <span class="keyword">async</span> (<span class="params">table_name</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 寫死 autoIncrease 為紀錄各個 document 的 auto increment 的 document.</span></span><br><span class="line">    <span class="keyword">const</span> auto_increment_record_table = <span class="string">&#x27;autoIncrease&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 連接 mongodb</span></span><br><span class="line">    <span class="keyword">const</span> db = <span class="keyword">await</span> <span class="title class_">CreateDB</span>(process.<span class="property">env</span>.<span class="property">MONGO_DB</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 獲取此 collection</span></span><br><span class="line">    <span class="keyword">const</span> db_collection = db.<span class="title function_">collection</span>(<span class="string">&#x27;autoIncrease&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> dbFindOneAndUpdateAsync = <span class="title function_">promisify</span>(</span><br><span class="line">        db_collection.<span class="property">findOneAndUpdate</span></span><br><span class="line">    ).<span class="title function_">bind</span>(db_collection);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 先 update 此 table_name 的 last number + 1</span></span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="title function_">dbFindOneAndUpdateAsync</span>(</span><br><span class="line">        &#123; <span class="attr">_id</span>: tableName &#125;,</span><br><span class="line">        &#123; <span class="attr">$inc</span>: &#123; <span class="attr">seqValue</span>: <span class="number">1</span> &#125; &#125;,</span><br><span class="line">        &#123; <span class="attr">upsert</span>: <span class="literal">true</span>, <span class="attr">returnNewDocument</span>: <span class="literal">true</span> &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> seqDoc = result.<span class="property">value</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 再回傳最新的 last number</span></span><br><span class="line">    <span class="keyword">return</span> seqDoc ? seqDoc.<span class="property">seqValue</span> : <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>未來我們便可以使用這個 function 取得 collection 中最新的 id。如此就可以用程式達到手動 auto increment 的功效了。</p>
+<p>實作一個 function ，專門獲取 lastest Id，並在每次獲取的同時更新 lastest Id.</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">get_auto_increment_id</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">table_name</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// 寫死 autoIncrease 為紀錄各個 document 的 auto increment 的 document.</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">const</span> auto_increment_record_table <span class="token operator">=</span> <span class="token string">'autoIncrease'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">// 連接 mongodb</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">const</span> db <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">CreateDB</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MONGO_DB</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 獲取此 collection</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">const</span> db_collection <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">collection</span><span class="token punctuation">(</span><span class="token string">'autoIncrease'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">const</span> dbFindOneAndUpdateAsync <span class="token operator">=</span> <span class="token function">promisify</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        db_collection<span class="token punctuation">.</span>findOneAndUpdate</pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>db_collection<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment">// 先 update 此 table_name 的 last number + 1</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">dbFindOneAndUpdateAsync</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token punctuation">&#123;</span> <span class="token literal-property property">_id</span><span class="token operator">:</span> tableName <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#123;</span> <span class="token literal-property property">$inc</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">seqValue</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token punctuation">&#123;</span> <span class="token literal-property property">upsert</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">returnNewDocument</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">const</span> seqDoc <span class="token operator">=</span> result<span class="token punctuation">.</span>value<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token comment">// 再回傳最新的 last number</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">return</span> seqDoc <span class="token operator">?</span> seqDoc<span class="token punctuation">.</span>seqValue <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>未來我們便可以使用這個 function 取得 collection 中最新的 id。如此就可以用程式達到手動 auto increment 的功效了。</p>
 <p>以下是我在自己專案中使用的 handle function，當我插入一筆 Question 資料到 mongodb 前，我便讓 table 的 id+1，作為此筆資料的 id。</p>
 <p><img data-src="1*K6syln_71vBX22lssiVQdQ.png" alt="" /></p>
 <p>如此便完成 mongodb 的 auto increment 了。</p>
 <p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
-          <a href="/tags/mongo/" rel="tag"><i class="ic i-tag"></i> mongo</a>
           <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
+          <a href="/tags/mongo/" rel="tag"><i class="ic i-tag"></i> mongo</a>
       </div>
   </div>
 
@@ -299,7 +298,7 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -311,7 +310,7 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -388,10 +387,62 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2018-10-27-vue-cli-%E8%87%AA%E5%AE%9A%E7%BE%A9%E5%85%A8%E5%B1%80%E5%8A%9F%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95/" title="Vue-Cli 自定義全局功能的方法">Vue-Cli 自定義全局功能的方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2021-06-07-%E9%97%9C%E6%96%BC-selinux-policy/" title="關於 SELinux Policy">關於 SELinux Policy</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
+</div>
+
+    <span><a href="/Tech/Algorithm/2019-10-19-%E9%97%9C%E6%96%BC-assignment-%E8%B3%A6%E5%80%BC-%E9%80%99%E6%AA%94%E4%BA%8B/" title="關於 Assignment(賦值) 這檔事">關於 Assignment(賦值) 這檔事</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></span>
+    <span><a href="/Tech/Tools/2019-01-04-%E5%B7%A5%E5%85%B7-tee-%E5%90%8C%E6%99%82%E8%BC%B8%E5%87%BA%E8%A8%8A%E6%81%AF%E6%96%BCterminal-%E8%88%87%E6%8C%87%E5%AE%9A%E6%AA%94%E6%A1%88/" title="工具tee 同時輸出訊息於Terminal 與指定檔案">工具tee 同時輸出訊息於Terminal 與指定檔案</a></span>
   </li>
 
       
@@ -412,12 +463,24 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+<a href="/categories/Tech/git/" title="In git">git</a>
 </div>
 
-    <span><a href="/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/" title="Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題">Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</a></span>
+    <span><a href="/Tech/git/2018-10-27-git-%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AA%8D%E5%B0%8D%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E5%8D%80%E5%88%86%E5%A4%A7%E5%B0%8F%E5%AF%AB%E7%9A%84%E8%A8%AD%E5%AE%9A/" title="Git 修改默認對文件名不區分大小寫的設定">Git 修改默認對文件名不區分大小寫的設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession2/" title="Cambly-Lession2">Cambly-Lession2</a></span>
   </li>
 
       
@@ -438,78 +501,10 @@ MongoDB 如何 Auto increment 地插入資料 - Data Storage - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
 </div>
 
-    <span><a href="/Tech/Frontend/NodeJs/2019-07-26-node-%E4%BD%BF%E7%94%A8-nodejs-%E8%A3%BD%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84-shell-command/" title="Node 使用 NodeJS 製作自己的 Shell Command">Node 使用 NodeJS 製作自己的 Shell Command</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
-</div>
-
-    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Life/" title="In Life">Life</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
-</div>
-
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
+    <span><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></span>
   </li>
 
   </ul>

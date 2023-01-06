@@ -189,8 +189,9 @@ Javascript Functional Programming 一文到底全紀錄 - Frontend - Tech |
 <p><img data-src="1*RwSWFTK6ZI2XRCrgzxCmmQ.png" alt="" /></p>
 <h4 id="二-function-中只能有-expression-而非指令-instructions"><a class="anchor" href="#二-function-中只能有-expression-而非指令-instructions">#</a> <strong>二、Function 中只能有 Expression 而非指令 (instructions)。</strong></h4>
 <p>在 FP 中， Function 只允許 <strong>純運算</strong> 。所有「被執行的指令」是不被允許的。然而對於真正在運行的專案，這其實並不容易被實踐 (例如呼叫 API 的部分 — I/O) ，儘管是已經將 Function 作為一級公民 的 JavaScript 而言也是一樣。</p>
-<p><strong>舉個  <code>Function 中只有純運算的</code>  例子：</strong><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var add = (a, b) =&gt; a + b</span><br></pre></td></tr></table></figure></p>
+<p><strong>舉個  <code>Function 中只有純運算的</code>  例子：</strong></p>
+<pre><code>var add = (a, b) =&gt; a + b
+</code></pre>
 <p>這個例子就是很典型的，在 function 只有運算式 「a + b」。</p>
 <p><strong>以下例子則非  <code>Function 中只有純運算</code> </strong></p>
 <p><img data-src="1*38kX52naL-_q99y81bLAIQ.png" alt="" /></p>
@@ -232,8 +233,13 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <h4 id="五-function-可以任意組合得到新的-function且依然滿足以上這些守則"><a class="anchor" href="#五-function-可以任意組合得到新的-function且依然滿足以上這些守則">#</a> 五、Function <strong>可以任意組合得到新的 Function，且依然滿足以上這些守則</strong></h4>
 <p>這邊我們要回到數學中的「組合」(Compose)。</p>
 <p>假設有兩個 function  <code>f(x)</code>  與 <em> <code>g(x)</code> </em> 。我們可以任意將此兩個 function 組合起來成為一個新的 function  <code>f’(x)</code>  ，記做  <code>f’ = f。g</code>  。執行結果等效於  <code>f(g(x))</code>  。</p>
-<p>以程式上來說，可能會長成這樣<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var compose = function(f, g) &#123;</span><br><span class="line">    return function(x) &#123;</span><br><span class="line">        return f(g(x));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>以程式上來說，可能會長成這樣</p>
+<pre><code>var compose = function(f, g) &#123;
+    return function(x) &#123;
+        return f(g(x));
+    &#125;;
+&#125;;
+</code></pre>
 <p>其中，兩個 function 都以  <code>x</code>  作為 input。通過 compose 產生的新 function  <code>f’</code>  其執行結果等效於，將執行 function  <code>g</code>  的結果作為 input 傳給 function  <code>f</code>  。</p>
 <p>我們舉個例：</p>
 <p>假設有兩個 function 「Add2 (x)」與「Multiply3 (x)」</p>
@@ -246,22 +252,26 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <p>花了大半個篇幅講解了何謂 Functional Programming，之後我想介紹一下 FP 常使用到的一些工具與技巧。</p>
 <h4 id="map"><a class="anchor" href="#map">#</a> Map</h4>
 <p>在 Javascript 中，我們有 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvbWFw">Array.prototype.map</span> ( ) 可以幫助我們將 Array 中的 element 依照 callback function 的規則 <strong>一一對應到新的 Array</strong> ，這有助於幫助我們輕鬆地將元素統一地「擴展」、「轉換」。</p>
-<p>以下為一個簡單的例子：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">將 Array 中的每個元素統一地 乘60 再加5，之後輸出為 ASCII Code</span><br></pre></td></tr></table></figure></p>
+<p>以下為一個簡單的例子：</p>
+<pre><code>將 Array 中的每個元素統一地 乘60 再加5，之後輸出為 ASCII Code
+</code></pre>
 <p>此作法會得到一個新的 Array  <code>[“A”, “&#125;”, “¹”, “õ”, “ı”, “ŭ”, “Ʃ”, “ǥ”, “ȡ”]</code>  並且，原始 Array  <code>ary</code>  的內容並沒有因此被更動。</p>
 <p><img data-src="1*Uw06YLV8VaoGz0CV1bYlaQ.png" alt="" /></p>
 <h4 id="filter"><a class="anchor" href="#filter">#</a> Filter</h4>
 <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvZmlsdGVy">Array.prototype.filter</span> ( ) 是 Javascript 中原生支援的方法。與 <strong>Map</strong> 不同的地方是，它會依照 callback function 的規則 <strong>篩選符合條件的 element 並且蒐集成為一個新的 Array</strong> 。這很有用，我們可以利用 filter 很輕鬆的將符合條件的 Element 篩選出來，並且不影響到原始的 Array。</p>
-<p>舉個簡單的例子<br />
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">從 Array 中篩選出不是英文字母的 Element 作為 Output</span><br></pre></td></tr></table></figure></p>
+<p>舉個簡單的例子</p>
+<pre><code>從 Array 中篩選出不是英文字母的 Element 作為 Output
+</code></pre>
 <p><img data-src="1*9952DfkuCXuAFpsJ8a8onQ.png" alt="" /></p>
 <h4 id="reduce"><a class="anchor" href="#reduce">#</a> Reduce</h4>
 <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvUmVkdWNl">Array.prototype.reduce</span> ( ) 一樣是 Javascript 中原生支援的方法。這個方法與前兩個有著極大的區別。Reduce 接受兩個參數： 「 <strong>callback function</strong> 」 與 「 <strong>initial value</strong> 」。</p>
 <p>Callback function 也會接收兩個參數  <code>(*註1)</code>  ：「 <strong>previous result</strong> 」與「 <strong>current element</strong> 」。Callback function 會將前一輪處理的結果 (如果此輪是第一輪，則拿 Initial Value 作為此參數的值) 與目前的 element 處理完後，將結果作為下一輪 callback function，如此重複至輪巡完整個 Array。</p>
 <p>這個 function 非常有用，當我們希望將 Array 經過一套邏輯收斂成一個值時，就可以使用 Reduce 完成。</p>
 <p><code>註1:事實上 Reduce 的 function 可以接受 4 個參數：(previous result, current element, index, self array)。然而通常很少人會用到後面兩個參數，因此絕大多數時候忽略。</code></p>
-<p><strong>假設一個情境：</strong><br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有 5組向量 [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]</span><br><span class="line">我們想計算出這五組向量的平均長度 ，則可以使用 Reduce 完成。</span><br></pre></td></tr></table></figure></p>
+<p><strong>假設一個情境：</strong></p>
+<pre><code>有 5組向量 [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
+我們想計算出這五組向量的平均長度 ，則可以使用 Reduce 完成。
+</code></pre>
 <p><img data-src="1*EezC0VUV5e5C4V6auKjFVg.png" alt="" /></p>
 <p>以程式碼來看就可以使用這一行表達。</p>
 <p><img data-src="1*4TWSbRZ8s01gOMIU78uE5g.png" alt="" /></p>
@@ -272,27 +282,29 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <p>以上面的例子 <em>f。g</em> 來說，程式會先執行 <em>g</em> 並將 output 作為 <em>f</em> 的 input 執行。整個執行順序是「 <strong>由右向左</strong> 」的。</p>
 <p>而 Pipe 則是很直觀地，先執行 f 並將 output 作為 g 的 input 執行。整個執行順序是「 <strong>由左向右</strong> 」的。</p>
 <p>這兩個 Function 對 FP 的貢獻極大，但可惜的是 Javascript 本身並沒有支援，我們必須自己實作或是引用其他第三方套件 (ex. <span class="exturl" data-url="aHR0cHM6Ly9sb2Rhc2guY29tLw==">lodash</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9yYW1kYWpzLmNvbS8=">Ramda</span> )。</p>
-<p>如果不想引用第三方套件的朋友，本文也整理了一般性的 Pipe 與 Compose 。可以直接複製本文下方的兩行 code 到自己的專案使用。<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  pipe doing each functions and return the result.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">any</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">pipe</span> = (<span class="params">...fns</span>) =&gt; <span class="function"><span class="params">x</span> =&gt;</span> fns.<span class="title function_">reduce</span>(<span class="function">(<span class="params">v, f</span>) =&gt;</span> <span class="title function_">f</span>(v), x);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * compose doing each functions from right to left and return the result.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">any</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">compose</span> = (<span class="params">...fns</span>) =&gt; <span class="function"><span class="params">x</span> =&gt;</span> fns.<span class="title function_">reduceRight</span>(<span class="function">(<span class="params">v, f</span>) =&gt;</span> <span class="title function_">f</span>(v), x);</span><br></pre></td></tr></table></figure></p>
-<p>我們假設一個情境：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const ary = [</span><br><span class="line">    &#123;id: 1, text: &quot;a&quot;&#125;, &#123;id: 2, text: &quot;b&quot;&#125;,</span><br><span class="line">    &#123;id: 3, text: &quot;c&quot;&#125;, &#123;id: 4, text: &quot;d&quot;&#125;,</span><br><span class="line">    &#123;id: 5, text: &quot;e&quot;&#125;, &#123;id: 6, text: &quot;f&quot;&#125;,</span><br><span class="line">    &#123;id: 7, text: &quot;g&quot;&#125;, &#123;id: 8, text: &quot;h&quot;&#125;,</span><br><span class="line">    &#123;id: 9, text: &quot;i&quot;&#125;, &#123;id: 10, text: &quot;j&quot;&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>如果不想引用第三方套件的朋友，本文也整理了一般性的 Pipe 與 Compose 。可以直接複製本文下方的兩行 code 到自己的專案使用。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="2"></td><td><pre> *  pipe doing each functions and return the result.</pre></td></tr><tr><td data-num="3"></td><td><pre> * @param any</pre></td></tr><tr><td data-num="4"></td><td><pre> */</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">pipe</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>fns</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token parameter">x</span> <span class="token operator">=></span> fns<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v<span class="token punctuation">,</span> f</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">f</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="8"></td><td><pre> * compose doing each functions from right to left and return the result.</pre></td></tr><tr><td data-num="9"></td><td><pre> * @param any</pre></td></tr><tr><td data-num="10"></td><td><pre> */</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">compose</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>fns</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token parameter">x</span> <span class="token operator">=></span> fns<span class="token punctuation">.</span><span class="token function">reduceRight</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v<span class="token punctuation">,</span> f</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">f</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>我們假設一個情境：</p>
+<pre><code>const ary = [
+    &#123;id: 1, text: &quot;a&quot;&#125;, &#123;id: 2, text: &quot;b&quot;&#125;,
+    &#123;id: 3, text: &quot;c&quot;&#125;, &#123;id: 4, text: &quot;d&quot;&#125;,
+    &#123;id: 5, text: &quot;e&quot;&#125;, &#123;id: 6, text: &quot;f&quot;&#125;,
+    &#123;id: 7, text: &quot;g&quot;&#125;, &#123;id: 8, text: &quot;h&quot;&#125;,
+    &#123;id: 9, text: &quot;i&quot;&#125;, &#123;id: 10, text: &quot;j&quot;&#125;,
+];
+</code></pre>
 <p>在此處我們可以把問題分析成如下</p>
 <ul>
 <li>寫一個 function 將 array 中奇數 id 的 element 的 text 都轉為大寫，並且偶數 id 的 element 的 text 都內容重複</li>
 </ul>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">toUperCaseInOddAndRepeateInEven</span> = x =&gt; x.<span class="title function_">map</span>(<span class="function"><span class="params">e</span> =&gt;</span> (&#123; ...e, <span class="attr">text</span>: e.<span class="property">id</span> % <span class="number">2</span> ? e.<span class="property">text</span>.<span class="title function_">toUpperCase</span>() : <span class="string">`<span class="subst">$&#123;e.text&#125;</span><span class="subst">$&#123;e.text&#125;</span>`</span> &#125;))</span><br></pre></td></tr></table></figure></p>
-<ul>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> <span class="token function-variable function">toUperCaseInOddAndRepeateInEven</span> <span class="token operator">=</span> <span class="token parameter">x</span> <span class="token operator">=></span> x<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token operator">...</span>e<span class="token punctuation">,</span> <span class="token literal-property property">text</span><span class="token operator">:</span> e<span class="token punctuation">.</span>id <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">?</span> e<span class="token punctuation">.</span>text<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>e<span class="token punctuation">.</span>text<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>e<span class="token punctuation">.</span>text<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
 <li>寫一個 function 將 array 中 3 的倍數 id 的 element 的 text 在前方加  <code>“3”</code></li>
 </ul>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">concat3</span> = x =&gt; x.<span class="title function_">map</span>(<span class="function"><span class="params">e</span> =&gt;</span> e.<span class="property">id</span> % <span class="number">3</span> ? e : &#123;...e, <span class="attr">text</span>: <span class="string">`3<span class="subst">$&#123;e.text&#125;</span>`</span>&#125;)</span><br></pre></td></tr></table></figure></p>
-<ul>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> <span class="token function-variable function">concat3</span> <span class="token operator">=</span> <span class="token parameter">x</span> <span class="token operator">=></span> x<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=></span> e<span class="token punctuation">.</span>id <span class="token operator">%</span> <span class="token number">3</span> <span class="token operator">?</span> e <span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>e<span class="token punctuation">,</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">3</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>e<span class="token punctuation">.</span>text<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
 <li>寫一個 function 將 array 中 非 5 的倍數 id 的 element 的 text 在後方加  <code>“-5”</code></li>
 </ul>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">concatM5InTail</span> = x =&gt; x.<span class="title function_">map</span>(<span class="function"><span class="params">e</span> =&gt;</span> e.<span class="property">id</span> % <span class="number">5</span> ? &#123; ...e, <span class="attr">text</span>: <span class="string">`<span class="subst">$&#123;e.text&#125;</span>-5`</span> &#125; : e)</span><br></pre></td></tr></table></figure></p>
-<p>如此，我們有了這三個 function。我們將這三個 function 組合成一個新的 function 來完成我們的任務。</p>
-<p><code>new_function = concatM5InTail。concat3。toUperCaseInOddAndRepeateInEven</code> <br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> new_function = <span class="title function_">compose</span>(</span><br><span class="line">  concatM5InTail,</span><br><span class="line">  concat3,</span><br><span class="line">  toUperCaseInOddAndRepeateInEven</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>我們再利用剛剛新組合出的 function  <code>new_function</code>  處理上面的  <code>ary</code>  ，如此便達到了這個任務的要求了。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> <span class="token function-variable function">concatM5InTail</span> <span class="token operator">=</span> <span class="token parameter">x</span> <span class="token operator">=></span> x<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=></span> e<span class="token punctuation">.</span>id <span class="token operator">%</span> <span class="token number">5</span> <span class="token operator">?</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>e<span class="token punctuation">,</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>e<span class="token punctuation">.</span>text<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">-5</span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span> <span class="token operator">:</span> e<span class="token punctuation">)</span></pre></td></tr></table></figure><p>如此，我們有了這三個 function。我們將這三個 function 組合成一個新的 function 來完成我們的任務。</p>
+<p><code>new_function = concatM5InTail。concat3。toUperCaseInOddAndRepeateInEven</code></p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> new_function <span class="token operator">=</span> <span class="token function">compose</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  concatM5InTail<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  concat3<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  toUperCaseInOddAndRepeateInEven</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>我們再利用剛剛新組合出的 function  <code>new_function</code>  處理上面的  <code>ary</code>  ，如此便達到了這個任務的要求了。</p>
 <p><img data-src="1*aqUj3-ra564I2nraS73MVg.png" alt="" /></p>
 <p>在這邊，可能會有些人有疑問：「我之前使用一個 loop 再加上幾個 condition 一樣可以達到效果，為啥要搞這麼多 function 來做這些事情？」</p>
 <p>以 FP 處理問題有以下幾點好處：</p>
@@ -312,29 +324,40 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <p>柯里化是一種「將接受多個參數的 function 轉換成一次只接受一個參數的 function」 的技術。擁有柯里化的 Function 可以藉由 <strong>將部分數值預先帶入</strong> ， <strong>回傳一個接收剩下數值的 function</strong> ，當所有數值條件皆備齊時，才真正執行此 function。</p>
 <p>假設有一個 function  <code>fn</code>  接受兩個參數  <code>a, b</code>  長成如下樣子</p>
 <p><img data-src="1*jnnq19nXAVONVyVrAeTMHg.png" alt="" /></p>
-<p>我們利用柯里化，可以將 function  <code>fn</code>  變成一次只需要接收一個數值的 function<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function curryFn(a) &#123;</span><br><span class="line">    return function fn(b) &#123;</span><br><span class="line">        // do something ...</span><br><span class="line">        console.log(&quot;a:&quot;, a, &quot;b:&quot;, b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我們利用柯里化，可以將 function  <code>fn</code>  變成一次只需要接收一個數值的 function</p>
+<pre><code>function curryFn(a) &#123;
+    return function fn(b) &#123;
+        // do something ...
+        console.log(&quot;a:&quot;, a, &quot;b:&quot;, b);
+    &#125;
+&#125;
+</code></pre>
 <p><img data-src="1*y27xmFmDTPy9VXvK7g7jKg.png" alt="被柯里化的 function 可以藉由傳遞部分參數，獲得一個 接受剩下參數 的新 function" /></p>
 <p>被柯里化的 function 可以藉由傳遞部分參數，獲得一個 <strong>接受剩下參數</strong> 的新 function</p>
 <p>在 FP 的世界中，我們期望每個 function 都可以任意的組合與複用，這意味著，function 最好能夠達到：</p>
 <p>1. Input 參數數量與代表意義一致，方便 function 組合時的參數傳遞。</p>
 <p>2. <span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTcvMDMvcG9pbnRmcmVlLmh0bWw=">Point free</span> 。function 不需要在乎 Input 值是誰，只需要專注在合成的運算過程。</p>
-<p>我們可以舉一個簡單的例子：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">創立一個 function 接收一個 input string 回傳一個 output string。</span><br><span class="line">此 Output string 需要滿足以下幾個條件：</span><br><span class="line">1. 單詞為大寫開頭者，置於最前方</span><br><span class="line">2. 單詞為小寫開頭置於後方。</span><br><span class="line">3. 開頭非字母者一律忽略。</span><br><span class="line">4. 字母需依照其被處理的順序擺放。</span><br><span class="line">Example:</span><br><span class="line">Input  1:   &quot;hey You, Sort me Already!&quot;</span><br><span class="line">Output 1:   &quot;You, Sort Already! hey me&quot;</span><br></pre></td></tr></table></figure></p>
-<p>我們可以先定義一些基礎的 function<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 以空格切分單詞</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">splitBySpace</span> = s =&gt; s.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判斷是否為大寫</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isUpperCase</span> = s =&gt; <span class="regexp">/[A-Z]/</span>.<span class="title function_">test</span>(s[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判斷是否為小寫</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">isLowerCase</span> = s =&gt; <span class="regexp">/[a-z]/</span>.<span class="title function_">test</span>(s[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 依照大小寫濾出合併成新的 array</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">orderByCase</span> = a =&gt; [...a.<span class="title function_">filter</span>(isUpperCase), ...a.<span class="title function_">filter</span>(isLowerCase)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 組織成 Output String</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getOutputString</span> = a =&gt; a.<span class="title function_">join</span>(<span class="string">&#x27; &#x27;</span>);</span><br></pre></td></tr></table></figure></p>
-<p>然後將這些 function 合併成一個真正解決此問題的 function<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getOrderString = <span class="title function_">pipe</span>(</span><br><span class="line">    splitBySpace,</span><br><span class="line">    orderByCase,</span><br><span class="line">    getOutputString</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="title function_">getOrderString</span>(<span class="string">&quot;hey You, Sort me Already!&quot;</span>); <span class="comment">// &quot;You, Sort Already! hey me&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">getOrderString</span>(<span class="string">&quot;baby You and Me&quot;</span>); <span class="comment">// &quot;You Me baby and&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>3. 柯里化可以將狀態利用 Closure 保存起來。</p>
-<p>一樣舉一個簡單的例子：<br />
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">考慮一個亂數產生 Secret Key 的function</span><br></pre></td></tr></table></figure><br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @desc 亂數產生密鑰Token</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; charSet 產生密鑰所需的字元集合</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; keyLength 密鑰的長度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">randomSecretKey</span> = (<span class="params">charSet, keyLength</span>) =&gt; <span class="keyword">new</span> <span class="title class_">Array</span>(keyLength)</span><br><span class="line">        .<span class="title function_">fill</span>(<span class="string">&#x27;&#x27;</span>, <span class="number">0</span>, keyLength)</span><br><span class="line">        .<span class="title function_">map</span>(<span class="function"><span class="params">ele</span> =&gt;</span> charSet[~~(<span class="title class_">Math</span>.<span class="title function_">random</span>() * charSet.<span class="property">length</span>)])</span><br><span class="line">        .<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure></p>
-<p>通常我們產生密鑰時字元集合 (charSet) 都是固定不變的，因此我們可以使用柯里化將字元集合 (charSet) 保存起來，產生的新 function 只需要給定長度，即可產生相對應長度的密鑰。<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 柯里化 randomSecretKey function</span></span><br><span class="line"><span class="keyword">const</span> currySecretKey = <span class="title function_">curry</span>(randomSecretKey);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 傳入部分參數 charSet 產生新的 function : genSerectKey, 此 genSecretKey 接收剩下的參數: keyLength</span></span><br><span class="line"><span class="keyword">const</span> genSecretKey = <span class="title function_">currySecretKey</span>(<span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&amp;*&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 genSecretKey 產生一個長度為 8 的密鑰</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">genSecretKey</span>(<span class="number">8</span>)); <span class="comment">// &quot;dfdupnKD&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 genSecretKey 產生一個長度為 16 的密鑰</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">genSecretKey</span>(<span class="number">16</span>)); <span class="comment">// &quot;GR24dz!Sgk512gMq&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 genSecretKey 產生一個長度為 32 的密鑰</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">genSecretKey</span>(<span class="number">32</span>)); <span class="comment">// &quot;@*yg8EdvuHaRcxXm1QT3O1kzIMA2lzom&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>柯里化一樣在 Javascript 中本身並不支援，我們一樣必須自己實作或是引用其他第三方套件 (ex. <span class="exturl" data-url="aHR0cHM6Ly9sb2Rhc2guY29tLw==">lodash</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9yYW1kYWpzLmNvbS8=">Ramda</span> )。</p>
-<p>以下提供一個簡易的 Curry help function ，對 function 進行柯里化。<br />
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">curry</span> = (<span class="params">fn, n</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> arity = n || fn.<span class="property">length</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">curried</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> args.<span class="property">length</span> &gt;= arity</span><br><span class="line">            ? fn.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args)</span><br><span class="line">            : <span class="function">(<span class="params">...rest</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> curried.<span class="title function_">call</span>(<span class="variable language_">this</span>, ...args, ...rest);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>柯里化是 FP 中非常重要的一環。套句 《JS Functional Programming》 一書作者所述：「 有 <strong>些事物在你得到之前是無足輕重的，得到之後就不可或缺了。</strong> 」</p>
+<p>我們可以舉一個簡單的例子：</p>
+<pre><code>創立一個 function 接收一個 input string 回傳一個 output string。
+此 Output string 需要滿足以下幾個條件：
+1. 單詞為大寫開頭者，置於最前方
+2. 單詞為小寫開頭置於後方。
+3. 開頭非字母者一律忽略。
+4. 字母需依照其被處理的順序擺放。
+Example:
+Input  1:   &quot;hey You, Sort me Already!&quot;
+Output 1:   &quot;You, Sort Already! hey me&quot;
+</code></pre>
+<p>我們可以先定義一些基礎的 function</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 以空格切分單詞</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">splitBySpace</span> <span class="token operator">=</span> <span class="token parameter">s</span> <span class="token operator">=></span> s<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 判斷是否為大寫</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">isUpperCase</span> <span class="token operator">=</span> <span class="token parameter">s</span> <span class="token operator">=></span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[A-Z]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 判斷是否為小寫</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">isLowerCase</span> <span class="token operator">=</span> <span class="token parameter">s</span> <span class="token operator">=></span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[a-z]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 依照大小寫濾出合併成新的 array</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">orderByCase</span> <span class="token operator">=</span> <span class="token parameter">a</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token operator">...</span>a<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isUpperCase<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">...</span>a<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isLowerCase<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// 組織成 Output String</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">getOutputString</span> <span class="token operator">=</span> <span class="token parameter">a</span> <span class="token operator">=></span> a<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>然後將這些 function 合併成一個真正解決此問題的 function</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> getOrderString <span class="token operator">=</span> <span class="token function">pipe</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    splitBySpace<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    orderByCase<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    getOutputString</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">getOrderString</span><span class="token punctuation">(</span><span class="token string">"hey You, Sort me Already!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "You, Sort Already! hey me"</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">getOrderString</span><span class="token punctuation">(</span><span class="token string">"baby You and Me"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "You Me baby and"</span></pre></td></tr></table></figure><p>3. 柯里化可以將狀態利用 Closure 保存起來。</p>
+<p>一樣舉一個簡單的例子：</p>
+<pre><code>考慮一個亂數產生 Secret Key 的function
+</code></pre>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/*</pre></td></tr><tr><td data-num="2"></td><td><pre> * @desc 亂數產生密鑰 Token</pre></td></tr><tr><td data-num="3"></td><td><pre> * @param &#123;string&#125; charSet 產生密鑰所需的字元集合</pre></td></tr><tr><td data-num="4"></td><td><pre> * @param &#123;number&#125; keyLength 密鑰的長度</pre></td></tr><tr><td data-num="5"></td><td><pre> */</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">randomSecretKey</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">charSet<span class="token punctuation">,</span> keyLength</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span>keyLength<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> keyLength<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">ele</span> <span class="token operator">=></span> charSet<span class="token punctuation">[</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> charSet<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>通常我們產生密鑰時字元集合 (charSet) 都是固定不變的，因此我們可以使用柯里化將字元集合 (charSet) 保存起來，產生的新 function 只需要給定長度，即可產生相對應長度的密鑰。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 柯里化 randomSecretKey function</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> currySecretKey <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span>randomSecretKey<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// 傳入部分參數 charSet 產生新的 function : genSerectKey, 此 genSecretKey 接收剩下的參數: keyLength</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">const</span> genSecretKey <span class="token operator">=</span> <span class="token function">currySecretKey</span><span class="token punctuation">(</span><span class="token string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&amp;*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// 使用 genSecretKey 產生一個長度為 8 的密鑰</span></pre></td></tr><tr><td data-num="8"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">genSecretKey</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "dfdupnKD"</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// 使用 genSecretKey 產生一個長度為 16 的密鑰</span></pre></td></tr><tr><td data-num="11"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">genSecretKey</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "GR24dz!Sgk512gMq"</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// 使用 genSecretKey 產生一個長度為 32 的密鑰</span></pre></td></tr><tr><td data-num="14"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">genSecretKey</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "@*yg8EdvuHaRcxXm1QT3O1kzIMA2lzom"</span></pre></td></tr></table></figure><p>柯里化一樣在 Javascript 中本身並不支援，我們一樣必須自己實作或是引用其他第三方套件 (ex. <span class="exturl" data-url="aHR0cHM6Ly9sb2Rhc2guY29tLw==">lodash</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9yYW1kYWpzLmNvbS8=">Ramda</span> )。</p>
+<p>以下提供一個簡易的 Curry help function ，對 function 進行柯里化。</p>
+<figure class="highlight javascript"><figcaption data-lang="javascript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">curry</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">const</span> arity <span class="token operator">=</span> n <span class="token operator">||</span> fn<span class="token punctuation">.</span>length<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">curried</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token keyword">return</span> args<span class="token punctuation">.</span>length <span class="token operator">>=</span> arity</pre></td></tr><tr><td data-num="5"></td><td><pre>            <span class="token operator">?</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>            <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>rest</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>                <span class="token keyword">return</span> <span class="token function">curried</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">,</span> <span class="token operator">...</span>rest<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>柯里化是 FP 中非常重要的一環。套句 《JS Functional Programming》 一書作者所述：「 有 <strong>些事物在你得到之前是無足輕重的，得到之後就不可或缺了。</strong> 」</p>
 <h3 id="總結"><a class="anchor" href="#總結">#</a> # 總結</h3>
 <p>Functional Programming 提供給我們不同於 OOP 的思路。兩者在程式撰寫時，各有擅長的部分，使用時並不衝突。</p>
 <p>在某些情境下，使用 FP 可以讓我們的程式變得乾淨、清晰、易於維護，但是有時候 FP 反而會犧牲掉許多程式的執行效率。另外在 I/O 方面，也難以完全使用 FP 完成。</p>
@@ -467,7 +490,7 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">69</span>
+        <span class="count">72</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -479,7 +502,7 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">65</span>
+        <span class="count">66</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -556,10 +579,10 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 </div>
 
-    <span><a href="/Tech/PHP/2019-08-30-laravel-docker-%E8%BC%95%E9%AC%86%E4%B8%8A%E6%89%8B/" title="Laravel + Docker 輕鬆上手">Laravel + Docker 輕鬆上手</a></span>
+    <span><a href="/Tech/Frontend/2020-04-05-javascript-%E4%BD%BF%E7%94%A8js-xlsx-%E5%B0%87-json-%E5%8C%AF%E5%87%BA%E6%88%90-excel/" title="Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL">Javascript 使用JS-XLSX 將 JSON 匯出成 EXCEL</a></span>
   </li>
 
       
@@ -571,19 +594,7 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/" title="告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)">告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Others/" title="In Others">Others</a>
-</div>
-
-    <span><a href="/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/" title="Tech skhd 失去功能 (Not working)的解決方法">Tech skhd 失去功能 (Not working)的解決方法</a></span>
+    <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
   </li>
 
       
@@ -597,7 +608,31 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
 </div>
 
-    <span><a href="/Life/EnglishLearn/Cambly-Lession1/" title="EnglishLearn&#x2F;Cambly-Lession1">EnglishLearn/Cambly-Lession1</a></span>
+    <span><a href="/Life/EnglishLearn/Cambly-Lession2/" title="Cambly-Lession2">Cambly-Lession2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
   </li>
 
       
@@ -609,19 +644,7 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%AE%89%E8%A3%9D-docker/" title="Docker 學習筆記 — 安裝 Docker">Docker 學習筆記 — 安裝 Docker</a></span>
+    <span><a href="/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/" title="Docker 學習筆記 (四) — 如何撰寫Dockerfile">Docker 學習筆記 (四) — 如何撰寫Dockerfile</a></span>
   </li>
 
       
@@ -632,34 +655,10 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/" title="Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?">Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Algorithm/" title="In Algorithm">Algorithm</a>
-</div>
-
-    <span><a href="/Tech/Algorithm/2018-12-14-%E9%97%9C%E6%96%BC%E7%B5%84%E7%B9%94%E6%A8%B9%E7%8B%80%E5%9C%96%E7%9A%84%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%A8%AD%E8%A8%88%E6%96%B9%E6%B3%95/" title="關於組織樹狀圖的資料結構設計方法">關於組織樹狀圖的資料結構設計方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Vue/" title="In Vue">Vue</a>
-</div>
-
-    <span><a href="/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/" title="Vue Components 組件之間的溝通方式">Vue Components 組件之間的溝通方式</a></span>
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></span>
   </li>
 
       
@@ -671,7 +670,29 @@ x 經由 function <strong>f</strong> 之後產出 y、 x 與 y 一一對應，�
 <a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
+    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+</div>
+
+    <span><a href="/Life/2019-04-11-%E9%96%8B%E7%AE%B1-bose-soundsport-free-%E7%9C%9F%E7%84%A1%E7%B7%9A%E8%80%B3%E6%A9%9F/" title="開箱 Bose SoundSport Free 真無線耳機">開箱 Bose SoundSport Free 真無線耳機</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-03-20-javascript-arrow-function-%E8%88%87%E4%B8%80%E8%88%AC%E5%8C%BF%E5%90%8D-function-%E5%B0%8D-this-%E7%9A%84%E8%A1%8C%E7%82%BA%E6%AF%94%E8%BC%83/" title="Javascript Arrow function 與一般匿名 function 對 this 的行為比較">Javascript Arrow function 與一般匿名 function 對 this 的行為比較</a></span>
   </li>
 
   </ul>
