@@ -29,7 +29,7 @@
 &lt;p&gt;有兩種我比較喜歡的修改方式：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;將  &lt;code&gt;if (token.info === &#39;mermaid&#39;)&lt;/code&gt;  改成  &lt;code&gt;if (token.info === &#39;mermaid2&#39;)&lt;/code&gt;  ，未來在用的時候統一使用  &lt;code&gt;mermaid2&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;將  &lt;code&gt;if (token.info === &#39;mermaid&#39;)&lt;/code&gt;  改成  &lt;code&gt;if (token.info.includes(&#39;mermaid&#39;))&lt;/code&gt; ，未來只要 type 有關鍵字 mermaid 即可自動 parse 出 graph。 我也不用管是  &lt;code&gt;mermaid&lt;/code&gt;  或是  &lt;code&gt;mermaid.mermaid2&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;將  &lt;code&gt;if (token.info === &#39;mermaid&#39;)&lt;/code&gt;  改成  &lt;code&gt;if (token.info.includes(&#39;mermaid&#39;))&lt;/code&gt; ，未來只要 type 有關鍵字 mermaid 即可自動 parse 出 graph。 我也不用管是  &lt;code&gt;mermaid&lt;/code&gt;  還是  &lt;code&gt;mermaid2&lt;/code&gt; 。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
 &lt;p&gt;最終我選擇了第二種方案。&lt;/p&gt;
@@ -1320,8 +1320,8 @@ useAcrylic: 是否開啟壓克力效果(true/false)這邊必須開啟才能使�
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-        <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
         <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
+        <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
         <updated>2020-11-04T03:58:12.564Z</updated>
     </entry>
     <entry>
