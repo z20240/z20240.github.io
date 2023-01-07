@@ -9,6 +9,15 @@
       <name>Les Lee</name>
     </author>
     <updated>2023-01-06T15:08:53.977Z</updated>
+    <category term="nodejs" />
+    <category term=" frontend" />
+    <category term=" backend" />
+    <category term=" mysql" />
+    <category term=" hexo" />
+    <category term=" mongodb" />
+    <category term=" python" />
+    <category term=" vue" />
+    <category term=" react" />
     <entry>
         <id>https://z20240.github.io/Tech/Hexo/fix-mermaid-parser-issue/</id>
         <title>解決 Mermaid 無法正確在 shoka 主題顯示的問題</title>
@@ -629,9 +638,9 @@ skhd: secure keyboard entry is enabled by (5530) &#39;iterm2&#39;! abort..
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-        <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
         <category term="skhd" scheme="https://z20240.github.io/tags/skhd/" />
         <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
+        <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
         <updated>2022-06-16T07:25:19.143Z</updated>
     </entry>
     <entry>
@@ -683,8 +692,8 @@ $ node --max-old-space-size=8192 app.js
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
         <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-        <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
         <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
+        <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
         <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
         <updated>2022-05-16T10:10:49.465Z</updated>
     </entry>
@@ -868,6 +877,7 @@ $ ln -s &amp;quot;$&amp;#123;HOME&amp;#125;/.config/yabai/yabai/yabairc&amp;quot
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
+        <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
         <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
         <updated>2021-08-14T21:05:43.754Z</updated>
     </entry>

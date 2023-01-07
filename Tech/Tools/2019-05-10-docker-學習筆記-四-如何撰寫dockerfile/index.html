@@ -27,6 +27,10 @@
   <meta name="keywords" content="dock" />
 
 
+
+  <meta name="description" content="Docker 的問世，翻轉了人們對用環境部署與開發的習慣，學會 Docker 絕對是一項不虧本的投資" />
+
+
 <link rel="canonical" href="https://z20240.github.io/Tech/Tools/2019-05-10-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-%E5%A6%82%E4%BD%95%E6%92%B0%E5%AF%ABdockerfile/">
 
 
@@ -164,7 +168,7 @@ Docker 學習筆記 (四) — 如何撰寫Dockerfile - Tools - Tech |
 <p>Dockerfile 是一個以 <span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvWUFNTA==">YAML</span> 語法格式撰寫的純文字檔案。</p>
 <p>用以描述 Docker 產生鏡像檔所需要的內容、以及要做的事情。</p>
 <p>Docker 預設會找尋目錄中的  <code>“Dockerfile”</code>  這個名字的檔案作為要產生 Image 的內容，因此不建議自行命名 (當然你要建立自己命名的 Dockerfile 也行，只是在  <code>docker build</code>  時就要指定它要讀哪個檔案)。</p>
-<p>詳細的 Dockerfile 文件撰寫規範可以參考 Docker 官方的 Dockerfile <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/"><strong>Document</strong></a> 。</p>
+<p>詳細的 Dockerfile 文件撰寫規範可以參考 Docker 官方的 Dockerfile <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.docker.com/engine/reference/builder/"><strong>Document</strong></a> 。</p>
 <p>本篇將以一個範例作為 Dockerfile 的講解。</p>
 <figure class="highlight dockerfile"><figcaption data-lang="Docker"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">### Dockerfile</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># Use an official Python runtime as a parent image</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token instruction"><span class="token keyword">FROM</span> python:3.7.3-stretch</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment"># Set the working directory to /app</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment"># Install any needed packages specified in requirements.txt</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> requirements.txt ./</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token instruction"><span class="token keyword">COPY</span> gunicorn.py ./</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token instruction"><span class="token keyword">RUN</span> pip install --trusted-host pypi.python.org -r requirements.txt <span class="token operator">\</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    &amp;&amp; python3 -O -m compileall -b ./app <span class="token operator">\</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    &amp;&amp; find ./app -name <span class="token string">"*.py"</span>|xargs rm -rf <span class="token operator">\</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    &amp;&amp; python3 -O -m compileall -b ./config.py <span class="token operator">\</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    &amp;&amp; rm ./config.py</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment"># Make port 5000 available to the world outside this container</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token instruction"><span class="token keyword">EXPOSE</span> 5000</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># Define environment variable</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token instruction"><span class="token keyword">ENV</span> NAME World</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment"># Run app.py when the container launches</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">"gunicorn"</span>, <span class="token string">"-c"</span>, <span class="token string">"gunicorn.py"</span>, <span class="token string">"run:app"</span>]</span></pre></td></tr></table></figure><p>以上的 Dockerfile 範例描述了我們在 Build Image 時要做哪些事情。</p>
 <ol>
@@ -248,7 +252,7 @@ RUN echo &quot;hello&quot; &gt; world.txt
 <li><span class="exturl" data-url="aHR0cDovL3d3dy5ydW5vb2IuY29tL2RvY2tlci9kb2NrZXItdHV0b3JpYWwuaHRtbA==">Docker 教程</span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLw==">Dockerfile reference</span></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://button.like.co/z20240z"><img data-src="https://button.like.co/images/og/likebutton.png" alt="Like z20240z's work" title="Like z20240z's work" /></a></p>
 
       <div class="tags">
           <a href="/tags/dock/" rel="tag"><i class="ic i-tag"></i> dock</a>
@@ -263,7 +267,7 @@ RUN echo &quot;hello&quot; &gt; world.txt
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-12-28 18:36:22" itemprop="dateModified" datetime="2022-12-28T18:36:22+08:00">2022-12-28</time>
+    <time title="Modified: 2023-01-07 15:50:23" itemprop="dateModified" datetime="2023-01-07T15:50:23+08:00">2023-01-07</time>
   </span>
   <span id="Tech/Tools/2019-05-10-docker-學習筆記-四-如何撰寫dockerfile/" class="item leancloud_visitors" data-flag-title="Docker 學習筆記 (四) — 如何撰寫Dockerfile" title="Views">
       <span class="icon">
@@ -455,10 +459,10 @@ RUN echo &quot;hello&quot; &gt; world.txt
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2020-08-25-javascript-es6-%E6%A8%A1%E6%9D%BF%E5%AD%97%E4%B8%B2-template-string-%E7%9F%A5%E5%A4%9A%E5%B0%91/" title="Javascript ES6 模板字串 (Template String)知多少">Javascript ES6 模板字串 (Template String)知多少</a></span>
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
   </li>
 
       
@@ -467,10 +471,10 @@ RUN echo &quot;hello&quot; &gt; world.txt
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
+<a href="/categories/Tech/Hexo/" title="In Hexo">Hexo</a>
 </div>
 
-    <span><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></span>
+    <span><a href="/Tech/Hexo/fix-mermaid-parser-issue/" title="解決 Mermaid 無法正確在 shoka 主題顯示的問題">解決 Mermaid 無法正確在 shoka 主題顯示的問題</a></span>
   </li>
 
       
@@ -482,7 +486,21 @@ RUN echo &quot;hello&quot; &gt; world.txt
 <a href="/categories/Tech/Others/" title="In Others">Others</a>
 </div>
 
-    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
+    <span><a href="/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/" title="Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)">Tiling Window Management - 平鋪式視窗管理 (Amethyst & Yabai)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-04-23-vue-%E4%BD%BF%E7%94%A8-props-async-%E5%90%8C%E6%AD%A5%E7%88%B6%E5%AD%90%E7%B5%84%E5%BB%BA%E4%B9%8B%E9%96%93%E7%9A%84%E5%82%B3%E5%80%BC/" title="Vue使用 props.async 同步父子組建之間的傳值">Vue使用 props.async 同步父子組建之間的傳值</a></span>
   </li>
 
       
@@ -503,10 +521,22 @@ RUN echo &quot;hello&quot; &gt; world.txt
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
 </div>
 
-    <span><a href="/Tech/PHP/2019-08-30-%E8%A8%AD%E5%AE%9A-vscode-xdebug-laradock/" title="設定 VSCode XDebug Laradock">設定 VSCode XDebug Laradock</a></span>
+    <span><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></span>
   </li>
 
       
@@ -529,48 +559,24 @@ RUN echo &quot;hello&quot; &gt; world.txt
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Tools/2019-04-10-wsl-%E8%88%87-windows-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%99%E7%B5%90%E5%90%88-%E4%BF%AE%E6%94%B9vscode%E7%9A%84%E9%A0%90%E8%A8%ADterminal%E7%82%BAwsl/" title="WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL">WSL 與 Windows 的完美雙結合 — 修改VSCode的預設Terminal為WSL</a></span>
+    <span><a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" title="Debian add-apt-repository command not found 問題">Debian add-apt-repository command not found 問題</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
+<a href="/categories/Life/" title="In Life">Life</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Vue/" title="In Vue">Vue</a>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2018-11-09-vue-components-%E7%B5%84%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%E6%96%B9%E5%BC%8F/" title="Vue Components 組件之間的溝通方式">Vue Components 組件之間的溝通方式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
-</div>
-
-    <span><a href="/Tech/Frontend/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-</div>
-
-    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
+    <span><a href="/Life/EnglishLearn/Cambly-Lession1/" title="EnglishLearn&#x2F;Cambly-Lession1">EnglishLearn/Cambly-Lession1</a></span>
   </li>
 
   </ul>
@@ -583,17 +589,19 @@ RUN echo &quot;hello&quot; &gt; world.txt
             </div>
             <div class="status">
   <div class="copyright">
+     &copy;
     
-    &copy; 2010 – 
+      2010 –
+    
     <span itemprop="copyrightYear">2023</span>
     <span class="with-love">
       <i class="ic i-sakura rotate"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">Les Lee @ Let's Life</span>
   </div>
-  <div class="powered-by">
-    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
-  </div>
+    <div class="powered-by">
+      Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+    </div>
 </div>
 
           </div>

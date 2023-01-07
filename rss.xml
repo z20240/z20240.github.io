@@ -12,6 +12,15 @@
         <language>en</language>
         <pubDate>Fri, 06 Jan 2023 23:08:53 +0800</pubDate>
         <lastBuildDate>Fri, 06 Jan 2023 23:08:53 +0800</lastBuildDate>
+        <category term="nodejs" />
+        <category term=" frontend" />
+        <category term=" backend" />
+        <category term=" mysql" />
+        <category term=" hexo" />
+        <category term=" mongodb" />
+        <category term=" python" />
+        <category term=" vue" />
+        <category term=" react" />
         <item>
             <guid isPermalink="true">https://z20240.github.io/Tech/Hexo/fix-mermaid-parser-issue/</guid>
             <title>解決 Mermaid 無法正確在 shoka 主題顯示的問題</title>
@@ -581,9 +590,9 @@ eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-esl
             <link>https://z20240.github.io/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/</link>
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-            <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
             <category term="skhd" scheme="https://z20240.github.io/tags/skhd/" />
             <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
+            <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
             <pubDate>Thu, 16 Jun 2022 15:25:19 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;tech-skhd-失去功能-not-working的解決方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tech-skhd-失去功能-not-working的解決方法&#34;&gt;#&lt;/a&gt; [Tech] skhd 失去功能 (Not working) 的解決方法&lt;/h3&gt;
 &lt;p&gt;&lt;img data-src=&#34;0*A5q6r3JS-zTQfZVk.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -644,8 +653,8 @@ skhd: secure keyboard entry is enabled by (5530) &#39;iterm2&#39;! abort..
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
             <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
             <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
+            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
             <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
             <pubDate>Mon, 16 May 2022 18:10:49 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題&#34;&gt;#&lt;/a&gt; [Node] 如何檢測 Node 程式的 Memory Leak 以及處理 out of memory 問題&lt;/h3&gt;
@@ -697,6 +706,7 @@ $ node --max-old-space-size=8192 app.js
             <link>https://z20240.github.io/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/</link>
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
+            <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
             <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
             <pubDate>Sun, 15 Aug 2021 05:05:43 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;tiling-window-management-平鋪式視窗管理-amethyst-yabai&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tiling-window-management-平鋪式視窗管理-amethyst-yabai&#34;&gt;#&lt;/a&gt; Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp;amp; Yabai)&lt;/h3&gt;

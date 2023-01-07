@@ -126,9 +126,9 @@
             "tags": [
                 "Tech",
                 "Others",
-                "tiling-window-manager",
                 "skhd",
-                "yabai"
+                "yabai",
+                "tiling-window-manager"
             ]
         },
         {
@@ -141,8 +141,8 @@
                 "Tech",
                 "Frontend",
                 "NodeJs",
-                "javascript",
                 "nodejs",
+                "javascript",
                 "memory-leak"
             ]
         },
@@ -155,6 +155,7 @@
             "tags": [
                 "Tech",
                 "Others",
+                "yabai",
                 "tiling-window-manager"
             ]
         },
