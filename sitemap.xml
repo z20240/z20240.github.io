@@ -728,6 +728,13 @@
   </url>
   
   <url>
+    <loc>https://z20240.github.io/tags/Yugioh/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/algorithm/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -736,13 +743,6 @@
   
   <url>
     <loc>https://z20240.github.io/tags/data-structure/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/Yugioh/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -764,6 +764,20 @@
   
   <url>
     <loc>https://z20240.github.io/tags/python/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/mongo/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/nodejs/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -799,20 +813,6 @@
   
   <url>
     <loc>https://z20240.github.io/tags/database/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/mongo/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/nodejs/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -889,6 +889,69 @@
   </url>
   
   <url>
+    <loc>https://z20240.github.io/tags/linux/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/debian/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/nginx/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/apt/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/google-cloud-platform/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/ssh/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/rhel/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/selinux/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/tech/</loc>
+    <lastmod>2023-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/tags/others/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -953,69 +1016,6 @@
   
   <url>
     <loc>https://z20240.github.io/tags/gmail/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/linux/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/debian/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/nginx/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/apt/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/google-cloud-platform/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/ssh/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/rhel/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/selinux/</loc>
-    <lastmod>2023-01-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/tech/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1178,14 +1178,14 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Algorithm/</loc>
+    <loc>https://z20240.github.io/categories/Life/Yugioh/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Life/Yugioh/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Algorithm/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1213,14 +1213,14 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Others/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Linux/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Linux/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Others/</loc>
     <lastmod>2023-01-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
