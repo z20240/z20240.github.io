@@ -10,8 +10,8 @@
         </author>
         <description>記錄生活、工作、大小事</description>
         <language>en</language>
-        <pubDate>Sun, 08 Jan 2023 10:34:10 +0800</pubDate>
-        <lastBuildDate>Sun, 08 Jan 2023 10:34:10 +0800</lastBuildDate>
+        <pubDate>Wed, 25 Jan 2023 00:28:40 +0800</pubDate>
+        <lastBuildDate>Wed, 25 Jan 2023 00:28:40 +0800</lastBuildDate>
         <category term="nodejs" />
         <category term=" frontend" />
         <category term=" backend" />
@@ -22,19 +22,67 @@
         <category term=" vue" />
         <category term=" react" />
         <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-Overview/</guid>
-            <title>Aws architecture - Overview.md</title>
-            <link>https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-Overview/</link>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession7/</guid>
+            <title>Cambly-Lession7</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession7/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Wed, 25 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;Got something different with your hair.&lt;/li&gt;
+&lt;li&gt;You dye hair.&lt;/li&gt;
+&lt;li&gt;you curl your hair.&lt;/li&gt;
+&lt;li&gt;wavey 波浪捲 /curly 大卷髮&lt;/li&gt;
+&lt;li&gt;fossil 化石&lt;/li&gt;
+&lt;li&gt;rainbow moonstone&lt;/li&gt;
+&lt;li&gt;Encyclopedia&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-IAM/</guid>
+            <title>Aws 架構學習 - IAM</title>
+            <link>https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-IAM/</link>
+            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
+            <category term="Aws Architecture" scheme="https://z20240.github.io/categories/Tech/Aws-Architecture/" />
+            <category term="aws" scheme="https://z20240.github.io/tags/aws/" />
+            <category term="iam" scheme="https://z20240.github.io/tags/iam/" />
             <pubDate>Sun, 08 Jan 2023 10:34:10 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;aws-架構概覽介紹&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#aws-架構概覽介紹&#34;&gt;#&lt;/a&gt; Aws 架構概覽介紹&lt;/h1&gt;
-&lt;h2 id=&#34;環境設置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#環境設置&#34;&gt;#&lt;/a&gt; 環境設置&lt;/h2&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;aws-架構學習-iam&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#aws-架構學習-iam&#34;&gt;#&lt;/a&gt; Aws 架構學習 - IAM&lt;/h1&gt;
+&lt;p&gt;Aws 是現非常受歡迎的雲端架構。不論是 backend user 或是 devOpts ，僅需要在 aws 上作一些點選或是撰寫相應的 yaml 設定檔，即可快速地&lt;/p&gt;
 &lt;h3 id=&#34;申請-aws-帳號&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#申請-aws-帳號&#34;&gt;#&lt;/a&gt; 申請 Aws 帳號&lt;/h3&gt;
 &lt;p&gt;Aws 帳號申請是免費的，我們只要登入 Aws 網站照著步驟填寫即可獲得一自己的 Aws 帳號。&lt;/p&gt;
-&lt;p&gt;![[image-20230108104318658.png]]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108104318658.png&#34; alt=&#34;image-20230108104318658.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;比較要注意的一點是在帳號申請當下，我們必須綁定一張信用卡，因為 Aws 的許多服務是需要付費的。但是我們也不用太過擔心，因為大多數服務都有免費額度，我們只要在 practice 完之後有完整關閉服務，都不用擔心會有費用產生。&lt;/p&gt;
-&lt;p&gt;![[image-20230108105326254.png]]&lt;/p&gt;
-&lt;p&gt;![[image-20230108105919211.png]]&lt;/p&gt;
-&lt;p&gt;如果不幸免費額度用完了，想要重新申辦帳號。僅需重新註冊即可。這邊有個「&lt;a href=&#34;&#34;&gt;使用 gmail 無限申辦帳號&lt;/a&gt;」的方法，有興趣可以來這邊看看。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108105326254.png&#34; alt=&#34;image-20230108105326254.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108105919211.png&#34; alt=&#34;image-20230108105919211.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如果不幸免費額度用完了，想要重新申辦帳號。僅需重新註冊即可。這邊有個「&lt;a href=&#34;https://z20240.github.io/Tech/Others/%E4%BD%BF%E7%94%A8%20gmail%20%E7%84%A1%E9%99%90%E7%94%B3%E8%BE%A6%E5%B8%B3%E8%99%9F/&#34;&gt;使用 gmail 無限申辦帳號&lt;/a&gt;」的方法，有興趣可以來這邊看看。&lt;/p&gt;
+&lt;h3 id=&#34;iam-設定&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#iam-設定&#34;&gt;#&lt;/a&gt; IAM 設定&lt;/h3&gt;
+&lt;p&gt;IAM 是 aws 的帳號管理中心。所有有關 aws 的帳號管理相關業務都都需要來 iam 進行設定。&lt;/p&gt;
+&lt;h4 id=&#34;使用-root-account-新增一名使用者&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-root-account-新增一名使用者&#34;&gt;#&lt;/a&gt; 使用 root account 新增一名使用者&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108113854062.png&#34; alt=&#34;image-20230108113854062.png&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;新建一名使用者&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#新建一名使用者&#34;&gt;#&lt;/a&gt; 新建一名使用者&lt;/h4&gt;
+&lt;p&gt;選取到 IAM 之後，點擊 sidebar 的  &lt;code&gt;Users&lt;/code&gt;  &amp;gt;  &lt;code&gt;Add users&lt;/code&gt; &lt;br /&gt;
+&lt;img data-src=&#34;image-20230108114033352.png&#34; alt=&#34;image-20230108114033352.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;這邊帳號可以自己取，其中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Access key - 用於我們程式開發時使用，因此需要勾選&lt;/li&gt;
+&lt;li&gt;Password - 這邊是問你這個帳號是否需要使用 Web 的 Aws console dashboard. 如果這個帳號不需要 dashboard 操作，可以不創。(通常還是建立一下比較方便)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;設置權限&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#設置權限&#34;&gt;#&lt;/a&gt; 設置權限&lt;/h4&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108115828306.png&#34; alt=&#34;image-20230108115828306.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;這邊我們可以依照需求選擇要給予這個 user 的權限。若是要讓此 user 作為類似 admin 使用的話，我們可以直接選擇  &lt;code&gt;AdminstratorAccess&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108120035484.png&#34; alt=&#34;image-20230108120035484.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;這邊是額外可選設定，Tag 可以做一些客製化標記，作為往後 filter 使用。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108120359228.png&#34; alt=&#34;image-20230108120359228.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如果我們設定得差不多了，這邊 review 好就可以創建了。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230108120532329.png&#34; alt=&#34;image-20230108120532329.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下來我們可以將這組  &lt;code&gt;access key ID&lt;/code&gt;  與  &lt;code&gt;secret access key&lt;/code&gt;  設定在我們的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmF3cy5hbWF6b24uY29tL3poX3R3L2NsaS9sYXRlc3QvdXNlcmd1aWRlL2NsaS1jb25maWd1cmUtZW52dmFycy5odG1s&#34;&gt;環境變數&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;![[image-20230108122050789.png]]&lt;/p&gt;
+&lt;p&gt;至此，基本的 IAM 設定就差不多完成了。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -89,6 +137,38 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
+            <title>Cambly-Lession4</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;have foot in the door （ idioms )
+&lt;ul&gt;
+&lt;li&gt;to make the first step toward a goal by gaining entry into an organization, a career, etc. He took a job as a secretary to get his foot in the door.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;frequently &amp;gt; often &amp;gt; usually (1 / week).&lt;/li&gt;
+&lt;li&gt;I don&#39;t know if i have a cold&lt;/li&gt;
+&lt;li&gt;coherence = understanding.&lt;/li&gt;
+&lt;li&gt;stand on the same topic&lt;/li&gt;
+&lt;li&gt;&amp;quot;synonyms&amp;quot; is the difference word in the same meaning.&lt;/li&gt;
+&lt;li&gt;standardized = cause (something) to conform to a standard.
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;we could standardize on U.S. equipment&amp;quot;.&lt;/li&gt;
+&lt;li&gt;&amp;quot;the editors failed to standardize the spelling of geographic names&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;proficiency = ranking = level&lt;/li&gt;
+&lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
             <title>Cambly-Lession4</title>
             <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
@@ -124,38 +204,23 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</guid>
-            <title>Cambly-Lession3</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</link>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</guid>
+            <title>Cambly-Lession6</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</link>
             <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
             <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
             <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
             <category term="english" scheme="https://z20240.github.io/tags/english/" />
             <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Tue, 03 Jan 2023 00:28:40 +0800</pubDate>
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
             <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;hold back  拖後腿
-&lt;ul&gt;
-&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
-&lt;li&gt;motivation (n.)&lt;/li&gt;
-&lt;li&gt;stimulate 刺激
-&lt;ul&gt;
-&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;passionate (adj) = have some belive in th.
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;ate (adj.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
+&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
+&lt;li&gt;I used to live in the country.&lt;/li&gt;
+&lt;li&gt;farm fishing&lt;/li&gt;
+&lt;li&gt;wild caught&lt;/li&gt;
+&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
+&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -250,6 +315,42 @@
 &lt;li&gt;= evanescent 短暫的&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</guid>
+            <title>Cambly-Lession3</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Tue, 03 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;hold back  拖後腿
+&lt;ul&gt;
+&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
+&lt;li&gt;motivation (n.)&lt;/li&gt;
+&lt;li&gt;stimulate 刺激
+&lt;ul&gt;
+&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;passionate (adj) = have some belive in th.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;ate (adj.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -1320,250 +1421,6 @@ for i in range(1, 1+10000): print(i)&#39; &amp;gt; base.csv
 &lt;p&gt;&lt;strong&gt;參考資料&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdXBwb3J0Lm1pY3Jvc29mdC5jb20vemgtdHcvdG9waWMvJUU1JUE2JTgyJUU0JUJEJTk1JUU2JTg5JThCJUU1JThCJTk1JUU3JUE3JUJCJUU5JTk5JUE0JUU2JTk2JUIwJUU1JUEyJTlFLSVFNyVBNyVCQiVFOSU5OSVBNCVFNyVBOCU4QiVFNSVCQyU4RiVFNiVCOCU4NSVFNSU5NiVBRSVFNCVCOCVBRCVFNyU5QSU4NCVFNyVBOCU4QiVFNSVCQyU4Ri00OTQ5NDE1OS1kMjE1LTA3YjItZTRjNy0wNTA0NTdiMzgzNTI=&#34;&gt;如何手動移除新增 / 移除程式清單中的程式&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/</guid>
-            <title>Axios 如何 Cancel 已經發出的 Request?</title>
-            <link>https://z20240.github.io/Tech/Frontend/2020-11-13-axios-%E5%A6%82%E4%BD%95-cancel-%E5%B7%B2%E7%B6%93%E7%99%BC%E5%87%BA%E7%9A%84-request/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
-            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
-            <category term="axios" scheme="https://z20240.github.io/tags/axios/" />
-            <pubDate>Fri, 13 Nov 2020 16:25:21 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;axios-如何-cancel-已經發出的-request&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#axios-如何-cancel-已經發出的-request&#34;&gt;#&lt;/a&gt; [Axios] 如何 Cancel 已經發出的 Request?&lt;/h3&gt;
-&lt;p&gt;最近收到一個很有趣的需求：希望我們取消已經發出但是未獲得 Response 的 Request 。&lt;/p&gt;
-&lt;p&gt;因此基於圓滿完成任務後，必須留下痕 (紀) 跡 (錄) 的精神，決定來寫一下這篇。&lt;/p&gt;
-&lt;h4 id=&#34;canceltoken&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#canceltoken&#34;&gt;#&lt;/a&gt;  &lt;code&gt;CancelToken&lt;/code&gt;&lt;/h4&gt;
-&lt;p&gt;Axios 在 v0.15 版本之後就已經支援了基於  &lt;code&gt;cancelable promise proposal&lt;/code&gt;  的 Cancelable 功能，因此目前我們使用的 Axios 應該都擁有這項能力才是。&lt;/p&gt;
-&lt;p&gt;查找 Axios 的 Document 後，了解其 cancel request 的思路其實也很單純。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用 CancelToken.source ( ) 產生 cancel instance，其中包含一個 unique token。&lt;/li&gt;
-&lt;li&gt;當 axios 要 send request 前，我們就在 option 中加上這個 token 作為 axios 的識別。&lt;/li&gt;
-&lt;li&gt;當我們要 cancel 的時候，僅需要利用  &lt;code&gt;source.cancel()&lt;/code&gt;  即可達到目標。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;em&gt;p.s. 一個 cancel token 可以 cancel 多個 request.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;以 github 上 axios 的範例來說，程式碼可以寫成這樣。&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;figcaption data-lang=&#34;javascript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 生成 CancelToken 的 instance 命名為 source.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; CancelToken &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;CancelToken&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; source &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; CancelToken&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;source&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;/user/12345&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;cancelToken&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; source&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;token &lt;span class=&#34;token comment&#34;&gt;// 將 source 的 unique token 加入 request，作為 cancel 的識別&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;thrown&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// 如果 request 被啟動 cancel ，則做一些 canceled 的處理。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;isCancel&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;thrown&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;Request canceled&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; thrown&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;message&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// handle error&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//post 一樣可以進行 cancel ，只是 options 變成放在第三個位置。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;post&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;/user/12345&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token literal-property property&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;new name&#39;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;cancelToken&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; source&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;token&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// cancel the request (the message parameter is optional)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;source&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;cancel&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;Operation canceled by the user.&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;在-interceptors-中使用-canceltoken&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在-interceptors-中使用-canceltoken&#34;&gt;#&lt;/a&gt; 在  &lt;code&gt;interceptors&lt;/code&gt;  中使用 CancelToken&lt;/h4&gt;
-&lt;p&gt;在實務上，我們通常會先使用 axios create 一個客製化的 instance，再用  &lt;code&gt;instance.interceptors.request / instance.interceptors.response&lt;/code&gt;  攔截 ajax 的  &lt;code&gt;request, response&lt;/code&gt;  。&lt;/p&gt;
-&lt;p&gt;這種情況下，我們該怎麼做才能將 cancelToken 加入至生成的 instance 呢？&lt;/p&gt;
-&lt;p&gt;依照 Document 中的範例:&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*mSPQ2f7osaeXy45N9jLFQw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;我們可以 callback function 的方式將 cancel function  &lt;code&gt;reference&lt;/code&gt;  出來。&lt;/p&gt;
-&lt;p&gt;所以我們就可以將原本的 instance 改成以下的寫法。&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;figcaption data-lang=&#34;javascript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; axios &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;axios&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; CancelToken &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;CancelToken&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;let&lt;/span&gt; cancelFunc&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;interceptors&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;request&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;cancelFunc&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;cancelFunc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// cancel request&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// generate the cancel token instance to the request.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// And reference the cancelFunc to the callback function `c`.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;cancelToken &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;  &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;CancelToken&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;executor&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    cancelFunc &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; c&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; config&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; Promise&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;reject&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;error&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;甚至再進階一點，我們創建一個 request pool 蒐集所有的 request ，使其每當有相同的 request 被重複發送，就 cancel 掉上一個未回來的 request。&lt;/p&gt;
-&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;figcaption data-lang=&#34;javascript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 引用 axios 的 cancelToken&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; CancelToken &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;CancelToken&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 建立一個 request pool&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; requestPool &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;/** @type &amp;#123; &amp;#123;[url: string]: import(&#39;axios&#39;).Canceler &amp;#125; &amp;#125; */&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// create an axios instance&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; service &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;create&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;baseURL&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; process&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;env&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;VUE_APP_BASE_API&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// url = base url + request url&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// withCredentials: true, // send cookies when cross-domain requests&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;timeout&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;300000&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// request timeout&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// request interceptor&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;service&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;interceptors&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;request&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//cancel 掉 request pool 中相同的 requst.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//hint. 若 pool 中的 request 上已經 response, cancel 的 call 不會生效。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;requestPool&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;url&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; cancel &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; requestPool&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;url&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;delete&lt;/span&gt; requestPool&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;url&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token function&#34;&gt;cancel&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;stringify&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token literal-property property&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;cancel&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token literal-property property&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;Cancel repeated request:&#39;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;url &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 將新的 request 的 cancel 覆蓋掉舊的 cancel request.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;cancelToken &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;CancelToken&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;executor&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      requestPool&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;config&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;url&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; config&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token parameter&#34;&gt;error&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// do something with request error&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;error&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// for debug&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; Promise&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;reject&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;error&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;41&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;42&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// response interceptor&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;43&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;service&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;interceptors&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;response&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;44&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;45&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   * If you want to get http information such as headers or status&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;46&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   * Please return  response =&gt; response&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;47&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;48&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;49&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;/**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;50&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   * Determine the request status by custom code&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;51&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   * Here is just an example&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;52&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   * You can also judge the status by HTTP Status Code&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;53&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;   */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;54&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token parameter&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;55&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; response&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;56&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;57&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token parameter&#34;&gt;error&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;58&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;IsJsonString&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;error&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;message&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;59&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; Promise&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;reject&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;error&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;60&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;61&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;62&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; errMsg &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;parse&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;error&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;message&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;63&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;64&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;errMsg&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;status &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;cancel&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;warn&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;errMsg&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;message&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;65&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;66&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;接下來我們就可以來嘗試看看是否真的有生效 (cancel 掉前面的 request)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*tsSFPOgWSZcPh9XTEavQwA.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;至此，我們就完美達成了需求啦～！&lt;/p&gt;
-&lt;p&gt;可喜可賀！ 可喜可賀！&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/</guid>
-            <title>告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)</title>
-            <link>https://z20240.github.io/Tech/Others/2020-11-04-%E5%91%8A%E5%88%A5-powershell-%E8%88%87-cmd-%E6%93%81%E6%8A%B1-windows-terminal-%E5%8C%85%E6%8B%AC%E8%87%AA%E8%A8%82%E6%A8%A3%E5%BC%8F/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-            <category term="windows-terminal" scheme="https://z20240.github.io/tags/windows-terminal/" />
-            <category term="wsl" scheme="https://z20240.github.io/tags/wsl/" />
-            <pubDate>Wed, 04 Nov 2020 11:58:12 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;告別-powershell-與-cmd擁抱-windows-terminal-包括自訂樣式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#告別-powershell-與-cmd擁抱-windows-terminal-包括自訂樣式&#34;&gt;#&lt;/a&gt; 告別 PowerShell 與 CMD，擁抱 Windows Terminal (包括自訂樣式)&lt;/h3&gt;
-&lt;h4 id=&#34;睽違了如此多年windows-終於在-terminal-上注意到使用者了&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#睽違了如此多年windows-終於在-terminal-上注意到使用者了&#34;&gt;#&lt;/a&gt; 睽違了如此多年，Windows 終於在 Terminal 上注意到使用者了&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在文章開始之前，我們先來看看 Windows Terminal 的工商廣告，傳傳教吧～&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=8gw0rXPMMPE&#34;&gt;&lt;img data-src=&#34;19cf_hqdefault.jpg&#34; alt=&#34;The new Windows Terminal&#34; title=&#34;The new Windows Terminal&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;以往提到 Windows 的 Terminal ，大家的印象都是這樣&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ToHMLSXBYrKwNgDHjkFR4w.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;或是這樣&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*tnjjMpf606Nc3hFo5RauNA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;比起隔壁棚 (MaxOS) 有強大的 iTerm2 可以客製化自己的佈景主題、使用熱鍵、字體大小、文字主題… 等。Windows 的簡直  &lt;code&gt;like a sh_t&lt;/code&gt;  。&lt;/p&gt;
-&lt;p&gt;因此，在得知 windows 要推出新的 terminal 讓人著實非常期待。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Windows Terminal 是一種現代化、快速、高效、功能強大且具生產力的終端應用程式，適合命令列工具和 Shell (像是命令提示字元、PowerShell 和 WSL) 的使用者。主要功能包括多個索引標籤、窗格、Unicode 和 UTF-8 字元支援、GPU 加速的文字呈現引擎，以及自訂主題、樣式和設定。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本篇將講述如何安裝 Windows Terminal 以及自訂 Windows Terminal 的樣式。&lt;/p&gt;
-&lt;h4 id=&#34;安裝&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝&#34;&gt;#&lt;/a&gt; 安裝&lt;/h4&gt;
-&lt;p&gt;Windows 安裝東西都很簡單，打開 Microsoft store ，找尋 Windows Terminal ，安裝即可。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ccFZQhAqUQnN_VzNVZks5w.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*RBKVWvWz58gDliZ19_gDig.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;剛安裝完的時候會長成這樣原始的樣子。但是已經整合了 OS 中擁有的 Terminal。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*wglfuUP-kzJ0NAlIVFAVEw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;個人化佈景主題&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#個人化佈景主題&#34;&gt;#&lt;/a&gt; 個人化佈景主題&lt;/h4&gt;
-&lt;p&gt;先上結論，以下是我目前調整完後的樣式，個人非常地滿意。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*1xbwxWw8CwNf_RNo4VoUNA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;首先我們選取「設定」開啟位於  &lt;code&gt;C:\Users\your-user\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState&lt;/code&gt;  中的  &lt;code&gt;settings.json&lt;/code&gt;  。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*koMTJ4hDD1T6GwwKdPXUHA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;找到  &lt;code&gt;profiles&lt;/code&gt;  區域，我們可以看到分為 default 與 list 兩處。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;default&lt;/strong&gt; 用來存放全域設定，如果你有一些設定想要 apply 到所有類型的 Terminal ，就將這些設定寫在 default。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*iy_uqJrXLlsLEao75Gpo1w.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;list&lt;/strong&gt; 的部分用來分別對特定 Terminal 的進行個人化設定&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*-nI7Q6hnOV6RKIag4XdUQw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;布景配色可以上這個網站找尋，裡面有大量的 Windows Terminal 色彩配置，可以任君挑選。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*iWY8_kxIAQCq-Sy2Yt4ovQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://windowsterminalthemes.dev/&#34;&gt;&lt;strong&gt;Windows Terminal Themes&lt;/strong&gt;&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;https://windowsterminalthemes.dev/&#34;&gt;&lt;em&gt;Browse and copy hundreds of themes for Windows Terminal&lt;/em&gt; windowsterminalthemes.dev&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;選好喜歡的主題後點選  &lt;code&gt;Get theme&lt;/code&gt;  複製主題的 Json，貼在 profiles 中的  &lt;code&gt;schemas&lt;/code&gt;  處。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*Q43c7Cex6esd_k47iqdMoQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;然後在  &lt;code&gt;colorScheme&lt;/code&gt;  設定想要的主題名稱。&lt;/p&gt;
-&lt;p&gt;你也可以使用  &lt;code&gt;backgroundImage&lt;/code&gt;  設定自己的背景照片與 Icon 圖片。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*A6Z2EayE-kPdzZM1naNsBw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;這邊講解一下我有使用到的參數所代表的意義。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;colorScheme: 佈景主題名稱
-acrylicOpacity: 壓克力效果的透明度 (0~1)
-backgroundImage: 背景圖片的路徑
-backgroundImageOpacity: 背景圖片的透明度
-useAcrylic: 是否開啟壓克力效果(true/false)這邊必須開啟才能使用
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;基本上這樣就設定完成了。&lt;br /&gt;
-我們就可以來享受自己修改後的成果啦～！!&lt;/p&gt;
-&lt;p&gt;您的鼓勵是我持續分享的動力。&lt;/p&gt;
-&lt;p&gt;如果覺得這篇文章有幫助的話，請不吝給予一點鼓勵吧～&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/</guid>
-            <title>Vue Vue3 即將正式上線，它解決了Vue2的什麼問題? 又跟 React-hooks 有什麼關係?</title>
-            <link>https://z20240.github.io/Tech/Frontend/vue/2020-09-17-vue-vue3-%E5%8D%B3%E5%B0%87%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%B7%9A-%E5%AE%83%E8%A7%A3%E6%B1%BA%E4%BA%86vue2%E7%9A%84%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C-%E5%8F%88%E8%B7%9F-react-hooks-%E6%9C%89%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
-            <category term="Vue" scheme="https://z20240.github.io/categories/Tech/Frontend/Vue/" />
-            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
-            <category term="vue" scheme="https://z20240.github.io/tags/vue/" />
-            <pubDate>Thu, 17 Sep 2020 18:15:44 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;vue-vue3-即將正式上線它解決了vue2的什麼問題-又跟-react-hooks-有什麼關係&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue-vue3-即將正式上線它解決了vue2的什麼問題-又跟-react-hooks-有什麼關係&#34;&gt;#&lt;/a&gt; [Vue] Vue3 即將正式上線，它解決了 Vue2 的什麼問題？又跟 React-hooks 有什麼關係？&lt;/h3&gt;
-&lt;h4 id=&#34;vue3-的來臨對於-vue-開發圈的影響之於-react-hooks-的降臨改變-react-開發圈一般重大&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue3-的來臨對於-vue-開發圈的影響之於-react-hooks-的降臨改變-react-開發圈一般重大&#34;&gt;#&lt;/a&gt; Vue3 的來臨對於 Vue 開發圈的影響，之於 React-hooks 的降臨改變 React 開發圈一般重大&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;0*KwYbSLWGVrGrhh4D.jpg&#34; alt=&#34;鎮版圖 [http://hk.hdwall365.com/USA-canyon-river-hills-rocks-clouds-dawn_1920x1200_wallpaper.html](http://hk.hdwall365.com/USA-canyon-river-hills-rocks-clouds-dawn_1920x1200_wallpaper.html)&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Vue framework 即將迎來 3.0 大改版。&lt;/p&gt;
-&lt;p&gt;對比於 Vue 2 的版本，Vue 3 的的體積變得 &lt;strong&gt;更小&lt;/strong&gt; 、執行速度變得 &lt;strong&gt;更快&lt;/strong&gt; 、並且 &lt;strong&gt;加強了對 Typescript 的支持&lt;/strong&gt; 以及 &lt;strong&gt;開放了更多的底層功能&lt;/strong&gt; ，使得開發者可以直接調用。&lt;/p&gt;
-&lt;h4 id=&#34;優勢&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#優勢&#34;&gt;#&lt;/a&gt; 優勢&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;更快&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;捨棄了 &lt;strong&gt;Object.defineProperty&lt;/strong&gt; 改為使用 ES6 的 Proxy 對基礎型別進行重新定義，大大提升了 Vue 的在 Javascript engine 的執行效率。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;為何會如此說呢？&lt;br /&gt;
-因為 Object.defineProperty 是在 Runtime 時期對 Object 增減 property 的。對於任一個 Language engine，動態計算 property 所需的費用都是昂貴的。&lt;br /&gt;
-Proxy 不同於 Object.defineProperty 在於，其並未對原始對象進行改動，而是直接「代理」此對象，執行增加 / 減少的功能。這在 Javascript Engine 轉譯 Javascript 上，相較於前者的執行費用便小得多。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Virtual DOM 的重構。&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;更多編譯時的優化。&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*mRZLw9fTTe1HNiERY1ikBQ.png&#34; alt=&#34;scripting 時間減少超過一半 ( [https://www.youtube.com/watch?v=AnoZheeH0Nk](https://www.youtube.com/watch?v=AnoZheeH0Nk) )&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;更好的 Typescript 支持 &amp;amp; 開放更多底層的 API。&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我們都知道，過去 Vue2 對於 Typescript 並不友善，主要原因是 Vue 依靠  &lt;code&gt;this&lt;/code&gt;  export 所有的 property，然而造成的了許多麻煩。&lt;/p&gt;
-&lt;p&gt;其中一個明顯的問題是：”methods function 中的  &lt;code&gt;this&lt;/code&gt;  指向  &lt;code&gt;vue instance&lt;/code&gt;  而非 method ，造成 Typescript 類型推導上不小的成本。”&lt;/p&gt;
-&lt;p&gt;因此我們會發現，在 Vue2 的 Typescript 專案中，人們還需要另外通過  &lt;code&gt;vue-class-component&lt;/code&gt;  這個 library 借助 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2NhaWJhb2ppYW4uY29tL2VzNi9kZWNvcmF0b3IuaHRtbA==&#34;&gt;Decorator&lt;/span&gt; 來達到類型推導。&lt;/p&gt;
-&lt;p&gt;在 Vue3 中，引進了 &lt;strong&gt;Composite-API&lt;/strong&gt; ，更好地支持了 Typescript 的類型推導，並且還解決了 Vue2 時許多為人詬病的開發上的「問題」。&lt;/p&gt;
-&lt;p&gt;以下，我們就先來講講 Vue2 碰到了什麼樣的難題，Vue3 又是怎麼樣子解決了這些問題。&lt;/p&gt;
-&lt;h4 id=&#34;vue2-面臨的問題&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue2-面臨的問題&#34;&gt;#&lt;/a&gt; Vue2 面臨的問題&lt;/h4&gt;
-&lt;p&gt;我們時常聽到有人說&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Vue 只適合拿來做小型的專案，並不適合大專案。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;歸咎原因，主要有以下幾點：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. Vue 並未對 Typescript 友善，不利於多人協作的大型專案。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;專案開發大多仍為 Javascript。JS 鬆散靈活的語言特性使開發者在協同合作時信心不足，使得專案架構難以擴張規模。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. Vue 的  &lt;code&gt;this&lt;/code&gt;  綁定整個 Vue instance ，與傳統 Javascript Language 對  &lt;code&gt;this&lt;/code&gt;  的詮釋並不一致。增加了程式開發人員對專案開發的心智成本。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;眾所周知，在 Vue 中不論在哪個地方 (methods, computed, watch… etc) 當使用  &lt;code&gt;this&lt;/code&gt;  時，都是指 vue instance 本身。然而，在 Javascript 中，function 本身有自己的 scope ，  &lt;code&gt;this&lt;/code&gt;  應該指向 function 本身 (或是 function 所屬的 class scope)，這種與 JS 原生概念不相同的概念，提升了了使用者的心智成本。&lt;/p&gt;
-&lt;p&gt;我們可以舉一個簡單的例子&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;請問在「右圖」中引入「左圖」的 columns.js&lt;br /&gt;
- 其中的 左圖的 this 指向何處？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*2uwvet3crTe3EfpQcbd59w.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*j6tSqRKCyW7pUJDLr0N_jA.png&#34; alt=&#34;左圖：columns.js ；右圖：其他的 component 引用了 column.js&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;左圖：columns.js ；右圖：其他的 component 引用了 column.js&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;第一張圖中的  &lt;code&gt;this&lt;/code&gt;  會指向 vue instance，因此即使在 function 中並沒有定義  &lt;code&gt;$t&lt;/code&gt;  ，卻依然可以使用  &lt;code&gt;$t&lt;/code&gt;  的功能。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;這種利用 this 指向 vue instance 的作法雖然帶來了便利，但是在經驗不足的開法者面前，簡直就是一場災難。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. 缺少簡潔且「低成本的機制」來提取、重用組件之間的邏輯。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Vue2 多採用  &lt;code&gt;mixin&lt;/code&gt;  的方式提取組件中的共用部分，然而  &lt;code&gt;mixin&lt;/code&gt;  本身隱式的依賴關係有礙於團隊的程式開發。&lt;/p&gt;
-&lt;p&gt;試想，你可能寫了一個帶有某個狀態的組件，且你的同事製作了一個讀取此狀態的  &lt;code&gt;mixin&lt;/code&gt;  。&lt;/p&gt;
-&lt;p&gt;在某天你需要將組件的狀態重構到其他組件去，你們會記得應該要更新  &lt;code&gt;mixin&lt;/code&gt;  嗎？若此  &lt;code&gt;mixin&lt;/code&gt;  又被許多組件複用的話呢？&lt;/p&gt;
-&lt;p&gt;另外  &lt;code&gt;mixin&lt;/code&gt;  也可能導致名稱的衝突。&lt;/p&gt;
-&lt;p&gt;若是你的組件中使用的名稱剛好與第三方中的  &lt;code&gt;mixin&lt;/code&gt;  有衝突，你無法為其重新命名。相反的你只能尷尬地換一個名稱來避免衝突的發生。&lt;/p&gt;
-&lt;p&gt;因此在 React 中，使用了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC1oYW50LnJlYWN0anMub3JnL2RvY3MvaGlnaGVyLW9yZGVyLWNvbXBvbmVudHMuaHRtbA==&#34;&gt;HOC&lt;/span&gt; 與 Render Props 的方式取代了 mixin。&lt;/p&gt;
-&lt;p&gt;然而由於 Vue2 的 Options 特性，HOC 難以在 Vue2 中被借鑑。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. Vue API 迫使使用者使用 Options 組織程式碼；但是許多時候，通過「邏輯」組織程式碼會更有助於程式的開發。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;下方圖中相同顏色部分代表相關的程式碼，Vue2 的 Option 組織程式碼的方式使得開發人員時常需要在檔案的上下文之間滑動比對所需的邏輯。隨著程式碼的增加，開發與維護的成本就越來越高。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*_yg3tfiqEE_puHseOtpoFQ.png&#34; alt=&#34;[https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png](https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png)&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk5NTUwLzYyNzgzMDIxLTdjZTI0NDAwLWJhODktMTFlOS05ZGQzLTM2ZjRmNmIxZmFlMi5wbmc=&#34;&gt;https://user-images.githubusercontent.com/499550/62783021-7ce24400-ba89-11e9-9dd3-36f4f6b1fae2.png&lt;/span&gt;&lt;/p&gt;
-&lt;h4 id=&#34;vue3-的解決辦法-composition-api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue3-的解決辦法-composition-api&#34;&gt;#&lt;/a&gt; Vue3 的解決辦法 — Composition-API&lt;/h4&gt;
-&lt;p&gt;為了解決以上的種種問題，Vue3 借鑒了 React-hook 的精神，推出了 Composition-API (或稱 functional API)。&lt;/p&gt;
-&lt;p&gt;Composition-API 暴露了 Vue 更多更核心的 API 接口，讓使用者就像使用 react-hook 那樣，需要什麼 API ，再 import 就行。&lt;/p&gt;
-&lt;p&gt;並且，所有的 code 都寫在 &lt;strong&gt;setup( )&lt;/strong&gt; 中 &lt;strong&gt;。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;以下使用一個小例子呈現 Vue3 的 Composition-API 使用方法。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://codesandbox.io/s/objective-shannon-y79so?fontsize=14&#34;&gt;&lt;img data-src=&#34;https://codesandbox.io/api/v1/sandboxes/y79so/screenshot.png&#34; alt=&#34;objective-shannon-y79so&#34; title=&#34;objective-shannon-y79so&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*Mojm8NIEzcE1BwYsezjIGg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*lLEoouSU5ds5XNwGFdImbw.png&#34; alt=&#34;左圖：使用 Options 方式組織程式邏輯；右圖：使用 Composition 方式組織邏輯&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;左圖：使用 Options 方式組織程式邏輯；右圖：使用 Composition 方式組織邏輯&lt;/p&gt;
-&lt;p&gt;範例中，我們在 setup ( ) 中組織我們所有的邏輯，相比於將程式邏輯分散至 Options 的 properies 各處，我們可以更容易地閱讀程式、在程式的維護上也更加平易近人。&lt;/p&gt;
-&lt;p&gt;以下是官方文檔中附上的 Vue2 與 Vue3 的程式邏輯分佈的比較。左邊是使用 Vue2 的 Options API 開發的程式邏輯分佈；右邊則是 Vue3 的 Composition API 的邏輯分佈。&lt;/p&gt;
-&lt;p&gt;很明顯地我們可以看出，右邊的程式邏輯性比起左邊要更佳的緊密。&lt;/p&gt;
-&lt;p&gt;可以預見的是，開發者在閱讀與理解程式碼的舒適程度也一定是右邊大於左邊。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*1sCGNlLdTajVSU-XISYWIg.png&#34; alt=&#34;[https://user-images.githubusercontent.com/499550/62783026-810e6180-ba89-11e9-8774-e7771c8095d6.png](https://user-images.githubusercontent.com/499550/62783026-810e6180-ba89-11e9-8774-e7771c8095d6.png)&#34; /&gt;&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly91c2VyLWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vNDk5NTUwLzYyNzgzMDI2LTgxMGU2MTgwLWJhODktMTFlOS04Nzc0LWU3NzcxYzgwOTVkNi5wbmc=&#34;&gt;https://user-images.githubusercontent.com/499550/62783026-810e6180-ba89-11e9-8774-e7771c8095d6.png&lt;/span&gt;&lt;/p&gt;
-&lt;h4 id=&#34;compare-to-react-hooks&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#compare-to-react-hooks&#34;&gt;#&lt;/a&gt; Compare to React-hooks&lt;/h4&gt;
-&lt;p&gt;在 Vue3 發布後，網路上充斥著類似這樣的聲音&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「這根本就是抄 React-hooks 的啊！, 我幹嘛不直接用 React 就好了？」&lt;br /&gt;
-「雜七雜八的 code 都丟在 setup 中，看起來結構比 Vue2 更糟啊！」&lt;br /&gt;
-「拜託不要再更新了！老子已經學不動了～」&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;然而，如果你是從文章一開始就讀到現在，應該已經能理解 Vue3 的改進是 &lt;strong&gt;勢在必行&lt;/strong&gt; ，且 &lt;strong&gt;不得不為&lt;/strong&gt; 。&lt;/p&gt;
-&lt;p&gt;事實上，Vue3 中 Options Syntax 並未消失，你依然可以使用以前習慣的寫法繼續開發，也不是一定要在專案中使用 Composition-API。&lt;/p&gt;
-&lt;p&gt;另外，如果你有寫過 React-hooks，你可能真的跟我一樣會覺得寫起來跟 react hooks 很像。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;但是 Vue3 的底層實作與 React Hooks 是大相逕庭的。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;不同於 React-hooks 每一次的改動就需要 re-calculating 所有的 dependency value、 re-render 相對應的 components， &lt;strong&gt;Vue3 只在 created ( ) 之前執行一次&lt;/strong&gt; &lt;strong&gt;setup( )&lt;/strong&gt; function。&lt;/p&gt;
-&lt;p&gt;並且因為建基於 Vue 的「響應式系統」，寫在 setup ( ) function 內的邏輯 Vue 依然能夠追蹤得到。&lt;/p&gt;
-&lt;p&gt;Components 也僅需要 re-render 更新的部分，效能理論上會更勝 React-hooks。&lt;/p&gt;
-&lt;p&gt;其次從設計哲學方面來看，在 React-hooks 中簡化了原始 React-Class Component 的 life cycle。&lt;/p&gt;
-&lt;p&gt;對於從 React Class Component 入門的新手而言，無異於要學兩套 React 的 Render Logic。&lt;/p&gt;
-&lt;p&gt;然而 Vue3 在 life cycle 並未作大幅度更動，僅以額外提供另一種使用 API 的方法為主，無論是 Vue 的新手或是老手使用體驗並不會差異過大。&lt;/p&gt;
-&lt;p&gt;另外，關於「程式重用性」與「程式結構性」的疑問，事實上 Composition API 更能將程式寫得井然有序。&lt;/p&gt;
-&lt;p&gt;因為基於 Composition-API ，我們可以更容易地將相同邏輯的程式碼抽離出 Components，僅在需要的時候在引入。&lt;/p&gt;
-&lt;p&gt;舉一個追蹤游標位置的例子 (例子取自官網)&lt;/p&gt;
-&lt;p&gt;Composition-API 只依賴其參數以及 Vue3 的 API，而不依賴  &lt;code&gt;this&lt;/code&gt;  。我們可以將組件內任何邏輯抽離出來進行複用，甚至導出整個  &lt;code&gt;setup&lt;/code&gt;  ，來達到 extends 的效果。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*QNzpeIqBZ2M-RMcpL-r4uw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;以下是 Component 如何利用 function 的作法:&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*3qr3bAwQYth1ArsXrmxZiw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如果這段邏輯使用 Vue2 的 Options API 來撰寫，試想一下該怎麼簡潔地寫出這樣的 Code 呢？(可能也只有 mixin 了吧…)&lt;/p&gt;
-&lt;h4 id=&#34;結論&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#結論&#34;&gt;#&lt;/a&gt; 結論&lt;/h4&gt;
-&lt;p&gt;Vue3 的改版無疑是在社群掀起了巨大的波瀾，當然評價也一定有褒有貶。&lt;/p&gt;
-&lt;p&gt;在我看完 RC 的 API Document 以及 Vue 的改版動機後，我對於這樣的改動是樂觀其成的。&lt;/p&gt;
-&lt;p&gt;事實上做為一個以 Vue 為主要前端開發項目的工程師而言，我也長期忍受著 Options API 種種在程式碼上「不便利」。&lt;/p&gt;
-&lt;p&gt;每每閱讀一個 Components 都需要畫面上下滾動，跳來跳去觀看參絞在一起的程式邏輯，無疑是一種痛苦。&lt;/p&gt;
-&lt;p&gt;我認為開發模式從 Class Components 轉變至 Functional Components 是一種演進上的必然。&lt;/p&gt;
-&lt;p&gt;前端程式的開發邏輯比起後端的 OOP，更多時候是以「事件驅動」一連串資料流到畫面的響應處理。此時使用 Functional Programming 的開發思維會更加地直覺且友好。&lt;/p&gt;
-&lt;p&gt;因此對於 Vue3 的改進，我個人是期待且樂觀其成的。&lt;/p&gt;
-&lt;p&gt;另外，這篇文章的撰寫我參閱了非常多的資料，以下的參考資料我個人認為非常有意義，有興趣也可以當作延伸閱讀，好好瀏覽一番。&lt;/p&gt;
-&lt;h3 id=&#34;參考資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#參考資料&#34;&gt;#&lt;/a&gt; 參考資料&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2NhaWJhb2ppYW4uY29tL2VzNi8=&#34;&gt;ES6 文檔&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pbWcudzNjdGVjaC5jb20vVnVlQ29uZjIwMTlTSF9FdmFuLnBkZg==&#34;&gt;2019 Vue Conf 尤大 Power Point&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ldmFueW91L3Bvc3Rz&#34;&gt;尤雨溪 Blog&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC82ODQ0OTA0MTMyMTA5NjY0MjY0&#34;&gt;Vue3 究竟好在哪里？（和 React Hook 的详细对比）&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9rdXJvLnR3L3Bvc3RzLzIwMTkvMDgvMDYvJUU1JTg4JTlEJUU2JThFJUEyLVZ1ZS0zLTAtRnVuY3Rpb24tYmFzZWQtQVBJLw==&#34;&gt;初探 - Vue-3–0-Function-based-API&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92dWUtY29tcG9zaXRpb24tYXBpLXJmYy5uZXRsaWZ5LmFwcC96aC8=&#34;&gt;Vue 組合式 API 蓋覽&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92dWUtY29tcG9zaXRpb24tYXBpLXJmYy5uZXRsaWZ5LmFwcC96aC9hcGkuaHRtbCNzZXR1cA==&#34;&gt;Vue 組合式 API 手冊&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3Z1ZWpzL3JmY3MvcHVsbC80MiNjb21wYXJpc29uLXdpdGgtcmVhY3QtaG9va3M=&#34;&gt;vue/rfcs: Function-based Component API&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzY3NTg4NDc5&#34;&gt;为何在 React 中推荐使用 HOC，而不是 mixins 来实现组件复用。但在 Vue 中，很少有 HOC 的尝试？&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9saXpoaXlhby5naXRodWIuaW8vMjAxOC8wMS8wNS9mMmUvbWl4aW5zLWNvbnNpZGVyZWQtaGFybWZ1bC8=&#34;&gt;Mixins 被认为是有害的&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC82ODQ0OTA0MTkzMDQ0NTEyNzgy&#34;&gt;從 React State Hooks 的閉包陷阱切入，淺談 hooks&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC82ODQ0OTAzNzk5MDk4NzAzODgw&#34;&gt;React State Hooks 的閉包陷阱，在使用 Hooks 前必須掌握&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
