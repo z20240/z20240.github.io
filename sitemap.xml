@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-Serverless/</loc>
+    
+    <lastmod>2023-01-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://z20240.github.io/Life/EnglishLearn/Combly-Lession7/</loc>
     
     <lastmod>2023-01-25</lastmod>
@@ -755,28 +764,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/algorithm/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/data-structure/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://z20240.github.io/tags/iels/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/redis/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -791,6 +779,27 @@
   
   <url>
     <loc>https://z20240.github.io/tags/python/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/redis/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/data-structure/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/algorithm/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -972,20 +981,6 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/others/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/perl/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://z20240.github.io/tags/rhel/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -1001,6 +996,27 @@
   
   <url>
     <loc>https://z20240.github.io/tags/tech/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/windows-terminal/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/wsl/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/others/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1035,14 +1051,14 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/skhd/</loc>
+    <loc>https://z20240.github.io/tags/gmail/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/gmail/</loc>
+    <loc>https://z20240.github.io/tags/skhd/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1063,42 +1079,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/wsl/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/windows-terminal/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://z20240.github.io/tags/docker/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/vim/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/shell/</loc>
-    <lastmod>2023-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://z20240.github.io/tags/dock/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1126,7 +1107,28 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/tags/memory-leak/</loc>
+    <loc>https://z20240.github.io/tags/perl/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/vim/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/shell/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/dock/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1141,6 +1143,13 @@
   
   <url>
     <loc>https://z20240.github.io/tags/command-line/</loc>
+    <lastmod>2023-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://z20240.github.io/tags/memory-leak/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1219,14 +1228,14 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Life/Yugioh/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Algorithm/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Algorithm/</loc>
+    <loc>https://z20240.github.io/categories/Life/Yugioh/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1282,14 +1291,14 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Tools/</loc>
+    <loc>https://z20240.github.io/categories/Tech/git/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/git/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Tools/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1303,7 +1312,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Frontend/vue/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Frontend/Vue/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1317,7 +1326,7 @@
   </url>
   
   <url>
-    <loc>https://z20240.github.io/categories/Tech/Frontend/Vue/</loc>
+    <loc>https://z20240.github.io/categories/Tech/Frontend/vue/</loc>
     <lastmod>2023-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

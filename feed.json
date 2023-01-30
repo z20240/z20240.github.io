@@ -21,6 +21,19 @@
             ]
         },
         {
+            "id": "https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-Serverless/",
+            "url": "https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-Serverless/",
+            "title": "Aws 架構學習 - Serverless",
+            "date_published": "2023-01-08T05:34:10.000Z",
+            "content_html": "<h1 id=\"aws-架構學習-lambda\"><a class=\"anchor\" href=\"#aws-架構學習-lambda\">#</a> Aws 架構學習 - Lambda</h1>\n<p>Aws lambda 是一項 event-driven 的 serverless 服務。它鼓勵將 backend 的許多功能拆成一項項小的 function，並且部屬在 aws lambda 上。我們不再需要自己維護 server 是否正常運行、不需要另外租服務空間放置自己的 server application。Aws lambda 會在 event triggered 時自己去調用我們放上去的 lambda function，並且在結束時自動銷毀產生的 lambda 實體。</p>\n<p>有很多方法可以去 trigger aws lambda，例如</p>\n<ul>\n<li>API getway called</li>\n<li>S3 upload</li>\n<li>DynamoDB changes</li>\n<li>Cloudwatch events</li>\n<li>SNS notifications</li>\n<li>third party APIs ... etc</li>\n</ul>\n",
+            "tags": [
+                "Tech",
+                "Aws Architecture",
+                "aws",
+                "iam"
+            ]
+        },
+        {
             "id": "https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-IAM/",
             "url": "https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-IAM/",
             "title": "Aws 架構學習 - IAM",
@@ -58,20 +71,6 @@
             ]
         },
         {
-            "id": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/",
-            "url": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/",
-            "title": "Cambly-Lession6",
-            "date_published": "2023-01-04T16:28:40.000Z",
-            "content_html": "<ul>\n<li>The country is mostly rural areas.</li>\n<li>I used to live in the country.</li>\n<li>farm fishing</li>\n<li>wild caught</li>\n<li>car pooling: 搭便車</li>\n<li>car sharing program = pay to share a car</li>\n<li></li>\n</ul>\n",
-            "tags": [
-                "Life",
-                "EnglishLearn",
-                "Cambly",
-                "english",
-                "cambly"
-            ]
-        },
-        {
             "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
             "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
             "title": "Cambly-Lession4",
@@ -91,6 +90,20 @@
             "title": "Cambly-Lession4",
             "date_published": "2023-01-04T16:28:40.000Z",
             "content_html": "<ul>\n<li>have foot in the door （ idioms )\n<ul>\n<li>to make the first step toward a goal by gaining entry into an organization, a career, etc. He took a job as a secretary to get his foot in the door.</li>\n</ul>\n</li>\n<li>frequently &gt; often &gt; usually (1 / week).</li>\n<li>I don't know if i have a cold</li>\n<li>coherence = understanding.</li>\n<li>stand on the same topic</li>\n<li>&quot;synonyms&quot; is the difference word in the same meaning.</li>\n<li>standardized = cause (something) to conform to a standard.\n<ul>\n<li>&quot;we could standardize on U.S. equipment&quot;.</li>\n<li>&quot;the editors failed to standardize the spelling of geographic names&quot;</li>\n</ul>\n</li>\n<li>proficiency = ranking = level</li>\n<li>authorities people or organization in charge of / to take charge of ...</li>\n</ul>\n",
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "Cambly",
+                "english",
+                "cambly"
+            ]
+        },
+        {
+            "id": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/",
+            "url": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/",
+            "title": "Cambly-Lession6",
+            "date_published": "2023-01-04T16:28:40.000Z",
+            "content_html": "<ul>\n<li>The country is mostly rural areas.</li>\n<li>I used to live in the country.</li>\n<li>farm fishing</li>\n<li>wild caught</li>\n<li>car pooling: 搭便車</li>\n<li>car sharing program = pay to share a car</li>\n<li></li>\n</ul>\n",
             "tags": [
                 "Life",
                 "EnglishLearn",
@@ -268,19 +281,6 @@
                 "frontend",
                 "emmet",
                 "vscode"
-            ]
-        },
-        {
-            "id": "https://z20240.github.io/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/",
-            "url": "https://z20240.github.io/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/",
-            "title": "Windows 手動移除「新增/移除程式」清單中無法被移除的程式",
-            "date_published": "2021-02-09T04:35:41.491Z",
-            "content_html": "<h3 id=\"windows-手動移除新增移除程式清單中無法被移除的程式\"><a class=\"anchor\" href=\"#windows-手動移除新增移除程式清單中無法被移除的程式\">#</a> [Windows] 手動移除「新增 / 移除程式」清單中無法被移除的程式</h3>\n<h4 id=\"相比於-macos-跟-linuxwindows-好多東西都是藏在機碼裡\"><a class=\"anchor\" href=\"#相比於-macos-跟-linuxwindows-好多東西都是藏在機碼裡\">#</a> 相比於 MacOS 跟 Linux，Windows 好多東西都是藏在機碼裡</h4>\n<p>最近會碰到這個問題的原因在於我更新 Docker desktop for windows 時出現了一些意外，導致 docker desktop 無法成功更新，因此卡在一個「裝不完全的狀況」。</p>\n<p>新增移除程式要刪除的話會跳出「 <em>找不到 &quot;C:\\path\\for\\docker\\install\\location&quot;</em> 」之類的錯誤訊息。偏偏想要重新安裝，docker installer 又認為你已經安裝過了，會直接跳 Install finished.</p>\n<p>真的令人欲哭無淚～～～😂😂😂😂😂😂😂</p>\n<p>為了讓 docker installer 能夠重新啟動安裝程序，勢必要先刪除掉 「新增 / 移除程式」列表中的 Zombie Docker。於是我上網找了一些資訊後，終於讓我找到了手動解除安裝的方法了！</p>\n<p>以下開始操作流程。</p>\n<p>首先，點選 [開始]，再按一下 [執行]，在 [開啟] 方塊中輸入 regedit，然後按 ENTER。呼叫出 Windows 的 regedit。這是紀錄 windows 機碼的地方。</p>\n<p><img data-src=\"1*KyjfFojRFu2tKRlqfPlrAA.png\" alt=\"\" /></p>\n<p>接下來從左側欄中逐項找出</p>\n<p><strong>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall</strong></p>\n<p><img data-src=\"1*_SqNf0EQ2vCvFsO5eM2zvg.png\" alt=\"\" /></p>\n<p>這邊的每個亂碼資料夾，都對應著你所安裝的一個程式。</p>\n<p>接下來就是，一個一個確認，找出哪一個是你要刪除的程式了。</p>\n<p>我們可以通過 <strong>DisplayName</strong> 查看這個資料夾代表的是哪個程式。</p>\n<p>例如，我有裝 AWS Command Line Interface ，所以在這邊就能看到我安裝的 AWS Command Line Interface。</p>\n<p><img data-src=\"1*hjrrM9Q7CVlkMtWVlcTkfw.png\" alt=\"\" /></p>\n<p>找到要移除的機碼之後，對他「滑鼠按右鍵 -&gt; 刪除」</p>\n<p><img data-src=\"1*kdfkj20bkBl5VtdXLnA3Zw.png\" alt=\"\" /></p>\n<p>之後再回到控制台中去檢查「新增 / 移除程式」列表，應該就會發現剛剛刪除的程式已經不在列表當中了！</p>\n<p>這個時候，再回來重新安裝 Docker ，終於可以正常安裝了！！</p>\n<p><strong>參考資料</strong></p>\n<ul>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9zdXBwb3J0Lm1pY3Jvc29mdC5jb20vemgtdHcvdG9waWMvJUU1JUE2JTgyJUU0JUJEJTk1JUU2JTg5JThCJUU1JThCJTk1JUU3JUE3JUJCJUU5JTk5JUE0JUU2JTk2JUIwJUU1JUEyJTlFLSVFNyVBNyVCQiVFOSU5OSVBNCVFNyVBOCU4QiVFNSVCQyU4RiVFNiVCOCU4NSVFNSU5NiVBRSVFNCVCOCVBRCVFNyU5QSU4NCVFNyVBOCU4QiVFNSVCQyU4Ri00OTQ5NDE1OS1kMjE1LTA3YjItZTRjNy0wNTA0NTdiMzgzNTI=\">如何手動移除新增 / 移除程式清單中的程式</span></li>\n</ul>\n<p><a href=\"https://button.like.co/z20240z\"><img data-src=\"https://button.like.co/images/og/likebutton.png\" alt=\"Like z20240z's work\" title=\"Like z20240z's work\" /></a></p>\n",
-            "tags": [
-                "Tech",
-                "Others",
-                "windows",
-                "regedit"
             ]
         }
     ]
