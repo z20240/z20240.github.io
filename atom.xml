@@ -191,6 +191,27 @@
         <updated>2023-01-04T16:28:40.000Z</updated>
     </entry>
     <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</id>
+        <title>Cambly-Lession6</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
+&lt;li&gt;I used to live in the country.&lt;/li&gt;
+&lt;li&gt;farm fishing&lt;/li&gt;
+&lt;li&gt;wild caught&lt;/li&gt;
+&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
+&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+        <updated>2023-01-04T16:28:40.000Z</updated>
+    </entry>
+    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</id>
         <title>Cambly-Lession4</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/"/>
@@ -213,27 +234,6 @@
 &lt;/li&gt;
 &lt;li&gt;proficiency = ranking = level&lt;/li&gt;
 &lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2023-01-04T16:28:40.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</id>
-        <title>Cambly-Lession6</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
-&lt;li&gt;I used to live in the country.&lt;/li&gt;
-&lt;li&gt;farm fishing&lt;/li&gt;
-&lt;li&gt;wild caught&lt;/li&gt;
-&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
-&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
         <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
@@ -1401,10 +1401,10 @@ for i in range(1, 1+10000): print(i)&#39; &amp;gt; base.csv
 </content>
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
+        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
         <category term="html" scheme="https://z20240.github.io/tags/html/" />
         <category term="frontend" scheme="https://z20240.github.io/tags/frontend/" />
         <category term="emmet" scheme="https://z20240.github.io/tags/emmet/" />
-        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
         <updated>2021-02-09T09:41:20.740Z</updated>
     </entry>
 </feed>
