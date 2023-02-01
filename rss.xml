@@ -10,8 +10,8 @@
         </author>
         <description>記錄生活、工作、大小事</description>
         <language>en</language>
-        <pubDate>Wed, 25 Jan 2023 00:28:40 +0800</pubDate>
-        <lastBuildDate>Wed, 25 Jan 2023 00:28:40 +0800</lastBuildDate>
+        <pubDate>Tue, 31 Jan 2023 13:34:10 +0800</pubDate>
+        <lastBuildDate>Tue, 31 Jan 2023 13:34:10 +0800</lastBuildDate>
         <category term="nodejs" />
         <category term=" frontend" />
         <category term=" backend" />
@@ -21,6 +21,100 @@
         <category term=" python" />
         <category term=" vue" />
         <category term=" react" />
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</guid>
+            <title>Flutter 學習 - 環境安裝</title>
+            <link>https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</link>
+            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
+            <category term="Flutter" scheme="https://z20240.github.io/categories/Tech/Flutter/" />
+            <category term="flutter" scheme="https://z20240.github.io/tags/flutter/" />
+            <pubDate>Tue, 31 Jan 2023 13:34:10 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;在開始 flutter 的專案之前，首要步驟就是先將環境架好。&lt;br /&gt;
+由於 flutter 需要跨平台開發，因此我們不僅需要安裝 android sdk, 也需要安裝 ios 相關的 xcode。&lt;br /&gt;
+這篇主要記錄我在架設 flutter 環境時碰到的錯誤與處理方式。&lt;/p&gt;
+&lt;h2 id=&#34;建構-flutter-開發環境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#建構-flutter-開發環境&#34;&gt;#&lt;/a&gt; 建構 flutter 開發環境&lt;/h2&gt;
+&lt;p&gt;先列一下我裝置的規格&lt;/p&gt;
+&lt;figure class=&#34;highlight text&#34;&gt;&lt;figcaption data-lang=&#34;text&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;- MacOS Ventura 13.1 Apple M1 chip.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;- Memory 16GB&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;安裝-flutter&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-flutter&#34;&gt;#&lt;/a&gt; 安裝 flutter&lt;/h3&gt;
+&lt;p&gt;首先，先到 flutter 官網依照 flutter 安裝教學進行安裝。&lt;br /&gt;
+由於我這邊是 macOS 因此 flutter 安裝的部分會依照 macOS 的部分進行安裝。&lt;/p&gt;
+&lt;h4 id=&#34;獲得-sdk&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#獲得-sdk&#34;&gt;#&lt;/a&gt; 獲得 sdk&lt;/h4&gt;
+&lt;p&gt;下載 flutter sdk 並且解壓縮到自己喜歡的目錄。&lt;br /&gt;
+我在  &lt;code&gt;~/Document&lt;/code&gt;  中建立了一個  &lt;code&gt;Project&lt;/code&gt;  目錄專門放置專案相關的資源。&lt;br /&gt;
+因此 flutter 會放置在  &lt;code&gt;~/Document/Project&lt;/code&gt;  中。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; ~/Document/Project&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;unzip&lt;/span&gt; ~/Downloads/flutter_macos_3.7.0-stable.zip flutter&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;加入 env.&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;&lt;span class=&#34;token environment constant&#34;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;pwd&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;/span&gt;/flutter/bin&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;執行-flutter-doctor&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#執行-flutter-doctor&#34;&gt;#&lt;/a&gt; 執行 flutter doctor&lt;/h4&gt;
+&lt;p&gt;flutter doctor 會診斷是否缺少開發 flutter 時所需要的相關套件。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;flutter doctor&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;第一次跑的時候我還未裝 andriod sdk 與 xcode 。因此得到的結果會是類似以下這樣。&lt;/p&gt;
+&lt;p&gt;![][image-20230201035252043.png]&lt;/p&gt;
+&lt;p&gt;接下來，我們就要一步一步地把錯誤的部分給修正。&lt;/p&gt;
+&lt;h3 id=&#34;安裝-android-sdk&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-android-sdk&#34;&gt;#&lt;/a&gt; 安裝 Android sdk.&lt;/h3&gt;
+&lt;p&gt;首先到 android studio 官網安裝 android studio。&lt;br /&gt;
+下載並安裝完成後，開啟 android studio，並且點選  &lt;code&gt;settings &amp;gt; Appearance &amp;amp; behavior &amp;gt; System Settings &amp;gt; Andriod SDK&lt;/code&gt;   並且選擇到 sdk tools，將裡面的 sdk 都安裝起來。&lt;br /&gt;
+![][image-20230201034918514.png]&lt;br /&gt;
+ 安裝完後在 env 中增加 path&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;&lt;span class=&#34;token environment constant&#34;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;token environment constant&#34;&gt;$HOME&lt;/span&gt;/Library/Android/sdk&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;再重跑一次  &lt;code&gt;flutter doctor&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;![][image-20230201035715344.png]&lt;/p&gt;
+&lt;p&gt;這次 error message 變了，有些 licensee 不正確。 因此我們照著執行  &lt;code&gt;flutter doctor --android-licenses&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;接下來它會問你一些 licenses 是否同意。 就照著選  &lt;code&gt;Y&lt;/code&gt;  就好。&lt;/p&gt;
+&lt;p&gt;結束後，再跑一次  &lt;code&gt;flutter doctor&lt;/code&gt;  理論上 android 這邊的 error 就都清除了。&lt;/p&gt;
+&lt;p&gt;![][image-20230201040009795.png]&lt;/p&gt;
+&lt;h3 id=&#34;安裝-xcode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-xcode&#34;&gt;#&lt;/a&gt; 安裝 xcode.&lt;/h3&gt;
+&lt;p&gt;直接上 app store 安裝 xcode.&lt;/p&gt;
+&lt;p&gt;![][image-20230201040236174.png]&lt;br /&gt;
+ 安裝完成後執行&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; xcode-select &lt;span class=&#34;token parameter variable&#34;&gt;--switch&lt;/span&gt; /Applications/Xcode.app/Contents/Developer&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; xcodebuild &lt;span class=&#34;token parameter variable&#34;&gt;-runFirstLaunch&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;再執行  &lt;code&gt;flutter doctor&lt;/code&gt;  也許會碰到跟我一樣的狀況。 敘述缺少  &lt;code&gt;cocoaPods&lt;/code&gt;  。&lt;/p&gt;
+&lt;p&gt;![][image-20230201040518776.png]&lt;/p&gt;
+&lt;p&gt;因此我們要再安裝  &lt;code&gt;cocoaPods&lt;/code&gt; 。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; gem &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; cocoapods&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;之後再跑一遍，理論上 xcode 的部分就也修掉了。&lt;/p&gt;
+&lt;p&gt;![][image-20230201040716354.png]&lt;/p&gt;
+&lt;p&gt;最後就剩下 Java 的 bundled 要處理。&lt;/p&gt;
+&lt;h3 id=&#34;安裝-java-bundle&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-java-bundle&#34;&gt;#&lt;/a&gt; 安裝 Java bundle.&lt;/h3&gt;
+&lt;p&gt;我首先找尋 stackoverflow 上的解決方法，查到這篇 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjg1Njk0MzAvdW5hYmxlLXRvLWZpbmQtYnVuZGxlZC1qYXZhLXZlcnNpb24td2l0aC1mbHV0dGVyLWRvY3Rvci1hZnRlci11cGRhdGluZy1hbmRyb2lk&#34;&gt;Unable to find bundled Java version with flutter doctor, after updating Android studio Arctic Fox(2020.3.1) on M1 Apple Silicon&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;底下的留言串有點長，我這邊將內容整理成一套處理的方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設置  &lt;code&gt;Java_Home&lt;/code&gt;  環境變數&lt;br /&gt;
+參考這篇文章 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ta3lvbmcuY29tL2phdmEvaG93LXRvLXNldC1qYXZhX2hvbWUtZW52aXJvbm1lbnQtdmFyaWFibGUtb24tbWFjLW9zLXgvI3doYXQtaXMtdXNybGliZXhlY2phdmEtaG9tZQ==&#34;&gt;# How to Set $JAVA_HOME environment variable on macOS&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;$(&lt;/span&gt;/usr/libexec/java_home&lt;span class=&#34;token variable&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;接下來依照以下指令一步一步 alias&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /Applications/Android&lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt; Studio.app/Contents/jre&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 如果發現 Contents 內沒有 jre 請執行這個步驟&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /Applications/Android&lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt; Studio.app/Contents&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; jbr jre&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; jre&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 建立 jre 的 symbolic link&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;/jre jdk&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 建立 JavaAppletPlugin.plugin 的 symbolic link&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;/Library/Internet Plug-Ins/JavaAppletPlugin.plugin&#34;&lt;/span&gt; jdk&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Hint: 這邊可能會碰到  &lt;code&gt;/Library/Internet Plug-Ins&lt;/code&gt;  沒有  &lt;code&gt;JavaAppletPlugin&lt;/code&gt;  的情況&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;這時我們需要另外修正這部分&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;follow 以下步驟&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;到 Java 官網下載 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamF2YS5jb20vZW4vZG93bmxvYWQvaGVscC9tYWNfaW5zdGFsbC5odG1s&#34;&gt;java installation&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;依照官網指示安裝.&lt;/li&gt;
+&lt;li&gt;完成之後再一次確認  &lt;code&gt;ls /Library/Internet Plug-Ins/&lt;/code&gt;  是否有  &lt;code&gt;JavaAppletPlugin.plugin&lt;/code&gt;  。此時應該就會已經裝好了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以上步驟完成之後我們再執行一次  &lt;code&gt;flutter doctor -v&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;![][image-20230201142130471.png]&lt;/p&gt;
+&lt;p&gt;到這邊，應該就能看到全部錯誤都修正完畢。&lt;/p&gt;
+&lt;p&gt;如此 fultter 的環境就算準備完成了。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession8/</guid>
+            <title>Cambly-Lession8</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession8/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Tue, 31 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;comstom - traditions&lt;/li&gt;
+&lt;li&gt;to get along - had a good relationship with sb. ex. we get along very well.&lt;/li&gt;
+&lt;li&gt;once in a lifetime (adj.) - only one chance in lifetime.&lt;/li&gt;
+&lt;li&gt;in common -&lt;/li&gt;
+&lt;li&gt;to enjoy each other&#39;s company - the fact or condition of being with another or others, especially in a way that provides friendship and enjoyment.&lt;/li&gt;
+&lt;li&gt;as often as -&lt;/li&gt;
+&lt;li&gt;what&#39;s more - 更重要的是&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession7/</guid>
             <title>Cambly-Lession7</title>
@@ -65,6 +159,26 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://z20240.github.io/Tech/Others/%E4%BD%BF%E7%94%A8%20gmail%20%E7%84%A1%E9%99%90%E7%94%B3%E8%BE%A6%E5%B8%B3%E8%99%9F/</guid>
+            <title>如何使用 gmail 無限申辦帳號</title>
+            <link>https://z20240.github.io/Tech/Others/%E4%BD%BF%E7%94%A8%20gmail%20%E7%84%A1%E9%99%90%E7%94%B3%E8%BE%A6%E5%B8%B3%E8%99%9F/</link>
+            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
+            <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
+            <category term="gmail" scheme="https://z20240.github.io/tags/gmail/" />
+            <pubDate>Sun, 08 Jan 2023 10:34:10 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;很多線上服務都需要 email 進行帳號申辦。但是很多時候一個帳號僅能綁定一個信箱。而我們想要多的帳號，但是沒有這麼多信箱時該怎麼辦呢？&lt;/p&gt;
+&lt;p&gt;Gmail 有一個特殊功能。如果你在自己的 gmail 信箱帳號後面使用  &lt;code&gt;+[number|letters]&lt;/code&gt;  ，gmail 會認得，並且統一寄送到你真正的信箱。&lt;/p&gt;
+&lt;p&gt;例如有一個帳號是 &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiY0BnbWFpbC5jb20=&#34;&gt;abc@gmail.com&lt;/span&gt; 。若是我們在註冊信箱使用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiYysxQGdtYWlsLmNvbQ==&#34;&gt;abc+1@gmail.com&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiYysyQGdtYWlsLmNvbQ==&#34;&gt;abc+2@gmail.com&lt;/span&gt; 甚至是 &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiYythbnl0aGluZ0BnbWFpbC5jb20=&#34;&gt;abc+anything@gmail.com&lt;/span&gt; ，其信件都會寄送到 &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiY0BnYW1pbC5jb20=&#34;&gt;abc@gamil.com&lt;/span&gt; 這個信箱。而大部分網站針對這些信箱都會視為是不同的信箱位置。如此我們便可以使用同一個信箱註冊大量的帳號了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![[image-20230108111759969.png]]&lt;/p&gt;
+&lt;p&gt;這是 Gmail 一個獨有的信箱服務。&lt;/p&gt;
+&lt;p&gt;這也很好的幫助使用者能夠管理我們的信箱收發服務。&lt;/p&gt;
+&lt;p&gt;例如我們就能夠使用  &lt;code&gt;+地區&lt;/code&gt;  來作為分區的帳號管理，或是使用  &lt;code&gt;+部門&lt;/code&gt;  來幫助自己達到業務範圍的分別管理。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-IAM/</guid>
             <title>Aws 架構學習 - IAM</title>
             <link>https://z20240.github.io/Tech/Aws%20Architecture/Aws-architecture-IAM/</link>
@@ -105,26 +219,6 @@
 &lt;p&gt;接下來我們可以將這組  &lt;code&gt;access key ID&lt;/code&gt;  與  &lt;code&gt;secret access key&lt;/code&gt;  設定在我們的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmF3cy5hbWF6b24uY29tL3poX3R3L2NsaS9sYXRlc3QvdXNlcmd1aWRlL2NsaS1jb25maWd1cmUtZW52dmFycy5odG1s&#34;&gt;環境變數&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;![[image-20230108122050789.png]]&lt;/p&gt;
 &lt;p&gt;至此，基本的 IAM 設定就差不多完成了。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Others/%E4%BD%BF%E7%94%A8%20gmail%20%E7%84%A1%E9%99%90%E7%94%B3%E8%BE%A6%E5%B8%B3%E8%99%9F/</guid>
-            <title>如何使用 gmail 無限申辦帳號</title>
-            <link>https://z20240.github.io/Tech/Others/%E4%BD%BF%E7%94%A8%20gmail%20%E7%84%A1%E9%99%90%E7%94%B3%E8%BE%A6%E5%B8%B3%E8%99%9F/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-            <category term="gmail" scheme="https://z20240.github.io/tags/gmail/" />
-            <pubDate>Sun, 08 Jan 2023 10:34:10 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;很多線上服務都需要 email 進行帳號申辦。但是很多時候一個帳號僅能綁定一個信箱。而我們想要多的帳號，但是沒有這麼多信箱時該怎麼辦呢？&lt;/p&gt;
-&lt;p&gt;Gmail 有一個特殊功能。如果你在自己的 gmail 信箱帳號後面使用  &lt;code&gt;+[number|letters]&lt;/code&gt;  ，gmail 會認得，並且統一寄送到你真正的信箱。&lt;/p&gt;
-&lt;p&gt;例如有一個帳號是 &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiY0BnbWFpbC5jb20=&#34;&gt;abc@gmail.com&lt;/span&gt; 。若是我們在註冊信箱使用&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiYysxQGdtYWlsLmNvbQ==&#34;&gt;abc+1@gmail.com&lt;/span&gt;, &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiYysyQGdtYWlsLmNvbQ==&#34;&gt;abc+2@gmail.com&lt;/span&gt; 甚至是 &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiYythbnl0aGluZ0BnbWFpbC5jb20=&#34;&gt;abc+anything@gmail.com&lt;/span&gt; ，其信件都會寄送到 &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmFiY0BnYW1pbC5jb20=&#34;&gt;abc@gamil.com&lt;/span&gt; 這個信箱。而大部分網站針對這些信箱都會視為是不同的信箱位置。如此我們便可以使用同一個信箱註冊大量的帳號了。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;![[image-20230108111759969.png]]&lt;/p&gt;
-&lt;p&gt;這是 Gmail 一個獨有的信箱服務。&lt;/p&gt;
-&lt;p&gt;這也很好的幫助使用者能夠管理我們的信箱收發服務。&lt;/p&gt;
-&lt;p&gt;例如我們就能夠使用  &lt;code&gt;+地區&lt;/code&gt;  來作為分區的帳號管理，或是使用  &lt;code&gt;+部門&lt;/code&gt;  來幫助自己達到業務範圍的分別管理。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -1196,218 +1290,6 @@ chcon -R # Recirsive target 下所有目錄結構修改
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hY2Nlc3MucmVkaGF0LmNvbS9kb2N1bWVudGF0aW9uL2VuLXVzL3JlZF9oYXRfZW50ZXJwcmlzZV9saW51eF9hdG9taWNfaG9zdC83L2h0bWwvZ2V0dGluZ19zdGFydGVkX3dpdGhfa3ViZXJuZXRlcy9nZXRfc3RhcnRlZF9wcm92aXNpb25pbmdfc3RvcmFnZV9pbl9rdWJlcm5ldGVz&#34;&gt;Red Hat — CHAPTER 2. GET STARTED PROVISIONING STORAGE IN KUBERNETES&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hY2Nlc3MucmVkaGF0LmNvbS9kb2N1bWVudGF0aW9uL2VuLXVzL3JlZF9oYXRfZW50ZXJwcmlzZV9saW51eF9hdG9taWNfaG9zdC83L2h0bWwvY29udGFpbmVyX3NlY3VyaXR5X2d1aWRlL2RvY2tlcl9zZWxpbnV4X3NlY3VyaXR5X3BvbGljeQ==&#34;&gt;Red Hat — CHAPTER 6. DOCKER SELINUX SECURITY POLICY&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/</guid>
-            <title>SQL MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料</title>
-            <link>https://z20240.github.io/Tech/Data%20Storage/2021-05-16-sql-mysql-postgresql-%E8%88%87-mongodb-%E5%A6%82%E4%BD%95%E5%A4%A7%E9%87%8F%E7%94%A2%E7%94%9F%E6%B8%AC%E8%A9%A6%E8%B3%87%E6%96%99/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Data Storage" scheme="https://z20240.github.io/categories/Tech/Data-Storage/" />
-            <category term="mysql" scheme="https://z20240.github.io/tags/mysql/" />
-            <category term="postgresql" scheme="https://z20240.github.io/tags/postgresql/" />
-            <category term="mongodb" scheme="https://z20240.github.io/tags/mongodb/" />
-            <pubDate>Sun, 16 May 2021 19:02:14 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;sql-mysql-postgresql-與-mongodb-如何大量產生測試資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-mysql-postgresql-與-mongodb-如何大量產生測試資料&#34;&gt;#&lt;/a&gt; [SQL] MySQL, PostgreSQL 與 MongoDB 如何大量產生測試資料&lt;/h3&gt;
-&lt;h4 id=&#34;dummy-data-test-data-mongo-mysql-postgresql&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dummy-data-test-data-mongo-mysql-postgresql&#34;&gt;#&lt;/a&gt; Dummy data, Test data, mongo, mysql, postgresql.&lt;/h4&gt;
-&lt;p&gt;在網頁前端的領域，工程師常常使用 &lt;strong&gt;lorem&lt;/strong&gt; 這種「不具意義」的文字作為排版的測試。&lt;/p&gt;
-&lt;p&gt;在後端領域，我們時常也需要資料庫中有「大量但並不需要具有真實意義的資料」也就是所謂的 dummy data，供我們的程式能夠進行測試。&lt;/p&gt;
-&lt;p&gt;網路上有很多可以產生 dummy data 的網站，可以讓人很輕鬆的產生大量的資料供使用者測試跟使用。&lt;/p&gt;
-&lt;p&gt;但是，其實我們可以直接使用簡單的 SQL 就達成這樣的目的，無需再去網路上找尋這種 dummy data generator.&lt;/p&gt;
-&lt;p&gt;以下針對 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucG9zdGdyZXNxbC5vcmcv&#34;&gt;PostgreSQL&lt;/span&gt; 、 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubXlzcWwuY29tLw==&#34;&gt;MySQL&lt;/span&gt; 跟 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vY2xvdWQvYXRsYXMvbHAvdHJ5Mg==&#34;&gt;MongoDB&lt;/span&gt; 三種比較常見的 Database 提供 dummy data generate 的語法。&lt;/p&gt;
-&lt;h4 id=&#34;postgresql&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#postgresql&#34;&gt;#&lt;/a&gt; PostgreSQL&lt;/h4&gt;
-&lt;p&gt;我們先 Create 一個空 table 作為講解使用。&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;-- Create a table `users`&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;CREATE&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;TABLE&lt;/span&gt; users  &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    id uuid &lt;span class=&#34;token keyword&#34;&gt;DEFAULT&lt;/span&gt; uuid_generate_v4 &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    name &lt;span class=&#34;token keyword&#34;&gt;varchar&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    email &lt;span class=&#34;token keyword&#34;&gt;VARCHAR&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;NOT&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;PRIMARY&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;KEY&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;id&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;基本思路是，利用 PostgreSQL 內建的  &lt;code&gt;generate_series&lt;/code&gt;  指令，產生大量的流水號，再利用流水號的數量塞入 random 的資料進資料庫。&lt;/p&gt;
-&lt;p&gt;細節的指令可以查看以下的語法：&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;-- random 10,000 data.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;INSERT&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;INTO&lt;/span&gt; users &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;name&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; email&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;SELECT&lt;/span&gt; md5&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;random&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;::&lt;span class=&#34;token keyword&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; CONCAT&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;random&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;::&lt;span class=&#34;token keyword&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;@xxx.com&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;FROM&lt;/span&gt; generate_series&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;檢查一下是否真的塞入了 10000 筆資料了。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*5I9wbUun0tnHjHOiebc06Q.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;mysql&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mysql&#34;&gt;#&lt;/a&gt; MySQL&lt;/h4&gt;
-&lt;p&gt;MySQL 沒有像 PostgreSQL 的 generate_series 這樣方便的工具，因此我們要自己寫。&lt;/p&gt;
-&lt;p&gt;假設我們一樣需要 10,000 筆的資料，基本思路如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;我們先建立一張擁有流水號 1 ~ 10,000 的臨時表，可以使用 in-memory table。&lt;/li&gt;
-&lt;li&gt;基於 select 這個臨時表來 insert dummy data.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;那麼問題就簡化到，我們該怎麼建立這樣的臨時表呢？&lt;/p&gt;
-&lt;p&gt;網路上有幾種方法。第一種是使用  &lt;code&gt;store procedure&lt;/code&gt;  ；其二就是我今天想介紹的作法：直接使用 python, node 這種小程式 &lt;strong&gt;一行創建&lt;/strong&gt; 。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;創建臨時表 table&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;CREATE TABLE tmp_table (id INT,  PRIMARY KEY (id)) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;幫臨時表 insert 10000 筆的流水號的文件，作為準備。&lt;/p&gt;
-&lt;p&gt;Python Version:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;python -c &#39;print(&amp;quot;id&amp;quot;)
-for i in range(1, 1+10000): print(i)&#39; &amp;gt; base.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;NodeJs Version:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;node -e &#39;console.log(&amp;quot;id&amp;quot;); for(let i=1; i&amp;lt;=10000; i++) console.log(i);&#39; &amp;gt; base.csv
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;從 base.txt 導入數據到剛剛的臨時表&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mysql&amp;gt; load data infile &#39;/Your/file/path/base.txt&#39; replace into table tmp_table;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;確認一下是否有成功導入&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*u7tqvIP1aNErGnjuZjRcdg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;接下來我們就能利用這個流水表，創建隨機資料了。&lt;/p&gt;
-&lt;p&gt;一樣使用剛剛 Create 資料表的語法創建一個 table 當作目標 table&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;-- Create a table `users`&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;CREATE&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;TABLE&lt;/span&gt; &lt;span class=&#34;token identifier&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;users&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;&lt;/span&gt;  &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token identifier&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;id&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;binary&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;primary&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token identifier&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;name&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;varchar&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token identifier&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;email&lt;span class=&#34;token punctuation&#34;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;VARCHAR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;NOT&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;NULL&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;接下來就可以使用  &lt;code&gt;tmp_table&lt;/code&gt;  塞入大量的 random data.&lt;/p&gt;
-&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;-- random 10,000 data.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;--&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;INSERT&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;INTO&lt;/span&gt; users &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;id&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; name&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; email&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;SELECT&lt;/span&gt; uuid&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; md5&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;LEFT&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;UUID&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; CONCAT&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;LEFT&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;UUID&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;@xxx.com&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;FROM&lt;/span&gt; tmp_table&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;mongodb&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mongodb&#34;&gt;#&lt;/a&gt; MongoDB&lt;/h4&gt;
-&lt;p&gt;mongodb 要產生 dummy data 很簡單。&lt;/p&gt;
-&lt;p&gt;我們只需要使用 forloop 即可產生我們想要的數量。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mongo&amp;gt; for (var i = 1; i &amp;lt;= 10000; i++) db.users.insert( &amp;#123; name : UUID(), email: UUID() + &amp;quot;@mail.com&amp;quot; &amp;#125; );
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;接下來檢查看看，是否真的有 10000 筆資料。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*TvJnGY8LvtvZok6MRDLg9g.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;結語&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#結語&#34;&gt;#&lt;/a&gt; 結語&lt;/h4&gt;
-&lt;p&gt;最近公司開始往大數據的開發方向靠攏，許許多多的程式開發都希望能夠擁有支持大數據處理的能力。&lt;/p&gt;
-&lt;p&gt;因此在 local side 如果也能夠建立足夠的數據量，對於 local 的開發會更加單純方便。&lt;/p&gt;
-&lt;p&gt;本文整理了幾個比較常見資料庫的產生 dummy data 的方式，除了作為紀錄，也希望能夠幫助到有需要的人。&lt;/p&gt;
-&lt;p&gt;另外小小抱怨一下： &lt;em&gt;MySQL 產生 dummy data 的方式真的是有夠麻煩。&lt;/em&gt;&lt;/p&gt;
-&lt;h4 id=&#34;參考資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#參考資料&#34;&gt;#&lt;/a&gt; 參考資料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hbmR5eW91LmdpdGh1Yi5pby8yMDE0LzAxLzI5L21vbmdvZGItbm90ZXMv&#34;&gt;MongoDB 快速入門筆記&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82ODQ0OTAzODQ3OTQ1NTg0NjQ3I2Zyb21IaXN0b3J5&#34;&gt;MySQL 快速创建千万级测试数据&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjQ4NDExNDIvaG93LWNhbi1pLWdlbmVyYXRlLWJpZy1kYXRhLXNhbXBsZS1mb3ItcG9zdGdyZXNxbC11c2luZy1nZW5lcmF0ZS1zZXJpZXMtYW5kLXJhbmQ=&#34;&gt;How can I generate big data sample for Postgresql using generate_series and random?&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/</guid>
-            <title>Front-end Emmet , 前端快速開發的神兵利器</title>
-            <link>https://z20240.github.io/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
-            <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
-            <category term="html" scheme="https://z20240.github.io/tags/html/" />
-            <category term="frontend" scheme="https://z20240.github.io/tags/frontend/" />
-            <category term="emmet" scheme="https://z20240.github.io/tags/emmet/" />
-            <pubDate>Tue, 09 Feb 2021 17:41:20 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;front-end-emmet-前端快速開發的神兵利器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#front-end-emmet-前端快速開發的神兵利器&#34;&gt;#&lt;/a&gt; [Front-end] Emmet , 前端快速開發的神兵利器&lt;/h3&gt;
-&lt;h4 id=&#34;一個-snapchat-標準庫只需要少少的記憶就可以大大提升html-css-的撰寫效率&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一個-snapchat-標準庫只需要少少的記憶就可以大大提升html-css-的撰寫效率&#34;&gt;#&lt;/a&gt; 一個 Snapchat 標準庫，只需要少少的記憶，就可以大大提升 HTML、CSS 的撰寫效率&lt;/h4&gt;
-&lt;p&gt;VSCode 最近的更版對於 Emmet 的支持更加完整了，因此決定來寫一篇文章介紹 Emmet 。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;0*4D_q0c3hxHQcjjYE.gif&#34; alt=&#34;[https://code.visualstudio.com/updates/v1_53](https://code.visualstudio.com/updates/v1_53)&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;身為 web engineer ，在寫 HTML 的時候總是要打那煩人的左右角括號，並且還要在每個標籤結尾寫上結尾標籤，著實麻煩。&lt;/p&gt;
-&lt;p&gt;emmet 就是為了我們這種懶人發明的一鍵 HTML 產生器！&lt;/p&gt;
-&lt;p&gt;我們只需要依照著 Emmet 的規則，編寫我們想要的 html 結構，之後按下 「Tab」，Emmet 就會自動幫我產生相對應的 HTML Code ！&lt;/p&gt;
-&lt;p&gt;就像上面的那張 GIF 展示的那樣～&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.emmet.io/&#34;&gt;&lt;strong&gt;Emmet Documentation&lt;/strong&gt;&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;https://docs.emmet.io/&#34;&gt;&lt;em&gt;Emmet is a web-developer&#39;s toolkit that can greatly improve your HTML &amp;amp; CSS workflow: Basically, most text editors out…&lt;/em&gt; docs.emmet.io&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Emmet 的語法很簡單也不多，且很多規則跟 CSS 的選擇器語法很相近。對於會寫 CSS 的人來說，幾乎是無痛學習。&lt;/p&gt;
-&lt;p&gt;以下就來針對 Emmet 的語法介紹一下。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;元素標籤 + Tab&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;emmet 的使用方法就是，打好一串表達語法之後，按下「Tab」，就會自動轉換成相對應的 HTML 了。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*4l8SN32JJqXAjF-RKnexwg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 &amp;quot;!&amp;quot; 一鍵生成 HTML 結構&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;emmet 可以使用 &amp;quot;!&amp;quot; 一鍵生成 HTML Template，我們不用再自己從  &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;  開始一個字一個字敲打了。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*bpP5Wasjp58bz3SeU2dT1g.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 &amp;gt; 表示結構的「下一層」&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;像是 CSS 選擇器中，我們想要表達階層結構的時候，可以使用 &amp;gt; 來選取子元素。Emmet 也可以使用 「&amp;gt;」 來表示這種巢狀結構。&lt;/p&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;div&amp;gt;ul&amp;gt;li
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;會展開成這樣&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
-    &amp;lt;ul&amp;gt;
-        &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-    &amp;lt;/ul&amp;gt;
-&amp;lt;div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*IutHuFaDKyL83MZuxHwXNA.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 *N 代表要重複 N 次&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;例如，我們可以使用  &lt;code&gt;li*5&lt;/code&gt;  讓他自動重複 5 次，產生五個  &lt;code&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*UyCQppxtpLwqyTFLijikdA.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 + 表示結構的「同一層」&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;通常一個標準的 html 頁面需要有 header, main, footer 。這時候就可以用 + 很簡單地產生。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;header+main+footer
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;會展開成&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;header&amp;gt;&amp;lt;/header&amp;gt;
-&amp;lt;main&amp;gt;&amp;lt;/main&amp;gt;
-&amp;lt;footer&amp;gt;&amp;lt;/footer&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*-JvloFLYjqUzfVfZjkCG5g.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;綜合練習&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如果我想要產生如下的結構，該怎麼寫呢？&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;header&amp;gt;&amp;lt;/header&amp;gt;
-&amp;lt;main&amp;gt;
-    &amp;lt;article&amp;gt;&amp;lt;/article&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;寫法：  &lt;code&gt;header+main&amp;gt;article+section*6&lt;/code&gt; &lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 ^ 跳回上一層&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;我們可以使用 ^ 跳回到上一層，例如剛剛的例子，如果我們想要在  &lt;code&gt;main&lt;/code&gt;  後面繼續接著寫 HTML 結構，我們就可以使用 ^ 來回到與 main 同一層的地方繼續往下串接我們的語法。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;header+main&amp;gt;article+section*6^footer
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;會展開成&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;header&amp;gt;&amp;lt;/header&amp;gt;
-&amp;lt;main&amp;gt;
-    &amp;lt;article&amp;gt;&amp;lt;/article&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*rz00s3Dj25n2wbqTPovThQ.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;當然，如果我們想要往外多跳幾層，我們只需要多重複幾次 ^ 即可。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*sF0HVT8G5gfOwiCeToBNCg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 ( ) 將結構分塊，增加可讀性&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;由於 Emmet 的語法轉換器，是一次 parse 這一連串的字串，因此不允許語法中存在空格，但這也讓在撰寫這表達式的時候可讀性不佳。此時我們可以使用 ( ) 來為結構分塊。&lt;/p&gt;
-&lt;p&gt;以上方的例子來說，我們就可以改寫成下方這樣&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;header+(main&amp;gt;nav&amp;gt;ul&amp;gt;li*4)+article+section*3+footer
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*c2jZ3I4MSQQAv8S2lGwHqw.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用。表示 class / # 表示 ID / [] 表示其他屬性 / {} 表示標籤之間的內容&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Emmet 一樣支援標籤內的屬性描述。&lt;/p&gt;
-&lt;p&gt;例如最常見的 &amp;lt;a&amp;gt; 標籤，我們就可以給他額外的屬性&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;a.link#customLink[src=&#39;test.png&#39; alt=&#39;test&#39;]&amp;#123;This is a test link&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;會自動展成這樣&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;&amp;quot; class=&amp;quot;link&amp;quot; id=&amp;quot;customLink&amp;quot; src=&amp;quot;test.png&amp;quot; alt=&amp;quot;test&amp;quot;&amp;gt;This is a test link&amp;lt;/a&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*xYvBbURns_-f3w08g1zVLg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 $ 可以自動記數&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;有些時候，我們希望 class 的名稱能夠照著數字順序給，這個時候，可以使用 $ 讓他 auto incremental&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;li.class$*5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;會展開成&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;class1&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class2&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class4&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class5&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;當然我們也可以多給幾個 $，來代表要「幾位數」&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*A_2TRu4IpBPa6kiqKd5gEA.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 @ 給予起始值&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;剛剛的例子中，我們也可以不要從 1 開始，使用 @ 可以指定一個起始數字。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*zYGPsvtn0yFucRQvweP-Ug.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;使用 - 來倒著數回去&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;這基本上很少使用到，但是還是說一下。我們除了順著數，也可以倒著屬回去。&lt;/p&gt;
-&lt;p&gt;一樣以剛剛的 li 為例，我們如果在 @ 後面多增加一個 「-」，就可以讓數字由大到小排列。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;li.class$@-10*30
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;會展開成&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;class39&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class38&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class37&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class36&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class35&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class34&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class33&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class32&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class31&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li class=&amp;quot;class30&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-....
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ZVzYUKvGMGxVSMVBeFAM3Q.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;當然，我們也可以一般地使用 (不設定起始數字)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*raTa4R7FKI8NlWqPNXw6Tg.gif&#34; alt=&#34;1*raTa4R7FKI8NlWqPNXw6Tg.gif&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Emmet 的功能很強大，但是其實語法都是有邏輯可以依循的，學起來感覺並不會太困難。&lt;/p&gt;
-&lt;p&gt;如果記不起來也沒關係，以下已經幫忙提供了一份小抄。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.emmet.io/cheat-sheet/&#34;&gt;&lt;strong&gt;Emmet Documentation&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;結語&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#結語&#34;&gt;#&lt;/a&gt; 結語&lt;/h4&gt;
-&lt;p&gt;Emmet 真的是懶人工程師的一大利器，我個人認為以這學習成本極低的情況，多了解一項也並非壞事。&lt;/p&gt;
-&lt;p&gt;而且也僅需要敲打少少的文字，就能產生好整份 HTML 結構。真的是用過就回不去了！&lt;/p&gt;
-&lt;h4 id=&#34;參考資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#參考資料&#34;&gt;#&lt;/a&gt; 參考資料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmVtbWV0LmlvL2NoZWF0LXNoZWV0Lw==&#34;&gt;https://docs.emmet.io/cheat-sheet/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2Z1YmxvZy5jb20vMjAxNy8wOC9lbW1ldC1zdWJsaW1lLXRleHQuaHRtbA==&#34;&gt;https://www.wfublog.com/2017/08/emmet-sublime-text.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wamNoZW5kZXIuYmxvZ3Nwb3QuY29tLzIwMTYvMDcvZW1tZXQuaHRtbA==&#34;&gt;https://pjchender.blogspot.com/2016/07/emmet.html&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
