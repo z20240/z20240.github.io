@@ -19,9 +19,9 @@
     <category term=" vue" />
     <category term=" react" />
     <entry>
-        <id>https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&amp;%20Dart%20%E7%B0%A1%E4%BB%8B/</id>
+        <id>https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-flutter%E4%BB%8B%E7%B4%B9&amp;Dart%E7%B0%A1%E4%BB%8B/</id>
         <title>Flutter 學習 - flutter 簡介 &amp; Dart 語法入門</title>
-        <link rel="alternate" href="https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&amp;%20Dart%20%E7%B0%A1%E4%BB%8B/"/>
+        <link rel="alternate" href="https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-flutter%E4%BB%8B%E7%B4%B9&amp;Dart%E7%B0%A1%E4%BB%8B/"/>
         <content type="html">&lt;h2 id=&#34;簡介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#簡介&#34;&gt;#&lt;/a&gt; 簡介&lt;/h2&gt;
 &lt;p&gt;Flutter 是 google 爸爸資助的一款原生跨平台框架。使用一種程式語言 dart 架構的 app 可同時提供 ios 與 android 運行。&lt;/p&gt;
 &lt;p&gt;在 Flutter 中，所有的元件都是  &lt;code&gt;widget&lt;/code&gt; 。整個視圖就是一個 root widget。&lt;/p&gt;
@@ -156,9 +156,9 @@
         <updated>2023-02-01T05:34:10.000Z</updated>
     </entry>
     <entry>
-        <id>https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</id>
+        <id>https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</id>
         <title>Flutter 學習 - 環境安裝</title>
-        <link rel="alternate" href="https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/"/>
+        <link rel="alternate" href="https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/"/>
         <content type="html">&lt;p&gt;在開始 flutter 的專案之前，首要步驟就是先將環境架好。&lt;br /&gt;
 由於 flutter 需要跨平台開發，因此我們不僅需要安裝 android sdk, 也需要安裝 ios 相關的 xcode。&lt;br /&gt;
 這篇主要記錄我在架設 flutter 環境時碰到的錯誤與處理方式。&lt;/p&gt;
@@ -387,6 +387,41 @@
         <updated>2023-01-06T15:08:53.977Z</updated>
     </entry>
     <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</id>
+        <title>Cambly-Lession4</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;broadly 寬廣&lt;/li&gt;
+&lt;li&gt;to enroll (v.) 編入
+&lt;ul&gt;
+&lt;li&gt;enrollment (n.) = sign up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;subject specialist = professor in specific subject.&lt;/li&gt;
+&lt;li&gt;take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間&lt;/li&gt;
+&lt;li&gt;take a (week/month/year) off. = 休息一段時間&lt;/li&gt;
+&lt;li&gt;to work sb way through colledge = 半工半讀&lt;/li&gt;
+&lt;li&gt;teacher&#39;s pet (貶義) 老師的寵兒
+&lt;ul&gt;
+&lt;li&gt;brown noser 馬屁精&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;to keep up with anythings = don&#39;t fall behind.
+&lt;ul&gt;
+&lt;li&gt;ex. are you keeping up with me.&lt;/li&gt;
+&lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+        <updated>2023-01-04T16:28:40.000Z</updated>
+    </entry>
+    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</id>
         <title>Cambly-Lession4</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/"/>
@@ -430,41 +465,6 @@
 &lt;li&gt;car pooling: 搭便車&lt;/li&gt;
 &lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2023-01-04T16:28:40.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</id>
-        <title>Cambly-Lession4</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;broadly 寬廣&lt;/li&gt;
-&lt;li&gt;to enroll (v.) 編入
-&lt;ul&gt;
-&lt;li&gt;enrollment (n.) = sign up&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;subject specialist = professor in specific subject.&lt;/li&gt;
-&lt;li&gt;take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間&lt;/li&gt;
-&lt;li&gt;take a (week/month/year) off. = 休息一段時間&lt;/li&gt;
-&lt;li&gt;to work sb way through colledge = 半工半讀&lt;/li&gt;
-&lt;li&gt;teacher&#39;s pet (貶義) 老師的寵兒
-&lt;ul&gt;
-&lt;li&gt;brown noser 馬屁精&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;to keep up with anythings = don&#39;t fall behind.
-&lt;ul&gt;
-&lt;li&gt;ex. are you keeping up with me.&lt;/li&gt;
-&lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 </content>
         <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
@@ -1134,8 +1134,8 @@ $ node --max-old-space-size=8192 app.js
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
         <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-        <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
         <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
+        <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
         <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
         <updated>2022-05-16T10:10:49.465Z</updated>
     </entry>

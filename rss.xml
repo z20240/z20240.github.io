@@ -22,9 +22,9 @@
         <category term=" vue" />
         <category term=" react" />
         <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&amp;%20Dart%20%E7%B0%A1%E4%BB%8B/</guid>
+            <guid isPermalink="true">https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-flutter%E4%BB%8B%E7%B4%B9&amp;Dart%E7%B0%A1%E4%BB%8B/</guid>
             <title>Flutter 學習 - flutter 簡介 &amp; Dart 語法入門</title>
-            <link>https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&amp;%20Dart%20%E7%B0%A1%E4%BB%8B/</link>
+            <link>https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-flutter%E4%BB%8B%E7%B4%B9&amp;Dart%E7%B0%A1%E4%BB%8B/</link>
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Flutter" scheme="https://z20240.github.io/categories/Tech/Flutter/" />
             <category term="flutter" scheme="https://z20240.github.io/tags/flutter/" />
@@ -159,9 +159,9 @@
 &lt;figure class=&#34;highlight dart&#34;&gt;&lt;figcaption data-lang=&#34;dart&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 載入 dart async 的 package.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token string-literal&#34;&gt;&lt;span class=&#34;token string&#34;&gt;&#39;dart:async&#39;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;Future&lt;/span&gt;&lt;span class=&#34;token generics&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;introduction&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// Future.delayed 類似 js 的 Promise.delay. 模擬非同步情形。等待兩秒。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Future&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;delayed&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Duration&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;seconds&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token string-literal&#34;&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Dart tutorial&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token function&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string-literal&#34;&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Before introduction&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token function&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;introduction&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token function&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string-literal&#34;&gt;&lt;span class=&#34;token string&#34;&gt;&#34;After introduction&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// Output:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// Before introduction&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// Dart tutorial&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// After introduction&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</guid>
+            <guid isPermalink="true">https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</guid>
             <title>Flutter 學習 - 環境安裝</title>
-            <link>https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</link>
+            <link>https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</link>
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Flutter" scheme="https://z20240.github.io/categories/Tech/Flutter/" />
             <category term="flutter" scheme="https://z20240.github.io/tags/flutter/" />
@@ -390,6 +390,41 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
+            <title>Cambly-Lession4</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;broadly 寬廣&lt;/li&gt;
+&lt;li&gt;to enroll (v.) 編入
+&lt;ul&gt;
+&lt;li&gt;enrollment (n.) = sign up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;subject specialist = professor in specific subject.&lt;/li&gt;
+&lt;li&gt;take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間&lt;/li&gt;
+&lt;li&gt;take a (week/month/year) off. = 休息一段時間&lt;/li&gt;
+&lt;li&gt;to work sb way through colledge = 半工半讀&lt;/li&gt;
+&lt;li&gt;teacher&#39;s pet (貶義) 老師的寵兒
+&lt;ul&gt;
+&lt;li&gt;brown noser 馬屁精&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;to keep up with anythings = don&#39;t fall behind.
+&lt;ul&gt;
+&lt;li&gt;ex. are you keeping up with me.&lt;/li&gt;
+&lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
             <title>Cambly-Lession4</title>
             <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
@@ -439,41 +474,6 @@
 &lt;li&gt;car pooling: 搭便車&lt;/li&gt;
 &lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
-            <title>Cambly-Lession4</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
-            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-            <category term="english" scheme="https://z20240.github.io/tags/english/" />
-            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;broadly 寬廣&lt;/li&gt;
-&lt;li&gt;to enroll (v.) 編入
-&lt;ul&gt;
-&lt;li&gt;enrollment (n.) = sign up&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;subject specialist = professor in specific subject.&lt;/li&gt;
-&lt;li&gt;take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間&lt;/li&gt;
-&lt;li&gt;take a (week/month/year) off. = 休息一段時間&lt;/li&gt;
-&lt;li&gt;to work sb way through colledge = 半工半讀&lt;/li&gt;
-&lt;li&gt;teacher&#39;s pet (貶義) 老師的寵兒
-&lt;ul&gt;
-&lt;li&gt;brown noser 馬屁精&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;to keep up with anythings = don&#39;t fall behind.
-&lt;ul&gt;
-&lt;li&gt;ex. are you keeping up with me.&lt;/li&gt;
-&lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -1095,8 +1095,8 @@ skhd: secure keyboard entry is enabled by (5530) &#39;iterm2&#39;! abort..
             <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
             <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
             <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
             <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
+            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
             <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
             <pubDate>Mon, 16 May 2022 18:10:49 +0800</pubDate>
             <description><![CDATA[ &lt;h3 id=&#34;node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題&#34;&gt;#&lt;/a&gt; [Node] 如何檢測 Node 程式的 Memory Leak 以及處理 out of memory 問題&lt;/h3&gt;
