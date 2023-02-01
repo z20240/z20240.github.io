@@ -157,7 +157,7 @@
     </entry>
     <entry>
         <id>https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/</id>
-        <title>Flutter 學習 - 環境安裝</title>
+        <title>Flutter 學習 - 環境安裝與錯誤處理</title>
         <link rel="alternate" href="https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/"/>
         <content type="html">&lt;p&gt;在開始 flutter 的專案之前，首要步驟就是先將環境架好。&lt;br /&gt;
 由於 flutter 需要跨平台開發，因此我們不僅需要安裝 android sdk, 也需要安裝 ios 相關的 xcode。&lt;br /&gt;
@@ -175,28 +175,28 @@
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;&lt;span class=&#34;token environment constant&#34;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;token variable&#34;&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;pwd&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;`&lt;/span&gt;&lt;/span&gt;/flutter/bin&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;執行-flutter-doctor&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#執行-flutter-doctor&#34;&gt;#&lt;/a&gt; 執行 flutter doctor&lt;/h4&gt;
 &lt;p&gt;flutter doctor 會診斷是否缺少開發 flutter 時所需要的相關套件。&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;flutter doctor&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;第一次跑的時候我還未裝 andriod sdk 與 xcode 。因此得到的結果會是類似以下這樣。&lt;/p&gt;
-&lt;p&gt;![image-20230201035252043.png][image-20230201035252043.png]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201035252043.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;接下來，我們就要一步一步地把錯誤的部分給修正。&lt;/p&gt;
 &lt;h3 id=&#34;安裝-android-sdk&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-android-sdk&#34;&gt;#&lt;/a&gt; 安裝 Android sdk.&lt;/h3&gt;
 &lt;p&gt;首先到 android studio 官網安裝 android studio。&lt;br /&gt;
-下載並安裝完成後，開啟 android studio，並且點選  &lt;code&gt;settings &amp;gt; Appearance &amp;amp; behavior &amp;gt; System Settings &amp;gt; Andriod SDK&lt;/code&gt;   並且選擇到 sdk tools，將裡面的 sdk 都安裝起來。&lt;br /&gt;
-![image-20230201034918514.png][image-20230201034918514.png]&lt;br /&gt;
- 安裝完後在 env 中增加 path&lt;/p&gt;
+下載並安裝完成後，開啟 android studio，並且點選  &lt;code&gt;settings &amp;gt; Appearance &amp;amp; behavior &amp;gt; System Settings &amp;gt; Andriod SDK&lt;/code&gt;   並且選擇到 sdk tools，將裡面的 sdk 都安裝起來。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201034918514.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;安裝完後在 env 中增加 path&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;&lt;span class=&#34;token environment constant&#34;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;:&lt;span class=&#34;token environment constant&#34;&gt;$HOME&lt;/span&gt;/Library/Android/sdk&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;再重跑一次  &lt;code&gt;flutter doctor&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;![image-20230201035715344.png][image-20230201035715344.png]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201035715344.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;這次 error message 變了，有些 licensee 不正確。 因此我們照著執行  &lt;code&gt;flutter doctor --android-licenses&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;接下來它會問你一些 licenses 是否同意。 就照著選  &lt;code&gt;Y&lt;/code&gt;  就好。&lt;/p&gt;
 &lt;p&gt;結束後，再跑一次  &lt;code&gt;flutter doctor&lt;/code&gt;  理論上 android 這邊的 error 就都清除了。&lt;/p&gt;
-&lt;p&gt;![image-20230201040009795.png][image-20230201040009795.png]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201040009795.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;安裝-xcode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-xcode&#34;&gt;#&lt;/a&gt; 安裝 xcode.&lt;/h3&gt;
 &lt;p&gt;直接上 app store 安裝 xcode.&lt;/p&gt;
-&lt;p&gt;![image-20230201040236174.png][image-20230201040236174.png]&lt;br /&gt;
- 安裝完成後執行&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201040236174.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;安裝完成後執行&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; xcode-select &lt;span class=&#34;token parameter variable&#34;&gt;--switch&lt;/span&gt; /Applications/Xcode.app/Contents/Developer&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; xcodebuild &lt;span class=&#34;token parameter variable&#34;&gt;-runFirstLaunch&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;再執行  &lt;code&gt;flutter doctor&lt;/code&gt;  也許會碰到跟我一樣的狀況。 敘述缺少  &lt;code&gt;cocoaPods&lt;/code&gt;  。&lt;/p&gt;
-&lt;p&gt;![image-20230201040518776.png][image-20230201040518776.png]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201040518776.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;因此我們要再安裝  &lt;code&gt;cocoaPods&lt;/code&gt; 。&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; gem &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; cocoapods&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;之後再跑一遍，理論上 xcode 的部分就也修掉了。&lt;/p&gt;
-&lt;p&gt;![image-20230201040716354.png][image-20230201040716354.png]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201040716354.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;最後就剩下 Java 的 bundled 要處理。&lt;/p&gt;
 &lt;h3 id=&#34;安裝-java-bundle&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-java-bundle&#34;&gt;#&lt;/a&gt; 安裝 Java bundle.&lt;/h3&gt;
 &lt;p&gt;我首先找尋 stackoverflow 上的解決方法，查到這篇 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjg1Njk0MzAvdW5hYmxlLXRvLWZpbmQtYnVuZGxlZC1qYXZhLXZlcnNpb24td2l0aC1mbHV0dGVyLWRvY3Rvci1hZnRlci11cGRhdGluZy1hbmRyb2lk&#34;&gt;Unable to find bundled Java version with flutter doctor, after updating Android studio Arctic Fox(2020.3.1) on M1 Apple Silicon&lt;/span&gt;&lt;/p&gt;
@@ -219,7 +219,7 @@
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;以上步驟完成之後我們再執行一次  &lt;code&gt;flutter doctor -v&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;![image-20230201142130471.png][image-20230201142130471.png]&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230201142130471.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;到這邊，應該就能看到全部錯誤都修正完畢。&lt;/p&gt;
 &lt;p&gt;如此 fultter 的環境就算準備完成了。&lt;/p&gt;
 </content>
@@ -475,42 +475,6 @@
         <updated>2023-01-04T16:28:40.000Z</updated>
     </entry>
     <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</id>
-        <title>Cambly-Lession3</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;hold back  拖後腿
-&lt;ul&gt;
-&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
-&lt;li&gt;motivation (n.)&lt;/li&gt;
-&lt;li&gt;stimulate 刺激
-&lt;ul&gt;
-&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;passionate (adj) = have some belive in th.
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;ate (adj.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2023-01-02T16:28:40.000Z</updated>
-    </entry>
-    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/</id>
         <title>IELS 字彙</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/"/>
@@ -602,6 +566,42 @@
         <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
         <category term="english" scheme="https://z20240.github.io/tags/english/" />
         <category term="iels" scheme="https://z20240.github.io/tags/iels/" />
+        <updated>2023-01-02T16:28:40.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/</id>
+        <title>Cambly-Lession3</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession3/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;hold back  拖後腿
+&lt;ul&gt;
+&lt;li&gt;I am holding my friends back from winning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;motivated = you really want to do something be cause of th.&lt;/li&gt;
+&lt;li&gt;motivation (n.)&lt;/li&gt;
+&lt;li&gt;stimulate 刺激
+&lt;ul&gt;
+&lt;li&gt;(someone&#39;s) interest in or enthusiasm for doing something.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;passionate (adj) = have some belive in th.
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;ate (adj.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;enthusiasm (n.) / enthusiastic (adj.) + about&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
         <updated>2023-01-02T16:28:40.000Z</updated>
     </entry>
     <entry>
@@ -1134,8 +1134,8 @@ $ node --max-old-space-size=8192 app.js
         <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
         <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
         <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
         <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
+        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
         <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
         <updated>2022-05-16T10:10:49.465Z</updated>
     </entry>
