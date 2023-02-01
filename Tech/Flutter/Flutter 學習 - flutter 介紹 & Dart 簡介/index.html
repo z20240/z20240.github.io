@@ -1,0 +1,671 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0">
+
+
+<link rel="alternate" type="application/rss+xml" title="Let's Life" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Let's Life" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Let's Life" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+    
+  <meta name="keywords" content="flutter" />
+
+
+
+  <meta name="description" content="Flutter 學習 - 環境安裝" />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/">
+
+
+
+    <title>
+      
+Flutter 學習 - flutter 介紹 & Dart 簡介 - Flutter - Tech |
+
+      Let's Life = Les's Blog</title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">Flutter 學習 - flutter 介紹 & Dart 簡介
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2023-02-01 13:34:10">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-01T13:34:10+08:00">2023-02-01</time>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Let's Life</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <ul>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/johannes-plenio-DKix6Un55mw-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://picsum.photos/1201/1080?random=3"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/jonatan-pie-1hpE3fROU0I-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/jonatan-pie-FOcMXBbe5rU-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/jonatan-pie-h8nxGssjQXs-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/pexels-nicole-avagliano-2236703.jpg"></li>
+            </ul>
+        </div>
+      </header>
+      <div id="waves">
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewbox="0 24 150 28"
+          preserveaspectratio="none"
+          shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax"> 
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/Flutter/" itemprop="item" rel="index" title="In Flutter"><span itemprop="name">Flutter</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content="Les's Blog, 記錄生活、工作、大小事">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Let's Life">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="簡介"><a class="anchor" href="#簡介">#</a> 簡介</h2>
+<p>Flutter 是 google 爸爸資助的一款原生跨平台框架。使用一種程式語言 dart 架構的 app 可同時提供 ios 與 android 運行。</p>
+<p>在 Flutter 中，所有的元件都是  <code>widget</code> 。整個視圖就是一個 root widget。</p>
+<h2 id="flutter-vs-react-native"><a class="anchor" href="#flutter-vs-react-native">#</a> Flutter v.s. React Native.</h2>
+<p>網路上諸多人對於 flutter 與 react native 到底該選誰吵得不可開交。</p>
+<p>我在網路上找尋了許多大大小小的不同評論，以下節錄一些我同意的觀點。</p>
+<p><strong>先上結論</strong></p>
+<blockquote>
+<p><em>如果你已經會 React 且只有前端開發經驗，但缺乏 client side 開發經驗。也許 React Native 會更適合你。</em> - 節錄《知乎 - # 2022 年了，现在学习选择 Flutter 还是 ReactNative ?》</p>
+</blockquote>
+<p>這邊就僅記錄一些我所查詢的資料，有興趣的可以再轉去細究。</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzUyNjc2MDk3OA==">2022 年了，现在学习选择 Flutter 还是 ReactNative ?</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5mb3EuY24vYXJ0aWNsZS84elNsUUc5SXlTNVd5cmVaZ1JYUj9mYmNsaWQ9SXdBUjNUWE4ycGFfRVlOcUtfR1o3TUhpUGdwdVd3UWlXRmlWUTR0N2llUmhBVWcxN3VLUGxYdVJZV18wVQ==">2021 年，Flutter 与 React Native 该如何选择？</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNDU0NjIyODU=">选 Flutter 还是 React Native？跨平台开发框架推荐及优劣势比较</span></li>
+</ul>
+<h2 id="dart"><a class="anchor" href="#dart">#</a> Dart</h2>
+<p>由於開發 Flutter 所使用的語言是 Dart, 因此我們有必要瞭解一下如何撰寫 Dart 語法的程式。</p>
+<p>Dart 也是 google 開發的程式語言，主要用於前端界面的描述。其屬於物件導向的語言，但是同時結合了 javascript, java, c#, python 等特性。因此如果我們有學過其中任何一種語言，想要上手這門程式語言應該不會是太困難的事情。</p>
+<p>首先 dart 擁有一個 online playground: <span class="exturl" data-url="aHR0cHM6Ly9kYXJ0cGFkLmRldi8=">DartPad</span> 我們可以在這上面嘗試我們不確定的語法。算是蠻平易近人的。</p>
+<h3 id="type-類型"><a class="anchor" href="#type-類型">#</a> Type 類型</h3>
+<p>Dart 是個強型別的程式語言，我們需要在變數定義時就給與其型別。</p>
+<p>例如常見的 int, string, boolean...etc.</p>
+<p>以下使用 table 列舉我們可能會用到的幾種資料形態。</p>
+<table>
+<thead>
+<tr>
+<th>Data Type (資料型態)</th>
+<th>Keyword (關鍵字)</th>
+<th>Description (描述)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number</td>
+<td>num, int, double</td>
+<td>數值型別，整數，浮點數</td>
+</tr>
+<tr>
+<td>Strings</td>
+<td>String</td>
+<td>字串</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>bool</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>Lists</td>
+<td>List</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>Maps</td>
+<td>Map</td>
+<td>Key-Value pairs</td>
+</tr>
+<tr>
+<td>var</td>
+<td>自行推斷數值型別的宣告，一定要給予初始值。</td>
+<td>動態宣告。值的型別利用初始值自動推斷</td>
+</tr>
+<tr>
+<td>dynamic</td>
+<td>動態宣告變數，可以接受變數在執行階段改變型別。</td>
+<td>動態宣告。值的型別可以動態改變</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example"><a class="anchor" href="#example">#</a> Example</h4>
+<h5 id="一般數值宣告"><a class="anchor" href="#一般數值宣告">#</a> 一般數值宣告</h5>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"John Smith"</span></span><span class="token punctuation">;</span> <span class="token comment">// String</span></pre></td></tr><tr><td data-num="2"></td><td><pre>int age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span> <span class="token comment">// Number</span></pre></td></tr><tr><td data-num="3"></td><td><pre>bool isMale <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Boolean</span></pre></td></tr></table></figure><p>使用  <code>var</code>  宣告</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"John Smith"</span></span><span class="token punctuation">;</span> <span class="token comment">// String</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span> <span class="token comment">// Number</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">var</span> isMale <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Boolean</span></pre></td></tr></table></figure><h6 id="字串串接"><a class="anchor" href="#字串串接">#</a> 字串串接</h6>
+<p>dart 的字串串接可以使用  <code>+</code>  或是使用「空格」即可。當然，其也有所謂的版模字串，使用  <code>$&#123;&#125;</code>  直接將變數插入字串之中。</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"John "</span></span> <span class="token operator">+</span> <span class="token string-literal"><span class="token string">"Smith"</span></span><span class="token punctuation">;</span> <span class="token comment">// John Smith</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> desc <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"He "</span></span> <span class="token string-literal"><span class="token string">"is "</span></span> <span class="token string-literal"><span class="token string">"a "</span></span> <span class="token string-literal"><span class="token string">"kind "</span></span> <span class="token string-literal"><span class="token string">"person."</span></span><span class="token punctuation">;</span> <span class="token comment">// He is a kind person.</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">var</span> text <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"lorem </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">name</span><span class="token punctuation">&#125;</span></span><span class="token string"> dolor sit </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">desc</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">;</span> <span class="token comment">// lorem John Smith dolor sit He is a kind person.</span></pre></td></tr></table></figure><h5 id="list"><a class="anchor" href="#list">#</a> List</h5>
+<p>Dart 允許 list 中的 element 型別不同。</p>
+<p>與 js 不同的地方是 Dart 的 List 不可以使用 string 作為 index, 也不可以直接 assign 超過 List 長度的 index 給變數.</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">List</span> list <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token string-literal"><span class="token string">"123"</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token string-literal"><span class="token string">'chara'</span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token number">345</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token string-literal"><span class="token string">'''</pre></td></tr><tr><td data-num="6"></td><td><pre>  multi line string 1</pre></td></tr><tr><td data-num="7"></td><td><pre>  multi line string 2</pre></td></tr><tr><td data-num="8"></td><td><pre>  multi line string 3</pre></td></tr><tr><td data-num="9"></td><td><pre>  '''</span></span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">// 註解</span></pre></td></tr><tr><td data-num="13"></td><td><pre>list<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"test"</span></span><span class="token punctuation">;</span> <span class="token comment">// Uncaught Error: RangeError (index): Index out of range: index should be less than 5: 10</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment">// 巡行</span></pre></td></tr><tr><td data-num="16"></td><td><pre>list<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ele<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">ele</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// (不同於 Maps, list 的 forEach 僅能 literal element 無法獲得 index.)</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">// 如果需要獲得 index, 我們可以使用 `asMap` 先轉換成 Map 再進行 literal.</span></pre></td></tr><tr><td data-num="20"></td><td><pre>list<span class="token punctuation">.</span><span class="token function">asMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">ele</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token comment">// add element.</span></pre></td></tr><tr><td data-num="23"></td><td><pre>list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token comment">// 或是使用 spread operator.</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>list<span class="token punctuation">,</span> element<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token comment">// remove by condition</span></pre></td></tr><tr><td data-num="29"></td><td><pre>list<span class="token punctuation">.</span><span class="token function">removeWhere</span><span class="token punctuation">(</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> item<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">"id"</span></span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">3</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token comment">// remove by index.</span></pre></td></tr><tr><td data-num="32"></td><td><pre>list<span class="token punctuation">.</span><span class="token function">removeIndex</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token comment">// filter</span></pre></td></tr><tr><td data-num="35"></td><td><pre>list<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">(</span>ele<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> ele<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="maps"><a class="anchor" href="#maps">#</a> Maps</h4>
+<p>Dart 的 Maps 有三種</p>
+<ul>
+<li>HashMap
+<ul>
+<li>是無序的 Ｍap，存放在 HashMap 內的元素，在迭代取出時，不會依照順序取出。</li>
+</ul>
+</li>
+<li>LinkedHashMap
+<ul>
+<li><strong>預設 Map 的實作。</strong> 將元素存進 LinkedHashMap，LinkedHashMap 會自動將前後的元素串起來，所以在迭代的時候就可以按照原先加入的順序取出。</li>
+</ul>
+</li>
+<li>SplayTreeMap
+<ul>
+<li>存放在 SplayTreeMap 的元素，可以按照字母順序排列。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 定義空 Map</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">var</span> emptyMap <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">//_InternalLinkedHashMap&lt;dynamic, dynamic></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">var</span> emptyMap <span class="token operator">=</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">//_InternalLinkedHashMap&lt;String, String></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 用 LinkedHashMap 儲存 Map 的元素，會依照順序頭尾串接起來，是有序的 Map。</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">var</span> keyValuePair <span class="token operator">=</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span> <span class="token comment">// Map</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token string-literal"><span class="token string">'Taiwan'</span></span><span class="token punctuation">:</span><span class="token string-literal"><span class="token string">'Taipei'</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>	<span class="token string-literal"><span class="token string">'Japan'</span></span><span class="token punctuation">:</span><span class="token string-literal"><span class="token string">'Tokyo'</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>	<span class="token string-literal"><span class="token string">'USA'</span></span><span class="token punctuation">:</span><span class="token string-literal"><span class="token string">'Washington'</span></span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// 使用</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>keyValuePair<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">"Taiwan"</span></span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// 新增資料</span></pre></td></tr><tr><td data-num="17"></td><td><pre>keyValuePair<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">"Tokyo"</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"Hot"</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>keyValuePair<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment">// 刪除資料</span></pre></td></tr><tr><td data-num="21"></td><td><pre>keyValuePair<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'USA'</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>keyValuePair<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;Taiwan: Taipei, Japan: Tokyo, Tokyo: Hot&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment">// 檢查是否有 key</span></pre></td></tr><tr><td data-num="25"></td><td><pre>keyValuePair<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Taiwan"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token comment">// 檢查是否有 value</span></pre></td></tr><tr><td data-num="28"></td><td><pre>keyValuePair<span class="token punctuation">.</span><span class="token function">containsValue</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Tokyo"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token comment">// 巡行</span></pre></td></tr><tr><td data-num="31"></td><td><pre>keyValuePair<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">key</span></span><span class="token string">'s capital is </span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">value</span></span><span class="token string">."</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="修飾字-const-final-dynamic"><a class="anchor" href="#修飾字-const-final-dynamic">#</a> 修飾字 const, final, dynamic</h4>
+<h5 id="const-final"><a class="anchor" href="#const-final">#</a> const &amp; final</h5>
+<p>const 與 final 都是用來宣告「常數」的關鍵字。</p>
+<p>不同的地方在於 const 在 compile time 就要決定好 value, final 則是在 run time 才決定 value.</p>
+<p>以下給一個 example 就會很容易明白了</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token number">1243</span><span class="token punctuation">;</span> <span class="token comment">// 在 compile time a 就已經被賦值了</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> time <span class="token operator">=</span> <span class="token class-name">DateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//compile error. 因為在 compile time 無法獲得 now 的數值</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">final</span> time <span class="token operator">=</span> <span class="token class-name">DateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果需要在 run time 才賦值的話，就要使用 final</span></pre></td></tr></table></figure><h5 id="dynamic"><a class="anchor" href="#dynamic">#</a> dynamic</h5>
+<p>dynamic 可以想成 javascript 的  <code>var</code> 。是一個動態變數。</p>
+<p>意思是，使用這個關鍵字宣告的變數可以不管型別、任意賦值。</p>
+<p>以下為一個例子</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">dynamic</span> variable <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"string"</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>variable<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// string</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>variable <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>variable<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 123</span></pre></td></tr></table></figure><h4 id="function"><a class="anchor" href="#function">#</a> function</h4>
+<p>function 的命名需要先定義型別。</p>
+<p>參數可以使用  <code>=</code>  給予 default value 但是需要使用  <code>&#123;&#125;</code>  包起來。呼叫的時候則是使用  <code>:</code>  來指定值</p>
+<p>example.</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token class-name">String</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token string-literal"><span class="token string">"abc"</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">a</span><span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">b</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 也可以對 arguments 定義型別</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token class-name">String</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>int a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">String</span> b<span class="token operator">=</span><span class="token string-literal"><span class="token string">"abc"</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">return</span> <span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">a</span><span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">b</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span> <span class="token number">345</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"hello world"</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "345, hello world"</span></pre></td></tr></table></figure><p>當 function statement 只有一行的時候，可以用 lambda function 的形式撰寫。</p>
+<p>lambda function 的撰寫風格很像 javascript 的 arrow function.</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//lambda 的方式宣告 function.</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token class-name">String</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>int a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">String</span> b<span class="token operator">=</span><span class="token string-literal"><span class="token string">"abc"</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">a</span><span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">b</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">;</span></pre></td></tr></table></figure><h5 id="anonymous-function"><a class="anchor" href="#anonymous-function">#</a> anonymous function</h5>
+<p>dart 中的 function 也可以像 javascript 一樣在參數中傳遞。</p>
+<p>我們可以使用  <code>Function</code>  這個型別來承接匿名函式。</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">var</span> func1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span>a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">=</span><span class="token string-literal"><span class="token string">"abc"</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">a</span><span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">b</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">a</span><span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">b</span><span class="token punctuation">&#125;</span></span><span class="token string"> = 123"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">func1</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span> <span class="token number">7893</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"test code"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// Output：</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 7893, test code</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">// 7893, test code = 123</span></pre></td></tr></table></figure><h4 id="class"><a class="anchor" href="#class">#</a> class</h4>
+<p>Dart 中的 class 宣告方式比較接近 Java 使用與 class name 相同的名稱作為 constructor.</p>
+<p>並且，Dart 並不支持 anonymous class.</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Video</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token class-name">String</span> title<span class="token punctuation">;</span> <span class="token comment">// 標題</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token class-name">String</span> description<span class="token punctuation">;</span> <span class="token comment">// 影片資訊</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token class-name">String</span> publishTime<span class="token punctuation">;</span> <span class="token comment">// 上傳時間</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token class-name">String</span> thumbnail<span class="token punctuation">;</span> <span class="token comment">// 縮圖網址</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token class-name">String</span> url<span class="token punctuation">;</span> <span class="token comment">// 影片網址</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token class-name">Video</span><span class="token punctuation">(</span><span class="token class-name">String</span> title<span class="token punctuation">,</span> <span class="token class-name">String</span> description<span class="token punctuation">,</span> <span class="token class-name">String</span> publishTime<span class="token punctuation">,</span> <span class="token class-name">String</span> thumbnail<span class="token punctuation">,</span> <span class="token class-name">String</span> url<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>title <span class="token operator">=</span> title<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>description <span class="token operator">=</span> description<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>publishTime <span class="token operator">=</span> publishTime<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>thumbnail <span class="token operator">=</span> thumbnail<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> url<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>另外 Dart 不支持 constructor 多型，若是我們需要依照不同情況給予不同參數的實例化，我們可以如下這樣寫。</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">Video</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token class-name">String</span> _title<span class="token punctuation">;</span> <span class="token comment">// 標題</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token class-name">String</span> _description<span class="token punctuation">;</span> <span class="token comment">// 影片資訊</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token class-name">String</span> _publishTime<span class="token punctuation">;</span> <span class="token comment">// 上傳時間</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token class-name">String</span> _thumbnail<span class="token punctuation">;</span> <span class="token comment">// 縮圖網址</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token class-name">String</span> _url<span class="token punctuation">;</span> <span class="token comment">// 影片網址</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token comment">// 使用 縮寫，直接取代原本 assign 的寫法</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token class-name">Video</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_title<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_description<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_publishTime<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_thumbnail<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_url<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token class-name">Video</span><span class="token punctuation">.</span><span class="token function">onlyUrl</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_url<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token class-name">Video</span><span class="token punctuation">.</span><span class="token function">onlyTitle</span><span class="token punctuation">(</span><span class="token class-name">String</span> title<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token keyword">this</span><span class="token punctuation">.</span>_title <span class="token operator">=</span> title<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token comment">//getter</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token class-name">String</span> <span class="token keyword">get</span> title <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>_title<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token class-name">String</span> <span class="token keyword">get</span> url <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>_url<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token comment">//setter</span></pre></td></tr><tr><td data-num="22"></td><td><pre>  <span class="token keyword">set</span> <span class="token function">title</span><span class="token punctuation">(</span><span class="token class-name">String</span> title<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>      <span class="token keyword">this</span><span class="token punctuation">.</span>_title <span class="token operator">=</span> title<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">var</span> video1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Video</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'Dart Tutorial'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'Happy coding'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'2019/9/14'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'https://123'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'https://456'</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>video1<span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Output： Dart Tutorial</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token keyword">var</span> video2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Video</span><span class="token punctuation">.</span><span class="token function">onlyUrl</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"https://123.456"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>video2<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Output： https://123.456</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token keyword">var</span> video3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Video</span><span class="token punctuation">.</span><span class="token function">onlyTitle</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Only title"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token function">print</span><span class="token punctuation">(</span>video3<span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Output： Only title</span></pre></td></tr></table></figure><h3 id="非同步語法"><a class="anchor" href="#非同步語法">#</a> 非同步語法</h3>
+<h4 id="async-await-future"><a class="anchor" href="#async-await-future">#</a> async, await, Future</h4>
+<ul>
+<li><code>Future</code>  是一個 class 用來表示非同步的結果，擁有兩個狀態: completed /uncompleted。可以類比為 javascript 的 promise.</li>
+<li><code>async</code>  是用於區分 function 是否為非同步，使用方式就如 javascript 一樣，在 function 前面加上關鍵字。</li>
+<li><code>await</code>  只能在 async function 中使用，用來等待非同步的工作完成。概念與 javascript 的 await 一樣。</li>
+</ul>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 載入 dart async 的 package.</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'dart:async'</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">></span></span> <span class="token function">introduction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// Future.delayed 類似 js 的 Promise.delay. 模擬非同步情形。等待兩秒。</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">return</span> <span class="token class-name">Future</span><span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token class-name">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Dart tutorial"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Before introduction"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token function">introduction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"After introduction"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment">// Output:</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// Before introduction</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">// After introduction</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// Dart tutorial</span></pre></td></tr></table></figure><p>使用  <code>await</code>  的效果</p>
+<figure class="highlight dart"><figcaption data-lang="dart"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 載入 dart async 的 package.</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'dart:async'</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">introduction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token comment">// Future.delayed 類似 js 的 Promise.delay. 模擬非同步情形。等待兩秒。</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">return</span> <span class="token class-name">Future</span><span class="token punctuation">.</span><span class="token function">delayed</span><span class="token punctuation">(</span><span class="token class-name">Duration</span><span class="token punctuation">(</span>seconds<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string-literal"><span class="token string">"Dart tutorial"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Before introduction"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">introduction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"After introduction"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment">// Output:</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// Before introduction</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">// Dart tutorial</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment">// After introduction</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/flutter/" rel="tag"><i class="ic i-tag"></i> flutter</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2023-02-02 01:22:31" itemprop="dateModified" datetime="2023-02-02T01:22:31+08:00">2023-02-02</time>
+  </span>
+  <span id="Tech/Flutter/Flutter 學習 - flutter 介紹 & Dart 簡介/" class="item leancloud_visitors" data-flag-title="Flutter 學習 - flutter 介紹 & Dart 簡介" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Let's Life
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/" title="Flutter 學習 - flutter 介紹 &amp; Dart 簡介">https://z20240.github.io/Tech/Flutter/Flutter 學習 - flutter 介紹 & Dart 簡介/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1203&#x2F;1080?random&#x3D;7" title="Flutter 學習 - 環境安裝">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Flutter</span>
+  <h3>Flutter 學習 - 環境安裝</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+            </div>
+            <div id="sidebar">
+              
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flutter-vs-react-native"><span class="toc-number">2.</span> <span class="toc-text"> Flutter v.s. React Native.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dart"><span class="toc-number">3.</span> <span class="toc-text"> Dart</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#type-%E9%A1%9E%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text"> Type 類型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#example"><span class="toc-number">3.1.1.</span> <span class="toc-text"> Example</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E6%95%B8%E5%80%BC%E5%AE%A3%E5%91%8A"><span class="toc-number">3.1.1.1.</span> <span class="toc-text"> 一般數值宣告</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AD%97%E4%B8%B2%E4%B8%B2%E6%8E%A5"><span class="toc-number">3.1.1.1.1.</span> <span class="toc-text"> 字串串接</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#list"><span class="toc-number">3.1.1.2.</span> <span class="toc-text"> List</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#maps"><span class="toc-number">3.1.2.</span> <span class="toc-text"> Maps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E9%A3%BE%E5%AD%97-const-final-dynamic"><span class="toc-number">3.1.3.</span> <span class="toc-text"> 修飾字 const, final, dynamic</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#const-final"><span class="toc-number">3.1.3.1.</span> <span class="toc-text"> const &amp; final</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dynamic"><span class="toc-number">3.1.3.2.</span> <span class="toc-text"> dynamic</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#function"><span class="toc-number">3.1.4.</span> <span class="toc-text"> function</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#anonymous-function"><span class="toc-number">3.1.4.1.</span> <span class="toc-text"> anonymous function</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#class"><span class="toc-number">3.1.5.</span> <span class="toc-text"> class</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%AA%9E%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text"> 非同步語法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#async-await-future"><span class="toc-number">3.2.1.</span> <span class="toc-text"> async, await, Future</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86/" rel="bookmark" title="Flutter 學習 - 環境安裝">Flutter 學習 - 環境安裝</a></li><li class="active"><a href="/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/" rel="bookmark" title="Flutter 學習 - flutter 介紹 & Dart 簡介">Flutter 學習 - flutter 介紹 & Dart 簡介</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description">記錄生活、工作、大小事</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">81</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">20</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">69</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+            </div>
+            <div class="dimmer"></div>
+          </div>
+        </main>
+        <footer id="footer">
+          <div class="inner">
+            <div class="widgets">
+              
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-04-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%80-docker-%E7%B0%A1%E4%BB%8B/" title="Docker 學習筆記 (一) Docker 簡介">Docker 學習筆記 (一) Docker 簡介</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/Frontend/NodeJs/2018-11-30-javascript-tool-%E4%B8%80%E5%80%8B%E8%87%AA%E8%A3%BD%E7%9A%84-arguments-verify-%E5%B7%A5%E5%85%B7/" title="JavascriptTool 一個自製的 arguments Verify 工具">JavascriptTool 一個自製的 arguments Verify 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
+</div>
+
+    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" title="Debian add-apt-repository command not found 問題">Debian add-apt-repository command not found 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession2/" title="Cambly-Lession2">Cambly-Lession2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-22-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%BA%94-%E4%BB%A5%E4%B8%80%E5%80%8Btodolist%E5%AF%A6%E6%88%B0-dockerfile/" title="Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile">Docker 學習筆記 (五) —以一個TodoList實戰 Dockerfile</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2021-02-09-windows-%E6%89%8B%E5%8B%95%E7%A7%BB%E9%99%A4-%E6%96%B0%E5%A2%9E-%E7%A7%BB%E9%99%A4%E7%A8%8B%E5%BC%8F-%E6%B8%85%E5%96%AE%E4%B8%AD%E7%84%A1%E6%B3%95%E8%A2%AB%E7%A7%BB%E9%99%A4%E7%9A%84%E7%A8%8B%E5%BC%8F/" title="Windows 手動移除「新增&#x2F;移除程式」清單中無法被移除的程式">Windows 手動移除「新增/移除程式」清單中無法被移除的程式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+</div>
+
+    <span><a href="/Life/2019-04-11-%E9%96%8B%E7%AE%B1-bose-soundsport-free-%E7%9C%9F%E7%84%A1%E7%B7%9A%E8%80%B3%E6%A9%9F/" title="開箱 Bose SoundSport Free 真無線耳機">開箱 Bose SoundSport Free 真無線耳機</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/%E4%BD%BF%E7%94%A8%20gmail%20%E7%84%A1%E9%99%90%E7%94%B3%E8%BE%A6%E5%B8%B3%E8%99%9F/" title="如何使用 gmail 無限申辦帳號">如何使用 gmail 無限申辦帳號</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+            </div>
+            <div class="status">
+  <div class="copyright">
+     &copy;
+    
+      2010 –
+    
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Let's Life</span>
+  </div>
+    <div class="powered-by">
+      Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+    </div>
+</div>
+
+          </div>
+        </footer>
+      </div>
+      <script data-config type="text/javascript">
+        var LOCAL = {
+          path: 'Tech/Flutter/Flutter 學習 - flutter 介紹 & Dart 簡介/',
+          favicon: {
+            show: "Let's Life",
+            hide: "Let's Life"
+          },
+          search: {
+            placeholder: "Search for Posts",
+            empty: "We didn't find any results for the search: ${query}",
+            stats: "${hits} results found in ${time} ms"
+          },valine : true,fancybox : true,
+              copyright : 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',ignores: [
+            function (uri) {
+              return uri.includes('#');
+            },
+            function (uri) {
+              return new RegExp(LOCAL.path + "$").test(uri);
+            }
+          ]
+        };
+      </script>
+      <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+      <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+      <script src="/js/app.js?v=0.2.5"></script>
+      
+
+      <script
+        color="206,206,206"
+        opacity="0.5"
+        count="99"
+        zindex="-1"
+        src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+    </body>
+  </html>
