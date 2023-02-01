@@ -108,12 +108,12 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
         </div>
         <div id="imgs" class="pjax">
             <ul>
-                <li class="item" data-background-image="https://picsum.photos/1205/1080?random=11"></li>
-                <li class="item" data-background-image="https://z20240.github.io/gallary/pexels-invisiblepower-1076885.jpg"></li>
-                <li class="item" data-background-image="https://picsum.photos/1201/1080?random=3"></li>
                 <li class="item" data-background-image="https://z20240.github.io/gallary/jeremy-bishop-DLICfSD33as-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/jonatan-pie-FOcMXBbe5rU-unsplash.jpg"></li>
+                <li class="item" data-background-image="https://z20240.github.io/gallary/pexels-krivec-ales-547115.jpg"></li>
+                <li class="item" data-background-image="https://picsum.photos/1205/1080?random=11"></li>
                 <li class="item" data-background-image="https://picsum.photos/1207/1080?random=15"></li>
-                <li class="item" data-background-image="https://picsum.photos/1204/1080?random=9"></li>
+                <li class="item" data-background-image="https://picsum.photos/1200/1080?random=1"></li>
             </ul>
         </div>
       </header>
@@ -183,28 +183,28 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$PATH</span>:<span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>/flutter/bin"</span></pre></td></tr></table></figure><h4 id="執行-flutter-doctor"><a class="anchor" href="#執行-flutter-doctor">#</a> 執行 flutter doctor</h4>
 <p>flutter doctor 會診斷是否缺少開發 flutter 時所需要的相關套件。</p>
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>flutter doctor</pre></td></tr></table></figure><p>第一次跑的時候我還未裝 andriod sdk 與 xcode 。因此得到的結果會是類似以下這樣。</p>
-<p>![][image-20230201035252043.png]</p>
+<p>![image-20230201035252043.png][image-20230201035252043.png]</p>
 <p>接下來，我們就要一步一步地把錯誤的部分給修正。</p>
 <h3 id="安裝-android-sdk"><a class="anchor" href="#安裝-android-sdk">#</a> 安裝 Android sdk.</h3>
 <p>首先到 android studio 官網安裝 android studio。<br />
 下載並安裝完成後，開啟 android studio，並且點選  <code>settings &gt; Appearance &amp; behavior &gt; System Settings &gt; Andriod SDK</code>   並且選擇到 sdk tools，將裡面的 sdk 都安裝起來。<br />
-![][image-20230201034918514.png]<br />
+![image-20230201034918514.png][image-20230201034918514.png]<br />
  安裝完後在 env 中增加 path</p>
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$PATH</span>:<span class="token environment constant">$HOME</span>/Library/Android/sdk"</span></pre></td></tr></table></figure><p>再重跑一次  <code>flutter doctor</code></p>
-<p>![][image-20230201035715344.png]</p>
+<p>![image-20230201035715344.png][image-20230201035715344.png]</p>
 <p>這次 error message 變了，有些 licensee 不正確。 因此我們照著執行  <code>flutter doctor --android-licenses</code></p>
 <p>接下來它會問你一些 licenses 是否同意。 就照著選  <code>Y</code>  就好。</p>
 <p>結束後，再跑一次  <code>flutter doctor</code>  理論上 android 這邊的 error 就都清除了。</p>
-<p>![][image-20230201040009795.png]</p>
+<p>![image-20230201040009795.png][image-20230201040009795.png]</p>
 <h3 id="安裝-xcode"><a class="anchor" href="#安裝-xcode">#</a> 安裝 xcode.</h3>
 <p>直接上 app store 安裝 xcode.</p>
-<p>![][image-20230201040236174.png]<br />
+<p>![image-20230201040236174.png][image-20230201040236174.png]<br />
  安裝完成後執行</p>
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> xcode-select <span class="token parameter variable">--switch</span> /Applications/Xcode.app/Contents/Developer</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">sudo</span> xcodebuild <span class="token parameter variable">-runFirstLaunch</span></pre></td></tr></table></figure><p>再執行  <code>flutter doctor</code>  也許會碰到跟我一樣的狀況。 敘述缺少  <code>cocoaPods</code>  。</p>
-<p>![][image-20230201040518776.png]</p>
+<p>![image-20230201040518776.png][image-20230201040518776.png]</p>
 <p>因此我們要再安裝  <code>cocoaPods</code> 。</p>
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">sudo</span> gem <span class="token function">install</span> cocoapods</pre></td></tr></table></figure><p>之後再跑一遍，理論上 xcode 的部分就也修掉了。</p>
-<p>![][image-20230201040716354.png]</p>
+<p>![image-20230201040716354.png][image-20230201040716354.png]</p>
 <p>最後就剩下 Java 的 bundled 要處理。</p>
 <h3 id="安裝-java-bundle"><a class="anchor" href="#安裝-java-bundle">#</a> 安裝 Java bundle.</h3>
 <p>我首先找尋 stackoverflow 上的解決方法，查到這篇 <span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjg1Njk0MzAvdW5hYmxlLXRvLWZpbmQtYnVuZGxlZC1qYXZhLXZlcnNpb24td2l0aC1mbHV0dGVyLWRvY3Rvci1hZnRlci11cGRhdGluZy1hbmRyb2lk">Unable to find bundled Java version with flutter doctor, after updating Android studio Arctic Fox(2020.3.1) on M1 Apple Silicon</span></p>
@@ -227,7 +227,7 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
 </ol>
 </blockquote>
 <p>以上步驟完成之後我們再執行一次  <code>flutter doctor -v</code></p>
-<p>![][image-20230201142130471.png]</p>
+<p>![image-20230201142130471.png][image-20230201142130471.png]</p>
 <p>到這邊，應該就能看到全部錯誤都修正完畢。</p>
 <p>如此 fultter 的環境就算準備完成了。</p>
 
@@ -244,7 +244,7 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2023-02-01 14:23:42" itemprop="dateModified" datetime="2023-02-01T14:23:42+08:00">2023-02-01</time>
+    <time title="Modified: 2023-02-02 01:36:51" itemprop="dateModified" datetime="2023-02-02T01:36:51+08:00">2023-02-02</time>
   </span>
   <span id="Tech/Flutter/Flutter 學習 - 環境安裝與錯誤處理/" class="item leancloud_visitors" data-flag-title="Flutter 學習 - 環境安裝" title="Views">
       <span class="icon">
@@ -297,7 +297,7 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
     <div class="item left">
       
 
-  <a href="/Life/EnglishLearn/Combly-Lession8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;jonatan-pie-1hpE3fROU0I-unsplash.jpg" title="Cambly-Lession8">
+  <a href="/Life/EnglishLearn/Combly-Lession8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;jonatan-pie-h8nxGssjQXs-unsplash.jpg" title="Cambly-Lession8">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Cambly</span>
   <h3>Cambly-Lession8</h3>
@@ -307,7 +307,7 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
     <div class="item right">
       
 
-  <a href="/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;jonatan-pie-1hpE3fROU0I-unsplash.jpg" title="Flutter 學習 - flutter 簡介 &amp; Dart 語法入門">
+  <a href="/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;picsum.photos&#x2F;1203&#x2F;1080?random&#x3D;7" title="Flutter 學習 - flutter 簡介 &amp; Dart 語法入門">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Flutter</span>
   <h3>Flutter 學習 - flutter 簡介 & Dart 語法入門</h3>
@@ -434,36 +434,26 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Cambly-Lession4/" title="Cambly-Lession4">Cambly-Lession4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
 </div>
 
-    <span><a href="/Tech/Linux/2020-07-27-gcp-%E9%81%87%E5%88%B0permission-denied-publickey-%E6%80%8E%E9%BA%BC%E8%BE%A6/" title="GCP遇到permission denied (publickey)怎麼辦？">GCP遇到permission denied (publickey)怎麼辦？</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Flutter/" title="In Flutter">Flutter</a>
-</div>
-
-    <span><a href="/Tech/Flutter/Flutter%20%E5%AD%B8%E7%BF%92%20-%20flutter%20%E4%BB%8B%E7%B4%B9%20&%20Dart%20%E7%B0%A1%E4%BB%8B/" title="Flutter 學習 - flutter 簡介 &amp; Dart 語法入門">Flutter 學習 - flutter 簡介 & Dart 語法入門</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Aws-Architecture/" title="In Aws Architecture">Aws Architecture</a>
-</div>
-
-    <span><a href="/Tech/Aws%20Architecture/Aws-architecture-IAM/" title="Aws 架構學習 - IAM">Aws 架構學習 - IAM</a></span>
+    <span><a href="/Tech/Linux/2018-11-03-nginx-%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%80%8B%E7%B6%B2%E7%AB%99%E5%85%B1%E7%94%A8-80-port/" title="Nginx 如何配置多個網站共用 80 port">Nginx 如何配置多個網站共用 80 port</a></span>
   </li>
 
       
@@ -484,46 +474,12 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
 <div class="breadcrumb">
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
-</div>
-
-    <span><a href="/Tech/Tools/2018-11-22-vscode-%E4%BD%BF%E7%94%A8-settings-sync-%E5%90%8C%E6%AD%A5-vscode-%E7%9A%84%E6%93%B4%E5%85%85%E5%8A%9F%E8%83%BD%E8%88%87%E5%90%84%E9%A0%85%E8%A8%AD%E5%AE%9A/" title="VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定">VSCode 使用 Settings Sync 同步 VScode 的擴充功能與各項設定</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Data-Storage/" title="In Data Storage">Data Storage</a>
-</div>
-
-    <span><a href="/Tech/Data%20Storage/2018-10-27-%E5%9C%A8-debian-9-%E4%B8%AD%E5%AE%89%E8%A3%9D-redis-%E4%B8%A6%E4%BD%BF%E5%85%B6%E6%88%90%E7%82%BA-service/" title="在 Debian 9 中安裝 Redis 並使其成為 Service">在 Debian 9 中安裝 Redis 並使其成為 Service</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/PHP/" title="In PHP">PHP</a>
-</div>
-
-    <span><a href="/Tech/PHP/2018-10-27-laravel-%E4%BD%BF%E7%94%A8-middleware-%E8%A7%A3%E6%B1%BA-access-control-allow-origin-%E7%9A%84%E5%95%8F%E9%A1%8C/" title="Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題">Laravel 使用 Middleware 解決 ‘Access-Control-Allow-Origin’ 的問題</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Tech/" title="In Tech">Tech</a>
-<i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/2018-11-30-javascript-%E4%BD%BF%E7%94%A8-array-reduce-%E9%80%B2%E8%A1%8C-object-array-%E7%9A%84%E5%8A%A0%E7%B8%BD/" title="Javascript 使用 Array.Reduce 進行 Object Array 的加總">Javascript 使用 Array.Reduce 進行 Object Array 的加總</a></span>
+    <span><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></span>
   </li>
 
       
@@ -537,7 +493,7 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
 <a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
 </div>
 
-    <span><a href="/Life/EnglishLearn/Cambly-Lession3/" title="Cambly-Lession3">Cambly-Lession3</a></span>
+    <span><a href="/Life/EnglishLearn/Combly-Lession6/" title="Cambly-Lession6">Cambly-Lession6</a></span>
   </li>
 
       
@@ -547,11 +503,57 @@ Flutter 學習 - 環境安裝 - Flutter - Tech |
 <a href="/categories/Tech/" title="In Tech">Tech</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
 </div>
 
-    <span><a href="/Tech/Frontend/vue/2019-05-15-vuex-%E5%9C%A8-vscode-%E4%B8%AD%E4%B8%8D%E4%BD%BF%E7%94%A8-typescript-%E4%B9%9F%E8%83%BD%E8%AE%93-vuex-%E8%AE%80%E6%87%82%E8%AE%8A%E6%95%B8%E7%9A%84%E9%A1%9E%E5%9E%8B/" title="Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型">Vuex在 Vscode 中不使用 Typescript 也能讓 Vuex 讀懂變數的類型</a></span>
+    <span><a href="/Tech/Frontend/2021-02-09-front-end-emmet-%E5%89%8D%E7%AB%AF%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC%E7%9A%84%E7%A5%9E%E5%85%B5%E5%88%A9%E5%99%A8/" title="Front-end Emmet , 前端快速開發的神兵利器">Front-end Emmet , 前端快速開發的神兵利器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/IELS%20%E5%AD%97%E5%BD%99/" title="IELS 字彙">IELS 字彙</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2018-11-02-%E4%B8%80%E5%80%8B%E5%85%8D%E8%B2%BB%E7%9A%84-https-%E6%8E%88%E6%AC%8A%E5%B7%A5%E5%85%B7-certbot/" title="一個免費的 HTTPS 授權工具 — certbot">一個免費的 HTTPS 授權工具 — certbot</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2019-07-05-javascript-functional-programming-%E4%B8%80%E6%96%87%E5%88%B0%E5%BA%95%E5%85%A8%E7%B4%80%E9%8C%84/" title="Javascript Functional Programming 一文到底全紀錄">Javascript Functional Programming 一文到底全紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+</div>
+
+    <span><a href="/Tech/Frontend/2018-11-16-html5-script-tag-%E6%96%B0%E5%A2%9E%E7%9A%84%E5%B1%AC%E6%80%A7-async-defer-%E5%B7%AE%E7%95%B0/" title="HTML5 script Tag 新增的屬性：async, defer 差異">HTML5 script Tag 新增的屬性：async, defer 差異</a></span>
   </li>
 
   </ul>
