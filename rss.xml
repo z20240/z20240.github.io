@@ -10,8 +10,8 @@
         </author>
         <description>記錄生活、工作、大小事</description>
         <language>en</language>
-        <pubDate>Wed, 01 Feb 2023 13:34:10 +0800</pubDate>
-        <lastBuildDate>Wed, 01 Feb 2023 13:34:10 +0800</lastBuildDate>
+        <pubDate>Fri, 03 Feb 2023 16:17:31 +0800</pubDate>
+        <lastBuildDate>Fri, 03 Feb 2023 16:17:31 +0800</lastBuildDate>
         <category term="nodejs" />
         <category term=" frontend" />
         <category term=" backend" />
@@ -21,6 +21,23 @@
         <category term=" python" />
         <category term=" vue" />
         <category term=" react" />
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/axois-big5%E7%B6%B2%E9%A0%81%E7%8D%B2%E5%8F%96%E9%80%A0%E6%88%90%E4%BA%82%E7%A2%BC%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/</guid>
+            <title>[Axios] big5 網頁爬取時變成亂碼的解決方法</title>
+            <link>https://z20240.github.io/Tech/Frontend/axois-big5%E7%B6%B2%E9%A0%81%E7%8D%B2%E5%8F%96%E9%80%A0%E6%88%90%E4%BA%82%E7%A2%BC%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/</link>
+            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
+            <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
+            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
+            <category term="axios" scheme="https://z20240.github.io/tags/axios/" />
+            <category term="iconv" scheme="https://z20240.github.io/tags/iconv/" />
+            <pubDate>Fri, 03 Feb 2023 16:17:31 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;最近在使用爬取一個比較老的網站時發現，目標網站由於編碼方式是比較古早的編碼 - big5 ，因此在回傳的結果只要是中文的部分都變成了亂碼。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230203152936673.png&#34; alt=&#34;image-20230203152936673.png&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;解決方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解決方案&#34;&gt;#&lt;/a&gt; 解決方案&lt;/h3&gt;
+&lt;p&gt;npm 上有一個編碼轉換工具  &lt;code&gt;iconv&lt;/code&gt;  可以很好地將不同格式的編碼進行轉碼。因此我們可以在 axios request api 的時候，將 responseType 設定為  &lt;code&gt;arraybuffer&lt;/code&gt;  並且在  &lt;code&gt;transformResponse&lt;/code&gt;  時讓 iconv 幫我們將 big5 轉換成現在主流的 utf-8。&lt;/p&gt;
+&lt;p&gt;詳細的 code 可以見以下。&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; iconv &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;iconv-lite&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; url &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;https://www.ooo.xxx?q=&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; data &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;await&lt;/span&gt; axios&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;url&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token literal-property property&#34;&gt;responseType&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;arraybuffer&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token literal-property property&#34;&gt;transformResponse&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		&lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; iconv&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;decode&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Buffer&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;big5&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;data:&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; data&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 中文&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://z20240.github.io/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-flutter%E4%BB%8B%E7%B4%B9&amp;Dart%E7%B0%A1%E4%BB%8B/</guid>
             <title>Flutter 學習 - flutter 簡介 &amp; Dart 語法入門</title>
@@ -390,6 +407,59 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
+            <title>Cambly-Lession4</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;have foot in the door （ idioms )
+&lt;ul&gt;
+&lt;li&gt;to make the first step toward a goal by gaining entry into an organization, a career, etc. He took a job as a secretary to get his foot in the door.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;frequently &amp;gt; often &amp;gt; usually (1 / week).&lt;/li&gt;
+&lt;li&gt;I don&#39;t know if i have a cold&lt;/li&gt;
+&lt;li&gt;coherence = understanding.&lt;/li&gt;
+&lt;li&gt;stand on the same topic&lt;/li&gt;
+&lt;li&gt;&amp;quot;synonyms&amp;quot; is the difference word in the same meaning.&lt;/li&gt;
+&lt;li&gt;standardized = cause (something) to conform to a standard.
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;we could standardize on U.S. equipment&amp;quot;.&lt;/li&gt;
+&lt;li&gt;&amp;quot;the editors failed to standardize the spelling of geographic names&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;proficiency = ranking = level&lt;/li&gt;
+&lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</guid>
+            <title>Cambly-Lession6</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
+&lt;li&gt;I used to live in the country.&lt;/li&gt;
+&lt;li&gt;farm fishing&lt;/li&gt;
+&lt;li&gt;wild caught&lt;/li&gt;
+&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
+&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
             <title>Cambly-Lession4</title>
             <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
@@ -421,59 +491,6 @@
 &lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</guid>
-            <title>Cambly-Lession6</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</link>
-            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-            <category term="english" scheme="https://z20240.github.io/tags/english/" />
-            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
-&lt;li&gt;I used to live in the country.&lt;/li&gt;
-&lt;li&gt;farm fishing&lt;/li&gt;
-&lt;li&gt;wild caught&lt;/li&gt;
-&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
-&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
-            <title>Cambly-Lession4</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
-            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-            <category term="english" scheme="https://z20240.github.io/tags/english/" />
-            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;have foot in the door （ idioms )
-&lt;ul&gt;
-&lt;li&gt;to make the first step toward a goal by gaining entry into an organization, a career, etc. He took a job as a secretary to get his foot in the door.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;frequently &amp;gt; often &amp;gt; usually (1 / week).&lt;/li&gt;
-&lt;li&gt;I don&#39;t know if i have a cold&lt;/li&gt;
-&lt;li&gt;coherence = understanding.&lt;/li&gt;
-&lt;li&gt;stand on the same topic&lt;/li&gt;
-&lt;li&gt;&amp;quot;synonyms&amp;quot; is the difference word in the same meaning.&lt;/li&gt;
-&lt;li&gt;standardized = cause (something) to conform to a standard.
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;we could standardize on U.S. equipment&amp;quot;.&lt;/li&gt;
-&lt;li&gt;&amp;quot;the editors failed to standardize the spelling of geographic names&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;proficiency = ranking = level&lt;/li&gt;
-&lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -1140,190 +1157,6 @@ $ node --max-old-space-size=8192 app.js
 &lt;li&gt;其他有關 node Memory 相關的資訊：「 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjQxNTM5OTYvaXMtdGhlcmUtYS1saW1pdC1vbi10aGUtc2l6ZS1vZi1hLXN0cmluZy1pbi1qc29uLXdpdGgtbm9kZS1qcw==&#34;&gt;Is there a limit on the size of a string in JSON with Node.js?&lt;/span&gt; 」、「 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjAwMTg1ODgvaG93LXRvLW1vbml0b3ItdGhlLW1lbW9yeS11c2FnZS1vZi1ub2RlLWpz&#34;&gt;How to monitor the memory usage of Node.js?&lt;/span&gt; 」&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/</guid>
-            <title>Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp; Yabai)</title>
-            <link>https://z20240.github.io/Tech/Others/2021-08-14-tiling-window-management-%E5%B9%B3%E9%8B%AA%E5%BC%8F%E8%A6%96%E7%AA%97%E7%AE%A1%E7%90%86-amethyst-yabai/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-            <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
-            <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
-            <pubDate>Sun, 15 Aug 2021 05:05:43 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;tiling-window-management-平鋪式視窗管理-amethyst-yabai&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tiling-window-management-平鋪式視窗管理-amethyst-yabai&#34;&gt;#&lt;/a&gt; Tiling Window Management - 平鋪式視窗管理 (Amethyst &amp;amp; Yabai)&lt;/h3&gt;
-&lt;h4 id=&#34;借鑑linux另一種視窗管理的思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#借鑑linux另一種視窗管理的思路&#34;&gt;#&lt;/a&gt; 借鑑 Linux，另一種視窗管理的思路&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*VrezmQ_2bsHHCUSFxNm2kQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;在 macOS 中，要做視窗管理不是依靠手動拖曳視窗邊角調整大小及位置，就是依靠其他視窗管理工具諸如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS90dy9hcHAvbWFnbmV0L2lkNDQxMjU4NzY2P210PTEy&#34;&gt;Magnet&lt;/span&gt; 或是 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS90dy9hcHAvbW9vbS9pZDQxOTMzMDE3MD9tdD0xMg==&#34;&gt;Moom&lt;/span&gt; 這類快速調整視窗的小工具作為輔助。&lt;/p&gt;
-&lt;p&gt;然而在每次開啟新的視窗的時候通常仍需要自己手動定位是窗的位置及大小，還是不太方便。&lt;/p&gt;
-&lt;p&gt;另外當視窗一多起來，依然免除不了需要通過手勢「展開」來從茫茫視窗海中找尋所需要視窗的痛苦。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;MacOS 本身的視窗管理能力是有目共睹的混亂。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*9swWR0x1rBw6aDOhFwLACQ.gif&#34; alt=&#34;通常視窗一多就會擠在一起，macOS 用戶就必須通過「展開」來從茫茫程式海中找尋&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;通常視窗一多就會擠在一起，macOS 用戶就必須通過「展開」來從茫茫程式海中找尋&lt;/p&gt;
-&lt;p&gt;今天要介紹的「平鋪式視窗管理」不同於 macOS 一般預設的視窗管理機制，其特色則是：「 &lt;em&gt;盡可能地將所有視窗依照設定好的規則展開，&lt;/em&gt; 並且 &lt;strong&gt;避免視窗重疊&lt;/strong&gt; 在一起。」&lt;/p&gt;
-&lt;p&gt;如此更能讓人一目瞭然現在桌面上有哪些視窗。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*TXuDJEdkIjdJll5Xs2wZ2w.png&#34; alt=&#34;所有視窗都展開來&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;所有視窗都展開來&lt;/p&gt;
-&lt;p&gt;當開啟新的視窗的時候視窗管理工具就會自動依照規則做好佈局，免除了視窗蓋來蓋去的問題。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*5NPkQIS5TR09HiaxkU6Bwg.gif&#34; alt=&#34;通常當視窗只有一個的時候會預設展開到最大，之後以二分法的方式分隔空間&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;通常當視窗只有一個的時候會預設展開到最大，之後以二分法的方式分隔空間&lt;/p&gt;
-&lt;p&gt;Tiling Window Management 中最為人熟知的就是 Linux 下 i3 的視窗管理了。其自動排列視窗、平鋪視窗的特性讓許多人即使離開了 Linux 也念念不忘。&lt;/p&gt;
-&lt;p&gt;因此身為 Unix Like 的 MacOS 當然也一定會有人想要移植這樣一套方便的視窗管理工具。&lt;/p&gt;
-&lt;p&gt;今天就主要介紹兩款網路上比較常見的 Tiling Window Management 套件。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2lhbnloL0FtZXRoeXN0&#34;&gt;Amethyst&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3lhYmFp&#34;&gt;Yabai&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;這兩個套件都是 Open Source 的，因此都可以在 Github 上找到。&lt;/p&gt;
-&lt;p&gt;其中 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2lhbnloL0FtZXRoeXN0&#34;&gt;Amethyst&lt;/span&gt; 是比較簡單容易上手的；而 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3lhYmFp&#34;&gt;Yabai&lt;/span&gt; 更適合進階使用者使用。&lt;/p&gt;
-&lt;p&gt;為了簡單講解，接下來都會以 TWM 作為 Tiling Window Management 的縮寫。&lt;/p&gt;
-&lt;h3 id=&#34;amethyst&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#amethyst&#34;&gt;#&lt;/a&gt; Amethyst&lt;/h3&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*qFXBBoqP39Bv_aTtmSmOUw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Amethyst 是一個非常容易入門的 TWM， 並且提供了非常多樣的視窗佈局可供選擇。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*zzg2M4dVZZYvVsgFEPC_Yg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;基本上安裝好 Amethyst 之後我們不需要做其他額外的設定即可開始使用。&lt;/p&gt;
-&lt;p&gt;Amethyst 擁有非常多樣的快捷鍵可以設定。通過簡單的快捷鍵我們可以很容易地操控各個視窗。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*inR_OfCObjnbxZIX-srkaA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;非常適合想要開箱即用的使用者。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*iES9yQoVnwQGxsKoHhE2uQ.gif&#34; alt=&#34;利用設定好的快捷鍵，可以很容易地操控佈局中的視窗&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;利用設定好的快捷鍵，可以很容易地操控佈局中的視窗&lt;/p&gt;
-&lt;p&gt;但是缺點也很明顯，我列舉了幾個觀察到的缺點如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;沒有辦法客製化自己的佈局&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;這其實並不是什麼大問題， Amethyst 提供了許許多多的佈局種類，基本上可以滿足絕大多數使用者的需求。然而若是對佈局方式比較有自己想法的人，Amethyst 這部分可能就無法滿足。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;視窗只能水平縮放、不能垂直縮放&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Amethyst 採用「主要視窗」與「次要視窗」的概念。&lt;/p&gt;
-&lt;p&gt;其中僅有「主要視窗」可以進行水平縮放 (依然無法垂直縮放)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*HKWfSFdae-qERrku4XnJKA.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;以上面的 gif 為例，右側的 Terminal 就會顯得非常的狹小，其實並不利於使用。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;能夠使用的功能已經被 Amethyst 定死，僅能使用熱鍵提供綁定的功能，無法另外設定其他功能。&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;這是所有開箱即用的小工具都一定會有的軟肋。畢竟要讓人簡單上手，一定就是要設定越少越好。這應該算是一種妥協吧～。&lt;/p&gt;
-&lt;h4 id=&#34;安裝&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝&#34;&gt;#&lt;/a&gt; 安裝&lt;/h4&gt;
-&lt;p&gt;Amethyst 的安裝非常簡單，僅需要使用 brew ，一行指令即可。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew install --cask amethyst
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;安裝完後，會在 Application Perference 中出現一個 app ，開啟後即可開始使用。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*i_uezLMOZqgIPNsnrzKkmQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;yabai&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#yabai&#34;&gt;#&lt;/a&gt; Yabai&lt;/h3&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*Ciz6Od9ySfrVtkiEs72l_w.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;相較於 Amethyst 開箱即用， Yabai 走在另一個極端。&lt;/p&gt;
-&lt;p&gt;Yabai 僅僅提供了一套完整 TWM 的指令集框架來操控視窗。使用者需要自行撰寫熱鍵設定、功能腳本來達到想要的結果。但也因為如此 Yabai 給予了極高的可設定彈性。&lt;/p&gt;
-&lt;p&gt;舉個例子，若是想要將視窗延展到最大，Yabai 需要使用以下指令完成。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;yabai -m window --toggle zoom-fullscreen
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然而若是每次要執行一個動作就必須使用一次指令，這是極度不切實際的。&lt;/p&gt;
-&lt;p&gt;因此通常使用者會搭配一套叫做 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3NraGQ=&#34;&gt;skhd&lt;/span&gt; 的快捷鍵管理程式，設定自己的快捷鍵映射到 Yabai 的指令。&lt;/p&gt;
-&lt;p&gt;還好網路上充斥著各路高手自行設定的 TWM 腳本設定，對於剛接觸的新手而言也大大了降低了入門的難度。&lt;/p&gt;
-&lt;p&gt;網路上有人說使用 Yabai 需要關閉 MacOS 的 System Integrity Protection 功能，但是其實這只是 Optional 。除非我們需要「更加進階的用法」不然一般的情況下依然可以很良好的使用。&lt;/p&gt;
-&lt;p&gt;我個人很推薦先從這個 Youtuber 的 Yabai 介紹開始下手，他不僅展示了他自己的 Yabai ，還丟出了自己的設定檔跟設定教學。算是非常完整的簡易入門。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JL1lz77YbUE&#34;&gt;&lt;img data-src=&#34;702b_hqdefault.jpg&#34; alt=&#34;Yabai - Tiling Window Manager for Mac [ Tutorial ]&#34; title=&#34;Yabai - Tiling Window Manager for Mac [ Tutorial ]&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;安裝-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝-2&#34;&gt;#&lt;/a&gt; 安裝&lt;/h4&gt;
-&lt;p&gt;為了良好的 Yabai 體驗，需要安裝 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3lhYmFpL3dpa2k=&#34;&gt;yabai&lt;/span&gt; 與 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3NraGQ=&#34;&gt;skhd&lt;/span&gt; 兩個 cli 套件。&lt;/p&gt;
-&lt;p&gt;由於我本人並不想關閉 MacOS 的 System Integrity Protection ，因此以下的安裝流程會是以不關閉 MacOS 的 System Integrity Protection 為主。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;安裝 Yabai&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;brew install koekeishiya/formulae/yabai
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;安裝 jq （這是一個 Json 的可視化 cli ，讓我們可以在 terminal 中容易的操控 JSON 物件）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;brew install jq
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;安裝 skhd (快捷鍵的設定套件)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;brew install koekeishiya/formulae/skhd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;三個都安裝完之後，你需要設定  &lt;code&gt;.yabairc&lt;/code&gt;  以及  &lt;code&gt;.skhdrc&lt;/code&gt;  檔案。&lt;/p&gt;
-&lt;p&gt;其中  &lt;code&gt;.yabairc&lt;/code&gt;  是 yabai 的設定檔；而  &lt;code&gt;.skhdrc&lt;/code&gt;  則是 skhd 設定快捷鍵的設定檔。&lt;/p&gt;
-&lt;p&gt;你可以將 .yabairc 與 .skhdrc 放置在家目錄 $HOME 中，或是在 .config 中建立各自的 config folder 都可以。&lt;/p&gt;
-&lt;p&gt;我自己是將設定檔都 git 包成一包，放在 .config 中，並且使用  &lt;code&gt;ln -s&lt;/code&gt;  軟連結到家目錄了。&lt;/p&gt;
-&lt;p&gt;如果不嫌棄，也可以使用我的設定&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// git 下載我的 yabai 設定到 .config/yabai
-$ git clone https://github.com/z20240/yabai.git &amp;quot;$&amp;#123;HOME&amp;#125;&amp;quot;/.config/yabai
-// 軟連結 .config/yabai 中的 yabairc 設定到家目錄
-$ ln -s &amp;quot;$&amp;#123;HOME&amp;#125;/.config/yabai/yabai/yabairc&amp;quot; &amp;quot;$&amp;#123;HOME&amp;#125;/.yabairc&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;主要實現功能有以下這些&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;新增的視窗依照目前的關注位置分割&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ieNyG9uhzw66lGXrjyxNKQ.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用快捷鍵水平 / 垂直縮放視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*5ZVbxolpIuH9BY8FK4PBIg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;滑鼠拖動即可調整視窗大小&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*3B9-BHm02eQC4mlV_Uh7dg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;滑鼠拖動到視窗的邊側，可置換視窗到其位置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*vOsem0TohjoiQyRwj__IYA.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;滑鼠拖動可以到視窗中央，可以堆疊這兩個視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*0-vM8MdNwqYIa38cHmDIqw.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;快速變換焦點視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*PiIo2aasyB15nf1zbMWO9w.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;快速對換視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*TZbmWNgQkEmsZmol6fSdnw.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一鍵放大 / 縮小視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*uA-p4IlvU3hOKYDsQFy8qg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一鍵將視窗丟到其他工作區&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*k770qOtVklQZxhr0j7aCew.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一鍵將視窗脫離 TWM，並且在這樣的狀況下依然可以快速排列視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*rf5sUpiqjZXPuJFW_-TiXQ.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一鍵將視窗與其他視窗堆疊，以堆疊的形式整理視窗&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*--6z5M0BwxkCgclrwDuYsQ.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一鍵旋轉目前的佈局樣式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*RHb6p3zEYN6GIVtXhQvtUg.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;另外，關於 stack 堆疊的效果，我額外使用了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0FkYW1XYWduZXIvc3RhY2tsaW5l&#34;&gt;stackline&lt;/span&gt; 的小圖示特效。&lt;/p&gt;
-&lt;p&gt;他可以更好地將目前有堆疊狀態的視窗給顯示出來，有效的降低了忘記視窗存在的狀況。&lt;/p&gt;
-&lt;p&gt;目前我主要就是使用這些功能，未來如果有想到什麼需要的功能會繼續更新在設定檔中。&lt;/p&gt;
-&lt;h3 id=&#34;結語&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#結語&#34;&gt;#&lt;/a&gt; 結語&lt;/h3&gt;
-&lt;p&gt;TWM 的使用體驗是真的優於以往的視窗管理方法。&lt;/p&gt;
-&lt;p&gt;他更有效率地整理雜亂無章的視窗佈局，大大提高了我們在視窗之間游移速度，並且減少了許多記憶視窗位置的心智負擔。&lt;/p&gt;
-&lt;p&gt;至於對於到底該使用 Amethyst 或是 Yabai？&lt;/p&gt;
-&lt;p&gt;我認為這完全是個人喜好問題。&lt;/p&gt;
-&lt;p&gt;真要給點意見的話，我個人認為從 Amethyst 開始入門是一個不錯的起手式。&lt;/p&gt;
-&lt;p&gt;畢竟我就是在 Amethyst 玩一段時間後開始發現 Amethyst 的不足並且決定跳槽到 Yabai。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;就像是發現了新大陸一般，著實被 Yabai 的強大給折服。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;通過 skhd 搭配 Yabai 的設定，我們幾乎可以做到任何想得到的快捷鍵用法設定。剩下的只有「想不想得到」而沒有「做不做得到」的問題了。&lt;/p&gt;
-&lt;h3 id=&#34;reference&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#reference&#34;&gt;#&lt;/a&gt; Reference&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2lhbnloL0FtZXRoeXN0&#34;&gt;Amethyst&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3lhYmFpL2Jsb2IvbWFzdGVyL1JFQURNRS5tZA==&#34;&gt;Yabai&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3NraGQvYmxvYi9tYXN0ZXIvUkVBRE1FLm1k&#34;&gt;skhd&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubm90aW9uLnNvL1lhYmFpLThkYTNiODI5ODcyZDQzMmZhYzQzMTgxYjdmZjYyOGZj&#34;&gt;Yabai-note&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0FkYW1XYWduZXIvc3RhY2tsaW5l&#34;&gt;stackline&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibGFuYm9vbS5vcmcvMjAxOS95YWJhaS8=&#34;&gt;用于 macOS 平铺式窗口管理器 — yabai&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
  ]]></description>
         </item>
     </channel>
