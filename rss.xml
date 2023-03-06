@@ -10,8 +10,8 @@
         </author>
         <description>記錄生活、工作、大小事</description>
         <language>en</language>
-        <pubDate>Fri, 03 Feb 2023 16:17:31 +0800</pubDate>
-        <lastBuildDate>Fri, 03 Feb 2023 16:17:31 +0800</lastBuildDate>
+        <pubDate>Tue, 07 Feb 2023 00:28:40 +0800</pubDate>
+        <lastBuildDate>Tue, 07 Feb 2023 00:28:40 +0800</lastBuildDate>
         <category term="nodejs" />
         <category term=" frontend" />
         <category term=" backend" />
@@ -21,6 +21,87 @@
         <category term=" python" />
         <category term=" vue" />
         <category term=" react" />
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession10/</guid>
+            <title>Cambly-Lession10</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession10/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Tue, 07 Feb 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;mental effered.&lt;/li&gt;
+&lt;li&gt;hunch&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession9/</guid>
+            <title>Cambly-Lession9</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession9/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Mon, 06 Feb 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;to be reminded of (a promise) - I reminded my brother of he promise a gift for me.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to dine in /out - 在餐廳內吃飯 (在店內用餐) ; to dine out 吃外面 (通常在家裡使用這句話)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ex. Do you want to dine in or take out? 你要內用還是外帶&lt;/li&gt;
+&lt;li&gt;ex. Let&#39;s done out. 我們去吃外面吧.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to dig in - begin eating.&lt;br /&gt;
+ex. Let&#39;s dig in.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cuisine - 美食&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ravenous - 嘴饞的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;midnight snack.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nutritious - healthy food.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;nutritious 有營養的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lean meat - 瘦肉&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ravenous = starving 飢餓&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;artificial ingredients 人造的成分&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;do sth. on the (daily)() basis&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;flavorful - 有味道的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fussy eater - 挑食的人&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it is healthier to eat at an earlier time&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/axois-big5%E7%B6%B2%E9%A0%81%E7%8D%B2%E5%8F%96%E9%80%A0%E6%88%90%E4%BA%82%E7%A2%BC%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/</guid>
             <title>[Axios] big5 網頁爬取時變成亂碼的解決方法</title>
@@ -407,6 +488,59 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
+            <title>Cambly-Lession4</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;have foot in the door （ idioms )
+&lt;ul&gt;
+&lt;li&gt;to make the first step toward a goal by gaining entry into an organization, a career, etc. He took a job as a secretary to get his foot in the door.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;frequently &amp;gt; often &amp;gt; usually (1 / week).&lt;/li&gt;
+&lt;li&gt;I don&#39;t know if i have a cold&lt;/li&gt;
+&lt;li&gt;coherence = understanding.&lt;/li&gt;
+&lt;li&gt;stand on the same topic&lt;/li&gt;
+&lt;li&gt;&amp;quot;synonyms&amp;quot; is the difference word in the same meaning.&lt;/li&gt;
+&lt;li&gt;standardized = cause (something) to conform to a standard.
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;we could standardize on U.S. equipment&amp;quot;.&lt;/li&gt;
+&lt;li&gt;&amp;quot;the editors failed to standardize the spelling of geographic names&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;proficiency = ranking = level&lt;/li&gt;
+&lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</guid>
+            <title>Cambly-Lession6</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
+&lt;li&gt;I used to live in the country.&lt;/li&gt;
+&lt;li&gt;farm fishing&lt;/li&gt;
+&lt;li&gt;wild caught&lt;/li&gt;
+&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
+&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
             <title>Cambly-Lession4</title>
             <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
@@ -438,59 +572,6 @@
 &lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</guid>
-            <title>Cambly-Lession6</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</link>
-            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-            <category term="english" scheme="https://z20240.github.io/tags/english/" />
-            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
-&lt;li&gt;I used to live in the country.&lt;/li&gt;
-&lt;li&gt;farm fishing&lt;/li&gt;
-&lt;li&gt;wild caught&lt;/li&gt;
-&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
-&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
-            <title>Cambly-Lession4</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
-            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-            <category term="english" scheme="https://z20240.github.io/tags/english/" />
-            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;have foot in the door （ idioms )
-&lt;ul&gt;
-&lt;li&gt;to make the first step toward a goal by gaining entry into an organization, a career, etc. He took a job as a secretary to get his foot in the door.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;frequently &amp;gt; often &amp;gt; usually (1 / week).&lt;/li&gt;
-&lt;li&gt;I don&#39;t know if i have a cold&lt;/li&gt;
-&lt;li&gt;coherence = understanding.&lt;/li&gt;
-&lt;li&gt;stand on the same topic&lt;/li&gt;
-&lt;li&gt;&amp;quot;synonyms&amp;quot; is the difference word in the same meaning.&lt;/li&gt;
-&lt;li&gt;standardized = cause (something) to conform to a standard.
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;we could standardize on U.S. equipment&amp;quot;.&lt;/li&gt;
-&lt;li&gt;&amp;quot;the editors failed to standardize the spelling of geographic names&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;proficiency = ranking = level&lt;/li&gt;
-&lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -1041,122 +1122,6 @@ eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-esl
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcmV0dGllci5pby9kb2NzL2VuL2luc3RhbGwuaHRtbA==&#34;&gt;Prettier&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvZXNsaW50LXBsdWdpbi1udXh0&#34;&gt;eslint-plugin-nuxt&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/</guid>
-            <title>Tech skhd 失去功能 (Not working)的解決方法</title>
-            <link>https://z20240.github.io/Tech/Others/2022-06-16-tech-skhd-%E5%A4%B1%E5%8E%BB%E5%8A%9F%E8%83%BD-not-working-%E7%9A%84%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Others" scheme="https://z20240.github.io/categories/Tech/Others/" />
-            <category term="tiling-window-manager" scheme="https://z20240.github.io/tags/tiling-window-manager/" />
-            <category term="yabai" scheme="https://z20240.github.io/tags/yabai/" />
-            <category term="skhd" scheme="https://z20240.github.io/tags/skhd/" />
-            <pubDate>Thu, 16 Jun 2022 15:25:19 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;tech-skhd-失去功能-not-working的解決方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tech-skhd-失去功能-not-working的解決方法&#34;&gt;#&lt;/a&gt; [Tech] skhd 失去功能 (Not working) 的解決方法&lt;/h3&gt;
-&lt;p&gt;&lt;img data-src=&#34;0*A5q6r3JS-zTQfZVk.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvZWtlaXNoaXlhL3NraGQ=&#34;&gt;Skhd&lt;/span&gt; 是一個適用於 MacOS 的小實用軟件，它允許我們重新映射各種操作的快捷方式。然而在某次 Mac 升級之後就發生 skhd 時不時停止運作的狀況。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Debug&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;首先我必須要停止 skhd 的 process. 使用 &lt;strong&gt;brew&lt;/strong&gt; 來做到。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ brew services stop skhd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;之後，可以使用 skhd -V 來以詳細模式運行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ skhd -V
-skhd: successfully created pid-file..
-skhd: secure keyboard entry is enabled by (5530) &#39;iterm2&#39;! abort..
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*-O6oGPKvPXPJx055gUTnJA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;訊息中顯示 mac 有一個  &lt;code&gt;secure keyboard entry&lt;/code&gt;  的模式不知道為什麼被打開了。&lt;/p&gt;
-&lt;p&gt;通過進一步搜尋可以知道我們可以使用 iTerm2 的 menu 或是 Terminal 的 menu 來關閉這個模式。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*FvKx68zuda255u3UiZds-w.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*dW3dMJS7WrqAj9NFzosk4Q.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;到這邊理論上只要可以取消，之後再把 skhd 重啟就可以完成了。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ brew services start skhd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;更加複雜的-debug&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更加複雜的-debug&#34;&gt;#&lt;/a&gt; &lt;strong&gt;更加複雜的 Debug&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;事情如果到那邊就完結了，我也不用再寫這篇了。&lt;/p&gt;
-&lt;p&gt;可惜問題就是發生在  &lt;code&gt;secure keyboard entry&lt;/code&gt;  無法被正確 disable&lt;/p&gt;
-&lt;p&gt;因此我又繼續尋找資料，後來看到了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9maWcuaW8vZG9jcy9zdXBwb3J0L3NlY3VyZS1rZXlib2FyZC1pbnB1dCNmaWctYW5kLXNlY3VyZS1rZXlib2FyZC1pbnB1dA==&#34;&gt;這篇&lt;/span&gt; ，源自 Fig 一個新的 Termial plugin 有講到類似的除錯方法。我就一步一步整理過來。&lt;/p&gt;
-&lt;p&gt;裡面有講到「如果無法取消選中該複選框，則 iTerm 檢測到安全輸入已啟用，但它不是負責的應用程序。要弄清楚如何禁用它，請繼續故障排除部分。」&lt;/p&gt;
-&lt;p&gt;其羅列了以下幾種可能的原因&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;一、與密碼管理器衝突 (1Password, BitWarden)&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;某些密碼管理器在輸入主密碼時會啟用  &lt;code&gt;Secure Keyboard Entry&lt;/code&gt;  ，但之後偶爾會無法禁用它。&lt;/p&gt;
-&lt;p&gt;如果您使用 1Password、Bitwarden 或其他密碼管理器，請退出應用程序，然後檢查是否仍啟用  &lt;code&gt;Secure Keyboard Entry&lt;/code&gt;  。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意：如果您要退出 1Password，請確保您完全退出它，而不僅僅是正常的 cmd+q 退出&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img data-src=&#34;0*nlUF009uzQ11n5d5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如果是密碼管理器負責，只需重新啟動它即可解決問題。否則，請繼續故障排除部分。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;二、其他未知的應用程序&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;有時其他應用程序會啟用安全輸入，但在不再需要時無法將其關閉。&lt;/p&gt;
-&lt;p&gt;我們可以使用以下指令顯示出需要使用此設定的應用程式。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ ioreg -l -w 0 |  tr &#39;,&#39; &#39;\n&#39; 2&amp;amp;&amp;gt; /dev/null | grep kCGSSessionSecureInputPID | cut -f 2 -d = | uniq | xargs ps -o command= -p
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ZhFCMO8tv_w42ZIjh8diHw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;在我的例子中會發現是一個叫做  &lt;code&gt;loginWindow&lt;/code&gt;  的 process 暫用著。這似乎是 MacOS 的小 bug ，有時後 loginWindow 在 user login 之後不會 terminal (disable secure input entry) .&lt;/p&gt;
-&lt;p&gt;這時候僅需要使用  &lt;code&gt;⌃ Control` + `⌘ Command` +`Q&lt;/code&gt;  將畫面進到上鎖之後重新登入，理論上就能夠解決這個問題。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不過，如果這樣的方式依然無法解決，也許「登出」、或「重開機」會是最後的解決方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;參考資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#參考資料&#34;&gt;#&lt;/a&gt; 參考資料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuc2FtdW5kcmEuY29tLm5wL3NraGQtc3VkZGVubHktc3RvcHBlZC13b3JraW5nLWFmdGVyLXVwZ3JhZGUvMTczOA==&#34;&gt;SKHD SUDDENLY STOPPED WORKING AFTER UPGRADE&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9maWcuaW8vZG9jcy9zdXBwb3J0L3NlY3VyZS1rZXlib2FyZC1pbnB1dCNmaWctYW5kLXNlY3VyZS1rZXlib2FyZC1pbnB1dA==&#34;&gt;Fig and Secure Keyboard Input&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/</guid>
-            <title>Node 如何檢測 Node 程式的Memory Leak 以及處理 out of memory 問題</title>
-            <link>https://z20240.github.io/Tech/Frontend/NodeJs/2022-05-16-node-%E5%A6%82%E4%BD%95%E6%AA%A2%E6%B8%AC-node-%E7%A8%8B%E5%BC%8F%E7%9A%84memory-leak-%E4%BB%A5%E5%8F%8A%E8%99%95%E7%90%86-out-of-memory-%E5%95%8F%E9%A1%8C/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
-            <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/Frontend/NodeJs/" />
-            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
-            <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
-            <category term="memory-leak" scheme="https://z20240.github.io/tags/memory-leak/" />
-            <pubDate>Mon, 16 May 2022 18:10:49 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題&#34;&gt;#&lt;/a&gt; [Node] 如何檢測 Node 程式的 Memory Leak 以及處理 out of memory 問題&lt;/h3&gt;
-&lt;p&gt;身為一個 NodeJs 工程師，在架構一個 NodeJs 應用程式的生涯中或多或少應該都有碰過  &lt;code&gt;Javascript heap out of memory&lt;/code&gt;  的狀況。&lt;/p&gt;
-&lt;p&gt;畢竟 NodeJs 本身是跑在 V8 Engine 的 Script Language，本身在 main thread 中 default 僅有 1GB (In 64-bit system) 的 memory 配額。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*r2wJzxZlT7878dhsficsYA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;絕大多數時候其實都是單純 server 功能越來越多導致記憶體用量不夠，這個時候我們可以簡單地在執行程式時使用  &lt;code&gt;--max-old-space-size&lt;/code&gt;  來手動配額足夠的記憶體給 Node 使用。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// 使用 8GB 的記憶體來執行 app.js (這邊的單位是 KB)
-$ node --max-old-space-size=8192 app.js
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;然而若是當我們已經配置足夠大的記憶體，確還是發生了 &lt;strong&gt;out of memory&lt;/strong&gt; 的狀況呢？那應該十之八九是我們碰上了 memory leak 的問題了。&lt;/p&gt;
-&lt;h4 id=&#34;監測-memory-heap-的使用量檢測是否-memory-leak&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#監測-memory-heap-的使用量檢測是否-memory-leak&#34;&gt;#&lt;/a&gt; 監測 memory heap 的使用量，檢測是否 memory leak&lt;/h4&gt;
-&lt;p&gt;以往，我們要監測 memory heap 的使用需要利用諸如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvaGVhcGR1bXA=&#34;&gt;heapdump&lt;/span&gt; 這類的 heap snapshot 工具來建立快照。但是在 version 6 以上的版本我們可以使用  &lt;code&gt;--inspect&lt;/code&gt;  flag 來指示 node 執行 app.js 期間開啟監測模式。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ node --inspect index.js
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;如果你今天的 app 是使用 ts-node，你也可以使用以下指令來進入 node 的 inspect （&lt;/em&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdHMtbm9kZSN1c2VyLWNvbnRlbnQtcHJvZ3JhbW1hdGlj&#34;&gt;https://www.npmjs.com/package/ts-node#user-content-programmatic&lt;/span&gt; &lt;em&gt;）&lt;/em&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ node -r ts-node/register --inspect ./app.ts
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;node 會另外開啟一個 9229 的 port 來提供 debugger 使用。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ot3-OLwkVSRw-ImSrXxhCw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;你也可以使用  &lt;code&gt;--inspect-brk&lt;/code&gt;  ，這個 flag 會讓 node 監測模式啟動後停在第一個 statement。效果就類似設置一個 break point 在程式的第一行。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;接下來，我們就可以開啟 Google Chrome 的 &lt;strong&gt;DevTools&lt;/strong&gt; attach 到 debugger 來進行實時監控跟 debug 了。&lt;/p&gt;
-&lt;p&gt;在 google chrome 網址列輸入  &lt;code&gt;about:inspect&lt;/code&gt;  可以進入到 Chrome 遠端開發工具畫面。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*vE4cxtjQLFRgYckFNgX2eQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如果 prot 9229 已經開啟且被監聽，chrome 會自動找到相對應的 app 。之後我們可以點擊 &lt;strong&gt;inspect&lt;/strong&gt; 進入監控畫面。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*TnS_yRzEnIKV74ireuA50Q.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;接下來點到 「記憶體」的選項，我們可以錄製記憶體的快照。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*G7HH9z3wGJhG1mLZK-cvoQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;DevTools 會分析出 app 中各個變數結構的使用大小、對比 root 的深度、物件本身佔用的記憶體總量… 等等，一目瞭然。甚至連變數名稱都列出來給你了。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*y7HVRS0fXUw_u3Ypr-VCNg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;接下來我們要監測哪個變數導致記憶體增加就易如反掌了。&lt;/p&gt;
-&lt;p&gt;以我們專案自身為例，在程式執行起來時 Array 所佔的記憶體容量還沒有到很多&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*hjkYvj6TLmxY9YM16b8Rsw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;但是隨著某個 API 的呼叫，大大地增加了 Array 在記憶體中的使用量。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*wZXni_hZC3GxrpjuOegfcA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;因此我們就可以據針對這個部分進行細部分析。來快速定位 memory leak 的原因。&lt;/p&gt;
-&lt;h4 id=&#34;參考資料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#參考資料&#34;&gt;#&lt;/a&gt; 參考資料&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tZWRpdW0uY29tL0BwYXVsX2lyaXNoL2RlYnVnZ2luZy1ub2RlLWpzLW5pZ2h0bGllcy13aXRoLWNocm9tZS1kZXZ0b29scy03YzRhMWI5NWFlMjcjLnBtcWVqcm44cQ==&#34;&gt;Debugging Node.js with Chrome DevTools&lt;/span&gt; (這是一個國外的工程師的筆記，簡述了 google DevTools 針對 node inspect 的使用方式)&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92b2N1cy5jYy9hcnRpY2xlLzYxMTc2YzE3ZmQ4OTc4MDAwMTk0MmYxYw==&#34;&gt;從你的 Node.js 專案裡找出 Memory leak，及早發現、及早治療！&lt;/span&gt; (這篇講得很詳細，另外還講到如何做壓力測試，值得一讀)&lt;/li&gt;
-&lt;li&gt;其他有關 node Memory 相關的資訊：「 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjQxNTM5OTYvaXMtdGhlcmUtYS1saW1pdC1vbi10aGUtc2l6ZS1vZi1hLXN0cmluZy1pbi1qc29uLXdpdGgtbm9kZS1qcw==&#34;&gt;Is there a limit on the size of a string in JSON with Node.js?&lt;/span&gt; 」、「 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMjAwMTg1ODgvaG93LXRvLW1vbml0b3ItdGhlLW1lbW9yeS11c2FnZS1vZi1ub2RlLWpz&#34;&gt;How to monitor the memory usage of Node.js?&lt;/span&gt; 」&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
