@@ -10,8 +10,8 @@
         </author>
         <description>記錄生活、工作、大小事</description>
         <language>en</language>
-        <pubDate>Tue, 07 Feb 2023 00:28:40 +0800</pubDate>
-        <lastBuildDate>Tue, 07 Feb 2023 00:28:40 +0800</lastBuildDate>
+        <pubDate>Thu, 06 Apr 2023 00:28:40 +0800</pubDate>
+        <lastBuildDate>Thu, 06 Apr 2023 00:28:40 +0800</lastBuildDate>
         <category term="nodejs" />
         <category term=" frontend" />
         <category term=" backend" />
@@ -21,6 +21,27 @@
         <category term=" python" />
         <category term=" vue" />
         <category term=" react" />
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession11/</guid>
+            <title>Cambly-Lession11</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Combly-Lession11/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 06 Apr 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;Late-night snack 宵夜&lt;/li&gt;
+&lt;li&gt;Cremated&lt;/li&gt;
+&lt;li&gt;gather the ashes&lt;/li&gt;
+&lt;li&gt;Urn&lt;/li&gt;
+&lt;li&gt;Spread their ashes&lt;/li&gt;
+&lt;li&gt;Techno Music&lt;/li&gt;
+&lt;li&gt;once in a while -&amp;gt; rarely.&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Combly-Lession10/</guid>
             <title>Cambly-Lession10</title>
@@ -32,9 +53,8 @@
             <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
             <pubDate>Tue, 07 Feb 2023 00:28:40 +0800</pubDate>
             <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;mental effered.&lt;/li&gt;
-&lt;li&gt;hunch&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;mental effort 腦力激盪&lt;/li&gt;
+&lt;li&gt;hunch 彎腰駝背&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -488,41 +508,6 @@ ex. Let&#39;s dig in.&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
-            <title>Cambly-Lession4</title>
-            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
-            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-            <category term="english" scheme="https://z20240.github.io/tags/english/" />
-            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
-            <description><![CDATA[ &lt;ul&gt;
-&lt;li&gt;broadly 寬廣&lt;/li&gt;
-&lt;li&gt;to enroll (v.) 編入
-&lt;ul&gt;
-&lt;li&gt;enrollment (n.) = sign up&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;subject specialist = professor in specific subject.&lt;/li&gt;
-&lt;li&gt;take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間&lt;/li&gt;
-&lt;li&gt;take a (week/month/year) off. = 休息一段時間&lt;/li&gt;
-&lt;li&gt;to work sb way through colledge = 半工半讀&lt;/li&gt;
-&lt;li&gt;teacher&#39;s pet (貶義) 老師的寵兒
-&lt;ul&gt;
-&lt;li&gt;brown noser 馬屁精&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;to keep up with anythings = don&#39;t fall behind.
-&lt;ul&gt;
-&lt;li&gt;ex. are you keeping up with me.&lt;/li&gt;
-&lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</guid>
             <title>Cambly-Lession4</title>
             <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</link>
@@ -572,6 +557,41 @@ ex. Let&#39;s dig in.&lt;/p&gt;
 &lt;li&gt;car pooling: 搭便車&lt;/li&gt;
 &lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</guid>
+            <title>Cambly-Lession4</title>
+            <link>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</link>
+            <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+            <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+            <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+            <category term="english" scheme="https://z20240.github.io/tags/english/" />
+            <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+            <pubDate>Thu, 05 Jan 2023 00:28:40 +0800</pubDate>
+            <description><![CDATA[ &lt;ul&gt;
+&lt;li&gt;broadly 寬廣&lt;/li&gt;
+&lt;li&gt;to enroll (v.) 編入
+&lt;ul&gt;
+&lt;li&gt;enrollment (n.) = sign up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;subject specialist = professor in specific subject.&lt;/li&gt;
+&lt;li&gt;take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間&lt;/li&gt;
+&lt;li&gt;take a (week/month/year) off. = 休息一段時間&lt;/li&gt;
+&lt;li&gt;to work sb way through colledge = 半工半讀&lt;/li&gt;
+&lt;li&gt;teacher&#39;s pet (貶義) 老師的寵兒
+&lt;ul&gt;
+&lt;li&gt;brown noser 馬屁精&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;to keep up with anythings = don&#39;t fall behind.
+&lt;ul&gt;
+&lt;li&gt;ex. are you keeping up with me.&lt;/li&gt;
+&lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>
@@ -913,214 +933,6 @@ ex. Let&#39;s dig in.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY3liZXJ0ZWMtcG9zdGdyZXNxbC5jb20vZW4vcG9zdGdyZXNxbC15b3UtbWlnaHQtbmVlZC10by1pbmNyZWFzZS1tYXhfbG9ja3NfcGVyX3RyYW5zYWN0aW9uLw==&#34;&gt;POSTGRESQL: YOU MIGHT NEED TO INCREASE MAX_LOCKS_PER_TRANSACTION&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTY0OTA2NjQvZXJyb3Itb3V0LW9mLXNoYXJlZC1tZW1vcnk=&#34;&gt;ERROR: out of shared memory&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://z20240.github.io/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/</guid>
-            <title>Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</title>
-            <link>https://z20240.github.io/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/</link>
-            <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
-            <category term="Frontend" scheme="https://z20240.github.io/categories/Tech/Frontend/" />
-            <category term="Vue" scheme="https://z20240.github.io/categories/Tech/Frontend/Vue/" />
-            <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
-            <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
-            <category term="nuxt-3" scheme="https://z20240.github.io/tags/nuxt-3/" />
-            <category term="eslint" scheme="https://z20240.github.io/tags/eslint/" />
-            <category term="prettier" scheme="https://z20240.github.io/tags/prettier/" />
-            <pubDate>Mon, 04 Jul 2022 18:52:32 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;vue-nuxt3-eslint-prettier-vscode-設定-讓-eslint-自動排版-nuxt-專案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vue-nuxt3-eslint-prettier-vscode-設定-讓-eslint-自動排版-nuxt-專案&#34;&gt;#&lt;/a&gt; [Vue] Nuxt3 + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案&lt;/h3&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ET9CfH7oh7cubkTpNch7Xw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;最近因為接案需要，決定使用 Nuxt 作為快速開發的框架。發現一段時間沒觀注，前端環境真是日新月異。 Nuxt 竟然也迎來第三版了。&lt;/p&gt;
-&lt;p&gt;因此這次在設定環境時順便記錄了一下如何在專案中結合 Eslint + Prettier 與 Vscode 的自動風格檢查兼排版。&lt;/p&gt;
-&lt;h3 id=&#34;nuxt&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nuxt&#34;&gt;#&lt;/a&gt; Nuxt&lt;/h3&gt;
-&lt;h4 id=&#34;安裝&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安裝&#34;&gt;#&lt;/a&gt; 安裝&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;使用  &lt;code&gt;npx&lt;/code&gt;  直接安裝&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ npx nuxi init &amp;lt;nuxt-app&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;打開你的  &lt;code&gt;nuxt-app&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ code nuxt-app
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其中如果我們不希望我們的 .nuxt 相依專案以  &lt;code&gt;.shim&lt;/code&gt;  的形式產生，我們先在  &lt;code&gt;nuxt.config.ts&lt;/code&gt;  內將 shim 設成  &lt;code&gt;false&lt;/code&gt;  .&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export default defineNuxtConfig(&amp;#123;
- typescript: &amp;#123;
- shim: false
- &amp;#125;
-&amp;#125;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;安裝相依套件&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ yarn install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;到這邊這些前置作業完成之後，我們先啟動一次 nuxt 讓他生成自己的  &lt;code&gt;.nuxt&lt;/code&gt;  專案。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ yarn dev -o
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;vscode&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vscode&#34;&gt;#&lt;/a&gt; Vscode&lt;/h3&gt;
-&lt;h4 id=&#34;prettier-eslint&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#prettier-eslint&#34;&gt;#&lt;/a&gt; Prettier Eslint&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*ovYVQpQEWiy2JY0l267wjw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;eslint&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#eslint&#34;&gt;#&lt;/a&gt; Eslint&lt;/h4&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*t-XiqWLBCtF_pu_VKsp3XQ.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;eslint-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#eslint-2&#34;&gt;#&lt;/a&gt; Eslint&lt;/h3&gt;
-&lt;h4 id=&#34;init&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#init&#34;&gt;#&lt;/a&gt; Init&lt;/h4&gt;
-&lt;p&gt;執行  &lt;code&gt;npx eslint — init&lt;/code&gt;  初始化  &lt;code&gt;.eslintrc.js&lt;/code&gt;  並自動安裝相關的 dependency，他會問你一些問題來據此產生相關的設定&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;You can also run this command directly using ‘npm init @eslint/config’.
-npx: 40 安裝成功，花費 3.812 秒
-✔ How would you like to use ESLint? · style
-✔ What type of modules does your project use? · esm
-✔ Which framework does your project use? · vue
-✔ Does your project use TypeScript? · No / Yes
-✔ Where does your code run? · browser
-✔ How would you like to define a style for your project? · prompt
-✔ What format do you want your config file to be in? · JavaScript
-✔ What style of indentation do you use? · 4
-✔ What quotes do you use for strings? · single
-✔ What line endings do you use? · unix
-✔ Do you require semicolons? · No / Yes
-The config that you’ve selected requires the following dependencies:
-eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest
-✔ Would you like to install them now? · No / Yes
-✔ Which package manager do you want to use? · yarn
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;產生出來的 .eslintrc.js 會像是這樣&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;module.exports = &amp;#123;
- “env”: &amp;#123;
- “browser”: true,
- “es2021”: true
- &amp;#125;,
- “extends”: [
- “eslint:recommended”,
- “plugin:vue/essential”,
- “plugin:@typescript-eslint/recommended”
- ],
- “parserOptions”: &amp;#123;
- “ecmaVersion”: “latest”,
- “parser”: “@typescript-eslint/parser”,
- “sourceType”: “module”
- &amp;#125;,
- “plugins”: [
- “vue”,
- “@typescript-eslint”
- ],
- “rules”: &amp;#123;
- &amp;#125;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;install-dependency&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#install-dependency&#34;&gt;#&lt;/a&gt; Install Dependency&lt;/h4&gt;
-&lt;p&gt;安裝相關的 dependency&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ yarn add -D eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest typescript eslint-plugin-nuxt
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;在  &lt;code&gt;package.json&lt;/code&gt;  的  &lt;code&gt;scripts&lt;/code&gt;  中加上  &lt;code&gt;“lint”: “eslint . — ext .ts,.vue”&lt;/code&gt;  然後使用  &lt;code&gt;yarn lint&lt;/code&gt;  來測試 eslint 是否有生效.&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*Mvfr8nd_T3OVC6U693GQVA.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;! [ [image-20220704162435221.png] ]&lt;/p&gt;
-&lt;h4 id=&#34;修改-eslintrc-加入-nuxt-與-eslint-的相關套件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改-eslintrc-加入-nuxt-與-eslint-的相關套件&#34;&gt;#&lt;/a&gt; 修改  &lt;code&gt;.eslintrc&lt;/code&gt;  加入 nuxt 與 eslint 的相關套件&lt;/h4&gt;
-&lt;p&gt;把配置文件中 `extends` 做如下的修改：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;”plugin:vue/essential”&lt;/code&gt;  改成  &lt;code&gt;”plugin:vue/vue3-recommended”&lt;/code&gt;  (前者是 vue2 的設定，後者為 vue3)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;”eslint:recommended”&lt;/code&gt;  改成  &lt;code&gt;”plugin:nuxt/recommended”&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;刪除  &lt;code&gt;plugins&lt;/code&gt;  內的  &lt;code&gt;”vue”&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;如果檔案內出現 &lt;strong&gt;Component name should always be multi-word&lt;/strong&gt; 的錯誤，這是因為 nuxt 提倡 vue 文件的 Component 應該要用 multi-word snack case 進行命名。我們可以在 rules 中增加  &lt;code&gt;”vue/multi-word-component-names”: 0&lt;/code&gt;  來關閉。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*DTodaOdB7g7Y3j-35PopQg.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;prettier&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#prettier&#34;&gt;#&lt;/a&gt; Prettier&lt;/h3&gt;
-&lt;h4 id=&#34;install-dependency-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#install-dependency-2&#34;&gt;#&lt;/a&gt; Install Dependency&lt;/h4&gt;
-&lt;p&gt;安裝 &lt;strong&gt;prettier, eslint-plugin-prettier, eslint-config-prettier&lt;/strong&gt; 等相關套件&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ yarn add -D prettier eslint-plugin-prettier eslint-config-prettier
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;eslint-plugin-prettier&lt;/code&gt;  : 讓我們可以在  &lt;code&gt;.eslintrc.js&lt;/code&gt;  中直接在  &lt;code&gt;rules&lt;/code&gt;  內使用  &lt;code&gt;prettier/prettier&lt;/code&gt;  屬性設定  &lt;code&gt;.prettierrc&lt;/code&gt;  ，省去多增加這個 file 的 maintainance.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;eslint-config-prettier&lt;/code&gt;  : 會自動關掉所有不必要且可能會跟 Prettier 相衝的設定，讓我們可以在 eslint 中設定自己要的 rule。舉例來說如果 eslint 的 rule 和 prettier 的 rule conflict 的時候 （例如 eslint 限制了必须單引號，prettier 也限制了必须單引號，那麼如果用 eslint 驅動 prettier 來做檢查的話就會提示兩種 error 儘管他們都指向同一種錯誤。）此時這個 Plugin 就可以關閉額外的 error 顯示。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;之後，一樣修改  &lt;code&gt;.eslintrc&lt;/code&gt;  中的  &lt;code&gt;extends&lt;/code&gt;  內容：增加  &lt;code&gt;’plugin:prettier/recommended’&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;extends: [
-  ...,
-  &amp;quot;plugin:prettier/recommended&amp;quot;,
-  ...
-]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;此時可能會出現紅線佈滿每個檔案，這是因為 prettier 在偵測 rule 時，若是沒有發現  &lt;code&gt;.prettierrc&lt;/code&gt;  在專案中的話，就會去往更 root 的地方找，有可能 root 的 prettier 設定與專案所需不符。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*jt_CPBruvGdfc6I_svByEw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;我們這時可以在  &lt;code&gt;.eslintrc.js&lt;/code&gt;  中的  &lt;code&gt;rules&lt;/code&gt;  中增加  &lt;code&gt;prettier/prettier&lt;/code&gt;  的來告訴 prettier 我們的 eslint 要怎樣的規則，如此可以取代掉在專案中建立  &lt;code&gt;.prettirerc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;完整的 .eslintrc.js 最終會如下&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;module.exports = &amp;#123;
- env: &amp;#123;
-   browser: true,
-   es2021: true,
-   node: true,
- &amp;#125;,
- extends: [
-   ‘plugin:vue/vue3-recommended’,
-   ‘plugin:@typescript-eslint/recommended’,
-   ‘plugin:nuxt/recommended’,
-   ‘plugin:prettier/recommended’,
- ],
- parserOptions: &amp;#123;
-   ecmaVersion: ‘latest’,
-   parser: ‘@typescript-eslint/parser’,
-   sourceType: ‘module’,
- &amp;#125;,
- plugins: [
-   // “vue”,
-   ‘@typescript-eslint’,
- ],
- rules: &amp;#123;
-   indent: [‘error’, 2],
-   ‘linebreak-style’: [‘error’, ‘unix’],
-   quotes: [‘error’, ‘single’],
-   semi: [‘error’, ‘always’],
-   ‘vue/multi-word-component-names’: 0,
-   ‘comma-dangle’: [
-     ‘error’,
-     &amp;#123;
-         arrays: ‘always-multiline’,
-         objects: ‘always-multiline’,
-         imports: ‘never’,
-         exports: ‘never’,
-         functions: ‘never’,
-     &amp;#125;,
-   ],
-   ‘vue/html-self-closing’: [
-     ‘error’,
-     &amp;#123;
-         html: &amp;#123;
-           void: ‘always’,
-           normal: ‘always’,
-           component: ‘always’,
-         &amp;#125;,
-         svg: ‘always’,
-         math: ‘always’,
-     &amp;#125;,
-   ],
-   ‘prettier/prettier’: [
-      ‘error’,
-      &amp;#123;
-         printWidth: 120, // 最大長度
-         tabWidth: 2, // tab 縮排 2 空格
-         useTabs: false, // 使用空格縮排
-         singleQuote: true, // js 單引號
-         semi: true, // 要有分號
-         trailingComma: ‘es5’, // 使用 es5 規則規範結尾的逗號
-         arrowParens: ‘avoid’,
-      &amp;#125;,
-   ],
- &amp;#125;,
-&amp;#125;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;此時我們再使用  &lt;code&gt;ctrl+s&lt;/code&gt;  保存，應該就會發現可以自動格式化檔案了。&lt;/p&gt;
-&lt;h4 id=&#34;trouble-shooting&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#trouble-shooting&#34;&gt;#&lt;/a&gt; Trouble shooting&lt;/h4&gt;
-&lt;p&gt;若是發現存檔後沒有如預期中自動格式化，可以檢查是否自己的 Vscode 預設格式化工具是  &lt;code&gt;prettier-eslint&lt;/code&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用  &lt;code&gt;cmd + p (ctrl + p)&lt;/code&gt;  ，輸入  &lt;code&gt;&amp;gt; Format Document&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*WT4Zgzex60odGfhRIgpXxw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;選擇 Prettier ESLint&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;1*CvCOrh9Ylw2-AlkWrb9A4g.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;之後再嘗試一次看看，基本上應該就要有反應了～&lt;/p&gt;
-&lt;h3 id=&#34;reference&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#reference&#34;&gt;#&lt;/a&gt; Reference&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pY29kZS5iZXN0L2kvNzA0MDU1NDYyMjY3NTk=&#34;&gt;nuxt3 项目中使用 eslint 和 prettier+commitlint 附常用规则配置&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcmV0dGllci5pby9kb2NzL2VuL2luc3RhbGwuaHRtbA==&#34;&gt;Prettier&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvZXNsaW50LXBsdWdpbi1udXh0&#34;&gt;eslint-plugin-nuxt&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
  ]]></description>
         </item>

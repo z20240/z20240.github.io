@@ -7,11 +7,25 @@
     "home_page_url": "https://z20240.github.io",
     "items": [
         {
+            "id": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession11/",
+            "url": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession11/",
+            "title": "Cambly-Lession11",
+            "date_published": "2023-04-05T16:28:40.000Z",
+            "content_html": "<ul>\n<li>Late-night snack 宵夜</li>\n<li>Cremated</li>\n<li>gather the ashes</li>\n<li>Urn</li>\n<li>Spread their ashes</li>\n<li>Techno Music</li>\n<li>once in a while -&gt; rarely.</li>\n</ul>\n",
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "Cambly",
+                "english",
+                "cambly"
+            ]
+        },
+        {
             "id": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession10/",
             "url": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession10/",
             "title": "Cambly-Lession10",
             "date_published": "2023-02-06T16:28:40.000Z",
-            "content_html": "<ul>\n<li>mental effered.</li>\n<li>hunch</li>\n<li></li>\n</ul>\n",
+            "content_html": "<ul>\n<li>mental effort 腦力激盪</li>\n<li>hunch 彎腰駝背</li>\n</ul>\n",
             "tags": [
                 "Life",
                 "EnglishLearn",
@@ -151,20 +165,6 @@
             ]
         },
         {
-            "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
-            "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
-            "title": "Cambly-Lession4",
-            "date_published": "2023-01-04T16:28:40.000Z",
-            "content_html": "<ul>\n<li>broadly 寬廣</li>\n<li>to enroll (v.) 編入\n<ul>\n<li>enrollment (n.) = sign up</li>\n</ul>\n</li>\n<li>subject specialist = professor in specific subject.</li>\n<li>take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間</li>\n<li>take a (week/month/year) off. = 休息一段時間</li>\n<li>to work sb way through colledge = 半工半讀</li>\n<li>teacher's pet (貶義) 老師的寵兒\n<ul>\n<li>brown noser 馬屁精</li>\n</ul>\n</li>\n<li>to keep up with anythings = don't fall behind.\n<ul>\n<li>ex. are you keeping up with me.</li>\n<li>He could not keep up with the conversation. (He didn't understand.).</li>\n</ul>\n</li>\n</ul>\n",
-            "tags": [
-                "Life",
-                "EnglishLearn",
-                "Cambly",
-                "english",
-                "cambly"
-            ]
-        },
-        {
             "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/",
             "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/",
             "title": "Cambly-Lession4",
@@ -184,6 +184,20 @@
             "title": "Cambly-Lession6",
             "date_published": "2023-01-04T16:28:40.000Z",
             "content_html": "<ul>\n<li>The country is mostly rural areas.</li>\n<li>I used to live in the country.</li>\n<li>farm fishing</li>\n<li>wild caught</li>\n<li>car pooling: 搭便車</li>\n<li>car sharing program = pay to share a car</li>\n<li></li>\n</ul>\n",
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "Cambly",
+                "english",
+                "cambly"
+            ]
+        },
+        {
+            "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
+            "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
+            "title": "Cambly-Lession4",
+            "date_published": "2023-01-04T16:28:40.000Z",
+            "content_html": "<ul>\n<li>broadly 寬廣</li>\n<li>to enroll (v.) 編入\n<ul>\n<li>enrollment (n.) = sign up</li>\n</ul>\n</li>\n<li>subject specialist = professor in specific subject.</li>\n<li>take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間</li>\n<li>take a (week/month/year) off. = 休息一段時間</li>\n<li>to work sb way through colledge = 半工半讀</li>\n<li>teacher's pet (貶義) 老師的寵兒\n<ul>\n<li>brown noser 馬屁精</li>\n</ul>\n</li>\n<li>to keep up with anythings = don't fall behind.\n<ul>\n<li>ex. are you keeping up with me.</li>\n<li>He could not keep up with the conversation. (He didn't understand.).</li>\n</ul>\n</li>\n</ul>\n",
             "tags": [
                 "Life",
                 "EnglishLearn",
@@ -258,23 +272,6 @@
                 "Data Storage",
                 "postgres",
                 "database"
-            ]
-        },
-        {
-            "id": "https://z20240.github.io/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/",
-            "url": "https://z20240.github.io/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/",
-            "title": "Vue Nuxt + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案",
-            "date_published": "2022-07-04T10:52:32.887Z",
-            "content_html": "<h3 id=\"vue-nuxt3-eslint-prettier-vscode-設定-讓-eslint-自動排版-nuxt-專案\"><a class=\"anchor\" href=\"#vue-nuxt3-eslint-prettier-vscode-設定-讓-eslint-自動排版-nuxt-專案\">#</a> [Vue] Nuxt3 + Eslint + Prettier +Vscode 設定 — 讓 Eslint 自動排版 Nuxt 專案</h3>\n<p><img data-src=\"1*ET9CfH7oh7cubkTpNch7Xw.png\" alt=\"\" /></p>\n<p>最近因為接案需要，決定使用 Nuxt 作為快速開發的框架。發現一段時間沒觀注，前端環境真是日新月異。 Nuxt 竟然也迎來第三版了。</p>\n<p>因此這次在設定環境時順便記錄了一下如何在專案中結合 Eslint + Prettier 與 Vscode 的自動風格檢查兼排版。</p>\n<h3 id=\"nuxt\"><a class=\"anchor\" href=\"#nuxt\">#</a> Nuxt</h3>\n<h4 id=\"安裝\"><a class=\"anchor\" href=\"#安裝\">#</a> 安裝</h4>\n<p><strong>使用  <code>npx</code>  直接安裝</strong></p>\n<pre><code>$ npx nuxi init &lt;nuxt-app&gt;\n</code></pre>\n<p>打開你的  <code>nuxt-app</code></p>\n<pre><code>$ code nuxt-app\n</code></pre>\n<p>其中如果我們不希望我們的 .nuxt 相依專案以  <code>.shim</code>  的形式產生，我們先在  <code>nuxt.config.ts</code>  內將 shim 設成  <code>false</code>  .</p>\n<pre><code>export default defineNuxtConfig(&#123;\n typescript: &#123;\n shim: false\n &#125;\n&#125;)\n</code></pre>\n<p><strong>安裝相依套件</strong></p>\n<pre><code>$ yarn install\n</code></pre>\n<p>到這邊這些前置作業完成之後，我們先啟動一次 nuxt 讓他生成自己的  <code>.nuxt</code>  專案。</p>\n<pre><code>$ yarn dev -o\n</code></pre>\n<h3 id=\"vscode\"><a class=\"anchor\" href=\"#vscode\">#</a> Vscode</h3>\n<h4 id=\"prettier-eslint\"><a class=\"anchor\" href=\"#prettier-eslint\">#</a> Prettier Eslint</h4>\n<p><img data-src=\"1*ovYVQpQEWiy2JY0l267wjw.png\" alt=\"\" /></p>\n<h4 id=\"eslint\"><a class=\"anchor\" href=\"#eslint\">#</a> Eslint</h4>\n<p><img data-src=\"1*t-XiqWLBCtF_pu_VKsp3XQ.png\" alt=\"\" /></p>\n<h3 id=\"eslint-2\"><a class=\"anchor\" href=\"#eslint-2\">#</a> Eslint</h3>\n<h4 id=\"init\"><a class=\"anchor\" href=\"#init\">#</a> Init</h4>\n<p>執行  <code>npx eslint — init</code>  初始化  <code>.eslintrc.js</code>  並自動安裝相關的 dependency，他會問你一些問題來據此產生相關的設定</p>\n<pre><code>You can also run this command directly using ‘npm init @eslint/config’.\nnpx: 40 安裝成功，花費 3.812 秒\n✔ How would you like to use ESLint? · style\n✔ What type of modules does your project use? · esm\n✔ Which framework does your project use? · vue\n✔ Does your project use TypeScript? · No / Yes\n✔ Where does your code run? · browser\n✔ How would you like to define a style for your project? · prompt\n✔ What format do you want your config file to be in? · JavaScript\n✔ What style of indentation do you use? · 4\n✔ What quotes do you use for strings? · single\n✔ What line endings do you use? · unix\n✔ Do you require semicolons? · No / Yes\nThe config that you’ve selected requires the following dependencies:\neslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest\n✔ Would you like to install them now? · No / Yes\n✔ Which package manager do you want to use? · yarn\n</code></pre>\n<p>產生出來的 .eslintrc.js 會像是這樣</p>\n<pre><code>module.exports = &#123;\n “env”: &#123;\n “browser”: true,\n “es2021”: true\n &#125;,\n “extends”: [\n “eslint:recommended”,\n “plugin:vue/essential”,\n “plugin:@typescript-eslint/recommended”\n ],\n “parserOptions”: &#123;\n “ecmaVersion”: “latest”,\n “parser”: “@typescript-eslint/parser”,\n “sourceType”: “module”\n &#125;,\n “plugins”: [\n “vue”,\n “@typescript-eslint”\n ],\n “rules”: &#123;\n &#125;\n&#125;\n</code></pre>\n<h4 id=\"install-dependency\"><a class=\"anchor\" href=\"#install-dependency\">#</a> Install Dependency</h4>\n<p>安裝相關的 dependency</p>\n<pre><code>$ yarn add -D eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest typescript eslint-plugin-nuxt\n</code></pre>\n<p>在  <code>package.json</code>  的  <code>scripts</code>  中加上  <code>“lint”: “eslint . — ext .ts,.vue”</code>  然後使用  <code>yarn lint</code>  來測試 eslint 是否有生效.</p>\n<p><img data-src=\"1*Mvfr8nd_T3OVC6U693GQVA.png\" alt=\"\" /></p>\n<p>! [ [image-20220704162435221.png] ]</p>\n<h4 id=\"修改-eslintrc-加入-nuxt-與-eslint-的相關套件\"><a class=\"anchor\" href=\"#修改-eslintrc-加入-nuxt-與-eslint-的相關套件\">#</a> 修改  <code>.eslintrc</code>  加入 nuxt 與 eslint 的相關套件</h4>\n<p>把配置文件中 `extends` 做如下的修改：</p>\n<ul>\n<li><code>”plugin:vue/essential”</code>  改成  <code>”plugin:vue/vue3-recommended”</code>  (前者是 vue2 的設定，後者為 vue3)</li>\n<li><code>”eslint:recommended”</code>  改成  <code>”plugin:nuxt/recommended”</code></li>\n<li>刪除  <code>plugins</code>  內的  <code>”vue”</code></li>\n<li>如果檔案內出現 <strong>Component name should always be multi-word</strong> 的錯誤，這是因為 nuxt 提倡 vue 文件的 Component 應該要用 multi-word snack case 進行命名。我們可以在 rules 中增加  <code>”vue/multi-word-component-names”: 0</code>  來關閉。</li>\n</ul>\n<p><img data-src=\"1*DTodaOdB7g7Y3j-35PopQg.png\" alt=\"\" /></p>\n<h3 id=\"prettier\"><a class=\"anchor\" href=\"#prettier\">#</a> Prettier</h3>\n<h4 id=\"install-dependency-2\"><a class=\"anchor\" href=\"#install-dependency-2\">#</a> Install Dependency</h4>\n<p>安裝 <strong>prettier, eslint-plugin-prettier, eslint-config-prettier</strong> 等相關套件</p>\n<pre><code>$ yarn add -D prettier eslint-plugin-prettier eslint-config-prettier\n</code></pre>\n<ul>\n<li><code>eslint-plugin-prettier</code>  : 讓我們可以在  <code>.eslintrc.js</code>  中直接在  <code>rules</code>  內使用  <code>prettier/prettier</code>  屬性設定  <code>.prettierrc</code>  ，省去多增加這個 file 的 maintainance.</li>\n<li><code>eslint-config-prettier</code>  : 會自動關掉所有不必要且可能會跟 Prettier 相衝的設定，讓我們可以在 eslint 中設定自己要的 rule。舉例來說如果 eslint 的 rule 和 prettier 的 rule conflict 的時候 （例如 eslint 限制了必须單引號，prettier 也限制了必须單引號，那麼如果用 eslint 驅動 prettier 來做檢查的話就會提示兩種 error 儘管他們都指向同一種錯誤。）此時這個 Plugin 就可以關閉額外的 error 顯示。</li>\n</ul>\n<p>之後，一樣修改  <code>.eslintrc</code>  中的  <code>extends</code>  內容：增加  <code>’plugin:prettier/recommended’</code></p>\n<pre><code>extends: [\n  ...,\n  &quot;plugin:prettier/recommended&quot;,\n  ...\n]\n</code></pre>\n<p>此時可能會出現紅線佈滿每個檔案，這是因為 prettier 在偵測 rule 時，若是沒有發現  <code>.prettierrc</code>  在專案中的話，就會去往更 root 的地方找，有可能 root 的 prettier 設定與專案所需不符。</p>\n<p><img data-src=\"1*jt_CPBruvGdfc6I_svByEw.png\" alt=\"\" /></p>\n<p>我們這時可以在  <code>.eslintrc.js</code>  中的  <code>rules</code>  中增加  <code>prettier/prettier</code>  的來告訴 prettier 我們的 eslint 要怎樣的規則，如此可以取代掉在專案中建立  <code>.prettirerc</code></p>\n<p><strong>完整的 .eslintrc.js 最終會如下</strong></p>\n<pre><code>module.exports = &#123;\n env: &#123;\n   browser: true,\n   es2021: true,\n   node: true,\n &#125;,\n extends: [\n   ‘plugin:vue/vue3-recommended’,\n   ‘plugin:@typescript-eslint/recommended’,\n   ‘plugin:nuxt/recommended’,\n   ‘plugin:prettier/recommended’,\n ],\n parserOptions: &#123;\n   ecmaVersion: ‘latest’,\n   parser: ‘@typescript-eslint/parser’,\n   sourceType: ‘module’,\n &#125;,\n plugins: [\n   // “vue”,\n   ‘@typescript-eslint’,\n ],\n rules: &#123;\n   indent: [‘error’, 2],\n   ‘linebreak-style’: [‘error’, ‘unix’],\n   quotes: [‘error’, ‘single’],\n   semi: [‘error’, ‘always’],\n   ‘vue/multi-word-component-names’: 0,\n   ‘comma-dangle’: [\n     ‘error’,\n     &#123;\n         arrays: ‘always-multiline’,\n         objects: ‘always-multiline’,\n         imports: ‘never’,\n         exports: ‘never’,\n         functions: ‘never’,\n     &#125;,\n   ],\n   ‘vue/html-self-closing’: [\n     ‘error’,\n     &#123;\n         html: &#123;\n           void: ‘always’,\n           normal: ‘always’,\n           component: ‘always’,\n         &#125;,\n         svg: ‘always’,\n         math: ‘always’,\n     &#125;,\n   ],\n   ‘prettier/prettier’: [\n      ‘error’,\n      &#123;\n         printWidth: 120, // 最大長度\n         tabWidth: 2, // tab 縮排 2 空格\n         useTabs: false, // 使用空格縮排\n         singleQuote: true, // js 單引號\n         semi: true, // 要有分號\n         trailingComma: ‘es5’, // 使用 es5 規則規範結尾的逗號\n         arrowParens: ‘avoid’,\n      &#125;,\n   ],\n &#125;,\n&#125;;\n</code></pre>\n<p>此時我們再使用  <code>ctrl+s</code>  保存，應該就會發現可以自動格式化檔案了。</p>\n<h4 id=\"trouble-shooting\"><a class=\"anchor\" href=\"#trouble-shooting\">#</a> Trouble shooting</h4>\n<p>若是發現存檔後沒有如預期中自動格式化，可以檢查是否自己的 Vscode 預設格式化工具是  <code>prettier-eslint</code></p>\n<ul>\n<li>使用  <code>cmd + p (ctrl + p)</code>  ，輸入  <code>&gt; Format Document</code></li>\n</ul>\n<p><img data-src=\"1*WT4Zgzex60odGfhRIgpXxw.png\" alt=\"\" /></p>\n<ul>\n<li>選擇 Prettier ESLint</li>\n</ul>\n<p><img data-src=\"1*CvCOrh9Ylw2-AlkWrb9A4g.png\" alt=\"\" /></p>\n<p>之後再嘗試一次看看，基本上應該就要有反應了～</p>\n<h3 id=\"reference\"><a class=\"anchor\" href=\"#reference\">#</a> Reference</h3>\n<ul>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9pY29kZS5iZXN0L2kvNzA0MDU1NDYyMjY3NTk=\">nuxt3 项目中使用 eslint 和 prettier+commitlint 附常用规则配置</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9wcmV0dGllci5pby9kb2NzL2VuL2luc3RhbGwuaHRtbA==\">Prettier</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvZXNsaW50LXBsdWdpbi1udXh0\">eslint-plugin-nuxt</span></li>\n</ul>\n",
-            "tags": [
-                "Tech",
-                "Frontend",
-                "Vue",
-                "javascript",
-                "vscode",
-                "nuxt-3",
-                "eslint",
-                "prettier"
             ]
         }
     ]
