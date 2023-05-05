@@ -1,0 +1,593 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="ru1tPv27oey7kQQBcUJ4pLh4JYTo24MI02RgKg7gVA0">
+
+
+<link rel="alternate" type="application/rss+xml" title="Let's Life" href="https://z20240.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Let's Life" href="https://z20240.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Let's Life" href="https://z20240.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+    
+  <meta name="keywords" content="nodejs,nestjs" />
+
+
+
+  <meta name="description" content="一直以來， ExpressJs, Koa 這類的 NodeJs 框架過於輕量使得在實務上各家公司都會自行搭建各自的專案架構與商業邏輯，容易產生混亂、難維護的專案..." />
+
+
+<link rel="canonical" href="https://z20240.github.io/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/">
+
+
+
+    <title>
+      
+[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法 - NestJs - NodeJs - Tech |
+
+      Let's Life = Les's Blog</title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2023-05-06 04:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-06T04:00:00+08:00">2023-05-06</time>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Let's Life</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <img src="/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/image-20230505214440603.png">
+        </div>
+      </header>
+      <div id="waves">
+        <svg
+          class="waves"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewbox="0 24 150 28"
+          preserveaspectratio="none"
+          shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax"> 
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/" itemprop="item" rel="index" title="In Tech"><span itemprop="name">Tech</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/NodeJs/" itemprop="item" rel="index" title="In NodeJs"><span itemprop="name">NodeJs</span></a>
+<meta itemprop="position" content="2" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Tech/NodeJs/NestJs/" itemprop="item" rel="index" title="In NestJs"><span itemprop="name">NestJs</span></a>
+<meta itemprop="position" content="3" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="https://z20240.github.io/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Les Lee">
+    <meta itemprop="description" content="Les's Blog, 記錄生活、工作、大小事">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Let's Life">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="nestjs-一個完整且優雅的-nodejs-server-解決方案方法"><a class="anchor" href="#nestjs-一個完整且優雅的-nodejs-server-解決方案方法">#</a> [NestJs]  一個完整且優雅的 NodeJs Server 解決方案方法</h1>
+<h2 id="前言"><a class="anchor" href="#前言">#</a> 前言</h2>
+<p>一直以來，使用 NodeJs 進行 backend 開發，大家最常使用 ExpressJs 或是 Koa 直接開始。然而 ExpressJs, Koa 這類的 NodeJs 框架都是標榜輕量、好設定。在實務上各家公司都會自行搭建各自的專案架構、商業邏輯。</p>
+<p>而不同公司的專案依照各公司的生態與業務就會生出截然不同的專案架構。如果幸運一點，公司有大神前輩，專案的架構可能就還能維持得不錯；然而更多的是許多中小企業的專案因為缺乏規劃與維護，整個專案根本各種「放飛自我」。</p>
+<p>一直以來我都在尋找是否有一款 NodeJs framework 可以整合 nodeJs 後端生態系的專案架構，就像 React 與 Vue 一樣，於是 NestJs 就這樣映入我的視野。</p>
+<h2 id="簡介"><a class="anchor" href="#簡介">#</a> 簡介</h2>
+<p>NestJs 是一款結合了許多後端常使用的 Design Pattern 諸如 OOP (Object Oriented Programming), FP (Functional Programming), and FRP (Functional Reactive Programming), DI (Dependency Injection)，並且默認使用 Typescript 的高效、易擴展的 NodeJs 漸進式框架。</p>
+<p>NestJs 在框架層面設下了許多規範，例如要求使用 Dependency Injection 方式利用各個 module。並且預設就分配好 controller, service, module 等區塊、大量使用 Typescript 的 dectration 來精簡化程式... 等等。這讓 NestJs 的專案架構趨於一致且穩定。</p>
+<h2 id="nestjs-專案架構"><a class="anchor" href="#nestjs-專案架構">#</a> NestJs 專案架構</h2>
+<p>這篇文章我不想花費篇幅在介紹如何安裝 NestJs 專案。這些在網路上已經充斥大量的入門教學。詳細開箱可以直接查看<a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.nestjs.com/first-steps"><strong>官網</strong></a> 我將著重在講解 NestJs 預設的專案架構，以及核心的那幾支 ts 是在幹什麼用的。</p>
+<hr />
+<p>在專案創立後，我們可以看到專案結構如下</p>
+<pre><code>|- src
+|   |- app.controller.spec.ts
+|   |- app.controller.ts
+|   |- app.module.ts
+|   |- app.service.ts
+|   |- main.ts
+|- test
+|   |- app.e2e-spec.ts
+|   |- jest-e2e.json
+|- ...
+</code></pre>
+<p>映入眼簾的是  <code>src</code>  中關於 app 的三支檔案  <code>app.controller.ts</code> ,  <code>app.module.ts</code> ,  <code>app.service.ts</code>  。另外會看到  <code>main.ts</code>  這支是整個程式的入口。</p>
+<p>首先我們先有個簡略的瞭解，NestJs 使用的是  <code>Controller -&gt; Service -&gt; Dao</code>  的三層式架構</p>
+<p><img data-src="image-20230506015142503.png" alt="image-20230506015142503.png" /></p>
+<p>由 Controller 層作為 API 的 Entrypoint；依序在 Service 層調用能夠操作 Database 的 Dao 進行業務處理。</p>
+<p>因此順著這個架構，我們就可以來理一理這幾支程式幹了些什麼。</p>
+<h3 id="maints"><a class="anchor" href="#maints">#</a> main.ts</h3>
+<figure class="highlight typescript"><figcaption data-lang="typescript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> NestFactory <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/core'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppModule <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.module'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">await</span> NestFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>AppModule<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token keyword">await</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><code>AppModule</code>   是整個專案的 Root Module.</p>
+<p><img data-src="image-20230506023655391.png" alt="image-20230506023655391.png" /></p>
+<p>以官網的<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5lc3Rqcy5jb20vbW9kdWxlcw==">示例圖</span>來講解，module 可以再 inject 其他的 modules，因此整個 NestJs 專案都是以 module 為單位建構起來的。</p>
+<h3 id="appmodulets"><a class="anchor" href="#appmodulets">#</a> app.module.ts</h3>
+<p>接下來看到這支程式</p>
+<figure class="highlight typescript"><figcaption data-lang="typescript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Module <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppController <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.controller'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppService <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.service'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  imports<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  controllers<span class="token operator">:</span> <span class="token punctuation">[</span>AppController<span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  providers<span class="token operator">:</span> <span class="token punctuation">[</span>AppService<span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppModule</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><code>@Module</code>  是 NestJs 提供的 dectorator。這個 decorator 扮演者舉足輕重的角色。其將自動將設定綁定到  <code>AppModule</code>  ，使得我們不用額外寫半行 code 就完成 Dependency Injection。  <code>imports</code>  提供了注入口給予使用者注入自己寫的  <code>modules</code> 。被注入的  <code>modules</code>  會可以在  <code>providers</code>  中的  <code>Services</code>  使用。同時  <code>providers</code>  中提供的  <code>Services</code>  也會被注入  <code>controllers</code>  中的  <code>Controllers</code> 。</p>
+<p>我們可以看一下  <code>AppController</code>  與  <code>AppService</code>  這兩支的使用方法，就可以大略瞭解。</p>
+<h3 id="appservice"><a class="anchor" href="#appservice">#</a> app.service</h3>
+<figure class="highlight typescript"><figcaption data-lang="typescript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Injectable <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token decorator"><span class="token at operator">@</span><span class="token function">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppService</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">getHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在初始專案中，NestJs 很好心地已經定義了一個可以被呼叫的 function (Hello World) 給我們進行測試。</p>
+<p>其中  <code>@Injectable()</code>  一樣是 NestJs 提供的 decorator。用途是告訴 NestJs 這個 Service 是可以被用來注入到其他的 provider。缺少這個 decorator，NestJs 就無法將此 class 注入到其他地方使用。</p>
+<h3 id="appcontrollers"><a class="anchor" href="#appcontrollers">#</a> app.controllers</h3>
+<figure class="highlight typescript"><figcaption data-lang="typescript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Controller<span class="token punctuation">,</span> Get <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> AppService <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./app.service'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppController</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> <span class="token keyword">readonly</span> appService<span class="token operator">:</span> AppService<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token function">getHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>appService<span class="token punctuation">.</span><span class="token function">getHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在 controller 中，我們可以看到儘管我們並沒有在 AppController 的 instance 中顯式地將  <code>AppService</code>  pass 進來，但是我們卻可以在 controller 中使用  <code>this.appService</code>  。</p>
+<p>這就是利用了  <code>module</code>  中的  <code>@Module</code>  decorator 做到的依賴注入。</p>
+<hr />
+<p>到這邊，我們算是非常粗淺的瞭解了 NestJs 的專案架構。但是 NestJs 遠不止這些。</p>
+<p>因此未來我會繼續整理 NestJs 這套 Framework 的使用心得與其他解釋。</p>
+<p>預計下一篇會先做一個簡單的 CRUD 來試試手。</p>
+
+      <div class="tags">
+          <a href="/tags/nodejs/" rel="tag"><i class="ic i-tag"></i> nodejs</a>
+          <a href="/tags/nestjs/" rel="tag"><i class="ic i-tag"></i> nestjs</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2023-05-06 03:26:05" itemprop="dateModified" datetime="2023-05-06T03:26:05+08:00">2023-05-06</time>
+  </span>
+  <span id="Tech/NodeJs/NestJs/2023-05-05-NestJs-一個完整且優雅的-NodeJs-Server-解決方案/" class="item leancloud_visitors" data-flag-title="[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法" title="Views">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">Views</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">times</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Les Lee PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Les Lee <i class="ic i-at"><em>@</em></i>Let's Life
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://z20240.github.io/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/" title="[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法">https://z20240.github.io/Tech/NodeJs/NestJs/2023-05-05-NestJs-一個完整且優雅的-NodeJs-Server-解決方案/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/README/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;z20240.github.io&#x2F;gallary&#x2F;jeremy-bishop-DLICfSD33as-unsplash.jpg" title="Untitled">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>Untitled</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+            </div>
+            <div id="sidebar">
+              
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nestjs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-nodejs-server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> [NestJs]  一個完整且優雅的 NodeJs Server 解決方案方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B0%A1%E4%BB%8B"><span class="toc-number">1.2.</span> <span class="toc-text"> 簡介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nestjs-%E5%B0%88%E6%A1%88%E6%9E%B6%E6%A7%8B"><span class="toc-number">1.3.</span> <span class="toc-text"> NestJs 專案架構</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#maints"><span class="toc-number">1.3.1.</span> <span class="toc-text"> main.ts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#appmodulets"><span class="toc-number">1.3.2.</span> <span class="toc-text"> app.module.ts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#appservice"><span class="toc-number">1.3.3.</span> <span class="toc-text"> app.service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#appcontrollers"><span class="toc-number">1.3.4.</span> <span class="toc-text"> app.controllers</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/" rel="bookmark" title="[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法">[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Les Lee"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Les Lee</p>
+  <div class="description" itemprop="description">記錄生活、工作、大小事</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">88</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">21</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">71</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;github.com&#x2F;z20240"><i class="ic i-github"></i></span>
+      <span class="exturl item linkedin" data-url="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3oyMDI0MHo=" title="https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;z20240z"><i class="ic i-linkedin"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3oyMDI0MA==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;z20240"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+            </div>
+            <div class="dimmer"></div>
+          </div>
+        </main>
+        <footer id="footer">
+          <div class="inner">
+            <div class="widgets">
+              
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Others/" title="In Others">Others</a>
+</div>
+
+    <span><a href="/Tech/Others/2018-10-27-%E5%88%A9%E7%94%A8%E5%8D%A1%E8%AB%BE%E5%9C%96%E5%8C%96%E7%B0%A1%E5%B8%83%E6%9E%97%E4%BB%A3%E6%95%B8%E7%9A%84%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7%E5%BC%8F/" title="利用卡諾圖化簡布林代數的條件判斷式">利用卡諾圖化簡布林代數的條件判斷式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/" title="In EnglishLearn">EnglishLearn</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/EnglishLearn/Cambly/" title="In Cambly">Cambly</a>
+</div>
+
+    <span><a href="/Life/EnglishLearn/Combly-Lession9/" title="Cambly-Lession9">Cambly-Lession9</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Tools/" title="In Tools">Tools</a>
+</div>
+
+    <span><a href="/Tech/Tools/2019-05-08-docker-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-docker%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E8%AC%9B%E8%A7%A3/" title="Docker 學習筆記 — Docker指令使用講解">Docker 學習筆記 — Docker指令使用講解</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Flutter/" title="In Flutter">Flutter</a>
+</div>
+
+    <span><a href="/Tech/Flutter/Flutter%E5%AD%B8%E7%BF%92-flutter%E4%BB%8B%E7%B4%B9&Dart%E7%B0%A1%E4%BB%8B/" title="Flutter 學習 - flutter 簡介 &amp; Dart 語法入門">Flutter 學習 - flutter 簡介 & Dart 語法入門</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/Vue/" title="In Vue">Vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-12-06-vue-%E8%81%B0%E6%98%8E%E4%BD%BF%E7%94%A8-keep-alive-%E9%81%94%E5%88%B0-cache-%E7%9B%AE%E7%9A%84/" title="Vue 聰明使用 keep-alive 達到 Cache 目的">Vue 聰明使用 keep-alive 達到 Cache 目的</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Life/" title="In Life">Life</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Life/Yugioh/" title="In Yugioh">Yugioh</a>
+</div>
+
+    <span><a href="/Life/Yugioh/2018-12-26-%E9%96%8B%E7%AE%B1-%E9%81%8A%E6%88%B2%E7%8E%8B-20-%E9%80%B1%E5%B9%B4%E4%B8%BB%E8%A7%92%E7%B4%80%E5%BF%B5%E7%A6%AE%E7%9B%92/" title="開箱 遊戲王 20 週年主角紀念禮盒">開箱 遊戲王 20 週年主角紀念禮盒</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/NodeJs/" title="In NodeJs">NodeJs</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/NodeJs/NestJs/" title="In NestJs">NestJs</a>
+</div>
+
+    <span><a href="/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/" title="[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法">[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/" title="In Frontend">Frontend</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Frontend/vue/" title="In vue">vue</a>
+</div>
+
+    <span><a href="/Tech/Frontend/vue/2019-04-02-vue-%E7%AD%86%E8%A8%98-reset-data-in-component/" title="Vue筆記 Reset Data in Component">Vue筆記 Reset Data in Component</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/Linux/" title="In Linux">Linux</a>
+</div>
+
+    <span><a href="/Tech/Linux/2020-07-27-debian-add-apt-repository-command-not-found-%E5%95%8F%E9%A1%8C/" title="Debian add-apt-repository command not found 問題">Debian add-apt-repository command not found 問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Tech/" title="In Tech">Tech</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Tech/NodeJs/" title="In NodeJs">NodeJs</a>
+</div>
+
+    <span><a href="/Tech/NodeJs/2018-11-01-nodejs-%E8%A7%A3%E6%B1%BAmysql-error-connection-lost-the-server-closed-the-connection%E7%9A%84%E6%96%B9%E6%B3%95/" title="Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法">Nodejs 解決MySQL Error - Connection lost. The server closed the connection的方法</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+            </div>
+            <div class="status">
+  <div class="copyright">
+     &copy;
+    
+      2010 –
+    
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Les Lee @ Let's Life</span>
+  </div>
+    <div class="powered-by">
+      Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+    </div>
+</div>
+
+          </div>
+        </footer>
+      </div>
+      <script data-config type="text/javascript">
+        var LOCAL = {
+          path: 'Tech/NodeJs/NestJs/2023-05-05-NestJs-一個完整且優雅的-NodeJs-Server-解決方案/',
+          favicon: {
+            show: "Let's Life",
+            hide: "Let's Life"
+          },
+          search: {
+            placeholder: "Search for Posts",
+            empty: "We didn't find any results for the search: ${query}",
+            stats: "${hits} results found in ${time} ms"
+          },valine : true,fancybox : true,
+              copyright : 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',ignores: [
+            function (uri) {
+              return uri.includes('#');
+            },
+            function (uri) {
+              return new RegExp(LOCAL.path + "$").test(uri);
+            }
+          ]
+        };
+      </script>
+      <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+      <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+      <script src="/js/app.js?v=0.2.5"></script>
+      
+
+      <script
+        color="206,206,206"
+        opacity="0.5"
+        count="99"
+        zindex="-1"
+        src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+    </body>
+  </html>
