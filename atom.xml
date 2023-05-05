@@ -77,594 +77,6 @@
         <updated>2023-05-05T20:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>https://z20240.github.io/README/</id>
-        <title></title>
-        <link rel="alternate" href="https://z20240.github.io/README/"/>
-        <content type="html">&lt;pre&gt;&lt;code&gt;_posts
-├─ .DS_Store
-├─ .obsidian
-│  ├─ app.json
-│  ├─ appearance.json
-│  ├─ community-plugins.json
-│  ├─ core-plugins-migration.json
-│  ├─ core-plugins.json
-│  ├─ graph.json
-│  ├─ hotkeys.json
-│  ├─ plugins
-│  │  ├─ dataview
-│  │  │  ├─ main.js
-│  │  │  ├─ manifest.json
-│  │  │  └─ styles.css
-│  │  ├─ obsidian-custom-attachment-location
-│  │  │  ├─ data.json
-│  │  │  ├─ main.js
-│  │  │  └─ manifest.json
-│  │  ├─ oz-clear-unused-images
-│  │  │  ├─ data.json
-│  │  │  ├─ main.js
-│  │  │  ├─ manifest.json
-│  │  │  └─ styles.css
-│  │  └─ oz-image-plugin
-│  │     ├─ main.js
-│  │     ├─ manifest.json
-│  │     └─ styles.css
-│  └─ workspace.json
-├─ Life
-│  ├─ 2018-11-20-acoustune-hs-1670ss-開箱
-│  │  ├─ 1*-yfWDrN2GzoQO2C6gQ2XTQ.jpeg
-│  │  ├─ 1*7aoJgL220xL-tFoRY6kUAg.jpeg
-│  │  ├─ 1*9-bNQa3CkfN3ndevbznQfQ.jpeg
-│  │  ├─ 1*NuqJ052KUcZ1KFg_pUVOEw.jpeg
-│  │  ├─ 1*NyeufHUF9zEBLky9JthsWg.jpeg
-│  │  ├─ 1*R8GdbDiVBwc1FH66RdnTMQ.jpeg
-│  │  ├─ 1*Svrsorgnu80KRh9hD7Fmcg.jpeg
-│  │  ├─ 1*cFYgIp_Hn3BdGWw3dsNHxg.jpeg
-│  │  ├─ 1*gy2gqRpqybz-OttMaQyKSQ.jpeg
-│  │  ├─ 1*iH3cyusE18-dZLvUhcESfQ.jpeg
-│  │  └─ 1*uSaXrJ8NKMiZYpiOAXzv6w.jpeg
-│  ├─ 2018-11-20-acoustune-hs-1670ss-開箱.md
-│  ├─ 2019-04-11-開箱-bose-soundsport-free-真無線耳機
-│  │  ├─ 0*C8Uuel6K9TLobpsU.jpg
-│  │  ├─ 0*b8wYEwL4I2K-hgV5.jpg
-│  │  ├─ 1*0FFiyVoqzOSy2ZaZYkJRuw.jpeg
-│  │  ├─ 1*2WDjXGqV_A9DnGsbOFBAgA.jpeg
-│  │  ├─ 1*Ckt2qhUxim75wSmkO6LiUg.jpeg
-│  │  ├─ 1*Mw-gQkLnr2pklOYQQcwNWg.jpeg
-│  │  ├─ 1*NHlOughefijUJ9sZYtq2jg.jpeg
-│  │  ├─ 1*Z9Ckt7pzVvt9eXkx99BADQ.jpeg
-│  │  ├─ 1*x1--JBT1Fqi9yd_7f0sa4w.jpeg
-│  │  └─ 1*zD3aw9lp_FwtHAENs7ZA9w.jpeg
-│  ├─ 2019-04-11-開箱-bose-soundsport-free-真無線耳機.md
-│  ├─ EnglishLearn
-│  │  ├─ Cambly-Lession1.md
-│  │  ├─ Cambly-Lession2
-│  │  ├─ Cambly-Lession2.md
-│  │  ├─ Cambly-Lession3.md
-│  │  ├─ Cambly-Lession4.md
-│  │  ├─ Cambly-Lession5.md
-│  │  ├─ Combly-Lession10.md
-│  │  ├─ Combly-Lession11.md
-│  │  ├─ Combly-Lession12.md
-│  │  ├─ Combly-Lession6.md
-│  │  ├─ Combly-Lession7.md
-│  │  ├─ Combly-Lession8.md
-│  │  ├─ Combly-Lession9.md
-│  │  └─ IELS 字彙.md
-│  └─ Yugioh
-│     ├─ 2018-12-26-開箱-遊戲王-20-週年主角紀念禮盒
-│     │  ├─ 1*2aOyC0T8ZsQpHBT0WwjHTQ.jpeg
-│     │  ├─ 1*97zAjEQrtAjtrm37o42Jjw.jpeg
-│     │  ├─ 1*Aj3A5Y22QiDcumIY2GLFPQ.jpeg
-│     │  ├─ 1*HAEOiTunohsan1yMekeR8A.jpeg
-│     │  ├─ 1*TMOZMZ9w34iROT-yPJe27g.jpeg
-│     │  ├─ 1*VUKE7WTdVK_J3y59hFnpXw.jpeg
-│     │  ├─ 1*_iKjJnyoI0EqcJFheabWLw.jpeg
-│     │  ├─ 1*cCRQ-_1U9-CKbiUMYEmGqQ.jpeg
-│     │  ├─ 1*elm0N6VCcje-QUq3WwGUSw.jpeg
-│     │  ├─ 1*nJzKx574r1ozlU94Fqj5ww.jpeg
-│     │  ├─ 1*sXiKkplvhVoldC1h9F-TrA.jpeg
-│     │  ├─ 1*zi92_ossbAImer7YlCy0Xg.jpeg
-│     │  └─ 61f4_hqdefault.jpg
-│     └─ 2018-12-26-開箱-遊戲王-20-週年主角紀念禮盒.md
-├─ Tech
-│  ├─ Algorithm
-│  │  ├─ 2018-12-14-關於組織樹狀圖的資料結構設計方法
-│  │  │  └─ 1*lwaDg8aL0XtdEndSDBtyvQ.png
-│  │  ├─ 2018-12-14-關於組織樹狀圖的資料結構設計方法.md
-│  │  ├─ 2018-12-26-遊戲中的全服排行是怎麼實現的
-│  │  │  └─ 1*MtDmEH_o_sKxGpsUYIZ4WQ.png
-│  │  ├─ 2018-12-26-遊戲中的全服排行是怎麼實現的.md
-│  │  ├─ 2019-10-19-關於-assignment-賦值-這檔事
-│  │  │  ├─ 1*HjDVd26Zp4cGDEafYv0CRA.gif
-│  │  │  ├─ 1*OgUcvg2jn61c4eUONdw_iQ.png
-│  │  │  ├─ 1*_AKd2MivrwKGISeg-6wm3g.png
-│  │  │  ├─ 1*f0wyC8MYfYzxRoXIAiJOkA.gif
-│  │  │  ├─ 1*fpQiGbnKfS9ulOOeQT9OqA.png
-│  │  │  └─ 1*oRFnzEOdLwhxpRltCOhFww.png
-│  │  └─ 2019-10-19-關於-assignment-賦值-這檔事.md
-│  ├─ Aws Architecture
-│  │  ├─ Aws-architecture-IAM
-│  │  │  ├─ image-20230108104318658.png
-│  │  │  ├─ image-20230108105326254.png
-│  │  │  ├─ image-20230108105919211.png
-│  │  │  ├─ image-20230108113854062.png
-│  │  │  ├─ image-20230108114033352.png
-│  │  │  ├─ image-20230108115828306.png
-│  │  │  ├─ image-20230108120035484.png
-│  │  │  ├─ image-20230108120359228.png
-│  │  │  ├─ image-20230108120532329.png
-│  │  │  └─ image-20230108122050789.png
-│  │  ├─ Aws-architecture-IAM.md
-│  │  └─ Aws-architecture-Serverless.md
-│  ├─ Data Storage
-│  │  ├─ 2018-10-27-在-debian-9-中安裝-redis-並使其成為-service
-│  │  │  └─ 1*DPd3_f1ruu3rrkgaFeo2Ug.png
-│  │  ├─ 2018-10-27-在-debian-9-中安裝-redis-並使其成為-service.md
-│  │  ├─ 2020-07-27-mongodb-如何-auto-increment-地插入資料
-│  │  │  └─ 1*K6syln_71vBX22lssiVQdQ.png
-│  │  ├─ 2020-07-27-mongodb-如何-auto-increment-地插入資料.md
-│  │  ├─ 2021-05-16-sql-mysql-postgresql-與-mongodb-如何大量產生測試資料
-│  │  │  ├─ 1*5I9wbUun0tnHjHOiebc06Q.png
-│  │  │  ├─ 1*TvJnGY8LvtvZok6MRDLg9g.png
-│  │  │  └─ 1*u7tqvIP1aNErGnjuZjRcdg.png
-│  │  ├─ 2021-05-16-sql-mysql-postgresql-與-mongodb-如何大量產生測試資料.md
-│  │  ├─ 2022-10-08-sql-postgres-遇到-out-of-shared-memory-問題
-│  │  │  ├─ 1*4K08BRP-ucCyW_t2PddHdw.png
-│  │  │  └─ 1*XoswqaeN0ZhTSGGzHSzrCA.png
-│  │  └─ 2022-10-08-sql-postgres-遇到-out-of-shared-memory-問題.md
-│  ├─ Flutter
-│  │  ├─ Flutter學習-flutter介紹&amp;amp;Dart簡介.md
-│  │  ├─ Flutter學習-環境安裝與錯誤處理
-│  │  │  ├─ image-20230201034918514.png
-│  │  │  ├─ image-20230201035252043.png
-│  │  │  ├─ image-20230201035715344.png
-│  │  │  ├─ image-20230201040009795.png
-│  │  │  ├─ image-20230201040236174.png
-│  │  │  ├─ image-20230201040518776.png
-│  │  │  ├─ image-20230201040716354.png
-│  │  │  └─ image-20230201142130471.png
-│  │  └─ Flutter學習-環境安裝與錯誤處理.md
-│  ├─ Frontend
-│  │  ├─ 2018-11-16-html5-script-tag-新增的屬性-async-defer-差異
-│  │  │  └─ 1*nzoXzwWon5ZXshZeg1z1HQ.png
-│  │  ├─ 2018-11-16-html5-script-tag-新增的屬性-async-defer-差異.md
-│  │  ├─ 2018-11-30-javascript-使用-array-reduce-進行-object-array-的加總.md
-│  │  ├─ 2018-11-30-javascript-使用-proxy-為-object-代理進行前處理
-│  │  │  ├─ 1*6MSzZ5OvyxqDuyalvR_06w.png
-│  │  │  ├─ 1*9Nc863A5wyKSKku5PTQ4EQ.png
-│  │  │  ├─ 1*E991s74NMYV1B_BwNq8yjg.png
-│  │  │  ├─ 1*dQFrWGA_0bwUJLt6kuW_Xw.png
-│  │  │  ├─ 1*eTPeG7b-fLwBd-cG2n6faA.jpeg
-│  │  │  ├─ 1*gUcgBRpUxCooNjH3ahXDlg.png
-│  │  │  ├─ 1*tgiozgmsSMfOhH_khtHemQ.png
-│  │  │  └─ 1*z4kyV7mBHcj23x1w6cM3WQ.png
-│  │  ├─ 2018-11-30-javascript-使用-proxy-為-object-代理進行前處理.md
-│  │  ├─ 2018-12-09-javascript-es6-spread-syntax-展開語法
-│  │  │  └─ 1*dkobBMlN8xVswrMjOks0fg.png
-│  │  ├─ 2018-12-09-javascript-es6-spread-syntax-展開語法.md
-│  │  ├─ 2019-03-20-javascript-arrow-function-與一般匿名-function-對-this-的行為比較
-│  │  │  ├─ 1*7Q_s3gTXBY_sSJh5gjqrRQ.png
-│  │  │  ├─ 1*Cm0_6X4jAtppmLvZrmwo_w.png
-│  │  │  ├─ 1*Cnx_pZGXJIvMXwxKdmhhoA.png
-│  │  │  ├─ 1*Dcd2kioV9JxbXH2CpCezmA.png
-│  │  │  ├─ 1*RPWccRV1yCOx8vCJrDrZDg.png
-│  │  │  ├─ 1*S6lnBgaams7GhdI3DZRoVw.png
-│  │  │  ├─ 1*WOO2JgJOgaqgRmmr6wMOag.png
-│  │  │  ├─ 1*bR0wgT8jDUHwx0N8hgdGIg.png
-│  │  │  ├─ 1*k4PJLMN3zfT1mEKazVx3qg.png
-│  │  │  ├─ 1*qdqCiSptePhqISVU0BxM4w.png
-│  │  │  ├─ 1*whd2x_7DTtrRpd-qEF29OQ.png
-│  │  │  └─ 1*xcHCASkTrupfccVyKwl62A.png
-│  │  ├─ 2019-03-20-javascript-arrow-function-與一般匿名-function-對-this-的行為比較.md
-│  │  ├─ 2019-07-05-javascript-functional-programming-一文到底全紀錄
-│  │  │  ├─ 0*FRlb4wUBNM256lEW.png
-│  │  │  ├─ 1*0vFSAXJvIbSKzrYki-5ZBQ.png
-│  │  │  ├─ 1*38kX52naL-_q99y81bLAIQ.png
-│  │  │  ├─ 1*4TWSbRZ8s01gOMIU78uE5g.png
-│  │  │  ├─ 1*7bvDeksvOHZco5EC3jfFcA.png
-│  │  │  ├─ 1*9952DfkuCXuAFpsJ8a8onQ.png
-│  │  │  ├─ 1*Dj16RgGvNsuKNtVscYAZPg.png
-│  │  │  ├─ 1*EezC0VUV5e5C4V6auKjFVg.png
-│  │  │  ├─ 1*GZYAsRmWTK-OK3klcMjqsA.png
-│  │  │  ├─ 1*JBasiFOr-UGKJDPFqGQr9w.png
-│  │  │  ├─ 1*NeJ_lQCgpOJOlvloqbXrkw.png
-│  │  │  ├─ 1*RwSWFTK6ZI2XRCrgzxCmmQ.png
-│  │  │  ├─ 1*UB2sm5jPeBEm_Ahi_zt6kQ.png
-│  │  │  ├─ 1*Uw06YLV8VaoGz0CV1bYlaQ.png
-│  │  │  ├─ 1*Yaf7JsDuHXXNNRgMwidu8Q.png
-│  │  │  ├─ 1*aqUj3-ra564I2nraS73MVg.png
-│  │  │  ├─ 1*jnnq19nXAVONVyVrAeTMHg.png
-│  │  │  ├─ 1*nZz5pAq9vAWQi6rYMVQDzA.png
-│  │  │  ├─ 1*qyR6kHLrV4AuqK_fAvJfZw.jpeg
-│  │  │  ├─ 1*uXFsWylRWqrdYIoiye14Hw.png
-│  │  │  ├─ 1*xlFR_tW_ldG_yf6LbOF2Bg.png
-│  │  │  ├─ 1*y27xmFmDTPy9VXvK7g7jKg.png
-│  │  │  └─ 1*y7kH_ET09Qlk_yAR3s_zvg.png
-│  │  ├─ 2019-07-05-javascript-functional-programming-一文到底全紀錄.md
-│  │  ├─ 2019-12-30-javascript-point-free-style-如何幫助提高程式可讀性
-│  │  │  ├─ 1*8uA0qRUuqy6G7qMJhLbKnw.jpeg
-│  │  │  └─ 1*itAJHMwn0D-DpWte_sFMxA.png
-│  │  ├─ 2019-12-30-javascript-point-free-style-如何幫助提高程式可讀性.md
-│  │  ├─ 2020-04-05-javascript-使用js-xlsx-將-json-匯出成-excel
-│  │  │  ├─ 1*GIAk84EW7m7PHUT8p8DcEA.png
-│  │  │  └─ 1*wZSJVMQEhojzrH8_U6GGzg.png
-│  │  ├─ 2020-04-05-javascript-使用js-xlsx-將-json-匯出成-excel.md
-│  │  ├─ 2020-08-25-javascript-es6-模板字串-template-string-知多少
-│  │  │  ├─ 0*aUXamM8t0mHhFD-K.png
-│  │  │  ├─ 1*-mORctsYOsPTVCBunpYYrg.png
-│  │  │  ├─ 1*MRkZgd6EA6KjPDyJ9BbhcA.png
-│  │  │  ├─ 1*VHuOhbHJGcfzk-MU2EWN8Q.png
-│  │  │  ├─ 1*VNU7p6sERC8as6j8ti2-LQ.png
-│  │  │  ├─ 1*Vluuu2ZEkswFpbzZ5ULvug.png
-│  │  │  ├─ 1*iNGXaKSPfLZQ5pKaie44XQ.png
-│  │  │  ├─ 1*iqoi254cRLpkUgFUC3IkWg.png
-│  │  │  └─ 1*m4lVm2fHNJtnF0oblHxzEQ.png
-│  │  ├─ 2020-08-25-javascript-es6-模板字串-template-string-知多少.md
-│  │  ├─ 2020-11-13-axios-如何-cancel-已經發出的-request
-│  │  │  ├─ 1*mSPQ2f7osaeXy45N9jLFQw.png
-│  │  │  └─ 1*tsSFPOgWSZcPh9XTEavQwA.gif
-│  │  ├─ 2020-11-13-axios-如何-cancel-已經發出的-request.md
-│  │  ├─ 2021-02-09-front-end-emmet-前端快速開發的神兵利器
-│  │  │  ├─ 0*4D_q0c3hxHQcjjYE.gif
-│  │  │  ├─ 1*-JvloFLYjqUzfVfZjkCG5g.gif
-│  │  │  ├─ 1*4l8SN32JJqXAjF-RKnexwg.gif
-│  │  │  ├─ 1*A_2TRu4IpBPa6kiqKd5gEA.gif
-│  │  │  ├─ 1*IutHuFaDKyL83MZuxHwXNA.gif
-│  │  │  ├─ 1*UyCQppxtpLwqyTFLijikdA.gif
-│  │  │  ├─ 1*ZVzYUKvGMGxVSMVBeFAM3Q.gif
-│  │  │  ├─ 1*bpP5Wasjp58bz3SeU2dT1g.gif
-│  │  │  ├─ 1*c2jZ3I4MSQQAv8S2lGwHqw.gif
-│  │  │  ├─ 1*raTa4R7FKI8NlWqPNXw6Tg.gif
-│  │  │  ├─ 1*rz00s3Dj25n2wbqTPovThQ.gif
-│  │  │  ├─ 1*sF0HVT8G5gfOwiCeToBNCg.gif
-│  │  │  ├─ 1*xYvBbURns_-f3w08g1zVLg.gif
-│  │  │  └─ 1*zYGPsvtn0yFucRQvweP-Ug.gif
-│  │  ├─ 2021-02-09-front-end-emmet-前端快速開發的神兵利器.md
-│  │  ├─ axois-big5網頁獲取造成亂碼的解決方法
-│  │  │  └─ image-20230203152936673.png
-│  │  ├─ axois-big5網頁獲取造成亂碼的解決方法.md
-│  │  └─ vue
-│  │     ├─ 2018-10-27-vue-cli-自定義全局功能的方法
-│  │     │  └─ 1*_De2DFdiagdljCHfHi8t1Q.png
-│  │     ├─ 2018-10-27-vue-cli-自定義全局功能的方法.md
-│  │     ├─ 2018-11-09-vue-components-組件之間的溝通方式
-│  │     │  ├─ 1*3GTVGo8HC5T2o7gPRYocvg.png
-│  │     │  ├─ 1*P7DmOPXjK-MMJ6gr0C4Ueg.png
-│  │     │  ├─ 1*V8TObRwANtKeM90nd_3zWQ.png
-│  │     │  ├─ 1*sfk8gnkC6H57ClwOzh3F7g.png
-│  │     │  └─ 1*vEboBXCSAJD8JN6mWhCkyg.png
-│  │     ├─ 2018-11-09-vue-components-組件之間的溝通方式.md
-│  │     ├─ 2019-02-28-vue-導入-vuex-管理vue專案的狀態
-│  │     │  ├─ 1*5etY7t5mvbS1mbEaPXQEjw.png
-│  │     │  ├─ 1*5j7aDL9u5aiIi1hNbEyA_A.png
-│  │     │  ├─ 1*69hlq-tL3VgqgkwSyWd7ig.png
-│  │     │  ├─ 1*7V17HivTzMV5jpLZrGGfkw.png
-│  │     │  ├─ 1*ARW0v2DY46cETKmRFSchvA.png
-│  │     │  ├─ 1*ATv1f9NPhGSsA2gH7MbAKg.png
-│  │     │  ├─ 1*FiqRo5HmXA4UXDm6AYjlOA.png
-│  │     │  ├─ 1*Gt9bK0mqBAqNdMNTAOAMWQ.png
-│  │     │  ├─ 1*IXaLPY5pGQt9gDYhVdIkxQ.png
-│  │     │  ├─ 1*KIoNyRO6s_52W68Y-0usJw.png
-│  │     │  ├─ 1*Q75rIH_315Io__kcD9AM4Q.png
-│  │     │  ├─ 1*X0zDyFZNlHc7jggXcpbWXA.png
-│  │     │  ├─ 1*gN6ELD_k-DS_p7NQVbz1Pg.png
-│  │     │  ├─ 1*jYbk1zI74FwTJDm5zc2ojQ.png
-│  │     │  ├─ 1*jshtZYf4XAqUvJPzoFI3cw.png
-│  │     │  ├─ 1*oOyGWdDDHyh-U_6LyU8v3w.png
-│  │     │  ├─ 1*q6Sjh7-TyY1uppZY2cUxqg.png
-│  │     │  ├─ 1*sUkKlL2jaBnJHpELYvCmYA.png
-│  │     │  └─ 1*xGGXE-T86azpk0KQWIGaJg.png
-│  │     ├─ 2019-02-28-vue-導入-vuex-管理vue專案的狀態.md
-│  │     ├─ 2019-04-02-vue-筆記-reset-data-in-component
-│  │     │  └─ 1*9qAb4yjDW6L5M5U2kN7MTA.png
-│  │     ├─ 2019-04-02-vue-筆記-reset-data-in-component.md
-│  │     ├─ 2019-04-23-vue-使用-props-async-同步父子組建之間的傳值
-│  │     │  ├─ 1*H-n1CCxFQyh_2GEUTzkN1g.gif
-│  │     │  ├─ 1*JwzyQR1fD-nG3rGjzJ4p2A.png
-│  │     │  └─ 1*nqUfyvov5lTuDc_22b9AGw.gif
-│  │     ├─ 2019-04-23-vue-使用-props-async-同步父子組建之間的傳值.md
-│  │     ├─ 2019-05-15-vuex-在-vscode-中不使用-typescript-也能讓-vuex-讀懂變數的類型
-│  │     │  ├─ 1*CQdDVOxQwLQUaC3IaQloBw.gif
-│  │     │  ├─ 1*HI7gIGHGVIf6to0_1sNgYA.gif
-│  │     │  └─ 1*rjmsDpBmEoP9v2MwubWqOQ.gif
-│  │     ├─ 2019-05-15-vuex-在-vscode-中不使用-typescript-也能讓-vuex-讀懂變數的類型.md
-│  │     ├─ 2019-12-06-vue-聰明使用-keep-alive-達到-cache-目的
-│  │     │  └─ 0*dbUWK1RBu1Gi0dfU.png
-│  │     ├─ 2019-12-06-vue-聰明使用-keep-alive-達到-cache-目的.md
-│  │     ├─ 2022-07-04-vue-nuxt-eslint-prettier-vscode-設定-讓-eslint-自動排版-nuxt-專案
-│  │     │  ├─ 1*CvCOrh9Ylw2-AlkWrb9A4g.png
-│  │     │  ├─ 1*DTodaOdB7g7Y3j-35PopQg.png
-│  │     │  ├─ 1*ET9CfH7oh7cubkTpNch7Xw.png
-│  │     │  ├─ 1*Mvfr8nd_T3OVC6U693GQVA.png
-│  │     │  ├─ 1*WT4Zgzex60odGfhRIgpXxw.png
-│  │     │  ├─ 1*jt_CPBruvGdfc6I_svByEw.png
-│  │     │  ├─ 1*ovYVQpQEWiy2JY0l267wjw.png
-│  │     │  └─ 1*t-XiqWLBCtF_pu_VKsp3XQ.png
-│  │     └─ 2022-07-04-vue-nuxt-eslint-prettier-vscode-設定-讓-eslint-自動排版-nuxt-專案.md
-│  ├─ Hexo
-│  │  ├─ fix-mermaid-parser-issue.md
-│  │  ├─ hello-world.md
-│  │  └─ 特殊語法總集.md
-│  ├─ Linux
-│  │  ├─ 2018-11-02-一個免費的-https-授權工具-certbot
-│  │  │  ├─ 1*8zq2RDV5jutc6xeNKaxqbw.png
-│  │  │  ├─ 1*Hk35_e5NjdEQz19V8RD5SQ.png
-│  │  │  ├─ 1*T6IWR2WL74TP2j3E25_OeA.png
-│  │  │  ├─ 1*Zet2wn3-10GKoOFGhpVENg.png
-│  │  │  ├─ 1*_kcbIqYK2oVj5QzvCzUFSw.png
-│  │  │  └─ 1*dqguGsLydSvCDHEd9q_Lmw.png
-│  │  ├─ 2018-11-02-一個免費的-https-授權工具-certbot.md
-│  │  ├─ 2018-11-03-nginx-如何配置多個網站共用-80-port
-│  │  │  └─ 1*n2ZyAzgVhxl6kXDCbx_CSw.jpeg
-│  │  ├─ 2018-11-03-nginx-如何配置多個網站共用-80-port.md
-│  │  ├─ 2018-11-28-linux-使用-rsync-傳輸-備份兩處的檔案
-│  │  │  └─ 1*8aE93-Wx5KJb7VqO8gi55g.jpeg
-│  │  ├─ 2018-11-28-linux-使用-rsync-傳輸-備份兩處的檔案.md
-│  │  ├─ 2020-07-27-debian-add-apt-repository-command-not-found-問題.md
-│  │  ├─ 2020-07-27-gcp-如何使用-ssh-讓使用者登入-vm-instance
-│  │  │  ├─ 1*Inm9BZzGX2_CRDgxkl3tTg.png
-│  │  │  ├─ 1*Vja4LMw8UAO9vCauM5Gd1g.png
-│  │  │  ├─ 1*WRUx_I2CVf6bp0HCkIKI4A.png
-│  │  │  └─ 1*reygeRRdhsoPxjPNtMNrsw.png
-│  │  ├─ 2020-07-27-gcp-如何使用-ssh-讓使用者登入-vm-instance.md
-│  │  ├─ 2020-07-27-gcp-遇到permission-denied-publickey-怎麼辦
-│  │  │  └─ 1*5SlkKa9VGVM9bmANkqrHYg.png
-│  │  ├─ 2020-07-27-gcp-遇到permission-denied-publickey-怎麼辦.md
-│  │  ├─ 2021-06-07-關於-selinux-policy
-│  │  │  ├─ 1*-S0VPmREwFR2J6GZrnWu3A.png
-│  │  │  ├─ 1*4JcEry75wMdLTp2wkWOSEQ.png
-│  │  │  ├─ 1*o4gpFTbf0gWP-KWY-CnxZQ.png
-│  │  │  └─ 1*sm2kXbOKHi7OHowp5KQfAg.png
-│  │  └─ 2021-06-07-關於-selinux-policy.md
-│  ├─ NodeJs
-│  │  ├─ 2018-11-01-nodejs-解決mysql-error-connection-lost-the-server-closed-the-connection的方法
-│  │  ├─ 2018-11-01-nodejs-解決mysql-error-connection-lost-the-server-closed-the-connection的方法.md
-│  │  ├─ 2018-11-30-javascript-tool-一個自製的-arguments-verify-工具
-│  │  │  ├─ 1*1wijpL-VzOJwIfRmrsrIiw.png
-│  │  │  ├─ 1*CUgOtAwTXR5XVHDfKDJyZQ.png
-│  │  │  ├─ 1*MuobBThfQbpaCcUk6N8NIA.png
-│  │  │  ├─ 1*Qtsjv35DDyiuz_cJHppOww.png
-│  │  │  ├─ 1*UdzgcKGJR7xw7_WmcrKsGg.png
-│  │  │  ├─ 1*dF1NrzEQieKAiABviOcHfg.png
-│  │  │  └─ 1*irkX8ujBhjBZWjyEVCq91g.png
-│  │  ├─ 2018-11-30-javascript-tool-一個自製的-arguments-verify-工具.md
-│  │  ├─ 2019-07-26-node-使用-nodejs-製作自己的-shell-command
-│  │  │  ├─ 0*PFzkc5fnQd1dUylp.png
-│  │  │  ├─ 1*NZ4WH3Av6AsVLcV_PGqlYw.gif
-│  │  │  ├─ 1*bn5tW0xMEpEQyFFSvT9-7w.png
-│  │  │  └─ 1*wj62wymGk5Vxs__-grOL-g.gif
-│  │  ├─ 2019-07-26-node-使用-nodejs-製作自己的-shell-command.md
-│  │  ├─ 2022-05-16-node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題
-│  │  │  ├─ 1*G7HH9z3wGJhG1mLZK-cvoQ.png
-│  │  │  ├─ 1*TnS_yRzEnIKV74ireuA50Q.png
-│  │  │  ├─ 1*hjkYvj6TLmxY9YM16b8Rsw.png
-│  │  │  ├─ 1*ot3-OLwkVSRw-ImSrXxhCw.png
-│  │  │  ├─ 1*r2wJzxZlT7878dhsficsYA.png
-│  │  │  ├─ 1*vE4cxtjQLFRgYckFNgX2eQ.png
-│  │  │  ├─ 1*wZXni_hZC3GxrpjuOegfcA.png
-│  │  │  └─ 1*y7HVRS0fXUw_u3Ypr-VCNg.png
-│  │  ├─ 2022-05-16-node-如何檢測-node-程式的memory-leak-以及處理-out-of-memory-問題.md
-│  │  └─ NestJs
-│  │     ├─ 2023-05-05-NestJs-一個完整且優雅的-NodeJs-Server-解決方案
-│  │     │  └─ image-20230505214440603.png
-│  │     └─ 2023-05-05-NestJs-一個完整且優雅的-NodeJs-Server-解決方案.md
-│  ├─ Others
-│  │  ├─ 2018-10-27-利用卡諾圖化簡布林代數的條件判斷式
-│  │  │  ├─ image-20221227184109572.png
-│  │  │  ├─ image-20221227184115193.png
-│  │  │  ├─ image-20221227184118942.png
-│  │  │  ├─ image-20221227184233480.png
-│  │  │  ├─ image-20221227184237276.png
-│  │  │  └─ image-20221227184241657.png
-│  │  ├─ 2018-10-27-利用卡諾圖化簡布林代數的條件判斷式.md
-│  │  ├─ 2018-12-03-perl-一鍵安裝-perl.md
-│  │  ├─ 2020-11-04-告別-powershell-與-cmd-擁抱-windows-terminal-包括自訂樣式
-│  │  │  ├─ 1*-nI7Q6hnOV6RKIag4XdUQw.png
-│  │  │  ├─ 1*1xbwxWw8CwNf_RNo4VoUNA.png
-│  │  │  ├─ 1*A6Z2EayE-kPdzZM1naNsBw.png
-│  │  │  ├─ 1*Q43c7Cex6esd_k47iqdMoQ.png
-│  │  │  ├─ 1*RBKVWvWz58gDliZ19_gDig.png
-│  │  │  ├─ 1*ToHMLSXBYrKwNgDHjkFR4w.png
-│  │  │  ├─ 1*ccFZQhAqUQnN_VzNVZks5w.png
-│  │  │  ├─ 1*iWY8_kxIAQCq-Sy2Yt4ovQ.png
-│  │  │  ├─ 1*iy_uqJrXLlsLEao75Gpo1w.png
-│  │  │  ├─ 1*koMTJ4hDD1T6GwwKdPXUHA.png
-│  │  │  ├─ 1*tnjjMpf606Nc3hFo5RauNA.png
-│  │  │  ├─ 1*wglfuUP-kzJ0NAlIVFAVEw.png
-│  │  │  └─ 19cf_hqdefault.jpg
-│  │  ├─ 2020-11-04-告別-powershell-與-cmd-擁抱-windows-terminal-包括自訂樣式.md
-│  │  ├─ 2021-02-09-windows-手動移除-新增-移除程式-清單中無法被移除的程式
-│  │  │  ├─ 1*KyjfFojRFu2tKRlqfPlrAA.png
-│  │  │  ├─ 1*_SqNf0EQ2vCvFsO5eM2zvg.png
-│  │  │  ├─ 1*hjrrM9Q7CVlkMtWVlcTkfw.png
-│  │  │  └─ 1*kdfkj20bkBl5VtdXLnA3Zw.png
-│  │  ├─ 2021-02-09-windows-手動移除-新增-移除程式-清單中無法被移除的程式.md
-│  │  ├─ 2021-08-14-tiling-window-management-平鋪式視窗管理-amethyst-yabai
-│  │  │  ├─ 1*--6z5M0BwxkCgclrwDuYsQ.gif
-│  │  │  ├─ 1*0-vM8MdNwqYIa38cHmDIqw.gif
-│  │  │  ├─ 1*3B9-BHm02eQC4mlV_Uh7dg.gif
-│  │  │  ├─ 1*5NPkQIS5TR09HiaxkU6Bwg.gif
-│  │  │  ├─ 1*5ZVbxolpIuH9BY8FK4PBIg.gif
-│  │  │  ├─ 1*9swWR0x1rBw6aDOhFwLACQ.gif
-│  │  │  ├─ 1*Ciz6Od9ySfrVtkiEs72l_w.png
-│  │  │  ├─ 1*HKWfSFdae-qERrku4XnJKA.gif
-│  │  │  ├─ 1*PiIo2aasyB15nf1zbMWO9w.gif
-│  │  │  ├─ 1*RHb6p3zEYN6GIVtXhQvtUg.gif
-│  │  │  ├─ 1*TXuDJEdkIjdJll5Xs2wZ2w.png
-│  │  │  ├─ 1*TZbmWNgQkEmsZmol6fSdnw.gif
-│  │  │  ├─ 1*VrezmQ_2bsHHCUSFxNm2kQ.png
-│  │  │  ├─ 1*iES9yQoVnwQGxsKoHhE2uQ.gif
-│  │  │  ├─ 1*i_uezLMOZqgIPNsnrzKkmQ.png
-│  │  │  ├─ 1*ieNyG9uhzw66lGXrjyxNKQ.gif
-│  │  │  ├─ 1*inR_OfCObjnbxZIX-srkaA.png
-│  │  │  ├─ 1*k770qOtVklQZxhr0j7aCew.gif
-│  │  │  ├─ 1*qFXBBoqP39Bv_aTtmSmOUw.png
-│  │  │  ├─ 1*rf5sUpiqjZXPuJFW_-TiXQ.gif
-│  │  │  ├─ 1*uA-p4IlvU3hOKYDsQFy8qg.gif
-│  │  │  ├─ 1*vOsem0TohjoiQyRwj__IYA.gif
-│  │  │  ├─ 1*zzg2M4dVZZYvVsgFEPC_Yg.png
-│  │  │  └─ 702b_hqdefault.jpg
-│  │  ├─ 2021-08-14-tiling-window-management-平鋪式視窗管理-amethyst-yabai.md
-│  │  ├─ 2022-06-16-tech-skhd-失去功能-not-working-的解決方法
-│  │  │  ├─ 0*A5q6r3JS-zTQfZVk.jpg
-│  │  │  ├─ 0*nlUF009uzQ11n5d5.png
-│  │  │  ├─ 1*-O6oGPKvPXPJx055gUTnJA.png
-│  │  │  ├─ 1*FvKx68zuda255u3UiZds-w.png
-│  │  │  ├─ 1*ZhFCMO8tv_w42ZIjh8diHw.png
-│  │  │  └─ 1*dW3dMJS7WrqAj9NFzosk4Q.png
-│  │  ├─ 2022-06-16-tech-skhd-失去功能-not-working-的解決方法.md
-│  │  ├─ 使用 gmail 無限申辦帳號
-│  │  │  └─ image-20230108111759969.png
-│  │  └─ 使用 gmail 無限申辦帳號.md
-│  ├─ PHP
-│  │  ├─ 2018-10-27-laravel-使用-middleware-解決-access-control-allow-origin-的問題
-│  │  │  ├─ 1*_bSBChnoy9r7UHADRkrzsg.jpeg
-│  │  │  └─ image-20221227163758253.png
-│  │  ├─ 2018-10-27-laravel-使用-middleware-解決-access-control-allow-origin-的問題.md
-│  │  ├─ 2019-03-19-wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug
-│  │  │  ├─ 0*4pzA--pou2v3UltC.png
-│  │  │  ├─ 1*GDziL_BBgZVPVRRg11kJNA.png
-│  │  │  ├─ 1*MZ3peuLJsPmNbINh2it23w.png
-│  │  │  ├─ 1*OhsuabAkpnoIeBOiNt4kew.png
-│  │  │  ├─ 1*VW_857h5A2v7f_4NvAwPiQ.png
-│  │  │  ├─ 1*XYYnww4odUDmAksV4h4F9g.png
-│  │  │  ├─ 1*YgarJ7jJIMRwsko3k8RpjQ.png
-│  │  │  ├─ 1*d1UGW93GfKv_5nsPwBjbgA.png
-│  │  │  ├─ 1*dcDgUdFoR3Ej9wPaYpeMdw.png
-│  │  │  ├─ 1*gIPR5dxAgTmkx2cUMmDNgw.png
-│  │  │  ├─ 1*nGb_3pubzkSNLpV796o07Q.png
-│  │  │  ├─ 1*rgp2ZAabc5CLr3A5n5ZFoA.png
-│  │  │  ├─ 1*ufKsrMYlszF5DhdbkII5kA.png
-│  │  │  ├─ 1*w0FzABVijj8cvxZKFSRRcQ.png
-│  │  │  ├─ 1*wjtSAfbgD_lTIaxoLco25A.png
-│  │  │  └─ 1*wywPZ4JbDVPIh2SMI4go1g.jpeg
-│  │  ├─ 2019-03-19-wsl-與-windows-的完美雙結合-windows-10-下使用-vscode-調用-wsl-對-php-專案-debug.md
-│  │  ├─ 2019-08-30-laravel-docker-輕鬆上手
-│  │  │  ├─ 1*4yRYoTkSKksHgcmuK3yYng.png
-│  │  │  ├─ 1*94J9E4eYD8h3We44b-ZWjg.png
-│  │  │  ├─ 1*BwGaFoUkllhXjCRDMS4Xng.png
-│  │  │  ├─ 1*M1gDrUe-uKcF1KQ3r9sVLA.png
-│  │  │  ├─ 1*Pv5gP1lwf4KlQL_IUBeI_Q.png
-│  │  │  ├─ 1*iHhs8cxEwQAzFLScQ8wfCw.png
-│  │  │  ├─ 1*qddAOC4j8pHKlqOIZjyTEQ.png
-│  │  │  └─ 1*wDUHaXNQ0yuWN_et9wiNAQ.png
-│  │  ├─ 2019-08-30-laravel-docker-輕鬆上手.md
-│  │  ├─ 2019-08-30-設定-vscode-xdebug-laradock
-│  │  │  ├─ 1*drM3rukuVUUmmvk2gbEqLg.png
-│  │  │  └─ 1*vKDcfdI_pOPOGEa7EIvfaw.png
-│  │  └─ 2019-08-30-設定-vscode-xdebug-laradock.md
-│  ├─ Tools
-│  │  ├─ 2018-11-14-vim-使用-vimdiff-來比較-git-diff-的差異
-│  │  │  └─ 1*EeuoQHRFpAlSgWO13ygBtQ.png
-│  │  ├─ 2018-11-14-vim-使用-vimdiff-來比較-git-diff-的差異.md
-│  │  ├─ 2018-11-22-vscode-使用-settings-sync-同步-vscode-的擴充功能與各項設定
-│  │  │  ├─ 1*0vub66zAiGY-lt80ullWRQ.gif
-│  │  │  ├─ 1*CPaXiDCJQOIWVktUa1qx-g.png
-│  │  │  ├─ 1*KKXvcZtFUTXKKGkI5wRLsA.png
-│  │  │  ├─ 1*UFh_o-j1QOVt4Wo3Tz61YQ.png
-│  │  │  ├─ 1*YgG3QMgFHwk_ghx-1Yn0xQ.png
-│  │  │  ├─ 1*daPnpILkbOhrmN55uqZKDg.png
-│  │  │  ├─ 1*p4105m0rt_6MF6189FBeuA.png
-│  │  │  ├─ 1*rfsi5shVkzx_9ZddZDj5zw.png
-│  │  │  ├─ 1*tW5d2qpMX0D3Mao0NpAbRg.png
-│  │  │  └─ 1*zhvAGV8O5uUBK8eMLTFjRQ.png
-│  │  ├─ 2018-11-22-vscode-使用-settings-sync-同步-vscode-的擴充功能與各項設定.md
-│  │  ├─ 2019-01-04-工具-tee-同時輸出訊息於terminal-與指定檔案.md
-│  │  ├─ 2019-04-10-wsl-與-windows-的完美雙結合-修改vscode的預設terminal為wsl
-│  │  │  ├─ 1*VKVjMQPwL_zX_HJV0MELzg.png
-│  │  │  ├─ 1*rqookuF2F7FDXCeApOn9PQ.png
-│  │  │  ├─ 1*sqT-Gr3efL4VQBVwStw26w.png
-│  │  │  └─ 1*z38TJl8tqLQUZfdtd2ZeDg.png
-│  │  ├─ 2019-04-10-wsl-與-windows-的完美雙結合-修改vscode的預設terminal為wsl.md
-│  │  ├─ 2019-04-26-wsl-與-windows-的完美雙結合-在wsl-中安裝-docker
-│  │  │  ├─ 1*0wMLVqb3BIbmSSkam8BdRw.png
-│  │  │  ├─ 1*9hGvYE5jegHm1r_97gH-jQ.png
-│  │  │  ├─ 1*PHx1BfZEXZY-Lr1pQ7gMzg.png
-│  │  │  ├─ 1*PzJ9x0KD4r-4_HpCQ5S-qQ.png
-│  │  │  ├─ 1*QMAbugL3OLtSOaHo1mwqBQ.png
-│  │  │  ├─ 1*dGHtkVH30G3r0sUEUxlhrg.png
-│  │  │  ├─ 1*fnUrY_wFYGXSyuPh5wFMxw.png
-│  │  │  ├─ 1*jipjYk-dYDwXafjfeB3Vmw.png
-│  │  │  ├─ 1*nDub8V2UV9tlGkVt3CKrGg.png
-│  │  │  └─ 1*uJZa8eMdaQzsddOzk4SvFA.png
-│  │  ├─ 2019-04-26-wsl-與-windows-的完美雙結合-在wsl-中安裝-docker.md
-│  │  ├─ 2019-05-04-docker-學習筆記-一-docker-簡介
-│  │  │  ├─ 0*fE653ysl-E57noD0.jpg
-│  │  │  └─ 1*8gaauCIDfhu0YrgB6vzm7A.jpeg
-│  │  ├─ 2019-05-04-docker-學習筆記-一-docker-簡介.md
-│  │  ├─ 2019-05-04-docker-學習筆記-安裝-docker
-│  │  │  ├─ 1*8gaauCIDfhu0YrgB6vzm7A.jpeg
-│  │  │  ├─ 1*pEq1TDSK37Cmtm4P4YCKlw.png
-│  │  │  └─ 1*uzxKuRqS7Xup9527Fa6s1A.png
-│  │  ├─ 2019-05-04-docker-學習筆記-安裝-docker.md
-│  │  ├─ 2019-05-08-docker-學習筆記-docker指令使用講解
-│  │  │  ├─ 1*-D5GNKFOo62Lykewkl-zDg.png
-│  │  │  ├─ 1*3ctkn8uYYtiJuO32zYUI0g.png
-│  │  │  ├─ 1*4j8QQehEcl_z0qSKlGtOJw.png
-│  │  │  ├─ 1*8r2-Uug3ULlJQddpDntItA.png
-│  │  │  ├─ 1*9NgQ4GHdp3SSV1JpgKbAYg.png
-│  │  │  ├─ 1*BQNHzvcrcJlcWQtZNzdNJg.png
-│  │  │  ├─ 1*EhTQOY8I653CHs7JcYxsHw.png
-│  │  │  ├─ 1*LI0SFrXy2WLKuw2Jy5TTeg.png
-│  │  │  ├─ 1*LdRLFtiPR3TFNLrNOgu2Rw.png
-│  │  │  ├─ 1*PHfGaiM7WKFPfScuzBKIQg.png
-│  │  │  ├─ 1*W2oKI1SoP8eveG5NkPZCJA.png
-│  │  │  ├─ 1*_1zg71rmFJzc8LKzmgFQwA.png
-│  │  │  ├─ 1*mI5nQn5PijUJ3-VJ_K4W8A.png
-│  │  │  ├─ 1*sfRRcLYpe-YAc89RJkppzg.png
-│  │  │  ├─ 1*tWO6Oyd4Oun82KgpIsjF3g.png
-│  │  │  ├─ 1*v4cbiPyzQLvADJnqaFNPoA.png
-│  │  │  └─ 1*wisYVqS_pLtGM796CCj_yQ.jpeg
-│  │  ├─ 2019-05-08-docker-學習筆記-docker指令使用講解.md
-│  │  ├─ 2019-05-10-docker-學習筆記-四-如何撰寫dockerfile
-│  │  │  ├─ 1*Fi3l7XGMOm_MxcWFVFsiHQ.png
-│  │  │  ├─ 1*W6o9HMTSTkrglwZ2Lr9s6g.png
-│  │  │  ├─ 1*nMp8zL7zFOYYpOCYAKFfSg.png
-│  │  │  ├─ 1*oK8aBUElGbB-Eq2fVz2wZw.png
-│  │  │  ├─ 1*pN38vgdyQVMY7p6qqiijlQ.png
-│  │  │  ├─ 1*roTHx2rfjh72h8kjVYHgWw.png
-│  │  │  └─ 1*tFmTqvE22YHplPhaaaYSBw.png
-│  │  ├─ 2019-05-10-docker-學習筆記-四-如何撰寫dockerfile.md
-│  │  ├─ 2019-05-22-docker-學習筆記-五-以一個todolist實戰-dockerfile
-│  │  │  ├─ 1*6Q2SP_K4g5Q2hSDLAFVT5A.png
-│  │  │  ├─ 1*E-fj9f15LNMb2J6oTNKHmQ.png
-│  │  │  ├─ 1*Hce3LKLB_yGCQBMjk4aVxg.gif
-│  │  │  ├─ 1*N9sP5pFlT6EvVtTFjyDyaQ.png
-│  │  │  ├─ 1*X0h-DQnHVIZtr0VPEVJ3Hw.png
-│  │  │  └─ 1*i5G6YjGcn6Ih2KlCcSpu7w.gif
-│  │  └─ 2019-05-22-docker-學習筆記-五-以一個todolist實戰-dockerfile.md
-│  └─ git
-│     ├─ 2018-10-27-git-修改默認對文件名不區分大小寫的設定
-│     │  └─ 1*A5zK5mklkvqFAA04vtskcg.png
-│     ├─ 2018-10-27-git-修改默認對文件名不區分大小寫的設定.md
-│     ├─ 2019-04-17-git-關於-git-的-m-的二三事
-│     │  └─ 1*LogYJXla7Qf4UOBXjNyRrA.png
-│     ├─ 2019-04-17-git-關於-git-的-m-的二三事.md
-│     ├─ 2020-04-07-git-用-rebase-合併分支-讓你的-git-history-更乾淨
-│     │  ├─ 1*0CbprtxSD9bGeD2XnVRiHA.png
-│     │  ├─ 1*C8hxxOpdGqxZ-zUqtkg3kA.png
-│     │  ├─ 1*ECOhYfjW8ztCI0inzMvQUA.png
-│     │  ├─ 1*Hk5KCcC-WzNVku731K7VWw.png
-│     │  ├─ 1*L1UKhRZTNXtt2AHLCsrlQA.png
-│     │  ├─ 1*MQ-xv-FbIWXJahsLDea-0g.png
-│     │  ├─ 1*Mc0f6hpwvlGrRZihEn4lpg.png
-│     │  ├─ 1*RNG46OBHZbikRif_JWuCWA.png
-│     │  ├─ 1*SDbO0L3bXRnjqdNVFJAdLQ.png
-│     │  ├─ 1*TZIQciWYAHN_Sdhm7fcFpg.png
-│     │  ├─ 1*UybAbYx6WrBrcC1S5vqZfQ.png
-│     │  ├─ 1*cVxaTmuY37VAmnsXbTwNrw.png
-│     │  ├─ 1*l_0AwXprRSt-RiA-WpjGqA.png
-│     │  ├─ 1*pjpYnYV6YCWQ6hu6eEeFUQ.png
-│     │  └─ 1*uVc-Sl91MlRsv3MClb42TA.png
-│     └─ 2020-04-07-git-用-rebase-合併分支-讓你的-git-history-更乾淨.md
-└─ _data
-   └─ images.yml
-
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-        <updated>2023-05-05T14:24:02.848Z</updated>
-    </entry>
-    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession12/</id>
         <title>Cambly-Lession12</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession12/"/>
@@ -1210,27 +622,6 @@ ex. Let&#39;s dig in.&lt;/p&gt;
         <updated>2023-01-04T16:28:40.000Z</updated>
     </entry>
     <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</id>
-        <title>Cambly-Lession6</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
-&lt;li&gt;I used to live in the country.&lt;/li&gt;
-&lt;li&gt;farm fishing&lt;/li&gt;
-&lt;li&gt;wild caught&lt;/li&gt;
-&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
-&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2023-01-04T16:28:40.000Z</updated>
-    </entry>
-    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/</id>
         <title>Cambly-Lession4</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/"/>
@@ -1256,6 +647,27 @@ ex. Let&#39;s dig in.&lt;/p&gt;
 &lt;li&gt;He could not keep up with the conversation. (He didn&#39;t understand.).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+        <updated>2023-01-04T16:28:40.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</id>
+        <title>Cambly-Lession6</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
+&lt;li&gt;I used to live in the country.&lt;/li&gt;
+&lt;li&gt;farm fishing&lt;/li&gt;
+&lt;li&gt;wild caught&lt;/li&gt;
+&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
+&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
         <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
@@ -1394,5 +806,145 @@ ex. Let&#39;s dig in.&lt;/p&gt;
         <category term="english" scheme="https://z20240.github.io/tags/english/" />
         <category term="iels" scheme="https://z20240.github.io/tags/iels/" />
         <updated>2023-01-02T16:28:40.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession2/</id>
+        <title>Cambly-Lession2</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession2/"/>
+        <content type="html">&lt;h2 id=&#34;vocabulary&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vocabulary&#34;&gt;#&lt;/a&gt; Vocabulary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;scenery = 風景&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;view 比較偏向眼中看出去的事物&lt;/li&gt;
+&lt;li&gt;scenery 是平常描述中的「風景」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;coherence 連貫性 (n.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;accuracy 準確性 (n.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;intonation 語調 (n.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;flawless = perfect 完美的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to unwind (v.) = to relax.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to gather (v.) = gathering (n.) 聚集 =/= together.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to go sightseeing 觀光&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to get together  聚聚&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ex. Shall we get together on Friday and go for a drink or something?
+&lt;ul&gt;
+&lt;li&gt;我們星期五聚聚喝點東西，如何？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to catch-up 聯絡感情&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How about let&#39;s catch-up next week?
+&lt;ul&gt;
+&lt;li&gt;我們下週來聚聚聯絡感情如何？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to contemplate 沉思&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to cost an arm and leg = expensive.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to change of senary = 轉換心情&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;to broaden wider = 打開眼界&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;here and there = to describe uns&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;as often as = every time 每次&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;As&lt;/strong&gt; &lt;strong&gt;often&lt;/strong&gt; &lt;strong&gt;as&lt;/strong&gt; I tried to phone him the line was engaged.&lt;/li&gt;
+&lt;li&gt;每次我給他打電話都佔線。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;indeed 的確&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;not to mention = 更不必說&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There were three of us there, &lt;strong&gt;not&lt;/strong&gt; &lt;strong&gt;to&lt;/strong&gt; &lt;strong&gt;mention&lt;/strong&gt; the children.
+&lt;ul&gt;
+&lt;li&gt;不算孩子在內，我們中有三個人在那裡。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;I enjoyed the meal, &lt;strong&gt;not&lt;/strong&gt; &lt;strong&gt;to&lt;/strong&gt; &lt;strong&gt;mention&lt;/strong&gt; the conversation.
+&lt;ul&gt;
+&lt;li&gt;我很喜歡那一頓飯，至於席上的談話更是不必說了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;accurately (adv.) 準確地.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;accurate (adj.) 準確的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;accuracy (n.) 準確性 /precision 精確性&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;glitter 閃光&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;字根字尾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字根字尾&#34;&gt;#&lt;/a&gt; 字根字尾&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ex 外面&lt;/li&gt;
+&lt;li&gt;er 反覆 / 比較級 / 能做某用途的人或物，東西；能做... 用途的東西。&lt;/li&gt;
+&lt;li&gt;cise = cut 切割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ex.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;exercise = (外出反覆批砍) = 運動
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;ac / ad = to&lt;/li&gt;
+&lt;li&gt;cur = cure = take care&lt;/li&gt;
+&lt;li&gt;rate = 變成...; 充當... = cause to become.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ex.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;accurate = (to become more care) = 精確
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;pre 預先&lt;br /&gt;
+ ex.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;precise = 精確的
+(pre cut the ambiguous part, then leave the things are sure.)
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+        <updated>2022-12-30T16:28:40.000Z</updated>
     </entry>
 </feed>
