@@ -7,6 +7,20 @@
     "home_page_url": "https://z20240.github.io",
     "items": [
         {
+            "id": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession12/",
+            "url": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession12/",
+            "title": "Cambly-Lession12",
+            "date_published": "2023-04-27T16:28:40.000Z",
+            "content_html": "<p>extremely 極端的</p>\n<h3 id=\"very-bad\"><a class=\"anchor\" href=\"#very-bad\">#</a> very bad</h3>\n<p>awful -&gt;<br />\ndreadful -&gt; terrible.</p>\n<p>when I was at university, I failed my exam. It was my dreadful day.</p>\n<h3 id=\"very-good\"><a class=\"anchor\" href=\"#very-good\">#</a> very good.</h3>\n<p>terrific</p>\n<hr />\n<p>do not say  <code>absolutely good</code>  or  <code>absolutely bad</code></p>\n<p>qualified (v.) -&gt; 校驗是否合格 -&gt; to take part in<br />\nquality -&gt; 高品質 -&gt; made well</p>\n<p>exhausted - very tired<br />\nfilthy - very dirty<br />\nfurious - very angry<br />\npacked - very crowded</p>\n",
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "Cambly",
+                "english",
+                "cambly"
+            ]
+        },
+        {
             "id": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession11/",
             "url": "https://z20240.github.io/Life/EnglishLearn/Combly-Lession11/",
             "title": "Cambly-Lession11",
@@ -165,20 +179,6 @@
             ]
         },
         {
-            "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
-            "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
-            "title": "Cambly-Lession4",
-            "date_published": "2023-01-04T16:28:40.000Z",
-            "content_html": "<ul>\n<li>broadly 寬廣</li>\n<li>to enroll (v.) 編入\n<ul>\n<li>enrollment (n.) = sign up</li>\n</ul>\n</li>\n<li>subject specialist = professor in specific subject.</li>\n<li>take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間</li>\n<li>take a (week/month/year) off. = 休息一段時間</li>\n<li>to work sb way through colledge = 半工半讀</li>\n<li>teacher's pet (貶義) 老師的寵兒\n<ul>\n<li>brown noser 馬屁精</li>\n</ul>\n</li>\n<li>to keep up with anythings = don't fall behind.\n<ul>\n<li>ex. are you keeping up with me.</li>\n<li>He could not keep up with the conversation. (He didn't understand.).</li>\n</ul>\n</li>\n</ul>\n",
-            "tags": [
-                "Life",
-                "EnglishLearn",
-                "Cambly",
-                "english",
-                "cambly"
-            ]
-        },
-        {
             "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/",
             "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/",
             "title": "Cambly-Lession4",
@@ -198,6 +198,20 @@
             "title": "Cambly-Lession6",
             "date_published": "2023-01-04T16:28:40.000Z",
             "content_html": "<ul>\n<li>The country is mostly rural areas.</li>\n<li>I used to live in the country.</li>\n<li>farm fishing</li>\n<li>wild caught</li>\n<li>car pooling: 搭便車</li>\n<li>car sharing program = pay to share a car</li>\n<li></li>\n</ul>\n",
+            "tags": [
+                "Life",
+                "EnglishLearn",
+                "Cambly",
+                "english",
+                "cambly"
+            ]
+        },
+        {
+            "id": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
+            "url": "https://z20240.github.io/Life/EnglishLearn/Cambly-Lession4/",
+            "title": "Cambly-Lession4",
+            "date_published": "2023-01-04T16:28:40.000Z",
+            "content_html": "<ul>\n<li>broadly 寬廣</li>\n<li>to enroll (v.) 編入\n<ul>\n<li>enrollment (n.) = sign up</li>\n</ul>\n</li>\n<li>subject specialist = professor in specific subject.</li>\n<li>take gap year. = 升學階段的休學一年 ex. 高中到大學。大學到研究所中間休息一段時間</li>\n<li>take a (week/month/year) off. = 休息一段時間</li>\n<li>to work sb way through colledge = 半工半讀</li>\n<li>teacher's pet (貶義) 老師的寵兒\n<ul>\n<li>brown noser 馬屁精</li>\n</ul>\n</li>\n<li>to keep up with anythings = don't fall behind.\n<ul>\n<li>ex. are you keeping up with me.</li>\n<li>He could not keep up with the conversation. (He didn't understand.).</li>\n</ul>\n</li>\n</ul>\n",
             "tags": [
                 "Life",
                 "EnglishLearn",
@@ -259,19 +273,6 @@
                 "Cambly",
                 "english",
                 "cambly"
-            ]
-        },
-        {
-            "id": "https://z20240.github.io/Tech/Data%20Storage/2022-10-08-sql-postgres-%E9%81%87%E5%88%B0-out-of-shared-memory-%E5%95%8F%E9%A1%8C/",
-            "url": "https://z20240.github.io/Tech/Data%20Storage/2022-10-08-sql-postgres-%E9%81%87%E5%88%B0-out-of-shared-memory-%E5%95%8F%E9%A1%8C/",
-            "title": "SQL Postgres 遇到 out of shared memory 問題",
-            "date_published": "2022-10-08T04:42:30.706Z",
-            "content_html": "<h3 id=\"sql-postgres-遇到-out-of-shared-memory-問題\"><a class=\"anchor\" href=\"#sql-postgres-遇到-out-of-shared-memory-問題\">#</a> [SQL] Postgres 遇到 out of shared memory 問題</h3>\n<p>由於工作需要，我在 Postgresql 中創建了 20000 張 20 columns x 1000 entries 的 tables，約莫了 18G 的大小。</p>\n<p>由於要一次性創建如此海量的資料，因此我寫了段小 Script 來協助完成。</p>\n<p>期間在大約 2000 筆衣料左右的時候程式就會碰到  <code>out of shared memory</code>  的問題，困擾我一段時間。</p>\n<p><img data-src=\"1*4K08BRP-ucCyW_t2PddHdw.png\" alt=\"\" /></p>\n<p>查詢了很多網站都沒有找到良好的解釋或是解決方案。</p>\n<p>直到後來查到 stackoverflow 上一個沒什麼人回應的 <span class=\"exturl\" data-url=\"aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9hLzY4OTEwMjM4\">解決方案</span></p>\n<p>A quick fix for  <code>PSQLException error out of shared memory</code>  is to set the</p>\n<blockquote>\n<p>max_locks_per_transaction</p>\n</blockquote>\n<p>parameter in PostgreSQL config file, which specifies number of object locks allocated for each transaction (if there are statements/routines that work on large number of tables to finish.</p>\n<p>其實主要就是 PostgresSQL 在 transaction lock 有其上限。當 default 上限用完了，就會 out of shared memory.</p>\n<p>要解決的方法也不難，我們可以去 postgresql 的 config 中找到  <code>max_locks_per_transaction</code>  將 default 的 64 加大。</p>\n<p>至於 postgresql config 是放在哪裡？</p>\n<p>這部分我們可以使用  <code>SHOW config_file;</code>  這行 sql 查看。</p>\n<p>Default 應該都是在  <code>/var/lib/postgresql/data/postgresql.conf</code>  的。</p>\n<p><img data-src=\"1*XoswqaeN0ZhTSGGzHSzrCA.png\" alt=\"\" /></p>\n<h4 id=\"參考資料\"><a class=\"anchor\" href=\"#參考資料\">#</a> 參考資料</h4>\n<ul>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuY3liZXJ0ZWMtcG9zdGdyZXNxbC5jb20vZW4vcG9zdGdyZXNxbC15b3UtbWlnaHQtbmVlZC10by1pbmNyZWFzZS1tYXhfbG9ja3NfcGVyX3RyYW5zYWN0aW9uLw==\">POSTGRESQL: YOU MIGHT NEED TO INCREASE MAX_LOCKS_PER_TRANSACTION</span></li>\n<li><span class=\"exturl\" data-url=\"aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTY0OTA2NjQvZXJyb3Itb3V0LW9mLXNoYXJlZC1tZW1vcnk=\">ERROR: out of shared memory</span></li>\n</ul>\n",
-            "tags": [
-                "Tech",
-                "Data Storage",
-                "postgres",
-                "database"
             ]
         }
     ]
