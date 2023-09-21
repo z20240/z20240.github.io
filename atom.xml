@@ -8,7 +8,7 @@
     <author>
       <name>Les Lee</name>
     </author>
-    <updated>2023-05-05T20:00:00.000Z</updated>
+    <updated>2023-09-22T00:00:00.000Z</updated>
     <category term="nodejs" />
     <category term=" frontend" />
     <category term=" backend" />
@@ -18,6 +18,48 @@
     <category term=" python" />
     <category term=" vue" />
     <category term=" react" />
+    <entry>
+        <id>https://z20240.github.io/Tech/NodeJs/2023-09-09-%E5%A6%82%E4%BD%95%E8%A8%AD%E5%AE%9A-eslint-%E8%88%87-prettier-%E5%AE%89%E5%AE%9A%E5%9C%B0%E5%85%B1%E5%90%8C%E5%8D%94%E4%BD%9C/</id>
+        <title>Vscode 如何設定 eslint 與 prettier 安定地共同協作</title>
+        <link rel="alternate" href="https://z20240.github.io/Tech/NodeJs/2023-09-09-%E5%A6%82%E4%BD%95%E8%A8%AD%E5%AE%9A-eslint-%E8%88%87-prettier-%E5%AE%89%E5%AE%9A%E5%9C%B0%E5%85%B1%E5%90%8C%E5%8D%94%E4%BD%9C/"/>
+        <content type="html">&lt;h3 id=&#34;vscode-如何設定-eslint-與-prettier-安定地共同協作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vscode-如何設定-eslint-與-prettier-安定地共同協作&#34;&gt;#&lt;/a&gt; [VSCode] 如何設定 eslint 與 prettier 安定地共同協作&lt;/h3&gt;
+&lt;p&gt;我曾經寫過一篇 eslint 與 prettier 協作的文章 (reference: &lt;a href=&#34;https://z20240.github.io/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/&#34;&gt;https://z20240.github.io/Tech/Frontend/vue/2022-07-04-vue-nuxt-eslint-prettier-vscode-%E8%A8%AD%E5%AE%9A-%E8%AE%93-eslint-%E8%87%AA%E5%8B%95%E6%8E%92%E7%89%88-nuxt-%E5%B0%88%E6%A1%88/&lt;/a&gt;)。當時使用的是 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvcHJldHRpZXItZXNsaW50&#34;&gt;prettier-eslint&lt;/span&gt; 這個 extension。&lt;/p&gt;
+&lt;p&gt;然而隨著專案越寫越多，發現這個 plugin 有許多的限制。&lt;/p&gt;
+&lt;p&gt;vscode 時常會噴出如下的 error&lt;/p&gt;
+&lt;figure class=&#34;highlight log&#34;&gt;&lt;figcaption data-lang=&#34;log&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;prettier&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;eslint &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token level error important&#34;&gt;ERROR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; prettier formatting failed due to a prettier error&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;prettier&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;eslint&lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;cli &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token level error important&#34;&gt;ERROR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; There was an error formatting &lt;span class=&#34;token string&#34;&gt;&#34;/Users/colhoop/Sources/UGP/tms/tms-frontend/custom.d.ts&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;TypeError:&lt;/span&gt; Expected `input` to be a `string`&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; got `object`&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        at &lt;span class=&#34;token domain constant&#34;&gt;module.exports&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token file-path string&#34;&gt;/Users/colhoop/Sources/UGP/tms/tms-frontend/node_modules/indent-string/index.js&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        at prettify &lt;span class=&#34;token operator&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token file-path string&#34;&gt;/Users/colhoop/Sources/UGP/tms/tms-frontend/node_modules/@prettier/eslint/dist/index.js&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;133&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        at format &lt;span class=&#34;token operator&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token file-path string&#34;&gt;/Users/colhoop/Sources/UGP/tms/tms-frontend/node_modules/@prettier/eslint/dist/index.js&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;113&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        at async &lt;span class=&#34;token file-path string&#34;&gt;/Users/colhoop/Sources/UGP/tms/tms-frontend/node_modules/prettier-eslint-cli/dist/format-files.js&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;26&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;而這樣的 error 時常出現在各種不同場合的 TS 專案，又偏偏難以解決。因此我決定重新尋找更加通用的解決方案。&lt;/p&gt;
+&lt;p&gt;在幾經詢問 ChatGPT 之後，她介紹了我  &lt;code&gt;eslint-plugin-prettier&lt;/code&gt;  +  &lt;code&gt;eslint-config-prettier&lt;/code&gt;  的解決方案。&lt;/p&gt;
+&lt;p&gt;因此我將詢問 chatGPT 的經過整理在這邊，作為一個記錄。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用  &lt;code&gt;eslint-plugin-prettier&lt;/code&gt; &lt;br /&gt;
+ 這個插件將 Prettier 作為 ESLint 規則運行，所以您只需要修復 ESLint 的問題。它將使用 Prettier 的設定進行格式化，這可以解決 ESLint 和 Prettier 之間的衝突。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更新你的 .eslintrc.js (或其他相應的 ESLint 配置文件)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;exports &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// ... other ESLint configuration ...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;extends&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// ... other extends&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 注意 plugin:prettier/recommended 必須是最後一個 extends 這樣它可以禁用所有與 Prettier 衝突的 ESLint 規則。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;plugin:prettier/recommended&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;plugins&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// ... other plugins&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;prettier&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;rules&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// ... other rules&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 啟用此規則來得知 prettier 的格式錯誤&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string-property property&#34;&gt;&#34;prettier/prettier&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;error&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;這樣，ESLint 和 Prettier 的設定就會同步，不再產生任何衝突。如果您使用的是其他特定的 ESLint 配置或插件（如 eslint-config-airbnb），那麼 eslint-config-prettier 可以幫助您關閉可能與 Prettier 衝突的任何規則。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;確保 vscode 的 default formatter 是  &lt;code&gt;dbaeumer.vscode-eslint&lt;/code&gt; , 且僅配置使用 ESLint 進行格式化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;figcaption data-lang=&#34;JSON&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;[typescript]&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 儘讓 eslint 來格式化，不要讓 prettier 格式化&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// &#34;editor.defaultFormatter&#34;: &#34;esbenp.prettier-vscode&#34;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.defaultFormatter&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;dbaeumer.vscode-eslint&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.formatOnSave&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;[javascript]&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 儘讓 eslint 來格式化，不要讓 prettier 格式化&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// &#34;editor.defaultFormatter&#34;: &#34;esbenp.prettier-vscode&#34;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.defaultFormatter&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;dbaeumer.vscode-eslint&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token property&#34;&gt;&#34;editor.formatOnSave&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;// 關閉 prettier 的格式化功能。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token property&#34;&gt;&#34;prettier.enable&#34;&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;false&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;設定你自己習慣的 prettier formatter (prettierrc.js)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;exports &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;semi&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;singleQuote&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;trailingComma&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;all&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token literal-property property&#34;&gt;printWidth&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;120&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;重啟 vscode: 有時更改設定後，為確保所有配置都正確加載，需要重啟 vscode.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這樣，當你執行 ESLint 時，它會使用 Prettier 的規則進行格式化，並且不會有衝突的問題。&lt;/p&gt;
+&lt;p&gt;未來所有 rule 不增加在 eslintrc 的 rule 中，而是使用 prettier 來設定規則。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://button.like.co/z20240z&#34;&gt;&lt;img data-src=&#34;https://button.like.co/images/og/likebutton.png&#34; alt=&#34;Like z20240z&#39;s work&#34; title=&#34;Like z20240z&#39;s work&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+        <category term="Tech" scheme="https://z20240.github.io/categories/Tech/" />
+        <category term="NodeJs" scheme="https://z20240.github.io/categories/Tech/NodeJs/" />
+        <category term="javascript" scheme="https://z20240.github.io/tags/javascript/" />
+        <category term="nodejs" scheme="https://z20240.github.io/tags/nodejs/" />
+        <category term="vscode" scheme="https://z20240.github.io/tags/vscode/" />
+        <category term="prettier" scheme="https://z20240.github.io/tags/prettier/" />
+        <updated>2023-09-22T00:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://z20240.github.io/Tech/NodeJs/NestJs/2023-05-05-NestJs-%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4%E4%B8%94%E5%84%AA%E9%9B%85%E7%9A%84-NodeJs-Server-%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88/</id>
         <title>[NestJs] 一個完整且優雅的 NodeJs Server 解決方案方法</title>
@@ -110,6 +152,18 @@ etcetera: etc.&lt;/p&gt;
 &lt;p&gt;sweaty - causing, producing, or covered in sweat&lt;br /&gt;
 diplomacy - 外交&lt;/p&gt;
 &lt;p&gt;arcades - 電子遊樂場&lt;/p&gt;
+&lt;p&gt;I need to manage my time&lt;br /&gt;
+It bothers me - not it bothers my life&lt;/p&gt;
+&lt;p&gt;informal.&lt;br /&gt;
+I stopped&lt;br /&gt;
+work out&lt;br /&gt;
+take up - start to doing sth. (I&#39;m new to sth.)&lt;br /&gt;
+be into - be interested in&lt;br /&gt;
+will be into - only when questioning eg maybe&lt;br /&gt;
+I gave it up&lt;/p&gt;
+&lt;p&gt;pandemic - 大流行&lt;/p&gt;
+&lt;p&gt;pacific ocean - 太平洋&lt;/p&gt;
+&lt;p&gt;commute - 通勤&lt;/p&gt;
 </content>
         <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
         <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
@@ -640,27 +694,6 @@ ex. Let&#39;s dig in.&lt;/p&gt;
         <updated>2023-01-04T16:28:40.000Z</updated>
     </entry>
     <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</id>
-        <title>Cambly-Lession6</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/"/>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
-&lt;li&gt;I used to live in the country.&lt;/li&gt;
-&lt;li&gt;farm fishing&lt;/li&gt;
-&lt;li&gt;wild caught&lt;/li&gt;
-&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
-&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2023-01-04T16:28:40.000Z</updated>
-    </entry>
-    <entry>
         <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/</id>
         <title>Cambly-Lession4</title>
         <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession5/"/>
@@ -683,6 +716,27 @@ ex. Let&#39;s dig in.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;proficiency = ranking = level&lt;/li&gt;
 &lt;li&gt;authorities people or organization in charge of / to take charge of ...&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
+        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
+        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
+        <category term="english" scheme="https://z20240.github.io/tags/english/" />
+        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
+        <updated>2023-01-04T16:28:40.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/</id>
+        <title>Cambly-Lession6</title>
+        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Combly-Lession6/"/>
+        <content type="html">&lt;ul&gt;
+&lt;li&gt;The country is mostly rural areas.&lt;/li&gt;
+&lt;li&gt;I used to live in the country.&lt;/li&gt;
+&lt;li&gt;farm fishing&lt;/li&gt;
+&lt;li&gt;wild caught&lt;/li&gt;
+&lt;li&gt;car pooling: 搭便車&lt;/li&gt;
+&lt;li&gt;car sharing program = pay to share a car&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
         <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
@@ -821,145 +875,5 @@ ex. Let&#39;s dig in.&lt;/p&gt;
         <category term="english" scheme="https://z20240.github.io/tags/english/" />
         <category term="iels" scheme="https://z20240.github.io/tags/iels/" />
         <updated>2023-01-02T16:28:40.000Z</updated>
-    </entry>
-    <entry>
-        <id>https://z20240.github.io/Life/EnglishLearn/Cambly-Lession2/</id>
-        <title>Cambly-Lession2</title>
-        <link rel="alternate" href="https://z20240.github.io/Life/EnglishLearn/Cambly-Lession2/"/>
-        <content type="html">&lt;h2 id=&#34;vocabulary&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#vocabulary&#34;&gt;#&lt;/a&gt; Vocabulary&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;scenery = 風景&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;view 比較偏向眼中看出去的事物&lt;/li&gt;
-&lt;li&gt;scenery 是平常描述中的「風景」&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;coherence 連貫性 (n.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;accuracy 準確性 (n.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;intonation 語調 (n.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;flawless = perfect 完美的&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to unwind (v.) = to relax.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to gather (v.) = gathering (n.) 聚集 =/= together.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to go sightseeing 觀光&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to get together  聚聚&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ex. Shall we get together on Friday and go for a drink or something?
-&lt;ul&gt;
-&lt;li&gt;我們星期五聚聚喝點東西，如何？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to catch-up 聯絡感情&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;How about let&#39;s catch-up next week?
-&lt;ul&gt;
-&lt;li&gt;我們下週來聚聚聯絡感情如何？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to contemplate 沉思&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to cost an arm and leg = expensive.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to change of senary = 轉換心情&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;to broaden wider = 打開眼界&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;here and there = to describe uns&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;as often as = every time 每次&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;As&lt;/strong&gt; &lt;strong&gt;often&lt;/strong&gt; &lt;strong&gt;as&lt;/strong&gt; I tried to phone him the line was engaged.&lt;/li&gt;
-&lt;li&gt;每次我給他打電話都佔線。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;indeed 的確&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;not to mention = 更不必說&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;There were three of us there, &lt;strong&gt;not&lt;/strong&gt; &lt;strong&gt;to&lt;/strong&gt; &lt;strong&gt;mention&lt;/strong&gt; the children.
-&lt;ul&gt;
-&lt;li&gt;不算孩子在內，我們中有三個人在那裡。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;I enjoyed the meal, &lt;strong&gt;not&lt;/strong&gt; &lt;strong&gt;to&lt;/strong&gt; &lt;strong&gt;mention&lt;/strong&gt; the conversation.
-&lt;ul&gt;
-&lt;li&gt;我很喜歡那一頓飯，至於席上的談話更是不必說了。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;accurately (adv.) 準確地.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;accurate (adj.) 準確的&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;accuracy (n.) 準確性 /precision 精確性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;glitter 閃光&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2 id=&#34;字根字尾&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#字根字尾&#34;&gt;#&lt;/a&gt; 字根字尾&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;ex 外面&lt;/li&gt;
-&lt;li&gt;er 反覆 / 比較級 / 能做某用途的人或物，東西；能做... 用途的東西。&lt;/li&gt;
-&lt;li&gt;cise = cut 切割&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ex.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;exercise = (外出反覆批砍) = 運動
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;ac / ad = to&lt;/li&gt;
-&lt;li&gt;cur = cure = take care&lt;/li&gt;
-&lt;li&gt;rate = 變成...; 充當... = cause to become.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ex.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;accurate = (to become more care) = 精確
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;pre 預先&lt;br /&gt;
- ex.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;precise = 精確的
-(pre cut the ambiguous part, then leave the things are sure.)
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-        <category term="Life" scheme="https://z20240.github.io/categories/Life/" />
-        <category term="EnglishLearn" scheme="https://z20240.github.io/categories/Life/EnglishLearn/" />
-        <category term="Cambly" scheme="https://z20240.github.io/categories/Life/EnglishLearn/Cambly/" />
-        <category term="english" scheme="https://z20240.github.io/tags/english/" />
-        <category term="cambly" scheme="https://z20240.github.io/tags/cambly/" />
-        <updated>2022-12-30T16:28:40.000Z</updated>
     </entry>
 </feed>
